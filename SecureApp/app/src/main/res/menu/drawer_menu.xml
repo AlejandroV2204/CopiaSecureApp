@@ -15,6 +15,26 @@
 
     </item>
 
+    <item android:title="Personal">
+
+        <menu>
+
+            <item
+                android:id="@+id/contactos"
+                android:icon="@drawable/ic_contacto"
+                android:title="Contactos">
+            </item>
+
+            <item
+                android:id="@+id/nuevoContacto"
+                android:icon="@drawable/ic_nuevo_contacto"
+                android:title="Agregar contacto">
+            </item>
+
+        </menu>
+
+    </item>
+
     <item android:title="Comunidad">
 
         <menu>
