@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+     <TextView
+         android:id="@+id/textView"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="ALERTA"
+         android:textColor="@color/Texto_color"
+         android:textSize="35sp"
+         android:textStyle="bold|italic"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.079"></TextView>
+
+     <EditText
+         android:id="@+id/et_TituloAlerta"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:hint="INGRESE EL TITULO DE LA ALERTA"
+         android:inputType="textMultiLine"
+         android:textColor="@color/Texto_color"
+         android:textColorHint="@color/Texto_color"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.406"></EditText>
+
+     <EditText
+         android:id="@+id/et_cuerpoAlerta"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:hint="INGRESE EL CUERPO DE LA ALERTA"
+         android:inputType="textMultiLine"
+         android:textColor="@color/Texto_color"
+         android:textColorHint="@color/Texto_color"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="0.539"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.528"></EditText>
+
+     <Button
+         android:id="@+id/btn_alertaEspecifica"
+         style="@style/Widget.MaterialComponents.Button"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:backgroundTint="@color/Botones_color"
+         android:text="EMITIR ALERTA ESPECIFICA"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="0.497"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.681" />
+
+     <Button
+         android:id="@+id/btn_alertaGeneral"
+         style="@style/Widget.MaterialComponents.Button"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:backgroundTint="@color/Botones_color"
+         android:text="EMITIR ALERTA GENERAL"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.79" />
+
+     <androidx.constraintlayout.widget.Guideline
+         android:id="@+id/guideline2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         app:layout_constraintGuide_begin="42dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
