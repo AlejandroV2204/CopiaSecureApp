@@ -1,9 +1,11 @@
-package com.example.secureapp;
+package com.example.secureapp.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.secureapp.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

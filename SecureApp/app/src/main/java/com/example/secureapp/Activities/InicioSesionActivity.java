@@ -1,4 +1,4 @@
-package com.example.secureapp;
+package com.example.secureapp.Activities;
 
 import android.os.Bundle;
 
