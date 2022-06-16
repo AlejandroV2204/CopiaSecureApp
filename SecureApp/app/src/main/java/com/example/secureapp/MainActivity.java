@@ -15,7 +15,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.secureapp.Entidades.Contacto;
 import com.example.secureapp.Entidades.Grupo;
+import com.example.secureapp.Fragments.ContactoFragment;
+import com.example.secureapp.Fragments.DetalleContactoFragment;
+import com.example.secureapp.Fragments.NuevoContactoFragment;
 import com.example.secureapp.Interfaces.IComunicaFragments;
 import com.example.secureapp.R;
 import com.google.android.material.navigation.NavigationView;
@@ -39,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     //variable del fragment detalle grupo
     DetalleGrupoFragment detalleGrupoFragment;
+
+    //variable del fragment detalle contacto
+    DetalleContactoFragment detalleContactoFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +112,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
 
+        if (item.getItemId() == R.id.contactos){
+
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, new ContactoFragment());
+            fragmentTransaction.commit();
+
+        }
+
+        if (item.getItemId() == R.id.nuevoContacto){
+
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, new NuevoContactoFragment());
+            fragmentTransaction.commit();
+
+        }
+
         if (item.getItemId() == R.id.grupo){
 
             fragmentManager = getSupportFragmentManager();
@@ -146,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Bundle bundleEnvio = new Bundle();
 
         //Enviar el objeto que está llegando con Serializable
-        bundleEnvio.putSerializable("objeto", grupo);
+        bundleEnvio.putSerializable("objetoGrupo", grupo);
 
         detalleGrupoFragment.setArguments(bundleEnvio);
 
@@ -159,4 +184,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     }
+
+    @Override
+    public void enviarContacto(Contacto contacto) {
+
+        //Aquí se realiza la lógica necesaria para poder realizar el envio
+        detalleContactoFragment = new DetalleContactoFragment();
+
+        //Objeto bundle para transportar la información
+        Bundle bundleEnvio = new Bundle();
+
+        //Enviar el objeto que está llegando con Serializable
+        bundleEnvio.putSerializable("objetoContacto", contacto);
+
+        detalleContactoFragment.setArguments(bundleEnvio);
+
+        //abrir fragment
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, detalleContactoFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+    }
+
 }
+

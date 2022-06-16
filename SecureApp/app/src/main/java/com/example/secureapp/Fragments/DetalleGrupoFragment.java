@@ -25,8 +25,8 @@ public class DetalleGrupoFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_detalle_grupo,container, false);
 
-        nombreDetalle = view.findViewById(R.id.txt_nombreDetalle);
-        imagenDetalle = view.findViewById(R.id.imagen_detalle);
+        nombreDetalle = view.findViewById(R.id.txt_nombreDetalleGrupo);
+        imagenDetalle = view.findViewById(R.id.imagen_detalle_grupo);
 
         //Crear objeto bundle para recibir el objeto enviado por argumentos
         Bundle objetoGrupo = getArguments();
@@ -35,7 +35,7 @@ public class DetalleGrupoFragment extends Fragment {
         //Validación para verificar si existen argumentos enviados para mostrar
         if (objetoGrupo != null){
 
-            grupo = (Grupo) objetoGrupo.getSerializable("objeto");
+            grupo = (Grupo) objetoGrupo.getSerializable("objetoGrupo");
 
             //Establecer los datos en las vistas
             nombreDetalle.setText(grupo.getNombre());

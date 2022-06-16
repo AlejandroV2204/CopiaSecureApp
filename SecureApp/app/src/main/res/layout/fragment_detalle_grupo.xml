@@ -6,10 +6,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txt_detalleMostrar"
+        android:id="@+id/txt_detalleMostrarGrupo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Detalle persona"
+        android:text="@string/pantalla_detalle_grupo_titulo"
         android:textAlignment="center"
         android:textColor="@color/Texto_color"
         android:textSize="35sp"
@@ -25,7 +25,7 @@
 
     <ImageView
 
-        android:id="@+id/imagen_detalle"
+        android:id="@+id/imagen_detalle_grupo"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,11 +40,11 @@
 
     <TextView
 
-        android:id="@+id/txt_tituloDetalle"
+        android:id="@+id/txt_tituloDetalleGrupo"
         android:layout_width="208dp"
         android:layout_height="36dp"
-        android:text="Nombre grupo:"
-        android:textAlignment="center"
+        android:text="@string/DG_nombre_grupo"
+        android:textAlignment="gravity"
         android:textColor="@color/Texto_color"
         android:textSize="25sp"
         android:textStyle="bold|italic"
@@ -59,19 +59,38 @@
 
     <TextView
 
-        android:id="@+id/txt_nombreDetalle"
+        android:id="@+id/txt_tituloDetalleGrupo2"
+        android:layout_width="407dp"
+        android:layout_height="44dp"
+        android:text="@string/DG_participantes_grupo"
+        android:textAlignment="gravity"
+        android:textColor="@color/Texto_color"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.685">
+
+    </TextView>
+
+    <TextView
+
+        android:id="@+id/txt_nombreDetalleGrupo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre grupo:"
+        android:text="@string/DG_nombre_grupo_secundario"
         android:textAlignment="center"
         android:textColor="@color/Texto_color"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.629">
+        app:layout_constraintVertical_bias="0.613">
 
     </TextView>
 

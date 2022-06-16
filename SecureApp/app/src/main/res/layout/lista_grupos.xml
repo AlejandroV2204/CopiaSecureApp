@@ -27,13 +27,13 @@
             android:id="@+id/txt_nombreGrupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre del grupo"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_toRightOf="@id/imagen_grupo"
-            android:layout_toEndOf="@id/imagen_grupo"
+            android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp">
+            android:layout_toEndOf="@id/imagen_grupo"
+            android:layout_toRightOf="@id/imagen_grupo"
+            android:text="@string/DG_nombre_grupo_secundario"
+            android:textSize="20sp"
+            android:textStyle="bold">
 
         </TextView>
 
@@ -42,12 +42,12 @@
             android:id="@+id/txt_descripcionGrupo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descripción del grupo"
-            android:layout_toRightOf="@id/imagen_grupo"
             android:layout_below="@id/txt_nombreGrupo"
-            android:layout_toEndOf="@id/imagen_grupo"
+            android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp">
+            android:layout_toEndOf="@id/imagen_grupo"
+            android:layout_toRightOf="@id/imagen_grupo"
+            android:text="@string/LG_descripcion">
 
         </TextView>
 

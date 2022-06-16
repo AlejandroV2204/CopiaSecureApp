@@ -1,5 +1,58 @@
 <resources>
+
     <string name="app_name">SecureApp</string>
     <string name="open">open</string>
     <string name="close">clase</string>
+    ------------------------------------------------------------------------------------
+    <string name="pantalla_inicio_titulo">PANTALLA DE INICIO</string>
+    ------------------------------------------------------------------------------------
+    <string name="pantalla_contactos_titulo">CONTACTOS</string>
+
+    <string name="pantalLa_nuevo_contacto_titulo">AGREGAR CONTACTO</string>
+    <string name="NC_nombre_del_contacto">NOMBRE DEL CONTACTO</string>
+    <string name="NC_telefono_contacto">TELEFÓNO DEL CONTACTO</string>
+    <string name="crear">CREAR</string>
+
+    <string name="pantalLa_detalle_contacto_titulo">DETALLE CONTACTO</string>
+    <string name="DC_nombre_contacto">Nombre contacto:</string>
+    <string name="DC_nombre_contacto_secundario">Nombre contacto</string>
+    <string name="DC_telefono_contacto">Teléfono contacto:</string>
+    <string name="DC_telefono_contacto_secundario">Teléfono contacto</string>
+
+    <string name="LC_telefono">Teléfono contacto</string>
+    ------------------------------------------------------------------------------------
+    <string name="pantalla_grupos_titulo">GRUPOS</string>
+
+    <string name="pantalla_nuevo_grupo_titulo">CREAR GRUPO</string>
+    <string name="NG_nombre_del_grupo">NOMBRE DEL GRUPO</string>
+
+    <string name="pantalla_detalle_grupo_titulo">DETALLE GRUPO</string>
+    <string name="DG_nombre_grupo">Nombre grupo:</string>
+    <string name="DG_nombre_grupo_secundario">Nombre del grupo</string>
+    <string name="DG_participantes_grupo">Participantes del grupo:</string>
+
+    <string name="LG_descripcion">Descripción del grupo</string>
+    ------------------------------------------------------------------------------------
+    <string name="pantalla_alerta_titulo">ALERTA</string>
+    <string name="A_titulo_alerta">INGRESE EL TITULO DE LA ALERTA</string>
+    <string name="A_cuerpo_alerta">INGRESE EL CUERPO DE LA ALERTA</string>
+    <string name="A_boton_alerta_especifica">EMITIR ALERTA ESPECIFICA</string>
+    <string name="A_boton_alerta_general">EMITIR ALERTA GENERAL</string>
+    ------------------------------------------------------------------------------------
+    <string name="menuItem_principal">Principal</string>
+    <string name="MI_inicio">Inicio</string>
+
+    <string name="menuItem_personal">Personal</string>
+    <string name="MI_contactos">Contactos</string>
+    <string name="MI_agregar_contacto">Agregar contacto</string>
+
+    <string name="menuItem_comunidad">Comunidad</string>
+    <string name="MI_grupos">Grupos</string>
+    <string name="MI_nuevo_grupo">Nuevo grupo</string>
+
+    <string name="menuItem_comunicacion">Comunicación</string>
+    <string name="MI_alerta">Alerta</string>
+    ------------------------------------------------------------------------------------
+    <string name="DH_titulo">MENÚ DE NAVEGACIÓN</string>
+
 </resources>
