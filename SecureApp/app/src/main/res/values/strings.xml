@@ -3,6 +3,9 @@
     <string name="app_name">SecureApp</string>
     <string name="open">open</string>
     <string name="close">clase</string>
+
+    ------------------------------------------------------------------------------------
+    <string name="pantalla_iniciar_sesion_titulo">INICIAR SESIÓN</string>
     ------------------------------------------------------------------------------------
     <string name="pantalla_inicio_titulo">PANTALLA DE INICIO</string>
     ------------------------------------------------------------------------------------
