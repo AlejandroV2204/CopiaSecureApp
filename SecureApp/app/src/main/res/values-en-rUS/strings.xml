@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SecureApp</string>
+    <string name="DC_nombre_contacto">contact name</string>
+    <string name="DC_nombre_contacto_secundario">contact name</string>
+    <string name="DC_telefono_contacto">contact phone</string>
+    <string name="DC_telefono_contacto_secundario">contact phone</string>
+    <string name="LC_telefono">contact phone</string>
+    <string name="DG_nombre_grupo">group name</string>
+    <string name="DG_nombre_grupo_secundario">group name</string>
+    <string name="DG_participantes_grupo">group participants</string>
+    <string name="LG_descripcion">group description</string>
+    <string name="pantalla_alerta_titulo">ALERT</string>
+    <string name="A_titulo_alerta">ENTER THE TITLE OF THE ALERT</string>
+    <string name="A_cuerpo_alerta">ENTER THE BODY OF THE ALERT</string>
+    <string name="A_boton_alerta_especifica">ISSUE SPECIFIC ALERT</string>
+    <string name="menuItem_principal">main</string>
+    <string name="menuItem_personal">staff</string>
+    <string name="MI_contactos">contacts</string>
+    <string name="MI_agregar_contacto">add contact</string>
+    <string name="menuItem_comunidad">community</string>
+    <string name="MI_grupos">groups</string>
+    <string name="MI_nuevo_grupo">new group</string>
+    <string name="menuItem_comunicacion">comunication</string>
+    <string name="MI_alerta">alert</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="pantalla_iniciar_sesion_titulo">LOG IN</string>
+    <string name="pantalla_inicio_titulo">HOME SCREEN</string>
+    <string name="pantalla_contactos_titulo">CONTACTS</string>
+    <string name="pantalLa_nuevo_contacto_titulo">ADD CONTACT</string>
+    <string name="NC_nombre_del_contacto">CONTACT NAME</string>
+    <string name="NC_telefono_contacto">CONTACT PHONE</string>
+    <string name="crear">CREATE</string>
+    <string name="pantalLa_detalle_contacto_titulo">CONTACT DETAIL</string>
+    <string name="pantalla_grupos_titulo">GROUPS</string>
+    <string name="pantalla_nuevo_grupo_titulo">CREATE GROUP</string>
+    <string name="NG_nombre_del_grupo">GROUP NAME</string>
+    <string name="pantalla_detalle_grupo_titulo">GROUP DETAIL</string>
+    <string name="A_boton_alerta_general">ISSUE GENERAL ALERT</string>
+    <string name="DH_titulo">NAVIGATION MENU</string>
+    <string name="MI_inicio">home</string>
+</resources>
