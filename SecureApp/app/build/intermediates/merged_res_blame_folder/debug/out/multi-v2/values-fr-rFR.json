@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.secureapp-mergeDebugResources-3:/values-fr-rFR/values-fr-rFR.xml",
+            "outputFile": "com.example.secureapp-mergeDebugResources-5:/values-fr-rFR/values-fr-rFR.xml",
             "map": [
                 {
                     "source": "C:\\SecureApp\\SecureApp\\app\\src\\main\\res\\values-fr-rFR\\strings.xml",

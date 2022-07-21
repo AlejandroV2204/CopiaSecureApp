@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="3dp"
-    app:cardElevation="3dp"
-    app:cardUseCompatPadding="true">
-=======
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -18,7 +10,6 @@
     >
 
 
->>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -45,10 +36,7 @@
             android:layout_toEndOf="@id/imagen_grupo"
             android:layout_toRightOf="@id/imagen_grupo"
             android:text="@string/DG_nombre_grupo_secundario"
-<<<<<<< HEAD
-=======
             android:textColor="@color/Texto_color"
->>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
             android:textSize="20sp"
             android:textStyle="bold">
 
@@ -64,12 +52,8 @@
             android:layout_marginLeft="10dp"
             android:layout_toEndOf="@id/imagen_grupo"
             android:layout_toRightOf="@id/imagen_grupo"
-<<<<<<< HEAD
-            android:text="@string/LG_descripcion">
-=======
             android:text="@string/LG_descripcion"
             android:textColor="@color/Texto_color">
->>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
 
         </TextView>
 

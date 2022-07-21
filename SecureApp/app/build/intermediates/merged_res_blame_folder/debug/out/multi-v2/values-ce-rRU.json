@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.secureapp-mergeDebugResources-3:/values-ce-rRU/values-ce-rRU.xml",
+            "outputFile": "com.example.secureapp-mergeDebugResources-5:/values-ce-rRU/values-ce-rRU.xml",
             "map": [
                 {
                     "source": "C:\\SecureApp\\SecureApp\\app\\src\\main\\res\\values-ce-rRU\\strings.xml",
