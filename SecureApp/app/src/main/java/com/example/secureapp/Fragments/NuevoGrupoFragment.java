@@ -48,7 +48,7 @@ public class NuevoGrupoFragment extends Fragment {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
-    String nombreGrupo, descripcionGrupo, administradorGrupo, fechaCreacion, cantidadIntegrantes;
+    String nombreGrupo, descripcionGrupo, administradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes;
     private HashMap<String, Object> ubicacion;
     private int day;
     private int month;
@@ -124,10 +124,11 @@ public class NuevoGrupoFragment extends Fragment {
                         //Toast.makeText(getContext(), "DocumentSnapshot data:\n " + document.getData(), Toast.LENGTH_SHORT).show();
 
                         administradorGrupo = document.getString("nombre") + " " +document.getString("apellido");
+                        emailAdministrador = document.getString("email");
 
                         Toast.makeText(getContext(), "Datos obtenido sobre el usuario", Toast.LENGTH_SHORT).show();
 
-                        registrarGrupoFireStore(administradorGrupo, fechaCreacion);
+                        registrarGrupoFireStore(administradorGrupo, fechaCreacion, emailAdministrador);
 
 
                     } else {
@@ -189,14 +190,16 @@ public class NuevoGrupoFragment extends Fragment {
 
     }
 
-    private void registrarGrupoFireStore(String administrador, String fecha) {
+    private void registrarGrupoFireStore(String administrador, String fecha, String emailAdmin) {
 
         this.administradorGrupo = administrador;
         this.fechaCreacion = fecha;
+        this.emailAdministrador = emailAdmin;
 
-        MGrupo grupo = new MGrupo(nombreGrupo, descripcionGrupo, administradorGrupo, fechaCreacion, cantidadIntegrantes, ubicacion);
+        MGrupo grupo = new MGrupo(nombreGrupo, descripcionGrupo, administradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, ubicacion);
 
         grupo.setNombre(nombreGrupo);
+        grupo.setEmailAdministrador(emailAdmin);
         grupo.setDescripción(descripcionGrupo);
         grupo.setAdministrador(administrador);
         grupo.setFechaCreacion(fecha);

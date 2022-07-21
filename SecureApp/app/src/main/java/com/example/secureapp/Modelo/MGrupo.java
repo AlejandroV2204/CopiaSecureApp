@@ -6,14 +6,15 @@ import java.util.HashMap;
 
 public class MGrupo {
 
-    private String nombre, descripción, administrador, fechaCreacion, cantidadIntegrantes;
+    private String nombre, descripción, administrador, emailAdministrador, fechaCreacion, cantidadIntegrantes;
     private HashMap localizacion;
 
-    public MGrupo(String nombre, String descripción, String administrador, String fechaCreacion, String cantidadIntegrantes, HashMap localizacion) {
+    public MGrupo(String nombre, String descripción, String administrador, String emailAdministrador, String fechaCreacion, String cantidadIntegrantes, HashMap localizacion) {
 
         this.nombre = nombre;
         this.descripción = descripción;
         this.administrador = administrador;
+        this.emailAdministrador = emailAdministrador;
         this.fechaCreacion = fechaCreacion;
         this.cantidadIntegrantes = cantidadIntegrantes;
         this.localizacion = localizacion;
@@ -43,6 +44,14 @@ public class MGrupo {
 
     public void setAdministrador(String administrador) {
         this.administrador = administrador;
+    }
+
+    public String getEmailAdministrador() {
+        return emailAdministrador;
+    }
+
+    public void setEmailAdministrador(String emailAdministrador) {
+        this.emailAdministrador = emailAdministrador;
     }
 
     public String getFechaCreacion() {

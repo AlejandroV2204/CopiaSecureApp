@@ -83,11 +83,12 @@ public class GrupoFragment extends Fragment{
                         String nombreGrupo = ds.child("nombre").getValue().toString();
                         String descripcionGrupo = ds.child("nombre").getValue().toString();
                         String administradorGrupo = ds.child("nombre").getValue().toString();
+                        String emailAdministrador = ds.child("nombre").getValue().toString();
                         String fechaCreacion = ds.child("nombre").getValue().toString();
                         String cantidadIntegrantes = ds.child("nombre").getValue().toString();
                         HashMap localizacionGrupo = (HashMap) ds.child("localizacion").getValue();
 
-                        listaGrupos.add(new MGrupo(nombreGrupo, descripcionGrupo, administradorGrupo, fechaCreacion, cantidadIntegrantes, localizacionGrupo));
+                        listaGrupos.add(new MGrupo(nombreGrupo, descripcionGrupo, administradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacionGrupo));
 
                     }
 
