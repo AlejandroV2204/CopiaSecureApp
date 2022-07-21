@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <string-array name="R_listaAntioquia">
+        <item>Cáceres</item>
+        <item>Armenia</item>
+        <item>Caldas</item>
+        <item>Itagüí</item>
+        <item>Medellín</item>
+    </string-array>
+    <string-array name="R_listaDepartamentos">
+        <item>Antioquia</item>
+        <item>Valle del cauca</item>
+    </string-array>
+    <string-array name="R_listaValleDelCauca">
+        <item>Alcalá</item>
+        <item>Andalucía</item>
+        <item>Buga</item>
+        <item>Bugalagrande</item>
+        <item>Cali</item>
+        <item>Calima - El Darién</item>
+        <item>Cartago</item>
+        <item>Guacarí</item>
+    </string-array>
+    <color name="App_color">#1f2046</color>
+    <color name="Botones_color">#1f2046</color>
+    <color name="Fondo_app">#e9e8e6</color>
+    <color name="Hints_color">#636363</color>
+    <color name="Texto_color">#000000</color>
+    <color name="Texto_color_botones">#e9e8e6</color>
+    <color name="black">#FF000000</color>
+    <color name="color_listas">#DADBFF</color>
+    <color name="ic_candado_background">#FFFFFF</color>
+    <color name="ic_candado_icon_background">#C32C28</color>
+    <color name="ic_icono_aplicacion_background">#FFFFFF</color>
+    <color name="ic_launcher_candado_icon_background">#C32C28</color>
+    <color name="ic_launcher_secure_icon_background">#FFFFFF</color>
+    <color name="ic_logo_estrella_secureapp_background">#3DDC84</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="A_boton_alerta_especifica">EMITIR ALERTA</string>
+    <string name="A_cuerpo_alerta">INGRESE EL CUERPO DE LA ALERTA</string>
+    <string name="A_titulo_alerta">INGRESE EL TITULO DE LA ALERTA</string>
+    <string name="DC_email_contacto">Email contacto:</string>
+    <string name="DC_email_contacto_secundario">Email contacto</string>
+    <string name="DC_nombre_contacto">Nombre contacto:</string>
+    <string name="DC_nombre_contacto_secundario">Nombre contacto</string>
+    <string name="DG_nombre_grupo">Nombre grupo:</string>
+    <string name="DG_nombre_grupo_secundario">Nombre del grupo</string>
+    <string name="DG_participantes_grupo">Participantes del grupo:</string>
+    <string name="DH_titulo">MENÚ DE NAVEGACIÓN</string>
+    <string name="IS_email">Correo electrónico</string>
+    <string name="IS_olvido_password">¿Olvido su contraseña?</string>
+    <string name="IS_password">Contraseña</string>
+    <string name="IS_registro">¿No tienes una cuenta aún? Regístrate</string>
+    <string name="LC_email">Email contacto</string>
+    <string name="LC_telefono">Telefono contacto</string>
+    <string name="LG_descripcion">Descripción del grupo</string>
+    <string name="MI_agregar_contacto">Agregar contacto</string>
+    <string name="MI_alerta">Alerta</string>
+    <string name="MI_cerrarSesion">Cerrar sesión</string>
+    <string name="MI_contactos">Contactos</string>
+    <string name="MI_grupos">Grupos</string>
+    <string name="MI_inicio">Inicio</string>
+    <string name="MI_nuevo_grupo">Nuevo grupo</string>
+    <string name="NC_apellido_del_contacto">APELLIDO DEL CONTACTO</string>
+    <string name="NC_email_contacto">EMAIL DEL CONTACTO</string>
+    <string name="NC_mensaje_ingrese_email">Ingresa el correo electrónico del contacto que deseas agregar</string>
+    <string name="NC_nombre_del_contacto">NOMBRE DEL CONTACTO</string>
+    <string name="NG_descripcion_del_grupo">DESCRIPCIÓN DEL GRUPO</string>
+    <string name="NG_nombre_del_grupo">NOMBRE DEL GRUPO</string>
+    <string name="OP_botonRecuperar">RECUPERAR</string>
+    <string name="OP_ingresaEmail">Ingresa tu correo electrónico en donde enviaremos los pasos para recuperar tu contraseña</string>
+    <string name="R_apellido">Apellido</string>
+    <string name="R_botonRegistrar">REGISTRAR</string>
+    <string name="R_identificacion">Identificación</string>
+    <string name="R_nombre">Nombre</string>
+    <string name="R_telefono">Teléfono</string>
+    <string name="app_name">SecureApp</string>
+    <string name="close">clase</string>
+    <string name="com.google.firebase.crashlytics.mapping_file_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">00000000000000000000000000000000</string>
+    <string name="crear">CREAR</string>
+    <string name="default_web_client_id" translatable="false">945406862769-6pv8i0g4m69u0b2j28v9oedui4hilumd.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">945406862769</string>
+    <string name="google_api_key" translatable="false">AIzaSyBg3WJLEzQ0h6Slo3yAa6A32XWvA3U75Gk</string>
+    <string name="google_app_id" translatable="false">1:945406862769:android:1a406eadc542a399df0990</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBg3WJLEzQ0h6Slo3yAa6A32XWvA3U75Gk</string>
+    <string name="google_storage_bucket" translatable="false">app-c54c0.appspot.com</string>
+    <string name="invalid_campo">Este campo es obligatorio</string>
+    <string name="invalid_email">Ingrese un correo eléctronico valido</string>
+    <string name="invalid_identificacion">Ingrese un número de identificación valida</string>
+    <string name="invalid_password">Ingrese una contraseña mayor a 6 digitos</string>
+    <string name="invalid_telefono">Ingrese un número de teléfono valido</string>
+    <string name="menuItem_comunicacion">Comunicación</string>
+    <string name="menuItem_comunidad">Comunidad</string>
+    <string name="menuItem_personal">Personal</string>
+    <string name="menuItem_principal">Principal</string>
+    <string name="open">open</string>
+    <string name="pantalLa_detalle_contacto_titulo">DETALLE CONTACTO</string>
+    <string name="pantalLa_nuevo_contacto_titulo">AGREGAR CONTACTO</string>
+    <string name="pantalla_alerta_titulo">ALERTA</string>
+    <string name="pantalla_contactos_titulo">CONTACTOS</string>
+    <string name="pantalla_detalle_grupo_titulo">DETALLE GRUPO</string>
+    <string name="pantalla_grupos_titulo">GRUPOS</string>
+    <string name="pantalla_iniciar_sesion_titulo">INICIAR SESIÓN</string>
+    <string name="pantalla_inicio_titulo">PANTALLA DE INICIO</string>
+    <string name="pantalla_nuevo_grupo_titulo">CREAR GRUPO</string>
+    <string name="pantalla_olvido_password">RECUPERA TU CONTRASEÑA</string>
+    <string name="pantalla_registro_titulo">REGISTRAR CUENTA</string>
+    <string name="project_id" translatable="false">app-c54c0</string>
+    <style name="Theme.AppCompat.NoActionBar." parent="Theme.AppCompat.Light.NoActionBar">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        
+    </style>
+    <style name="Theme.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        
+    </style>
+    <style name="Theme.SecureApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        
+    </style>
+</resources>
