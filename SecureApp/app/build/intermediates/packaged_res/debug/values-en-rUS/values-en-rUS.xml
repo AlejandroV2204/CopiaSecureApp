@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="A_boton_alerta_especifica">ISSUE SPECIFIC ALERT</string>
-    <string name="A_boton_alerta_general">ISSUE GENERAL ALERT</string>
+    <string name="A_boton_alerta_especifica">ISSUE GENERAL ALERT</string>
     <string name="A_cuerpo_alerta">ENTER THE BODY OF THE ALERT</string>
     <string name="A_titulo_alerta">ENTER THE TITLE OF THE ALERT</string>
+    <string name="DC_email_contacto">Email contact:</string>
+    <string name="DC_email_contacto_secundario">Email contact</string>
     <string name="DC_nombre_contacto">contact name</string>
     <string name="DC_nombre_contacto_secundario">contact name</string>
     <string name="DC_telefono_contacto">contact phone</string>
@@ -12,20 +13,42 @@
     <string name="DG_nombre_grupo_secundario">group name</string>
     <string name="DG_participantes_grupo">group participants</string>
     <string name="DH_titulo">NAVIGATION MENU</string>
+    <string name="IS_email">E-mail address</string>
+    <string name="IS_olvido_password">Forgot your password?</string>
+    <string name="IS_password">Password</string>
+    <string name="IS_registro">Don\'t have an account yet? Register</string>
+    <string name="LC_email">Email contact</string>
     <string name="LC_telefono">contact phone</string>
     <string name="LG_descripcion">group description</string>
     <string name="MI_agregar_contacto">add contact</string>
     <string name="MI_alerta">alert</string>
+    <string name="MI_cerrarSesion">Log off</string>
     <string name="MI_contactos">contacts</string>
     <string name="MI_grupos">groups</string>
     <string name="MI_inicio">home</string>
     <string name="MI_nuevo_grupo">new group</string>
+    <string name="NC_apellido_del_contacto">CONTACT\'S LAST NAME</string>
+    <string name="NC_email_contacto">CONTACT EMAIL</string>
+    <string name="NC_mensaje_ingrese_email">Enter the email address of the contact you want to add</string>
     <string name="NC_nombre_del_contacto">CONTACT NAME</string>
     <string name="NC_telefono_contacto">CONTACT PHONE</string>
+    <string name="NG_descripcion_del_grupo">GROUP DESCRIPTION</string>
     <string name="NG_nombre_del_grupo">GROUP NAME</string>
+    <string name="OP_botonRecuperar">RECOVER</string>
+    <string name="OP_ingresaEmail">Enter your email address where we will send you the steps to recover your password.</string>
+    <string name="R_apellido">Last name</string>
+    <string name="R_botonRegistrar">REGISTER</string>
+    <string name="R_identificacion">Identification</string>
+    <string name="R_nombre">Name</string>
+    <string name="R_telefono">Phone</string>
     <string name="app_name">SecureApp</string>
     <string name="close">close</string>
     <string name="crear">CREATE</string>
+    <string name="invalid_campo">This field is required</string>
+    <string name="invalid_email">Enter a valid email address</string>
+    <string name="invalid_identificacion">Enter a valid ID number</string>
+    <string name="invalid_password">Enter a password longer than 6 digits</string>
+    <string name="invalid_telefono">Enter a valid phone number</string>
     <string name="menuItem_comunicacion">comunication</string>
     <string name="menuItem_comunidad">community</string>
     <string name="menuItem_personal">staff</string>
@@ -40,4 +63,6 @@
     <string name="pantalla_iniciar_sesion_titulo">LOG IN</string>
     <string name="pantalla_inicio_titulo">HOME SCREEN</string>
     <string name="pantalla_nuevo_grupo_titulo">CREATE GROUP</string>
+    <string name="pantalla_olvido_password">RECOVER YOUR PASSWORD</string>
+    <string name="pantalla_registro_titulo">REGISTER ACCOUNT</string>
 </resources>

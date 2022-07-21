@@ -5,7 +5,6 @@
     <string name="close">clase</string>
 
     ------------------------------------------------------------------------------------
-    <string name="invalid_email">Ingrese un correo eléctronico valido</string>
     <string name="invalid_password">Ingrese una contraseña mayor a 6 digitos</string>
     <string name="invalid_campo">Este campo es obligatorio</string>
     <string name="invalid_identificacion">Ingrese un número de identificación valida</string>
@@ -61,6 +60,7 @@
     <string name="NC_apellido_del_contacto">APELLIDO DEL CONTACTO</string>
     <string name="NC_mensaje_ingrese_email">Ingresa el correo electrónico del contacto que deseas agregar</string>
     <string name="NC_email_contacto">EMAIL DEL CONTACTO</string>
+    <string name="NC_telefono_contacto">TELEFONO CONTACTO</string>
     <string name="crear">CREAR</string>
 
     <string name="pantalLa_detalle_contacto_titulo">DETALLE CONTACTO</string>
@@ -68,6 +68,8 @@
     <string name="DC_nombre_contacto_secundario">Nombre contacto</string>
     <string name="DC_email_contacto">Email contacto:</string>
     <string name="DC_email_contacto_secundario">Email contacto</string>
+    <string name="DC_telefono_contacto">Telefono contacto:</string>
+    <string name="DC_telefono_contacto_secundario">Telefono contacto </string>
 
     <string name="LC_email">Email contacto</string>
     <string name="LC_telefono">Telefono contacto</string>
@@ -107,5 +109,7 @@
     <string name="MI_cerrarSesion">Cerrar sesión</string>
     ------------------------------------------------------------------------------------
     <string name="DH_titulo">MENÚ DE NAVEGACIÓN</string>
+    <string name="invalid_email">Ingrese un correo eléctronico valido</string>
+
 
 </resources>
