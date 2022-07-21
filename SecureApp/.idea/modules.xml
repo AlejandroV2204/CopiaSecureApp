@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SecureApp.iml" filepath="$PROJECT_DIR$/.idea/SecureApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SecureApp.iml" filepath="$PROJECT_DIR$/.idea/modules/SecureApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SecureApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SecureApp.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SecureApp.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SecureApp.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SecureApp.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SecureApp.app.main.iml" />

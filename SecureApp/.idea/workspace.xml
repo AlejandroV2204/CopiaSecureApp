@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+=======
   <component name="AndroidLayouts">
     <shared>
       <config>
@@ -7,24 +9,37 @@
       </config>
     </shared>
   </component>
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="9339fdaf-d0f9-491c-89e5-37d6a2b09229" name="Changes" comment="" />
+=======
     <list default="true" id="e1c46b7d-1aea-456e-9abb-2270c8f2fdec" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+=======
   <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[IB5LIFIZGQRGAEEU]" />
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 5596ea9acf3016647241b5e453d4317fbe3e6195
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -42,10 +57,18 @@
       </state>
     </system>
   </component>
+<<<<<<< HEAD
+=======
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+=======
+>>>>>>> 5596ea9acf3016647241b5e453d4317fbe3e6195
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
         <option value="valueResourceFile" />
       </list>
     </option>
@@ -53,6 +76,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+<<<<<<< HEAD
+  <component name="ProjectId" id="2CDjm8mCLhr1zogLFxiUNdcGgxn" />
+=======
   <component name="GitSEFilterConfiguration">
     <file-type-list>
       <filtered-out-file-type name="LOCAL_BRANCH" />
@@ -65,17 +91,26 @@
     <option name="selectedIndex" value="2" />
   </component>
   <component name="ProjectId" id="2Ai435qkkzwGsbAQHd6xZQ9EyXH" />
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
+=======
     <property name="ResourceManagerPrefKey.ResourceType" value="LAYOUT" />
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+=======
     <property name="project.structure.last.edited" value="Build Variants" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -158,6 +193,7 @@
       </method>
     </configuration>
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
       <module name="SecureApp.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -214,6 +250,17 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9339fdaf-d0f9-491c-89e5-37d6a2b09229" name="Changes" comment="" />
+      <created>1658344205986</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658344205986</updated>
+=======
     <list>
       <item itemvalue="Android App.app" />
       <item itemvalue="Android App.InicioAppActivity" />
@@ -230,6 +277,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1655478869315</updated>
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
     </task>
     <servers />
   </component>

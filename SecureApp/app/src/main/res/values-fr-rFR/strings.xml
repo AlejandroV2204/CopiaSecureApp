@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SecureApp</string>
+    <string name="open">ouvrir</string>
+    <string name="close">fermer</string>
+    <string name="pantalla_iniciar_sesion_titulo">S\'IDENTIFIER</string>
+    <string name="pantalla_inicio_titulo">ÉCRAN D\'ACCUEIL</string>
+    <string name="pantalla_contactos_titulo">CONTACTER</string>
+    <string name="pantalLa_nuevo_contacto_titulo">AJOUTER CONTACT</string>
+    <string name="NC_nombre_del_contacto">NOM DE CONTACT</string>
+    <string name="NC_telefono_contacto">NUMÉRO DE TÉLÉPHONE DU CONTACT</string>
+    <string name="crear">CRÉER</string>
+    <string name="pantalLa_detalle_contacto_titulo">COORDONNÉES DE CONTACT</string>
+    <string name="DC_nombre_contacto">Nom de contact :</string>
+    <string name="DC_nombre_contacto_secundario">Nom du contact</string>
+    <string name="DC_telefono_contacto">Contact téléphonique :</string>
+    <string name="DC_telefono_contacto_secundario">Contact téléphonique :</string>
+    <string name="LC_telefono">Contact téléphonique :</string>
+    <string name="pantalla_grupos_titulo">GROUPES</string>
+    <string name="pantalla_nuevo_grupo_titulo">CRÉER UN GROUPE</string>
+    <string name="NG_nombre_del_grupo">NOM DU GROUPE</string>
+    <string name="pantalla_detalle_grupo_titulo">DÉTAIL DU GROUPE</string>
+    <string name="DG_nombre_grupo">Nom du groupe :</string>
+    <string name="DG_nombre_grupo_secundario">Nom du groupe</string>
+    <string name="DG_participantes_grupo">Participants du groupe :</string>
+    <string name="LG_descripcion">Description du groupe</string>
+    <string name="pantalla_alerta_titulo">ALERTE</string>
+    <string name="A_titulo_alerta">SAISISSEZ LE TITRE DE L\'ALERTE</string>
+    <string name="A_cuerpo_alerta">ENTRER LE CORPS DE L\'ALERTE</string>
+    <string name="A_boton_alerta_especifica">ÉMETTRE UNE ALERTE SPÉCIFIQUE</string>
+    <string name="A_boton_alerta_general">ÉMETTRE UNE ALERTE GÉNÉRALE</string>
+    <string name="menuItem_principal">Principal</string>
+    <string name="MI_inicio">Accueil</string>
+    <string name="menuItem_personal">Personnel</string>
+    <string name="MI_contactos">Contacts</string>
+    <string name="MI_agregar_contacto">Ajouter un contact</string>
+    <string name="menuItem_comunidad">Communauté</string>
+    <string name="MI_grupos">Groupes</string>
+    <string name="MI_nuevo_grupo">Nouveau groupe</string>
+    <string name="menuItem_comunicacion">Communication</string>
+    <string name="MI_alerta">Alerte</string>
+    <string name="DH_titulo">MENU DE NAVIGATION</string>
+</resources>

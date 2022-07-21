@@ -8,6 +8,8 @@
         android:minSdkVersion="21"
         android:targetSdkVersion="32" />
 
+<<<<<<< HEAD
+=======
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -33,19 +35,26 @@
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
     <application
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:debuggable="true"
         android:fullBackupContent="@xml/backup_rules"
+<<<<<<< HEAD
+        android:icon="@mipmap/ic_icono_aplicacion"
+=======
         android:icon="@drawable/escudoamerica"
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.SecureApp" >
         <activity
+<<<<<<< HEAD
+=======
             android:name="com.example.secureapp.Activities.OlvidarPasswordActivity"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -56,6 +65,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
             android:name="com.example.secureapp.Activities.InicioAppActivity"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -70,12 +80,25 @@
             android:name="com.example.secureapp.Activities.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
+<<<<<<< HEAD
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" >
+        </activity>
+=======
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
         <activity
             android:name="com.example.secureapp.Activities.InicioSesionActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+<<<<<<< HEAD
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+=======
         </activity>
 
         <service
@@ -229,6 +252,7 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
 
         <provider
             android:name="androidx.startup.InitializationProvider"
