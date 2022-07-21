@@ -3,17 +3,13 @@
     <string name="app_name">SecureApp</string>
     <string name="open">открыть</string>
     <string name="close">закрыть</string>
-    <string name="close">закрыть</string>
-    <string name="pantalla_iniciar_sesion_titulo">ВОЙТИ В СИСТЕМУ</string>
     <string name="pantalla_iniciar_sesion_titulo">ВОЙТИ В СИСТЕМУ</string>
     <string name="pantalla_inicio_titulo">ДОМАШНИЙ ЭКРАН</string>
     <string name="pantalla_contactos_titulo">КОНТАКТЫ</string>
     <string name="pantalLa_nuevo_contacto_titulo">ДОБАВИТЬ КОНТАКТ</string>
     <string name="NC_nombre_del_contacto">КОНТАКТНОЕ ИМЯ</string>
-    <string name="NC_nombre_del_contacto">КОНТАКТНОЕ ИМЯ</string>
     <string name="NC_telefono_contacto">КОНТАКТНЫЙ ТЕЛЕФОН</string>
     <string name="crear">CREATE</string>
-    <string name="pantalLa_detalle_contacto_titulo">КОНТАКТНЫЕ ДАННЫЕ</string>
     <string name="pantalLa_detalle_contacto_titulo">КОНТАКТНЫЕ ДАННЫЕ</string>
     <string name="DC_nombre_contacto">Контактное имя:</string>
     <string name="DC_nombre_contacto_secundario">Контактное имя:</string>
@@ -33,7 +29,6 @@
     <string name="A_cuerpo_alerta">ВВЕДИТЕ ТЕКСТ ОПОВЕЩЕНИЯ</string>
     <string name="A_boton_alerta_especifica">ВЫДАТЬ КОНКРЕТНОЕ ПРЕДУПРЕЖДЕНИЕ</string>
     <string name="A_boton_alerta_general">ОБЪЯВИТЬ ОБЩУЮ ТРЕВОГУ</string>
-    <string name="menuItem_principal">Главная</string>
     <string name="menuItem_principal">Главная</string>
     <string name="MI_inicio">Дом</string>
     <string name="menuItem_personal">Personal</string>
