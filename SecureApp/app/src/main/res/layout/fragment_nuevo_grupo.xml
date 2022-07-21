@@ -36,18 +36,32 @@
          app:layout_constraintVertical_bias="0.079" />
 
      <EditText
-         android:id="@+id/Et_nombreGrupo"
+         android:id="@+id/et_nombreGrupo"
          android:layout_width="259dp"
          android:layout_height="45dp"
          android:hint="@string/NG_nombre_del_grupo"
          android:textAlignment="center"
          android:textColor="@color/Texto_color"
-         android:textColorHint="@color/Texto_color"
+         android:textColorHint="@color/Hints_color"
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent"
          app:layout_constraintVertical_bias="0.247"></EditText>
+
+     <EditText
+         android:id="@+id/et_descripcionGrupo"
+         android:layout_width="259dp"
+         android:layout_height="wrap_content"
+         android:hint="@string/NG_descripcion_del_grupo"
+         android:textAlignment="center"
+         android:textColor="@color/Texto_color"
+         android:textColorHint="@color/Hints_color"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.356"></EditText>
 
      <androidx.constraintlayout.widget.Guideline
          android:id="@+id/guideline3"

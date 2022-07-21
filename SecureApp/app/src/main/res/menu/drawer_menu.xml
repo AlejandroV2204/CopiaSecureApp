@@ -69,4 +69,18 @@
 
     </item>
 
+    <item android:title="  ">
+
+        <menu>
+
+            <item
+                android:id="@+id/cerrarSesion"
+                android:icon="@drawable/ic_cerrar_sesion"
+                android:title="@string/MI_cerrarSesion">
+            </item>
+
+        </menu>
+
+    </item>
+
 </menu>

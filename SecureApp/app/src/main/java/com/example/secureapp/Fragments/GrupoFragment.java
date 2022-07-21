@@ -2,6 +2,7 @@ package com.example.secureapp.Fragments;
 
 import android.app.Activity;
 import android.content.Context;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,19 +18,30 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.secureapp.Adaptadores.AdapterGrupo;
 import com.example.secureapp.Entidades.Grupo;
 import com.example.secureapp.Interfaces.IComunicaFragments;
+import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GrupoFragment extends Fragment{
 
-    AdapterGrupo adapterGrupo;
-    RecyclerView recyclerViewGrupos;
-    ArrayList<Grupo> listaGrupos;
+    private AdapterGrupo adapterGrupo;
+    private RecyclerView recyclerViewGrupos;
+    private ArrayList<MGrupo> listaGrupos = new ArrayList<>();
 
     //referencias para comunicar fragments
     Activity actividad;
     IComunicaFragments iComunicaFragments;
+
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
     @Nullable
     @Override
@@ -37,54 +49,62 @@ public class GrupoFragment extends Fragment{
 
         View view = inflater.inflate(R.layout.fragment_grupo,container, false);
 
+        inicializarFirebase();
+
         recyclerViewGrupos = view.findViewById(R.id.RV_grupos);
         listaGrupos = new ArrayList<>();
-        //cargar lista
-        cargarLista();
-        //mostrar datos
-        mostrarDatos();
+
+        //No se si esto sirva
+        recyclerViewGrupos.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+
+        tomarGruposDeFirebase();
 
         return view;
 
     }
 
-    public void cargarLista(){
+    private void inicializarFirebase(){
 
-        listaGrupos.add(new Grupo("Grupo 1","Este es el grupo #1",R.drawable.ic_launcher_foreground));
-        listaGrupos.add(new Grupo("Grupo 2","Este es el grupo #2",R.drawable.ic_launcher_nuevo_grupo_foreground));
+        FirebaseApp.initializeApp(getContext());
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
 
     }
 
-    public void mostrarDatos(){
+    private void tomarGruposDeFirebase() {
 
-        recyclerViewGrupos.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapterGrupo = new AdapterGrupo(getContext(), listaGrupos);
-        recyclerViewGrupos.setAdapter(adapterGrupo);
-
-        adapterGrupo.setOnClickListener(new View.OnClickListener() {
+        databaseReference.child("grupo").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                String nombre = listaGrupos.get(recyclerViewGrupos.getChildAdapterPosition(view)).getNombre();
-                Toast.makeText(getContext(), "Selecciono: " + nombre, Toast.LENGTH_SHORT).show();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
 
-                iComunicaFragments.enviarGrupo(listaGrupos.get(recyclerViewGrupos.getChildAdapterPosition(view)));
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+
+                        String nombreGrupo = ds.child("nombre").getValue().toString();
+                        String descripcionGrupo = ds.child("nombre").getValue().toString();
+                        String administradorGrupo = ds.child("nombre").getValue().toString();
+                        String fechaCreacion = ds.child("nombre").getValue().toString();
+                        String cantidadIntegrantes = ds.child("nombre").getValue().toString();
+                        HashMap localizacionGrupo = (HashMap) ds.child("localizacion").getValue();
+
+                        listaGrupos.add(new MGrupo(nombreGrupo, descripcionGrupo, administradorGrupo, fechaCreacion, cantidadIntegrantes, localizacionGrupo));
+
+                    }
+
+                    adapterGrupo = new AdapterGrupo(listaGrupos, R.layout.lista_grupos);
+                    recyclerViewGrupos.setAdapter(adapterGrupo);
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-
-        if (context instanceof Activity){
-
-            this.actividad = (Activity) context;
-                iComunicaFragments = (IComunicaFragments) this.actividad;
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-    }
 }
+

@@ -3,6 +3,7 @@ package com.example.secureapp.Fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +18,27 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.secureapp.Adaptadores.AdapterContacto;
 import com.example.secureapp.Adaptadores.AdapterGrupo;
 import com.example.secureapp.Entidades.Contacto;
-import com.example.secureapp.Entidades.Grupo;
 import com.example.secureapp.Interfaces.IComunicaFragments;
+import com.example.secureapp.Modelo.MContacto;
+import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -27,11 +46,16 @@ public class ContactoFragment extends Fragment{
 
     AdapterContacto adapterContacto;
     RecyclerView recyclerViewContactos;
-    ArrayList<Contacto> listaContactos;
+    private ArrayList<MContacto> listaContactos = new ArrayList<>();
 
     //referencias para comunicar fragments
     Activity actividad;
     IComunicaFragments iComunicaFragments;
+
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+    private FirebaseFirestore firestore;
 
     @Nullable
     @Override
@@ -39,39 +63,99 @@ public class ContactoFragment extends Fragment{
 
         View view = inflater.inflate(R.layout.fragment_contacto,container, false);
 
+        inicializarFireStore();
+
         recyclerViewContactos = view.findViewById(R.id.RV_contactos);
         listaContactos = new ArrayList<>();
-        //cargar lista
-        cargarLista();
-        //mostrar datos
-        mostrarDatos();
+
+        //No se si esto sirva
+        recyclerViewContactos.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+
+        //tomarContactosDeFirebase();
+        tomarDatosDeFirestore();
 
         return view;
 
     }
 
-    public void cargarLista(){
+    private void inicializarFirebase(){
 
-        listaContactos.add(new Contacto("Ramiro","3153442635",R.drawable.ic_launcher_foreground));
-        listaContactos.add(new Contacto("Fausto","315992736",R.drawable.ic_launcher_nuevo_grupo_foreground));
+        FirebaseApp.initializeApp(getContext());
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
 
     }
 
-    public void mostrarDatos(){
+    private void inicializarFireStore(){
 
-        recyclerViewContactos.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapterContacto = new AdapterContacto(getContext(), listaContactos);
-        recyclerViewContactos.setAdapter(adapterContacto);
+        FirebaseApp.initializeApp(getContext());
+        firestore = FirebaseFirestore.getInstance();
 
-        adapterContacto.setOnClickListener(new View.OnClickListener() {
+    }
+
+    private void tomarContactosDeFirebase() {
+
+        databaseReference.child("contacto").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                String nombre = listaContactos.get(recyclerViewContactos.getChildAdapterPosition(view)).getNombre();
-                Toast.makeText(getContext(), "Selecciono: " + nombre, Toast.LENGTH_SHORT).show();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
 
-                iComunicaFragments.enviarContacto(listaContactos.get(recyclerViewContactos.getChildAdapterPosition(view)));
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+
+                        String nombreContacto = ds.child("nombre").getValue().toString();
+                        String apellidoContacto = ds.child("apellido").getValue().toString();
+                        String emailContacto = ds.child("email").getValue().toString();
+                        String telefonoContacto = ds.child("telefono").getValue().toString();
+
+                        listaContactos.add(new MContacto(nombreContacto, apellidoContacto, emailContacto, telefonoContacto));
+
+                    }
+
+                    adapterContacto = new AdapterContacto(listaContactos, R.layout.lista_contactos);
+                    recyclerViewContactos.setAdapter(adapterContacto);
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
+    }
+
+    private void tomarDatosDeFirestore(){
+
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
+
+        firestore.collection("usuario").document(email).collection("contactos")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                String nombreContacto = document.getString("nombre");
+                                String apellidoContacto = document.getString("apellido");
+                                String emailContacto = document.getString("email");
+                                String telefonoContacto = document.getString("telefono");
+
+                                listaContactos.add(new MContacto(nombreContacto, apellidoContacto, emailContacto, telefonoContacto));
+                            }
+
+                            adapterContacto = new AdapterContacto(listaContactos, R.layout.lista_contactos);
+                            recyclerViewContactos.setAdapter(adapterContacto);
+
+                        } else {
+                            Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
     }
 
     @Override
@@ -89,4 +173,5 @@ public class ContactoFragment extends Fragment{
     public void onDetach() {
         super.onDetach();
     }
+
 }

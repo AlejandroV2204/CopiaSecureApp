@@ -35,37 +35,38 @@
          app:layout_constraintTop_toTopOf="parent"
          app:layout_constraintVertical_bias="0.079" />
 
+     <TextView
+
+         android:id="@+id/textView5"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:text="@string/NC_mensaje_ingrese_email"
+         android:textAlignment="center"
+         android:textColor="@color/Texto_color"
+         android:textSize="15dp"
+         android:textStyle="bold|italic"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="1.0"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintVertical_bias="0.311">
+
+     </TextView>
+
      <EditText
 
-         android:id="@+id/Et_nombreContacto"
-         android:layout_width="259dp"
+         android:id="@+id/et_emailContacto"
+         android:layout_width="match_parent"
          android:layout_height="45dp"
-         android:hint="@string/NC_nombre_del_contacto"
+         android:hint="@string/NC_email_contacto"
          android:textAlignment="center"
          android:textColor="@color/Texto_color"
          android:textColorHint="@color/Texto_color"
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintVertical_bias="0.247">
-
-     </EditText>
-
-     <EditText
-
-         android:id="@+id/Et_telefonoContacto"
-         android:layout_width="259dp"
-         android:layout_height="45dp"
-         android:hint="@string/NC_telefono_contacto"
-         android:textAlignment="center"
-         android:textColor="@color/Texto_color"
-         android:textColorHint="@color/Texto_color"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintVertical_bias="0.369">
+         app:layout_constraintTop_toTopOf="parent">
 
      </EditText>
 

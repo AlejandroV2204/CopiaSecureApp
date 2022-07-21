@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
      <TextView
+
          android:id="@+id/textView"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
@@ -17,23 +18,12 @@
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintVertical_bias="0.079"></TextView>
+         app:layout_constraintVertical_bias="0.079">
+
+     </TextView>
 
      <EditText
-         android:id="@+id/et_TituloAlerta"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:hint="@string/A_titulo_alerta"
-         android:inputType="textMultiLine"
-         android:textColor="@color/Texto_color"
-         android:textColorHint="@color/Texto_color"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintVertical_bias="0.406"></EditText>
 
-     <EditText
          android:id="@+id/et_cuerpoAlerta"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
@@ -43,13 +33,14 @@
          android:textColorHint="@color/Texto_color"
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintHorizontal_bias="0.539"
+         app:layout_constraintHorizontal_bias="0.495"
          app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintVertical_bias="0.528"></EditText>
+         app:layout_constraintTop_toTopOf="parent">
+
+     </EditText>
 
      <Button
-         android:id="@+id/btn_alertaEspecifica"
+         android:id="@+id/btn_emitirAlerta"
          style="@style/Widget.MaterialComponents.Button"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
@@ -62,20 +53,6 @@
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent"
          app:layout_constraintVertical_bias="0.681" />
-
-     <Button
-         android:id="@+id/btn_alertaGeneral"
-         style="@style/Widget.MaterialComponents.Button"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:backgroundTint="@color/Botones_color"
-         android:text="@string/A_boton_alerta_general"
-         android:textColor="@color/Texto_color_botones"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintVertical_bias="0.79" />
 
      <androidx.constraintlayout.widget.Guideline
          android:id="@+id/guideline2"

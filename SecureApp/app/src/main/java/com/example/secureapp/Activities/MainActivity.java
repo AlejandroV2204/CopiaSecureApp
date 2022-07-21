@@ -13,8 +13,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.example.secureapp.Entidades.Contacto;
 import com.example.secureapp.Entidades.Grupo;
 import com.example.secureapp.Fragments.ContactoFragment;
@@ -29,6 +34,10 @@ import com.example.secureapp.Fragments.DetalleGrupoFragment;
 import com.example.secureapp.Fragments.GrupoFragment;
 import com.example.secureapp.Fragments.MainFragment;
 import com.example.secureapp.Fragments.NuevoGrupoFragment;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessagingService;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, IComunicaFragments {
 
@@ -52,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer);
@@ -70,6 +80,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.container, new MainFragment());
         fragmentTransaction.commit();
+
+
 
     }
 
@@ -157,7 +169,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
 
+        if (item.getItemId() == R.id.cerrarSesion){
+
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+            irAinicioSesion();
+
+        }
+
         return false;
+    }
+
+    private void irAinicioSesion() {
+
+        Intent intent = new Intent(MainActivity.this, InicioSesionActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+
     }
 
 

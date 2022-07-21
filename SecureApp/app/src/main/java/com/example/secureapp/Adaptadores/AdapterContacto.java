@@ -1,33 +1,69 @@
 package com.example.secureapp.Adaptadores;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.secureapp.Entidades.Contacto;
-import com.example.secureapp.Entidades.Grupo;
+import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.R;
 
 import java.util.ArrayList;
 
-public class AdapterContacto extends RecyclerView.Adapter<AdapterContacto.ViewHolder> implements View.OnClickListener {
+public class AdapterContacto extends RecyclerView.Adapter<AdapterContacto.ViewHolder> implements View.OnClickListener  {
 
+    private final int resource;
     LayoutInflater inflater;
-    ArrayList<Contacto> model;
+    ArrayList<MContacto> contactosList;
 
     //Listener
     private View.OnClickListener listener;
 
-    public AdapterContacto(Context context, ArrayList<Contacto> model){
 
-        this.inflater = LayoutInflater.from(context);
-        this.model = model;
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+            private TextView txt_nombreContacto, txt_apellidoContacto, txt_emailContacto, txt_telefonoContacto;
+            public View view;
+
+            private View.OnClickListener listener;
+
+            public ViewHolder(View view){
+                super(view);
+
+                this.view = view;
+                this.txt_nombreContacto = view.findViewById(R.id.txt_nombreContacto);
+                this.txt_apellidoContacto = view.findViewById(R.id.txt_apellidoContacto);
+                this.txt_emailContacto = view.findViewById(R.id.txt_emailContacto);
+                this.txt_telefonoContacto = view.findViewById(R.id.txt_telefonoContacto);
+
+            }
+
+            public void  setOnClickListener(View.OnClickListener listener){
+
+                this.listener = listener;
+
+            }
+
+            @Override
+            public void onClick(View view) {
+
+                if (listener != null){
+
+                    listener.onClick(view);
+
+                }
+
+            }
+
+    }
+
+    public AdapterContacto(ArrayList<MContacto> contactosList, int resource){
+
+        this.contactosList = contactosList;
+        this.resource = resource;
 
     }
 
@@ -35,60 +71,34 @@ public class AdapterContacto extends RecyclerView.Adapter<AdapterContacto.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.lista_contactos, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(resource, parent, false);
+
         view.setOnClickListener(this);
+
         return new ViewHolder(view);
 
     }
 
-    public void  setOnClickListener(View.OnClickListener listener){
-
-        this.listener = listener;
-
-    }
-
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int index) {
 
-        String nombre = model.get(position).getNombre();
-        String telefono = model.get(position).getTelefono();
-        int imagen = model.get(position).getImagenid();
+        MContacto contacto = contactosList.get(index);
 
-        holder.nombre.setText(nombre);
-        holder.telefono.setText(telefono);
-        holder.imagen.setImageResource(imagen);
+        viewHolder.txt_nombreContacto.setText(contacto.getNombre());
+        viewHolder.txt_apellidoContacto.setText(contacto.getApellido());
+        viewHolder.txt_emailContacto.setText(contacto.getEmail());
+        viewHolder.txt_telefonoContacto.setText(contacto.getTelefono());
 
     }
 
     @Override
     public int getItemCount() {
-        return model.size();
+        return contactosList.size();
     }
-
 
     @Override
     public void onClick(View view) {
 
-        if (listener  != null){
-
-            listener.onClick(view);
-
-        }
-
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
-        TextView nombre, telefono;
-        ImageView imagen;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            nombre = itemView.findViewById(R.id.txt_nombreContacto);
-            telefono = itemView.findViewById(R.id.txt_telefonoContacto);
-            imagen = itemView.findViewById(R.id.imagen_contacto);
-
-        }
-    }
 }
