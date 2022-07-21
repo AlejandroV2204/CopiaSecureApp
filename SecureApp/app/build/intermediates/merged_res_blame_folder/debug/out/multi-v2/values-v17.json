@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "com.example.secureapp-mergeDebugResources-3:/values-v17/values-v17.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\f053ca72a4906620f9d7f529c412475e\\transformed\\appcompat-1.4.2\\res\\values-v17\\values-v17.xml",
+=======
+            "outputFile": "com.example.secureapp-mergeDebugResources-5:/values-v17/values-v17.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\f7f4430263beb03013e5a2f96bbfeb98\\transformed\\appcompat-1.4.2\\res\\values-v17\\values-v17.xml",
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

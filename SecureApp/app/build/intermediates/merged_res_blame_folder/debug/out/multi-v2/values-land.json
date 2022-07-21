@@ -1,10 +1,27 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "com.example.secureapp-mergeDebugResources-3:/values-land/values-land.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\bfec8dfcaf6c34e166a516bbd7a3f400\\transformed\\material-1.6.1\\res\\values-land\\values-land.xml",
+=======
+            "outputFile": "com.example.secureapp-mergeDebugResources-5:/values-land/values-land.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\f7f4430263beb03013e5a2f96bbfeb98\\transformed\\appcompat-1.4.2\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,125,196",
+                        "endColumns": "69,70,67",
+                        "endOffsets": "120,191,259"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\7029b489aac3171a20259a0848124d46\\transformed\\material-1.6.1\\res\\values-land\\values-land.xml",
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,26,32,37",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,6 +38,7 @@
                         "endColumns": "74,73,72,69,71,69,64,66,69,71,68,68,81,89,75,67,66,77,64,66,10,10,10,10",
                         "endOffsets": "334,408,481,551,623,693,758,825,895,967,1036,1105,1187,1277,1353,1421,1488,1566,1631,1698,1870,2265,2534,2762"
                     }
+<<<<<<< HEAD
                 },
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\f053ca72a4906620f9d7f529c412475e\\transformed\\appcompat-1.4.2\\res\\values-land\\values-land.xml",
@@ -31,6 +49,8 @@
                         "endColumns": "69,70,67",
                         "endOffsets": "120,191,259"
                     }
+=======
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
                 }
             ]
         }

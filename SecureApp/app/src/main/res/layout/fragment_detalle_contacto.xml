@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txt_detalleMostrarContacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pantalLa_detalle_contacto_titulo"
+        android:textAlignment="center"
+        android:textColor="@color/Texto_color"
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.082">
+
+    </TextView>
+
+    <ImageView
+
+        android:id="@+id/imagen_detalleContacto"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.253"
+        android:padding="10dp">
+
+    </ImageView>
+
+    <TextView
+
+        android:id="@+id/txt_tituloDetalleContacto"
+        android:layout_width="208dp"
+        android:layout_height="36dp"
+        android:text="@string/DC_nombre_contacto"
+        android:textAlignment="center"
+        android:textColor="@color/Texto_color"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.553">
+
+    </TextView>
+
+    <TextView
+
+        android:id="@+id/txt_tituloDetalleContacto2"
+        android:layout_width="208dp"
+        android:layout_height="36dp"
+        android:text="@string/DC_email_contacto"
+        android:textAlignment="center"
+        android:textColor="@color/Texto_color"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.707">
+
+    </TextView>
+
+    <TextView
+
+        android:id="@+id/txt_nombreDetalleContacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/DC_nombre_contacto_secundario"
+        android:textAlignment="center"
+        android:textColor="@color/Texto_color"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.613">
+
+    </TextView>
+
+    <TextView
+
+        android:id="@+id/txt_emailDetalleContacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/DC_email_contacto_secundario"
+        android:textAlignment="center"
+        android:textColor="@color/Texto_color"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.766">
+
+    </TextView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="42dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

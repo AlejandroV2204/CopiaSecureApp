@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+=======
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
 
      <TextView
          android:id="@+id/txt_tituloContacto"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
+<<<<<<< HEAD
          android:text="@string/pantalla_contactos_titulo"
+=======
+         android:layout_gravity="center"
+         android:paddingTop="50dp"
+         android:paddingEnd="30dp"
+         android:text="@string/pantalla_contactos_titulo"
+         android:textAlignment="center"
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
          android:textColor="@color/Texto_color"
          android:textSize="35sp"
          android:textStyle="bold|italic"
@@ -30,8 +47,14 @@
 
      <androidx.recyclerview.widget.RecyclerView
          android:id="@+id/RV_contactos"
+<<<<<<< HEAD
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
+=======
+         android:layout_width="350dp"
+         android:layout_height="match_parent"
+         android:layout_gravity="center"
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintHorizontal_bias="1.0"
@@ -39,4 +62,8 @@
          app:layout_constraintTop_toTopOf="parent"
          app:layout_constraintVertical_bias="0.251" />
 
+<<<<<<< HEAD
 </androidx.constraintlayout.widget.ConstraintLayout>
+=======
+</LinearLayout>
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c

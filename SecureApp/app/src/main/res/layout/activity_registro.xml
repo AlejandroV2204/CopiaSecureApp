@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.RegistroActivity"
+    android:background="@color/Fondo_app">
+
+    <include
+
+        android:id="@+id/include"
+        layout="@layout/drawer_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </include>
+
+    <TextView
+
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pantalla_registro_titulo"
+        android:textAlignment="center"
+        android:textColor="@color/Texto_color"
+        android:textSize="30dp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.099">
+
+    </TextView>
+
+    <EditText
+
+        android:id="@+id/et_nombreRegistro"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/R_nombre"
+        android:textColor="@color/Texto_color"
+        android:textColorHint="@color/Hints_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.213">
+
+    </EditText>
+
+    <EditText
+
+        android:id="@+id/et_emailRegistro"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/IS_email"
+        android:textColor="@color/Texto_color"
+        android:textColorHint="@color/Hints_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.545">
+
+    </EditText>
+
+    <EditText
+
+        android:id="@+id/et_passwordRegistro"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/IS_password"
+        android:textColor="@color/Texto_color"
+        android:textColorHint="@color/Hints_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.646">
+
+    </EditText>
+
+    <EditText
+
+        android:id="@+id/et_identificacionRegistro"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/R_identificacion"
+        android:inputType="number"
+        android:textColor="@color/Texto_color"
+        android:textColorHint="@color/Hints_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35">
+
+    </EditText>
+
+    <EditText
+
+        android:id="@+id/et_telefonoRegistro"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/R_telefono"
+        android:inputType="number"
+        android:textColor="@color/Texto_color"
+        android:textColorHint="@color/Hints_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.446">
+
+    </EditText>
+
+    <EditText
+
+        android:id="@+id/et_apellidoRegistro"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/R_apellido"
+        android:textColor="@color/Texto_color"
+        android:textColorHint="@color/Hints_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.211">
+
+    </EditText>
+
+    <Spinner
+        android:id="@+id/spinner_departamentos"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.757" />
+
+    <Spinner
+        android:id="@+id/spinner_ciudades"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.855"
+        />
+
+    <Button
+
+        android:id="@+id/btn_registrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/Botones_color"
+        android:text="@string/R_botonRegistrar"
+        android:textColor="@color/Texto_color_botones"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </Button>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

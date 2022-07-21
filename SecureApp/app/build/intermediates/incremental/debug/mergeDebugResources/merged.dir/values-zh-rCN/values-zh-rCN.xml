@@ -4,6 +4,7 @@
     <item quantity="one">%d 条新通知</item>
     <item quantity="other">%d 条新通知</item>
   </plurals>
+<<<<<<< HEAD
     <string name="A_boton_alerta_especifica">发出具体警报</string>
     <string name="A_boton_alerta_general">发出一般警报</string>
     <string name="A_cuerpo_alerta">输入警报的内容</string>
@@ -27,6 +28,8 @@
     <string name="NC_nombre_del_contacto">联系名称</string>
     <string name="NC_telefono_contacto">联系电话</string>
     <string name="NG_nombre_del_grupo">集团名称</string>
+=======
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
     <string msgid="5976598919945601918" name="abc_action_bar_home_description">"转到首页"</string>
     <string msgid="8388173803310557296" name="abc_action_bar_up_description">"转到上一层级"</string>
     <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"更多选项"</string>
@@ -54,15 +57,45 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"分享对象"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"与<ns1:g id="APPLICATION_NAME">%s</ns1:g>分享"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"收起"</string>
+<<<<<<< HEAD
     <string name="app_name">SecureApp</string>
+=======
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
     <string name="bottomsheet_action_expand_halfway">展开到一半高度</string>
     <string name="character_counter_content_description">输入了 %1$d 个字符（上限为 %2$d 个）</string>
     <string name="character_counter_overflowed_content_description">超出字符数限制（共 %1$d 个，上限为 %2$d 个）</string>
     <string name="clear_text_end_icon_content_description">清除文字</string>
+<<<<<<< HEAD
     <string name="close">关闭</string>
     <string name="crear">创建</string>
     <string name="error_icon_content_description">错误</string>
     <string name="exposed_dropdown_menu_content_description">显示下拉菜单</string>
+=======
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">启用</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">您必须先启用 Google Play 服务，然后才能运行%1$s。</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">启用 Google Play 服务</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">安装</string>
+    <string name="common_google_play_services_install_text">您的设备没有安装 Google Play 服务，因此无法运行%1$s。</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">获取 Google Play 服务</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play 服务的适用范围</string>
+    <string name="common_google_play_services_notification_ticker">Google Play服务出错</string>
+    <string name="common_google_play_services_unknown_issue">%1$s无法访问 Google Play 服务，请重试。</string>
+    <string name="common_google_play_services_unsupported_text">您的设备不支持 Google Play 服务，因此无法运行%1$s。</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">更新</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">您必须先更新 Google Play 服务，然后才能运行%1$s。</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">更新 Google Play 服务</string>
+    <string name="common_google_play_services_updating_text">Google Play 服务当前正在更新，因此您无法运行%1$s。</string>
+    <string name="common_google_play_services_wear_update_text">必须使用新版 Google Play 服务。该服务很快就会自行更新。</string>
+    <string name="common_open_on_phone">在手机上打开</string>
+    <string name="common_signin_button_text">登录</string>
+    <string name="common_signin_button_text_long">使用 Google 帐号登录</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"链接已复制到剪贴板"</string>
+    <string name="error_icon_content_description">错误</string>
+    <string name="exposed_dropdown_menu_content_description">显示下拉菜单</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"复制链接"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"在浏览器中打开"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"分享链接"</string>
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
     <string name="icon_content_description">对话框图标</string>
     <string name="item_view_role_description">标签页</string>
     <string name="material_clock_toggle_content_description">选择上午或下午</string>
@@ -77,10 +110,13 @@
     <string name="material_timepicker_pm">下午</string>
     <string name="material_timepicker_select_time">选择时间</string>
     <string name="material_timepicker_text_input_mode_description">切换到文字输入模式来输入时间。</string>
+<<<<<<< HEAD
     <string name="menuItem_comunicacion">沟通</string>
     <string name="menuItem_comunidad">社区</string>
     <string name="menuItem_personal">职员</string>
     <string name="menuItem_principal">主要内容</string>
+=======
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
     <string name="mtrl_badge_numberless_content_description">新通知</string>
     <string name="mtrl_chip_close_icon_content_description">移除%1$s</string>
     <string name="mtrl_exceed_max_badge_number_content_description">有 %1$d 条以上的新通知</string>
@@ -114,6 +150,7 @@
     <string name="mtrl_picker_toggle_to_day_selection">点按即可切换到选择某天</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">切换到文本字段输入模式</string>
     <string name="mtrl_picker_toggle_to_year_selection">点按即可切换到选择某年</string>
+<<<<<<< HEAD
     <string name="open">开放</string>
     <string name="pantalLa_detalle_contacto_titulo">联系方式</string>
     <string name="pantalLa_nuevo_contacto_titulo">联系地址</string>
@@ -124,6 +161,8 @@
     <string name="pantalla_iniciar_sesion_titulo">登录</string>
     <string name="pantalla_inicio_titulo">主页屏幕</string>
     <string name="pantalla_nuevo_grupo_titulo">创建集团</string>
+=======
+>>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
     <string name="password_toggle_content_description">显示密码</string>
     <string msgid="6264217191555673260" name="search_menu_title">"搜索"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
