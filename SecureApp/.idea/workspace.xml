@@ -12,6 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e1c46b7d-1aea-456e-9abb-2270c8f2fdec" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/secureapp/Fragments/GrupoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/secureapp/Fragments/GrupoFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/secureapp/Fragments/NuevoGrupoFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/secureapp/Fragments/NuevoGrupoFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/secureapp/Modelo/MGrupo.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/secureapp/Modelo/MGrupo.java" afterDir="false" />
     </list>
