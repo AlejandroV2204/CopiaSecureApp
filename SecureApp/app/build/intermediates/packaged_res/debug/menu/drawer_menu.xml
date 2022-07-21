@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/menuItem_principal">
+
+        <menu>
+
+            <item
+                android:id="@+id/inicio"
+                android:icon="@drawable/ic_home"
+                android:title="@string/MI_inicio">
+            </item>
+
+        </menu>
+
+    </item>
+
+    <item android:title="@string/menuItem_personal">
+
+        <menu>
+
+            <item
+                android:id="@+id/contactos"
+                android:icon="@drawable/ic_contacto"
+                android:title="@string/MI_contactos">
+            </item>
+
+            <item
+                android:id="@+id/nuevoContacto"
+                android:icon="@drawable/ic_nuevo_contacto"
+                android:title="@string/MI_agregar_contacto">
+            </item>
+
+        </menu>
+
+    </item>
+
+    <item android:title="@string/menuItem_comunidad">
+
+        <menu>
+
+            <item
+                android:id="@+id/grupo"
+                android:icon="@drawable/ic_group"
+                android:title="@string/MI_grupos">
+            </item>
+
+            <item
+                android:id="@+id/nuevoGrupo"
+                android:icon="@drawable/ic_launcher_nuevo_grupo_foreground"
+                android:title="@string/MI_nuevo_grupo">
+            </item>
+
+        </menu>
+
+    </item>
+
+    <item android:title="@string/menuItem_comunicacion">
+
+        <menu>
+
+            <item
+                android:id="@+id/alerta"
+                android:icon="@drawable/ic_warning"
+                android:title="@string/MI_alerta">
+            </item>
+
+        </menu>
+
+    </item>
+
+</menu>

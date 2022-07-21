@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="App_color">#1f2046</color>
+    <color name="Botones_color">#1f2046</color>
+    <color name="Fondo_app">#e9e8e6</color>
+    <color name="Texto_color">#000000</color>
+    <color name="Texto_color_botones">#e9e8e6</color>
+    <color name="black">#FF000000</color>
+    <color name="ic_candado_background">#FFFFFF</color>
+    <color name="ic_candado_icon_background">#C32C28</color>
+    <color name="ic_icono_aplicacion_background">#FFFFFF</color>
+    <color name="ic_launcher_candado_icon_background">#C32C28</color>
+    <color name="ic_launcher_secure_icon_background">#FFFFFF</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="A_boton_alerta_especifica">EMITIR ALERTA ESPECIFICA</string>
+    <string name="A_boton_alerta_general">EMITIR ALERTA GENERAL</string>
+    <string name="A_cuerpo_alerta">INGRESE EL CUERPO DE LA ALERTA</string>
+    <string name="A_titulo_alerta">INGRESE EL TITULO DE LA ALERTA</string>
+    <string name="DC_nombre_contacto">Nombre contacto:</string>
+    <string name="DC_nombre_contacto_secundario">Nombre contacto</string>
+    <string name="DC_telefono_contacto">Teléfono contacto:</string>
+    <string name="DC_telefono_contacto_secundario">Teléfono contacto</string>
+    <string name="DG_nombre_grupo">Nombre grupo:</string>
+    <string name="DG_nombre_grupo_secundario">Nombre del grupo</string>
+    <string name="DG_participantes_grupo">Participantes del grupo:</string>
+    <string name="DH_titulo">MENÚ DE NAVEGACIÓN</string>
+    <string name="LC_telefono">Teléfono contacto</string>
+    <string name="LG_descripcion">Descripción del grupo</string>
+    <string name="MI_agregar_contacto">Agregar contacto</string>
+    <string name="MI_alerta">Alerta</string>
+    <string name="MI_contactos">Contactos</string>
+    <string name="MI_grupos">Grupos</string>
+    <string name="MI_inicio">Inicio</string>
+    <string name="MI_nuevo_grupo">Nuevo grupo</string>
+    <string name="NC_nombre_del_contacto">NOMBRE DEL CONTACTO</string>
+    <string name="NC_telefono_contacto">TELEFÓNO DEL CONTACTO</string>
+    <string name="NG_nombre_del_grupo">NOMBRE DEL GRUPO</string>
+    <string name="app_name">SecureApp</string>
+    <string name="close">clase</string>
+    <string name="crear">CREAR</string>
+    <string name="menuItem_comunicacion">Comunicación</string>
+    <string name="menuItem_comunidad">Comunidad</string>
+    <string name="menuItem_personal">Personal</string>
+    <string name="menuItem_principal">Principal</string>
+    <string name="open">open</string>
+    <string name="pantalLa_detalle_contacto_titulo">DETALLE CONTACTO</string>
+    <string name="pantalLa_nuevo_contacto_titulo">AGREGAR CONTACTO</string>
+    <string name="pantalla_alerta_titulo">ALERTA</string>
+    <string name="pantalla_contactos_titulo">CONTACTOS</string>
+    <string name="pantalla_detalle_grupo_titulo">DETALLE GRUPO</string>
+    <string name="pantalla_grupos_titulo">GRUPOS</string>
+    <string name="pantalla_iniciar_sesion_titulo">INICIAR SESIÓN</string>
+    <string name="pantalla_inicio_titulo">PANTALLA DE INICIO</string>
+    <string name="pantalla_nuevo_grupo_titulo">CREAR GRUPO</string>
+    <style name="Theme.AppCompat.NoActionBar." parent="Theme.AppCompat.Light.NoActionBar">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        
+    </style>
+    <style name="Theme.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        
+    </style>
+    <style name="Theme.SecureApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        
+    </style>
+</resources>
