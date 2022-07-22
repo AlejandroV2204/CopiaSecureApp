@@ -1,8 +1,6 @@
 package com.example.secureapp.Fragments;
 
 import android.app.Activity;
-import android.content.Context;
-import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,20 +14,24 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.secureapp.Adaptadores.AdapterGrupo;
-import com.example.secureapp.Entidades.Grupo;
 import com.example.secureapp.Interfaces.IComunicaFragments;
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class GrupoFragment extends Fragment{
 
@@ -44,13 +46,15 @@ public class GrupoFragment extends Fragment{
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
+    private FirebaseFirestore firestore;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_grupo,container, false);
 
-        inicializarFirebase();
+        inicializarFireStore();
 
         recyclerViewGrupos = view.findViewById(R.id.RV_grupos);
         listaGrupos = new ArrayList<>();
@@ -58,54 +62,53 @@ public class GrupoFragment extends Fragment{
         //No se si esto sirva
         recyclerViewGrupos.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
-        tomarGruposDeFirebase();
+        tomarDatosDeFirestore();
 
         return view;
 
     }
 
-    private void inicializarFirebase(){
+    private void inicializarFireStore(){
 
         FirebaseApp.initializeApp(getContext());
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
+        firestore = FirebaseFirestore.getInstance();
 
     }
 
-    private void tomarGruposDeFirebase() {
 
-        databaseReference.child("grupo").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
+    private void tomarDatosDeFirestore(){
 
-                    for (DataSnapshot ds : snapshot.getChildren()) {
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
 
-                        String nombreGrupo = ds.child("nombre").getValue().toString();
-                        String descripcionGrupo = ds.child("nombre").getValue().toString();
-                        String administradorGrupo = ds.child("nombre").getValue().toString();
-                        String emailAdministrador = ds.child("nombre").getValue().toString();
-                        String fechaCreacion = ds.child("nombre").getValue().toString();
-                        String cantidadIntegrantes = ds.child("nombre").getValue().toString();
-                        GeoPoint localizacionGrupo = (GeoPoint) ds.child("localizacion").getValue();
+        firestore.collection("usuario").document(email).collection("grupos")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
 
-                        listaGrupos.add(new MGrupo(nombreGrupo, descripcionGrupo, administradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacionGrupo));
+                                String nombreGrupo = document.getString("nombre");
+                                String descripcionGrupo = document.getString("descripcion");
+                                String administradorGrupo = document.getString("administradorGrupo");
+                                String emailAdministrador = document.getString("emailAdministrador");
+                                String fechaCreacion= document.getString("fechaCreacion");
+                                String cantidadIntegrantes = document.getString("cantidadIntegrantes");
+                                GeoPoint localizacionGrupo = document.getGeoPoint("localizacion");
 
+                                listaGrupos.add(new MGrupo(nombreGrupo, descripcionGrupo, administradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacionGrupo));
+                            }
+
+                            adapterGrupo = new AdapterGrupo(listaGrupos, R.layout.lista_grupos);
+                            recyclerViewGrupos.setAdapter(adapterGrupo);
+
+                        } else {
+                            Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
                     }
-
-                    adapterGrupo = new AdapterGrupo(listaGrupos, R.layout.lista_grupos);
-                    recyclerViewGrupos.setAdapter(adapterGrupo);
-
-                }
+                });
 
 
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
 }

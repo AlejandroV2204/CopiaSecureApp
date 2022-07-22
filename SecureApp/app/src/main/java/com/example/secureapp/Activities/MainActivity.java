@@ -1,17 +1,22 @@
 package com.example.secureapp.Activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -56,11 +61,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //variable del fragment detalle contacto
     DetalleContactoFragment detalleContactoFragment;
 
+    int REQUEST_CODE = 200;
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        verificarPermisos();
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -108,6 +117,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 });
         builder.show();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void verificarPermisos() {
+
+        int permisoUbicacion = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
+        int permisoUbicacionExacta = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+        int permisoInternet = ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET);
+
+        if (permisoUbicacion == PackageManager.PERMISSION_GRANTED && permisoUbicacionExacta == PackageManager.PERMISSION_GRANTED && permisoInternet == PackageManager.PERMISSION_GRANTED){
+
+            Toast.makeText(this, "Permiso de ubicación concecido", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Permiso de conexión a internet concecido", Toast.LENGTH_SHORT).show();
+
+
+        }else{
+
+            requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}, REQUEST_CODE);
+
+        }
     }
 
     @Override

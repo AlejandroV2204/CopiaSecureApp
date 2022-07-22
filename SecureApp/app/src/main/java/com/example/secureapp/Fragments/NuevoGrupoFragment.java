@@ -197,7 +197,7 @@ public class NuevoGrupoFragment extends Fragment {
         Calendar fecha = Calendar.getInstance();
 
         day = fecha.get(Calendar.DAY_OF_MONTH);
-        month = fecha.get(Calendar.MONTH);
+        month = fecha.get(Calendar.MONTH) + 1;
         year = fecha.get(Calendar.YEAR);
 
         fechaCreacion = day + "/" + month + "/" + year;
