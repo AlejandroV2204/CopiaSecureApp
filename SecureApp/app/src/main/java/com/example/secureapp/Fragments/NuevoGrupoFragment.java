@@ -18,7 +18,6 @@ import androidx.fragment.app.Fragment;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
-import com.example.secureapp.Activities.RegistroActivity;
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -35,11 +34,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Map;
 
 public class NuevoGrupoFragment extends Fragment {
 
@@ -54,6 +55,7 @@ public class NuevoGrupoFragment extends Fragment {
     String nombreGrupo, descripcionGrupo, nombreAdministradorGrupo, apellidoAdministradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes;
     private String telefonoAdministrador;
     private String documentoId;
+    private GeoPoint localizacion;
     private HashMap<String, Object> ubicacion;
     private int day;
     private int month;
@@ -179,6 +181,11 @@ public class NuevoGrupoFragment extends Fragment {
                             ubicacion.put("Latitud", location.getLatitude());
                             ubicacion.put("Longitud", location.getLongitude());
 
+                            double latitud = location.getLatitude();
+                            double longitud = location.getLongitude();
+
+                            localizacion = new GeoPoint(latitud, longitud);
+
                         }
                     }
                 });
@@ -204,14 +211,14 @@ public class NuevoGrupoFragment extends Fragment {
         this.fechaCreacion = fecha;
         this.emailAdministrador = emailAdmin;
 
-        MGrupo grupo = new MGrupo(nombreGrupo, descripcionGrupo, nombreAdministradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, ubicacion);
+        MGrupo grupo = new MGrupo(nombreGrupo, descripcionGrupo, nombreAdministradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacion);
 
         grupo.setNombre(nombreGrupo);
-        grupo.setEmailAdministrador(emailAdmin);
-        grupo.setDescripción(descripcionGrupo);
+        grupo.setDescripcion(descripcionGrupo);
         grupo.setAdministrador(nombreAdministrador + " " + apellidoAdministrador);
+        grupo.setEmailAdministrador(emailAdmin);
         grupo.setFechaCreacion(fecha);
-        grupo.setLocalizacion(ubicacion);
+        grupo.setLocalizacion(localizacion);
 
         firestore.collection("grupo")
                 .add(grupo)
@@ -225,6 +232,8 @@ public class NuevoGrupoFragment extends Fragment {
                         documentoId = documentReference.getId();
 
                         registrarPrimerIntegrante(nombreAdministradorGrupo, apellidoAdministradorGrupo, emailAdministrador, telefonoAdministrador, documentoId);
+                        registrarGrupoAUsuario(emailAdministrador, documentoId);
+                        registrarGrupoAUsuarioEIntegrantes(emailAdministrador, documentoId);
 
                     }
                 })
@@ -275,7 +284,118 @@ public class NuevoGrupoFragment extends Fragment {
 
     }
 
-    private void registrarGrupoAUsuario(){}
+    private void registrarGrupoAUsuario(String emailAdmin, String documento){
+
+        this.emailAdministrador = emailAdmin;
+        this.documentoId = documento;
+
+        //Consulta en FireStore para extraer los datos de un grupo, y
+        DocumentReference usuarioRef = firestore.collection("grupo").document(documento);
+        usuarioRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+
+                        //Toast.makeText(getContext(), "DocumentSnapshot data:\n " + document.getData(), Toast.LENGTH_SHORT).show();
+                        String nombreGrupo = document.getString("nombre");
+                        String descripcionGrupo = document.getString("descripcion");
+                        String administradorGrupo = document.getString("administrador");
+                        String emailAdministrador = document.getString("emailAdministrador");
+                        String fechaCreacion = document.getString("fechaCreacion");
+                        GeoPoint localizacion = document.getGeoPoint("localizacion");
+
+                        HashMap<String, Object> grupo = new HashMap<>();
+
+                        grupo.put("nombre", nombreGrupo);
+                        grupo.put("descripcion", descripcionGrupo);
+                        grupo.put("administrador", administradorGrupo);
+                        grupo.put("emailAdministrador", emailAdministrador);
+                        grupo.put("fechaCreacion", fechaCreacion);
+                        grupo.put("localizacion", localizacion);
+
+                        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
+
+                        firestore.collection("usuario").document(emailAdmin).collection("grupos").document(documento)
+                                .set(grupo)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+
+                                        Toast.makeText(getContext(), "Grupo agregado exitosamente al usuario", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+
+                                        Toast.makeText(getContext(), "Error en la integración del grupo al usuario", Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
+                    } else {
+
+                        Toast.makeText(getContext(), "No such document", Toast.LENGTH_SHORT).show();
+
+                    }
+                } else {
+
+                    Toast.makeText(getContext(), "get failed with " + task.getException(), Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+
+    }
+
+    private void registrarGrupoAUsuarioEIntegrantes(String emailAdmin, String documento){
+
+        this.emailAdministrador = emailAdmin;
+        this.documentoId = documento;
+
+        //Consulta en FireStore para extraer los datos de un grupo, y
+        firestore.collection("grupo").document(documentoId).collection("integrantes")
+                .whereNotEqualTo("email", null)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                Map<String, Object> datosDocumento = document.getData();
+
+                                firestore.collection("usuario").document(emailAdmin).collection("grupos").document(documento).collection("integrantes").document(document.getId())
+                                        .set(datosDocumento)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+
+                                                Toast.makeText(getContext(), "Integrantes agregados exitosamente al usuario", Toast.LENGTH_SHORT).show();
+
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+
+                                                Toast.makeText(getContext(), "Error en la integración de los integrantes al usuario del usuario", Toast.LENGTH_SHORT).show();
+
+                                            }
+                                        });
+
+                            }
+                        } else {
+
+                            Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+    }
 
     private void limpiarCampos(){
 

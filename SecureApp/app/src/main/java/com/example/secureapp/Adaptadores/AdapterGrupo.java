@@ -85,7 +85,7 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
         MGrupo grupo = gruposList.get(index);
 
         viewHolder.txt_nombreGrupo.setText(grupo.getNombre());
-        viewHolder.txt_descripcionGrupo.setText(grupo.getDescripción());
+        viewHolder.txt_descripcionGrupo.setText(grupo.getDescripcion());
 
     }
 

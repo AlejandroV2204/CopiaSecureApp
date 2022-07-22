@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.GeoPoint;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -86,7 +87,7 @@ public class GrupoFragment extends Fragment{
                         String emailAdministrador = ds.child("nombre").getValue().toString();
                         String fechaCreacion = ds.child("nombre").getValue().toString();
                         String cantidadIntegrantes = ds.child("nombre").getValue().toString();
-                        HashMap localizacionGrupo = (HashMap) ds.child("localizacion").getValue();
+                        GeoPoint localizacionGrupo = (GeoPoint) ds.child("localizacion").getValue();
 
                         listaGrupos.add(new MGrupo(nombreGrupo, descripcionGrupo, administradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacionGrupo));
 
