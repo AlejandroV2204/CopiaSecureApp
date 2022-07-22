@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="A_boton_alerta_especifica">ISSUE GENERAL ALERT</string>
+    <string name="A_boton_alerta_especifica">ISSUE ALERT:Need a mechanic</string>
     <string name="A_cuerpo_alerta">ENTER THE BODY OF THE ALERT</string>
     <string name="A_titulo_alerta">ENTER THE TITLE OF THE ALERT</string>
     <string name="DC_email_contacto">Email contact:</string>

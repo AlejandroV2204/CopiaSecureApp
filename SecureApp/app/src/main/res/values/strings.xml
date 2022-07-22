@@ -90,7 +90,7 @@
     <string name="pantalla_alerta_titulo">ALERTA</string>
     <string name="A_titulo_alerta">INGRESE EL TITULO DE LA ALERTA</string>
     <string name="A_cuerpo_alerta">INGRESE EL CUERPO DE LA ALERTA</string>
-    <string name="A_boton_alerta_especifica">EMITIR ALERTA</string>
+    <string name="A_boton_alerta_especifica">EMITIR ALERTA:Necesito un mecanico</string>
     ------------------------------------------------------------------------------------
     <string name="menuItem_principal">Principal</string>
     <string name="MI_inicio">Inicio</string>

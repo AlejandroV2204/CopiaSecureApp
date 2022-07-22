@@ -27,7 +27,7 @@
     <string name="pantalla_alerta_titulo">警报</string>
     <string name="A_titulo_alerta">输入警报的标题</string>
     <string name="A_cuerpo_alerta">输入警报的内容</string>
-    <string name="A_boton_alerta_especifica">发出一般警报</string>
+    <string name="A_boton_alerta_especifica">问题提示：我需要一个机械师</string>
     <string name="menuItem_principal">主要内容</string>
     <string name="MI_inicio">首页</string>
     <string name="menuItem_personal">职员</string>

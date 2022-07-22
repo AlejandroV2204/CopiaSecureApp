@@ -27,7 +27,7 @@
     <string name="pantalla_alerta_titulo">ALERTE</string>
     <string name="A_titulo_alerta">SAISISSEZ LE TITRE DE L\'ALERTE</string>
     <string name="A_cuerpo_alerta">ENTRER LE CORPS DE L\'ALERTE</string>
-    <string name="A_boton_alerta_especifica">ÉMETTRE UNE ALERTE GÉNÉRALE</string>
+    <string name="A_boton_alerta_especifica">ALERTE AUX QUESTIONS : J\'ai besoin d\'un mécanicien</string>
     <string name="menuItem_principal">Principal</string>
     <string name="MI_inicio">Accueil</string>
     <string name="menuItem_personal">Personnel</string>

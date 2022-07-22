@@ -36,9 +36,7 @@ import java.util.Map;
 
 public class AlertaFragment extends Fragment{
 
-    EditText  et_cuerpoAlerta;
-
-    String tituloAlerta;
+    String tituloAlerta ="NECESITO UN MECANICO \uD83D\uDD27";
 
     Button btn_emitirAlerta;
 
@@ -54,8 +52,6 @@ public class AlertaFragment extends Fragment{
         inicializarFirebase();
         firebaseAuth = FirebaseAuth.getInstance();
 
-        et_cuerpoAlerta = view.findViewById(R.id.et_cuerpoAlerta);
-
         btn_emitirAlerta = view.findViewById(R.id.btn_emitirAlerta);
 
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
@@ -67,7 +63,7 @@ public class AlertaFragment extends Fragment{
                 if (snapshot.exists()){
 
                     String nombre = snapshot.child("nombre").getValue().toString();
-                    tituloAlerta = nombre + ", ha realizado una alerta";
+                    tituloAlerta = nombre + tituloAlerta;
                 }
             }
 
@@ -119,7 +115,6 @@ public class AlertaFragment extends Fragment{
             json.put("to","/topics/"+"enviaratodos");
             JSONObject notificacion = new JSONObject();
             notificacion.put("titulo", tituloAlerta);
-            notificacion.put("cuerpo", et_cuerpoAlerta.getText().toString());
             notificacion.put("foto",url_foto);
 
             json.put("data",notificacion);
@@ -151,7 +146,6 @@ public class AlertaFragment extends Fragment{
 
     private void limpiarCampos(){
 
-        et_cuerpoAlerta.setText("");
 
     }
 

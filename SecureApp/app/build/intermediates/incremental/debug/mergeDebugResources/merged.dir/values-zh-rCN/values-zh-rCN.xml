@@ -4,7 +4,7 @@
     <item quantity="one">%d 条新通知</item>
     <item quantity="other">%d 条新通知</item>
   </plurals>
-    <string name="A_boton_alerta_especifica">发出一般警报</string>
+    <string name="A_boton_alerta_especifica">问题提示：我需要一个机械师</string>
     <string name="A_cuerpo_alerta">输入警报的内容</string>
     <string name="A_titulo_alerta">输入警报的标题</string>
     <string name="DC_email_contacto">电子邮件联系。</string>

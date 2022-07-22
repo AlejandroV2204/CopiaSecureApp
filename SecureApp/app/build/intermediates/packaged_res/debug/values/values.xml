@@ -41,7 +41,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="A_boton_alerta_especifica">EMITIR ALERTA</string>
+    <string name="A_boton_alerta_especifica">EMITIR ALERTA:Necesito un mecanico</string>
     <string name="A_cuerpo_alerta">INGRESE EL CUERPO DE LA ALERTA</string>
     <string name="A_titulo_alerta">INGRESE EL TITULO DE LA ALERTA</string>
     <string name="DC_email_contacto">Email contacto:</string>

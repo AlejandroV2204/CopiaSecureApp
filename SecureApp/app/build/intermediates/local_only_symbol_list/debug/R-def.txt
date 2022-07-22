@@ -57,7 +57,6 @@ id contactos
 id container
 id drawer
 id et_apellidoRegistro
-id et_cuerpoAlerta
 id et_descripcionGrupo
 id et_email
 id et_emailContacto

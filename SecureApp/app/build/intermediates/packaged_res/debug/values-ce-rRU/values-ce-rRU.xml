@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="A_boton_alerta_especifica">ОБЪЯВИТЬ ОБЩУЮ ТРЕВОГУ</string>
+    <string name="A_boton_alerta_especifica">ISSUE ALERT:Мне нужен механик</string>
     <string name="A_cuerpo_alerta">ВВЕДИТЕ ТЕКСТ ОПОВЕЩЕНИЯ</string>
     <string name="A_titulo_alerta">ВВЕДИТЕ НАЗВАНИЕ ОПОВЕЩЕНИЯ</string>
     <string name="DC_email_contacto">Контакт по электронной почте:</string>
