@@ -30,7 +30,6 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
 
         private TextView txt_nombreGrupo, txt_descripcionGrupo;
         public View view;
-        LinearLayout linearLayout;
 
         private View.OnClickListener listener;
 
@@ -40,8 +39,6 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
             this.view = view;
             this.txt_nombreGrupo = view.findViewById(R.id.txt_nombreGrupo);
             this.txt_descripcionGrupo = view.findViewById(R.id.txt_descripcionGrupo);
-
-            linearLayout = view.findViewById(R.id.content_main);
 
 
         }
