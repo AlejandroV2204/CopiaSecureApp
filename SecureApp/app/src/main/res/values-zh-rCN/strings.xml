@@ -22,7 +22,7 @@
     <string name="pantalla_detalle_grupo_titulo">集团详情</string>
     <string name="DG_nombre_grupo">集团名称。</string>
     <string name="DG_nombre_grupo_secundario">团体名称</string>
-    <string name="DG_participantes_grupo">小组参与者。</string>
+    <string name="DG_integrantes_grupo">小组参与者。</string>
     <string name="LG_descripcion">小组的描述</string>
     <string name="pantalla_alerta_titulo">警报</string>
     <string name="A_titulo_alerta">输入警报的标题</string>

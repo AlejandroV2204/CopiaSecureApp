@@ -45,6 +45,7 @@ drawable secureapplogo
 drawable secureapplogodark
 id RV_contactos
 id RV_grupos
+id RV_integrantes
 id alerta
 id btn_crearContacto
 id btn_crearGrupo
@@ -55,6 +56,7 @@ id btn_registrar
 id cerrarSesion
 id contactos
 id container
+id content_main
 id drawer
 id et_apellidoRegistro
 id et_cuerpoAlerta
@@ -75,10 +77,10 @@ id guideline3
 id guideline4
 id imageView2
 id imageView3
-id imagen_contacto
 id imagen_detalleContacto
 id imagen_detalle_grupo
 id imagen_grupo
+id imagen_integrante
 id include
 id inicio
 id navigationView
@@ -92,7 +94,7 @@ id textView3
 id textView4
 id textView5
 id toolbar
-id txt_apellidoContacto
+id txt_apellidoIntegrante
 id txt_bienvenido
 id txt_descripcionGrupo
 id txt_detalleMostrarContacto
@@ -100,10 +102,10 @@ id txt_detalleMostrarGrupo
 id txt_emailContacto
 id txt_emailDetalleContacto
 id txt_headerTexto
-id txt_nombreContacto
 id txt_nombreDetalleContacto
 id txt_nombreDetalleGrupo
 id txt_nombreGrupo
+id txt_nombreIntegrante
 id txt_olvidoPassword
 id txt_pantallaDeInicio
 id txt_registro
@@ -131,6 +133,7 @@ layout fragment_nuevo_contacto
 layout fragment_nuevo_grupo
 layout lista_contactos
 layout lista_grupos
+layout lista_integrantes
 menu drawer_menu
 mipmap ic_candado
 mipmap ic_candado_foreground
@@ -165,9 +168,13 @@ string DC_email_contacto
 string DC_email_contacto_secundario
 string DC_nombre_contacto
 string DC_nombre_contacto_secundario
+string DG_apellido_integrante
+string DG_email_integrante
+string DG_integrantes_grupo
 string DG_nombre_grupo
 string DG_nombre_grupo_secundario
-string DG_participantes_grupo
+string DG_nombre_integrante
+string DG_telefono_integrante
 string DH_titulo
 string IS_email
 string IS_olvido_password

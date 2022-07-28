@@ -49,7 +49,6 @@ public class MainFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main,container, false);
 
-        //inicializarFirebase();
         inicializarFireStore();
 
         txt_bienvenido = view.findViewById(R.id.txt_bienvenido);
@@ -59,14 +58,6 @@ public class MainFragment extends Fragment{
         return view;
     }
 
-    private void inicializarFirebase(){
-
-        firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseApp.initializeApp(getContext());
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
-
-    }
 
     private void inicializarFireStore(){
 
@@ -76,8 +67,6 @@ public class MainFragment extends Fragment{
     }
 
     private void tomarDatosUsuario(){
-
-        MUsuario usuario = new MUsuario();
 
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
 

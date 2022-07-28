@@ -48,9 +48,13 @@
     <string name="DC_email_contacto_secundario">Email contacto</string>
     <string name="DC_nombre_contacto">Nombre contacto:</string>
     <string name="DC_nombre_contacto_secundario">Nombre contacto</string>
+    <string name="DG_apellido_integrante">Apellido integrante</string>
+    <string name="DG_email_integrante">Email integrante</string>
+    <string name="DG_integrantes_grupo">Integrantes del grupo:</string>
     <string name="DG_nombre_grupo">Nombre grupo:</string>
     <string name="DG_nombre_grupo_secundario">Nombre del grupo</string>
-    <string name="DG_participantes_grupo">Participantes del grupo:</string>
+    <string name="DG_nombre_integrante">Nombre integrante</string>
+    <string name="DG_telefono_integrante">Teléfono integrante</string>
     <string name="DH_titulo">MENÚ DE NAVEGACIÓN</string>
     <string name="IS_email">Correo electrónico</string>
     <string name="IS_olvido_password">¿Olvido su contraseña?</string>

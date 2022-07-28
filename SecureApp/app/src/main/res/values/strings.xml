@@ -81,7 +81,12 @@
     <string name="pantalla_detalle_grupo_titulo">DETALLE GRUPO</string>
     <string name="DG_nombre_grupo">Nombre grupo:</string>
     <string name="DG_nombre_grupo_secundario">Nombre del grupo</string>
-    <string name="DG_participantes_grupo">Participantes del grupo:</string>
+    <string name="DG_integrantes_grupo">Integrantes del grupo:</string>
+
+    <string name="DG_nombre_integrante">Nombre integrante</string>
+    <string name="DG_apellido_integrante">Apellido integrante</string>
+    <string name="DG_email_integrante">Email integrante</string>
+    <string name="DG_telefono_integrante">Teléfono integrante</string>
 
     <string name="LG_descripcion">Descripción del grupo</string>
     ------------------------------------------------------------------------------------

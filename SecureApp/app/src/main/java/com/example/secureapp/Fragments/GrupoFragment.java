@@ -75,7 +75,6 @@ public class GrupoFragment extends Fragment{
 
     }
 
-
     private void tomarDatosDeFirestore(){
 
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
@@ -99,14 +98,23 @@ public class GrupoFragment extends Fragment{
                                 listaGrupos.add(new MGrupo(nombreGrupo, descripcionGrupo, administradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacionGrupo));
                             }
 
-                            adapterGrupo = new AdapterGrupo(listaGrupos, R.layout.lista_grupos);
+                            adapterGrupo = new AdapterGrupo(listaGrupos, R.layout.lista_grupos, iComunicaFragments);
                             recyclerViewGrupos.setAdapter(adapterGrupo);
+
 
                         } else {
                             Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+
+
+    }
+
+    private interface interfaceGrupo{
+
+        void interfaceClick(int position);
+
 
 
     }

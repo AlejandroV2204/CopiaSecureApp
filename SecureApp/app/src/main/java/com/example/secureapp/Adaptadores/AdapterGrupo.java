@@ -3,11 +3,15 @@ package com.example.secureapp.Adaptadores;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.secureapp.Interfaces.IComunicaFragments;
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
 
@@ -20,11 +24,13 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
 
     LayoutInflater inflater;
     ArrayList<MGrupo> gruposList;
+    IComunicaFragments iComunicaFragments;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView txt_nombreGrupo, txt_descripcionGrupo;
         public View view;
+        LinearLayout linearLayout;
 
         private View.OnClickListener listener;
 
@@ -35,9 +41,12 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
             this.txt_nombreGrupo = view.findViewById(R.id.txt_nombreGrupo);
             this.txt_descripcionGrupo = view.findViewById(R.id.txt_descripcionGrupo);
 
+            linearLayout = view.findViewById(R.id.content_main);
+
+
         }
 
-        public void  setOnClickListener(View.OnClickListener listener){
+        public void setOnClickListener(View.OnClickListener listener){
 
             this.listener = listener;
 
@@ -59,10 +68,11 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
     //Listener
     //private View.OnClickListener listener;
 
-    public AdapterGrupo(ArrayList<MGrupo> gruposList, int resource){
+    public AdapterGrupo(ArrayList<MGrupo> gruposList, int resource, IComunicaFragments iComunicaFragments){
 
         this.gruposList = gruposList;
         this.resource = resource;
+        this.iComunicaFragments = iComunicaFragments;
 
     }
 
@@ -87,6 +97,7 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
         viewHolder.txt_nombreGrupo.setText(grupo.getNombre());
         viewHolder.txt_descripcionGrupo.setText(grupo.getDescripcion());
 
+
     }
 
     @Override
@@ -100,9 +111,9 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
 
 
 
-        }
-
     }
+
+}
 
 
 

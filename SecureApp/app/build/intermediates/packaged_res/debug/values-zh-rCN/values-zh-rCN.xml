@@ -8,9 +8,9 @@
     <string name="DC_nombre_contacto_secundario">联系人姓名</string>
     <string name="DC_telefono_contacto">电话联系。</string>
     <string name="DC_telefono_contacto_secundario">电话联系</string>
+    <string name="DG_integrantes_grupo">小组参与者。</string>
     <string name="DG_nombre_grupo">集团名称。</string>
     <string name="DG_nombre_grupo_secundario">团体名称</string>
-    <string name="DG_participantes_grupo">小组参与者。</string>
     <string name="DH_titulo">导航菜单</string>
     <string name="LC_telefono">电话联系</string>
     <string name="LG_descripcion">小组的描述</string>

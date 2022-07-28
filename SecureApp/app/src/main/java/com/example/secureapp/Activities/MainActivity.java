@@ -11,6 +11,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -20,11 +21,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.example.secureapp.Adaptadores.AdapterGrupo;
 import com.example.secureapp.Entidades.Contacto;
 import com.example.secureapp.Entidades.Grupo;
 import com.example.secureapp.Fragments.ContactoFragment;
@@ -44,6 +47,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessagingService;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, IComunicaFragments {
 
     DrawerLayout drawerLayout;
@@ -60,6 +65,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     //variable del fragment detalle contacto
     DetalleContactoFragment detalleContactoFragment;
+
+    ArrayList listaGrupos;
+    RecyclerView recyclerGrupos;
 
     int REQUEST_CODE = 200;
 
@@ -217,7 +225,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-
     @Override
     public void enviarGrupo(Grupo grupo) {
 
@@ -262,6 +269,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.replace(R.id.container, detalleContactoFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+
+    }
+
+    public void construirRecylerGrupo(){
+
+        int resource = 0;
+        listaGrupos =  new ArrayList<>();
+        recyclerGrupos = findViewById(R.id.RV_grupos);
+
 
     }
 

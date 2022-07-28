@@ -34,8 +34,8 @@ public class AdapterContacto extends RecyclerView.Adapter<AdapterContacto.ViewHo
                 super(view);
 
                 this.view = view;
-                this.txt_nombreContacto = view.findViewById(R.id.txt_nombreContacto);
-                this.txt_apellidoContacto = view.findViewById(R.id.txt_apellidoContacto);
+                this.txt_nombreContacto = view.findViewById(R.id.txt_nombreIntegrante);
+                this.txt_apellidoContacto = view.findViewById(R.id.txt_apellidoIntegrante);
                 this.txt_emailContacto = view.findViewById(R.id.txt_emailContacto);
                 this.txt_telefonoContacto = view.findViewById(R.id.txt_telefonoContacto);
 

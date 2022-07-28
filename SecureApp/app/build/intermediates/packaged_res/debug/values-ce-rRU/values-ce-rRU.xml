@@ -8,9 +8,9 @@
     <string name="DC_nombre_contacto_secundario">Контактное имя:</string>
     <string name="DC_telefono_contacto">Контактный телефон:</string>
     <string name="DC_telefono_contacto_secundario">Контактный телефон</string>
+    <string name="DG_integrantes_grupo">Участники группы:</string>
     <string name="DG_nombre_grupo">Название группы:</string>
     <string name="DG_nombre_grupo_secundario">Название группы</string>
-    <string name="DG_participantes_grupo">Участники группы:</string>
     <string name="DH_titulo">НАВИГАЦИОННОЕ МЕНЮ</string>
     <string name="LC_telefono">Контактный телефон</string>
     <string name="LG_descripcion">Описание группы</string>

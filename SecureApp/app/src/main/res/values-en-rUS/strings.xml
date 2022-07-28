@@ -8,7 +8,7 @@
     <string name="LC_telefono">contact phone</string>
     <string name="DG_nombre_grupo">group name</string>
     <string name="DG_nombre_grupo_secundario">group name</string>
-    <string name="DG_participantes_grupo">group participants</string>
+    <string name="DG_integrantes_grupo">group participants</string>
     <string name="LG_descripcion">group description</string>
     <string name="pantalla_alerta_titulo">ALERT</string>
     <string name="A_titulo_alerta">ENTER THE TITLE OF THE ALERT</string>
