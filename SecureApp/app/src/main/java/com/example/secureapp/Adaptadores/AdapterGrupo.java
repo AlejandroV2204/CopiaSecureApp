@@ -45,6 +45,7 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView txt_nombreGrupo, txt_descripcionGrupo;
+        private TextView txt_identificadorGrupo;
         public View view;
 
         private View.OnClickListener listener;
@@ -53,6 +54,7 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
             super(view);
 
             this.view = view;
+            //this.txt_identificadorGrupo = view.findViewById(R.id.);
             this.txt_nombreGrupo = view.findViewById(R.id.txt_nombreGrupo);
             this.txt_descripcionGrupo = view.findViewById(R.id.txt_descripcionGrupo);
 
@@ -108,11 +110,9 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
 
         MGrupo grupo = gruposList.get(position);
 
+        //viewHolder.txt_identificadorGrupo.setText(grupo.getIdentificador());
         viewHolder.txt_nombreGrupo.setText(grupo.getNombre());
         viewHolder.txt_descripcionGrupo.setText(grupo.getDescripcion());
-
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("datosGrupo", grupo);
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,7 +151,7 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
         //abrir fragment
         fragmentManager = ((AppCompatActivity) contexto).getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, new DetalleGrupoFragment());
+        fragmentTransaction.replace(R.id.container, detalleGrupoFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 

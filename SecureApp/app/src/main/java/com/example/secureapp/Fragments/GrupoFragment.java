@@ -87,6 +87,7 @@ public class GrupoFragment extends Fragment{
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
+                                String identificadorGrupo = document.getId();
                                 String nombreGrupo = document.getString("nombre");
                                 String descripcionGrupo = document.getString("descripcion");
                                 String administradorGrupo = document.getString("administradorGrupo");
@@ -95,7 +96,7 @@ public class GrupoFragment extends Fragment{
                                 String cantidadIntegrantes = document.getString("cantidadIntegrantes");
                                 GeoPoint localizacionGrupo = document.getGeoPoint("localizacion");
 
-                                listaGrupos.add(new MGrupo(nombreGrupo, descripcionGrupo, administradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacionGrupo));
+                                listaGrupos.add(new MGrupo(identificadorGrupo, nombreGrupo, descripcionGrupo, administradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacionGrupo));
                             }
 
                             adapterGrupo = new AdapterGrupo(listaGrupos, R.layout.lista_grupos);

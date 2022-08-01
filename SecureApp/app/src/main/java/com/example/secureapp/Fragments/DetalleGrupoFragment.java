@@ -38,6 +38,7 @@ public class DetalleGrupoFragment extends Fragment {
     private ArrayList<MIntegrante> listaIntegrantes= new ArrayList<>();
 
     TextView nombreDetalle;
+    String identificadorDetalle;
     ImageView imagenDetalle;
 
     private FirebaseFirestore firestore;
@@ -67,6 +68,7 @@ public class DetalleGrupoFragment extends Fragment {
 
             //Establecer los datos en las vistas
             nombreDetalle.setText(grupo.getNombre());
+            identificadorDetalle = (grupo.getIdentificador());
             //imagenDetalle.setImageResource(grupo.getImagenid());
         }
 
@@ -89,7 +91,7 @@ public class DetalleGrupoFragment extends Fragment {
 
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
 
-        firestore.collection("usuario").document(email).collection("grupos")
+        firestore.collection("usuario").document(email).collection("grupos").document(identificadorDetalle).collection("integrantes")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

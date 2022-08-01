@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.example.secureapp.Activities.RegistroActivity;
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -52,7 +53,7 @@ public class NuevoGrupoFragment extends Fragment {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
-    String nombreGrupo, descripcionGrupo, nombreAdministradorGrupo, apellidoAdministradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes;
+    String idenficadorGrupo, nombreGrupo, descripcionGrupo, nombreAdministradorGrupo, apellidoAdministradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes;
     private String telefonoAdministrador;
     private String documentoId;
     private GeoPoint localizacion;
@@ -137,7 +138,7 @@ public class NuevoGrupoFragment extends Fragment {
 
                         Toast.makeText(getContext(), "Datos obtenido sobre el usuario", Toast.LENGTH_SHORT).show();
 
-                        registrarGrupoFireStore(nombreAdministradorGrupo, apellidoAdministradorGrupo, fechaCreacion, emailAdministrador);
+                        registrarGrupoFireStore(idenficadorGrupo, nombreAdministradorGrupo, apellidoAdministradorGrupo, fechaCreacion, emailAdministrador);
 
 
                     } else {
@@ -204,14 +205,14 @@ public class NuevoGrupoFragment extends Fragment {
 
     }
 
-    private void registrarGrupoFireStore(String nombreAdministrador, String apellidoAdministrador , String fecha, String emailAdmin) {
+    private void registrarGrupoFireStore(String idenficadorGrupo, String nombreAdministrador, String apellidoAdministrador , String fecha, String emailAdmin) {
 
         this.nombreAdministradorGrupo = nombreAdministrador;
         this.apellidoAdministradorGrupo = apellidoAdministrador;
         this.fechaCreacion = fecha;
         this.emailAdministrador = emailAdmin;
 
-        MGrupo grupo = new MGrupo(nombreGrupo, descripcionGrupo, nombreAdministradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacion);
+        MGrupo grupo = new MGrupo(idenficadorGrupo, nombreGrupo, descripcionGrupo, nombreAdministradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacion);
 
         grupo.setNombre(nombreGrupo);
         grupo.setDescripcion(descripcionGrupo);
@@ -231,6 +232,7 @@ public class NuevoGrupoFragment extends Fragment {
                         Toast.makeText(getContext(), "Grupo creado exitosamente", Toast.LENGTH_SHORT).show();
                         documentoId = documentReference.getId();
 
+                        agregarIdentificadorGrupo(documentoId);
                         registrarPrimerIntegrante(nombreAdministradorGrupo, apellidoAdministradorGrupo, emailAdministrador, telefonoAdministrador, documentoId);
                         registrarGrupoAUsuario(emailAdministrador, documentoId);
                         registrarGrupoAUsuarioEIntegrantes(emailAdministrador, documentoId);
@@ -247,6 +249,35 @@ public class NuevoGrupoFragment extends Fragment {
                 });
 
         //firestore.collection().document().collection("integrantes")
+    }
+
+    private void agregarIdentificadorGrupo(String documentoIdentificador){
+
+        this.documentoId = documentoIdentificador;
+
+        MGrupo grupo = new MGrupo(idenficadorGrupo, nombreGrupo, descripcionGrupo, nombreAdministradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacion);
+
+        grupo.setIdentificador(documentoIdentificador);
+
+
+        firestore.collection("grupo").document(documentoIdentificador)
+                .set(grupo)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                        Toast.makeText(getContext(), "Usuario creado exitosamente", Toast.LENGTH_SHORT).show();
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        Toast.makeText(getContext(), "Error en el registro", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
     }
 
     private void registrarPrimerIntegrante(String nombreAdministrador, String apellidoAdministrador , String emailAdmin, String telefonoAdmin, String documento){
@@ -299,6 +330,7 @@ public class NuevoGrupoFragment extends Fragment {
                     if (document.exists()) {
 
                         //Toast.makeText(getContext(), "DocumentSnapshot data:\n " + document.getData(), Toast.LENGTH_SHORT).show();
+                        String identificadorGrupo = document.getString("identificador");
                         String nombreGrupo = document.getString("nombre");
                         String descripcionGrupo = document.getString("descripcion");
                         String administradorGrupo = document.getString("administrador");
@@ -308,6 +340,7 @@ public class NuevoGrupoFragment extends Fragment {
 
                         HashMap<String, Object> grupo = new HashMap<>();
 
+                        grupo.put("identificador", identificadorGrupo);
                         grupo.put("nombre", nombreGrupo);
                         grupo.put("descripcion", descripcionGrupo);
                         grupo.put("administrador", administradorGrupo);

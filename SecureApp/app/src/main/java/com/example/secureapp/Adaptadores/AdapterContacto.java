@@ -99,9 +99,9 @@ public class AdapterContacto extends RecyclerView.Adapter<AdapterContacto.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int index) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
 
-        MContacto contacto = contactosList.get(index);
+        MContacto contacto = contactosList.get(position);
 
         viewHolder.txt_nombreContacto.setText(contacto.getNombre());
         viewHolder.txt_apellidoContacto.setText(contacto.getApellido());
