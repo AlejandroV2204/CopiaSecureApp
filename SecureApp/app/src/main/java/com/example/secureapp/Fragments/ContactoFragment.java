@@ -78,52 +78,12 @@ public class ContactoFragment extends Fragment{
 
     }
 
-    private void inicializarFirebase(){
-
-        FirebaseApp.initializeApp(getContext());
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
-
-    }
 
     private void inicializarFireStore(){
 
         FirebaseApp.initializeApp(getContext());
         firestore = FirebaseFirestore.getInstance();
 
-    }
-
-    private void tomarContactosDeFirebase() {
-
-        databaseReference.child("contacto").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-
-                    for (DataSnapshot ds : snapshot.getChildren()) {
-
-                        String nombreContacto = ds.child("nombre").getValue().toString();
-                        String apellidoContacto = ds.child("apellido").getValue().toString();
-                        String emailContacto = ds.child("email").getValue().toString();
-                        String telefonoContacto = ds.child("telefono").getValue().toString();
-
-                        listaContactos.add(new MContacto(nombreContacto, apellidoContacto, emailContacto, telefonoContacto));
-
-                    }
-
-                    adapterContacto = new AdapterContacto(listaContactos, R.layout.lista_contactos);
-                    recyclerViewContactos.setAdapter(adapterContacto);
-
-                }
-
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
     private void tomarDatosDeFirestore(){
@@ -156,22 +116,6 @@ public class ContactoFragment extends Fragment{
                 });
 
 
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-
-        if (context instanceof Activity){
-
-            this.actividad = (Activity) context;
-                iComunicaFragments = (IComunicaFragments) this.actividad;
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 
 }

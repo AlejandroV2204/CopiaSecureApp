@@ -1,5 +1,7 @@
 package com.example.secureapp.Adaptadores;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,16 +10,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
 
+import com.example.secureapp.Activities.MainActivity;
+import com.example.secureapp.Entidades.Grupo;
+import com.example.secureapp.Fragments.AlertaFragment;
+import com.example.secureapp.Fragments.DetalleGrupoFragment;
 import com.example.secureapp.Interfaces.IComunicaFragments;
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
 
 import java.util.ArrayList;
 
-public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> implements View.OnClickListener {
+public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> implements View.OnClickListener{
 
     private final int resource;
     private View.OnClickListener listener;
@@ -25,6 +35,12 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
     LayoutInflater inflater;
     ArrayList<MGrupo> gruposList;
     IComunicaFragments iComunicaFragments;
+
+    //variables para cargar el fragment principal
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+
+    Context contexto;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -65,11 +81,10 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
     //Listener
     //private View.OnClickListener listener;
 
-    public AdapterGrupo(ArrayList<MGrupo> gruposList, int resource, IComunicaFragments iComunicaFragments){
+    public AdapterGrupo(ArrayList<MGrupo> gruposList, int resource){
 
         this.gruposList = gruposList;
         this.resource = resource;
-        this.iComunicaFragments = iComunicaFragments;
 
     }
 
@@ -81,18 +96,32 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
 
         view.setOnClickListener(this);
 
+        contexto = parent.getContext();
+
         return new ViewHolder(view);
 
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int index) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
 
-        MGrupo grupo = gruposList.get(index);
+        MGrupo grupo = gruposList.get(position);
 
         viewHolder.txt_nombreGrupo.setText(grupo.getNombre());
         viewHolder.txt_descripcionGrupo.setText(grupo.getDescripcion());
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("datosGrupo", grupo);
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                enviarGrupo(grupo);
+
+            }
+        });
 
 
     }
@@ -104,11 +133,31 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
 
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view) {}
 
+    public void enviarGrupo(MGrupo grupo) {
 
+        //Aquí se realiza la lógica necesaria para poder realizar el envio
+        DetalleGrupoFragment detalleGrupoFragment = new DetalleGrupoFragment();
+
+        //Objeto bundle para transportar la información
+        Bundle bundleEnvio = new Bundle();
+
+        //Enviar el objeto que está llegando con Serializable
+        bundleEnvio.putSerializable("objetoGrupo", grupo);
+
+        detalleGrupoFragment.setArguments(bundleEnvio);
+
+        //abrir fragment
+        fragmentManager = ((AppCompatActivity) contexto).getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, new DetalleGrupoFragment());
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
 
     }
+
+    //private void RecyclerHolder extends RecyclerView.ViewHolder(){}
 
 }
 

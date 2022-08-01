@@ -16,7 +16,7 @@
 
         <ImageView
 
-            android:id="@+id/imagen_integrante"
+            android:id="@+id/imagen_contacto"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@mipmap/ic_launcher">
@@ -25,13 +25,13 @@
 
         <TextView
 
-            android:id="@+id/txt_nombreIntegrante"
+            android:id="@+id/txt_nombreContacto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@id/imagen_integrante"
-            android:layout_toRightOf="@id/imagen_integrante"
+            android:layout_toEndOf="@id/imagen_contacto"
+            android:layout_toRightOf="@id/imagen_contacto"
             android:text="@string/DC_nombre_contacto_secundario"
             android:textColor="@color/Texto_color"
             android:textSize="20sp"
@@ -41,14 +41,14 @@
 
         <TextView
 
-            android:id="@+id/txt_apellidoIntegrante"
+            android:id="@+id/txt_apellidoContacto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_below="@id/txt_nombreIntegrante"
-            android:layout_toEndOf="@id/imagen_integrante"
-            android:layout_toRightOf="@id/imagen_integrante"
+            android:layout_below="@id/txt_nombreContacto"
+            android:layout_toEndOf="@id/imagen_contacto"
+            android:layout_toRightOf="@id/imagen_contacto"
             android:text="@string/DC_nombre_contacto_secundario"
             android:textColor="@color/Texto_color"
             android:textSize="20sp"
@@ -61,11 +61,11 @@
             android:id="@+id/txt_emailContacto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_apellidoIntegrante"
+            android:layout_below="@id/txt_apellidoContacto"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@id/imagen_integrante"
-            android:layout_toRightOf="@id/imagen_integrante"
+            android:layout_toEndOf="@id/imagen_contacto"
+            android:layout_toRightOf="@id/imagen_contacto"
             android:text="@string/LC_email"
             android:textColor="@color/Texto_color">
 
@@ -79,8 +79,8 @@
             android:layout_below="@id/txt_emailContacto"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@id/imagen_integrante"
-            android:layout_toRightOf="@id/imagen_integrante"
+            android:layout_toEndOf="@id/imagen_contacto"
+            android:layout_toRightOf="@id/imagen_contacto"
             android:text="@string/LC_telefono"
             android:textColor="@color/Texto_color">
 

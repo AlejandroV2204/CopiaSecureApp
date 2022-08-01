@@ -2882,6 +2882,7 @@ int id ignoreRequest 0x7f090107
 int id image 0x7f090108
 int id imageView2 0x7f090109
 int id imageView3 0x7f09010a
+int id imagen_contacto 0x7f09023f
 int id imagen_detalleContacto 0x7f09010b
 int id imagen_detalle_grupo 0x7f09010c
 int id imagen_grupo 0x7f09010d
@@ -3143,6 +3144,7 @@ int id transition_position 0x7f09020c
 int id transition_scene_layoutid_cache 0x7f09020d
 int id transition_transform 0x7f09020e
 int id triangle 0x7f09020f
+int id txt_apellidoContacto 0x7f090241
 int id txt_apellidoIntegrante 0x7f090210
 int id txt_bienvenido 0x7f090211
 int id txt_descripcionGrupo 0x7f090212
@@ -3151,6 +3153,7 @@ int id txt_detalleMostrarGrupo 0x7f090214
 int id txt_emailContacto 0x7f090215
 int id txt_emailDetalleContacto 0x7f090216
 int id txt_headerTexto 0x7f090217
+int id txt_nombreContacto 0x7f090240
 int id txt_nombreDetalleContacto 0x7f090218
 int id txt_nombreDetalleGrupo 0x7f090219
 int id txt_nombreGrupo 0x7f09021a
@@ -3159,9 +3162,11 @@ int id txt_olvidoPassword 0x7f09021c
 int id txt_pantallaDeInicio 0x7f09021d
 int id txt_registro 0x7f09021e
 int id txt_telefonoContacto 0x7f09021f
+int id txt_telefonoDetalleContacto 0x7f09023d
 int id txt_tituloContacto 0x7f090220
 int id txt_tituloDetalleContacto 0x7f090221
 int id txt_tituloDetalleContacto2 0x7f090222
+int id txt_tituloDetalleContacto3 0x7f09023e
 int id txt_tituloDetalleGrupo 0x7f090223
 int id txt_tituloDetalleGrupo2 0x7f090224
 int id unchecked 0x7f090225
@@ -3429,6 +3434,8 @@ int string DC_email_contacto 0x7f110004
 int string DC_email_contacto_secundario 0x7f110005
 int string DC_nombre_contacto 0x7f110006
 int string DC_nombre_contacto_secundario 0x7f110007
+int string DC_telefono_contacto 0x7f110008
+int string DC_telefono_contacto_secundario 0x7f110009
 int string DG_apellido_integrante 0x7f11000a
 int string DG_email_integrante 0x7f11000b
 int string DG_integrantes_grupo 0x7f11000c
@@ -3629,6 +3636,7 @@ int string pantalla_contactos_titulo 0x7f1100cf
 int string pantalla_detalle_grupo_titulo 0x7f1100d0
 int string pantalla_grupos_titulo 0x7f1100d1
 int string pantalla_iniciar_sesion_titulo 0x7f1100d2
+int string pantalla_inicio_bienvenido 0x7f1100df
 int string pantalla_inicio_titulo 0x7f1100d3
 int string pantalla_nuevo_grupo_titulo 0x7f1100d4
 int string pantalla_olvido_password 0x7f1100d5

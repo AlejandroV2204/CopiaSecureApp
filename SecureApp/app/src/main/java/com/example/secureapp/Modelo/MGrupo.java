@@ -2,7 +2,9 @@ package com.example.secureapp.Modelo;
 
 import com.google.firebase.firestore.GeoPoint;
 
-public class MGrupo {
+import java.io.Serializable;
+
+public class MGrupo implements Serializable{
 
     private String nombre, descripcion, administrador, emailAdministrador, fechaCreacion, cantidadIntegrantes;
     private GeoPoint localizacion;

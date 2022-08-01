@@ -98,7 +98,7 @@ public class GrupoFragment extends Fragment{
                                 listaGrupos.add(new MGrupo(nombreGrupo, descripcionGrupo, administradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacionGrupo));
                             }
 
-                            adapterGrupo = new AdapterGrupo(listaGrupos, R.layout.lista_grupos, iComunicaFragments);
+                            adapterGrupo = new AdapterGrupo(listaGrupos, R.layout.lista_grupos);
                             recyclerViewGrupos.setAdapter(adapterGrupo);
 
 
@@ -111,13 +111,6 @@ public class GrupoFragment extends Fragment{
 
     }
 
-    private interface interfaceGrupo{
-
-        void interfaceClick(int position);
-
-
-
-    }
 
 }
 

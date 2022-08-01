@@ -17,7 +17,7 @@ import com.example.secureapp.R;
 
 public class DetalleContactoFragment extends Fragment {
 
-    TextView nombreDetalle, apellidoDetalle, emailDetalle;
+    TextView nombreDetalle, apellidoDetalle, telefonoDetalle, emailDetalle;
     ImageView imagenDetalle;
 
     @Nullable
@@ -27,7 +27,7 @@ public class DetalleContactoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_detalle_contacto,container, false);
 
         nombreDetalle = view.findViewById(R.id.txt_nombreDetalleContacto);
-        apellidoDetalle = view.findViewById(R.id.txt_nombreDetalleContacto);
+        telefonoDetalle = view.findViewById(R.id.txt_telefonoDetalleContacto);
         emailDetalle = view.findViewById(R.id.txt_emailDetalleContacto);
         imagenDetalle = view.findViewById(R.id.imagen_detalleContacto);
 
@@ -41,10 +41,9 @@ public class DetalleContactoFragment extends Fragment {
             contacto = (MContacto) objetoContacto.getSerializable("objetoContacto");
 
             //Establecer los datos en las vistas
-            nombreDetalle.setText(contacto.getNombre());
-            apellidoDetalle.setText(contacto.getApellido());
+            nombreDetalle.setText(contacto.getNombre() + " " + contacto.getApellido());
             emailDetalle.setText(contacto.getEmail());
-            emailDetalle.setText(contacto.getTelefono());
+            telefonoDetalle.setText(contacto.getTelefono());
             //imagenDetalle.setImageResource(contacto.getImagenid());
         }
 

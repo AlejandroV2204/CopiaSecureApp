@@ -51,23 +51,23 @@ public class DetalleGrupoFragment extends Fragment {
         inicializarFireStore();
 
         nombreDetalle = view.findViewById(R.id.txt_nombreDetalleGrupo);
-        imagenDetalle = view.findViewById(R.id.imagen_detalle_grupo);
+        //imagenDetalle = view.findViewById(R.id.imagen_detalle_grupo);
 
         recyclerViewIntegrantes = view.findViewById(R.id.RV_integrantes);
         listaIntegrantes = new ArrayList<>();
 
         //Crear objeto bundle para recibir el objeto enviado por argumentos
         Bundle objetoGrupo = getArguments();
-        Grupo grupo = null;
+        MGrupo grupo = null;
 
         //Validación para verificar si existen argumentos enviados para mostrar
         if (objetoGrupo != null){
 
-            grupo = (Grupo) objetoGrupo.getSerializable("objetoGrupo");
+            grupo = (MGrupo) objetoGrupo.getSerializable("objetoGrupo");
 
             //Establecer los datos en las vistas
             nombreDetalle.setText(grupo.getNombre());
-            imagenDetalle.setImageResource(grupo.getImagenid());
+            //imagenDetalle.setImageResource(grupo.getImagenid());
         }
 
         //No se si esto sirva

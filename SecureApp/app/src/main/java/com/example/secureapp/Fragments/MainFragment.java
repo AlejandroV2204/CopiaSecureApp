@@ -36,6 +36,7 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 
 public class MainFragment extends Fragment{
 
+    String str_bienvenido;
     TextView txt_bienvenido;
 
     FirebaseDatabase firebaseDatabase;
@@ -51,6 +52,7 @@ public class MainFragment extends Fragment{
 
         inicializarFireStore();
 
+        str_bienvenido = getString(R.string.pantalla_inicio_bienvenido);
         txt_bienvenido = view.findViewById(R.id.txt_bienvenido);
 
         tomarDatosUsuario();
@@ -83,8 +85,7 @@ public class MainFragment extends Fragment{
 
                         String nombre = document.getString("nombre");
 
-                        txt_bienvenido.setText("BIENVENID@ " + nombre);
-
+                        txt_bienvenido.setText(str_bienvenido + " " + nombre);
 
                     } else {
 

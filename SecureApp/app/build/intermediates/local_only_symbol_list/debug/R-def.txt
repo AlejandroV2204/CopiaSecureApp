@@ -77,6 +77,7 @@ id guideline3
 id guideline4
 id imageView2
 id imageView3
+id imagen_contacto
 id imagen_detalleContacto
 id imagen_detalle_grupo
 id imagen_grupo
@@ -94,6 +95,7 @@ id textView3
 id textView4
 id textView5
 id toolbar
+id txt_apellidoContacto
 id txt_apellidoIntegrante
 id txt_bienvenido
 id txt_descripcionGrupo
@@ -102,6 +104,7 @@ id txt_detalleMostrarGrupo
 id txt_emailContacto
 id txt_emailDetalleContacto
 id txt_headerTexto
+id txt_nombreContacto
 id txt_nombreDetalleContacto
 id txt_nombreDetalleGrupo
 id txt_nombreGrupo
@@ -110,9 +113,11 @@ id txt_olvidoPassword
 id txt_pantallaDeInicio
 id txt_registro
 id txt_telefonoContacto
+id txt_telefonoDetalleContacto
 id txt_tituloContacto
 id txt_tituloDetalleContacto
 id txt_tituloDetalleContacto2
+id txt_tituloDetalleContacto3
 id txt_tituloDetalleGrupo
 id txt_tituloDetalleGrupo2
 layout activity_inicio_app
@@ -168,6 +173,8 @@ string DC_email_contacto
 string DC_email_contacto_secundario
 string DC_nombre_contacto
 string DC_nombre_contacto_secundario
+string DC_telefono_contacto
+string DC_telefono_contacto_secundario
 string DG_apellido_integrante
 string DG_email_integrante
 string DG_integrantes_grupo
@@ -230,6 +237,7 @@ string pantalla_contactos_titulo
 string pantalla_detalle_grupo_titulo
 string pantalla_grupos_titulo
 string pantalla_iniciar_sesion_titulo
+string pantalla_inicio_bienvenido
 string pantalla_inicio_titulo
 string pantalla_nuevo_grupo_titulo
 string pantalla_olvido_password

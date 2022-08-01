@@ -34,6 +34,7 @@ import com.example.secureapp.Fragments.ContactoFragment;
 import com.example.secureapp.Fragments.DetalleContactoFragment;
 import com.example.secureapp.Fragments.NuevoContactoFragment;
 import com.example.secureapp.Interfaces.IComunicaFragments;
+import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
 import com.google.android.material.navigation.NavigationView;
 
@@ -49,7 +50,7 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, IComunicaFragments {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -225,52 +226,52 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    @Override
-    public void enviarGrupo(Grupo grupo) {
+    //@Override
+    //public void enviarGrupo(MGrupo grupo) {
 
         //Aquí se realiza la lógica necesaria para poder realizar el envio
-        detalleGrupoFragment = new DetalleGrupoFragment();
+        //detalleGrupoFragment = new DetalleGrupoFragment();
 
         //Objeto bundle para transportar la información
-        Bundle bundleEnvio = new Bundle();
+        //Bundle bundleEnvio = new Bundle();
 
         //Enviar el objeto que está llegando con Serializable
-        bundleEnvio.putSerializable("objetoGrupo", grupo);
+        //bundleEnvio.putSerializable("objetoGrupo", grupo);
 
-        detalleGrupoFragment.setArguments(bundleEnvio);
+        //detalleGrupoFragment.setArguments(bundleEnvio);
 
         //abrir fragment
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, detalleGrupoFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        //fragmentManager = getSupportFragmentManager();
+        //fragmentTransaction = fragmentManager.beginTransaction();
+        //fragmentTransaction.replace(R.id.container, detalleGrupoFragment);
+        //fragmentTransaction.addToBackStack(null);
+        //fragmentTransaction.commit();
 
 
-    }
+    //}
 
-    @Override
-    public void enviarContacto(Contacto contacto) {
+    //@Override
+    //public void enviarContacto(Contacto contacto) {
 
         //Aquí se realiza la lógica necesaria para poder realizar el envio
-        detalleContactoFragment = new DetalleContactoFragment();
+        //detalleContactoFragment = new DetalleContactoFragment();
 
         //Objeto bundle para transportar la información
-        Bundle bundleEnvio = new Bundle();
+        //Bundle bundleEnvio = new Bundle();
 
         //Enviar el objeto que está llegando con Serializable
-        bundleEnvio.putSerializable("objetoContacto", contacto);
+        //bundleEnvio.putSerializable("objetoContacto", contacto);
 
-        detalleContactoFragment.setArguments(bundleEnvio);
+        //detalleContactoFragment.setArguments(bundleEnvio);
 
         //abrir fragment
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, detalleContactoFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        //fragmentManager = getSupportFragmentManager();
+        //fragmentTransaction = fragmentManager.beginTransaction();
+        //fragmentTransaction.replace(R.id.container, detalleContactoFragment);
+        //fragmentTransaction.addToBackStack(null);
+        //fragmentTransaction.commit();
 
-    }
+    //}
 
     public void construirRecylerGrupo(){
 
