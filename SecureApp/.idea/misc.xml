@@ -22,12 +22,13 @@
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/drawable-v24/ic_contacto.xml" value="0.1" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/drawable-v24/ic_nuevo_contacto.xml" value="0.1" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/activity_inicio_app.xml" value="0.17028985507246377" />
-        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/activity_inicio_sesion.xml" value="0.21" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/activity_inicio_sesion.xml" value="0.33" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/activity_main.xml" value="0.13" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/activity_registro.xml" value="0.1" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/content_main.xml" value="0.17028985507246377" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/drawer_header.xml" value="0.17028985507246377" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/drawer_toolbar.xml" value="0.17028985507246377" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/fragment_agregar_integrante.xml" value="0.25" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/fragment_alerta.xml" value="0.33" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/fragment_contacto.xml" value="0.17028985507246377" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/fragment_detalle_contacto.xml" value="0.17028985507246377" />

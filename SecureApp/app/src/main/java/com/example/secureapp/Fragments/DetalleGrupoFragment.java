@@ -1,5 +1,6 @@
 package com.example.secureapp.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,11 +41,16 @@ public class DetalleGrupoFragment extends Fragment {
     private RecyclerView recyclerViewIntegrantes;
     private ArrayList<MIntegrante> listaIntegrantes= new ArrayList<>();
 
-    TextView nombreDetalle;
+    TextView nombreDetalle, descripcionDetalle, agregarIntegrantes;
     String identificadorDetalle;
     ImageView imagenDetalle;
 
     private FirebaseFirestore firestore;
+
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+
+    Context contexto;
 
     @Nullable
     @Override
@@ -52,6 +61,8 @@ public class DetalleGrupoFragment extends Fragment {
         inicializarFireStore();
 
         nombreDetalle = view.findViewById(R.id.txt_nombreDetalleGrupo);
+        agregarIntegrantes = view.findViewById(R.id.txt_agregarIntegrantes);
+
         //imagenDetalle = view.findViewById(R.id.imagen_detalle_grupo);
 
         recyclerViewIntegrantes = view.findViewById(R.id.RV_integrantes);
@@ -60,6 +71,8 @@ public class DetalleGrupoFragment extends Fragment {
         //Crear objeto bundle para recibir el objeto enviado por argumentos
         Bundle objetoGrupo = getArguments();
         MGrupo grupo = null;
+
+        contexto = view.getContext();
 
         //Validación para verificar si existen argumentos enviados para mostrar
         if (objetoGrupo != null){
@@ -70,6 +83,15 @@ public class DetalleGrupoFragment extends Fragment {
             nombreDetalle.setText(grupo.getNombre());
             identificadorDetalle = (grupo.getIdentificador());
             //imagenDetalle.setImageResource(grupo.getImagenid());
+
+            agregarIntegrantes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    irAgregarIntegrantes();
+
+                }
+            });
         }
 
         //No se si esto sirva
@@ -115,6 +137,29 @@ public class DetalleGrupoFragment extends Fragment {
                         }
                     }
                 });
+
+
+    }
+
+    private void irAgregarIntegrantes(){
+
+            //Aquí se realiza la lógica necesaria para poder realizar el envio
+            AgregarIntegranteFragment agregarIntegranteFragment = new AgregarIntegranteFragment();
+
+            //Objeto bundle para transportar la información
+            //Bundle bundleEnvio = new Bundle();
+
+            //Enviar el objeto que está llegando con Serializable
+            //bundleEnvio.putSerializable("objetoGrupo", agregarIntegranteFragment);
+
+            //agregarIntegranteFragment.setArguments(bundleEnvio);
+
+            //abrir fragment
+            fragmentManager = ((AppCompatActivity) contexto).getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, agregarIntegranteFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
 
 
     }

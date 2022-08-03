@@ -90,6 +90,9 @@
     <string name="DG_apellido_integrante">Apellido integrante</string>
     <string name="DG_email_integrante">Email integrante</string>
     <string name="DG_telefono_integrante">Teléfono integrante</string>
+    <string name="DG_agregar_integrante">ㅤAgregar integrantes</string>
+
+    <string name="AI_agregar_integrante_titulo">AGREGAR INTEGRANTES</string>
 
     <string name="LG_descripcion">Descripción del grupo</string>
     ------------------------------------------------------------------------------------

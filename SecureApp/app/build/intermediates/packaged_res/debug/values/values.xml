@@ -25,10 +25,11 @@
     <color name="Botones_color">#1f2046</color>
     <color name="Fondo_app">#e9e8e6</color>
     <color name="Hints_color">#636363</color>
+    <color name="Strings_funcionales_color">#4c2882</color>
     <color name="Texto_color">#000000</color>
     <color name="Texto_color_botones">#e9e8e6</color>
     <color name="black">#FF000000</color>
-    <color name="color_listas">#DADBFF</color>
+    <color name="color_listas">#0000ffff</color>
     <color name="ic_candado_background">#FFFFFF</color>
     <color name="ic_candado_icon_background">#C32C28</color>
     <color name="ic_icono_aplicacion_background">#FFFFFF</color>
@@ -41,6 +42,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
+    <string name="AI_agregar_integrante_titulo">AGREGAR INTEGRANTES</string>
     <string name="A_boton_alerta_especifica">EMITIR ALERTA</string>
     <string name="A_cuerpo_alerta">INGRESE EL CUERPO DE LA ALERTA</string>
     <string name="A_titulo_alerta">INGRESE EL TITULO DE LA ALERTA</string>
@@ -50,6 +52,7 @@
     <string name="DC_nombre_contacto_secundario">Nombre contacto</string>
     <string name="DC_telefono_contacto">Teléfono contacto:</string>
     <string name="DC_telefono_contacto_secundario">Teléfono contacto</string>
+    <string name="DG_agregar_integrante">ㅤAgregar integrantes</string>
     <string name="DG_apellido_integrante">Apellido integrante</string>
     <string name="DG_email_integrante">Email integrante</string>
     <string name="DG_integrantes_grupo">Integrantes del grupo:</string>

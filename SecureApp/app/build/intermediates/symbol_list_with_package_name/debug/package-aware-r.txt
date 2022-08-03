@@ -1210,6 +1210,7 @@ color App_color
 color Botones_color
 color Fondo_app
 color Hints_color
+color Strings_funcionales_color
 color Texto_color
 color Texto_color_botones
 color abc_background_cache_hint_selector_material_dark
@@ -2544,6 +2545,7 @@ drawable estrellaamericana
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_cerrar_sesion
+drawable ic_check
 drawable ic_clock_black_24dp
 drawable ic_contacto
 drawable ic_group
@@ -2622,6 +2624,7 @@ id CTRL
 id FUNCTION
 id META
 id NO_DEBUG
+id RV_agregarIntegrantes
 id RV_contactos
 id RV_grupos
 id RV_integrantes
@@ -2724,6 +2727,7 @@ id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
+id btn_agregarIntegrantes
 id btn_crearContacto
 id btn_crearGrupo
 id btn_emitirAlerta
@@ -2912,6 +2916,8 @@ id light
 id line1
 id line3
 id linear
+id linearLayout
+id linearLayout2
 id listMode
 id list_item
 id masked
@@ -3145,12 +3151,12 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id txt_agregarIntegrantes
 id txt_apellidoContacto
 id txt_apellidoIntegrante
 id txt_bienvenido
 id txt_descripcionGrupo
 id txt_detalleMostrarContacto
-id txt_detalleMostrarGrupo
 id txt_emailContacto
 id txt_emailDetalleContacto
 id txt_headerTexto
@@ -3164,11 +3170,11 @@ id txt_pantallaDeInicio
 id txt_registro
 id txt_telefonoContacto
 id txt_telefonoDetalleContacto
+id txt_tituloAgregarIntegrante
 id txt_tituloContacto
 id txt_tituloDetalleContacto
 id txt_tituloDetalleContacto2
 id txt_tituloDetalleContacto3
-id txt_tituloDetalleGrupo
 id txt_tituloDetalleGrupo2
 id unchecked
 id uniform
@@ -3312,6 +3318,7 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout drawer_header
 layout drawer_toolbar
+layout fragment_agregar_integrante
 layout fragment_alerta
 layout fragment_contacto
 layout fragment_detalle_contacto
@@ -3428,6 +3435,7 @@ mipmap ic_logo_secureapp_foreground
 mipmap ic_logo_secureapp_round
 plurals mtrl_badge_content_description
 raw keep
+string AI_agregar_integrante_titulo
 string A_boton_alerta_especifica
 string A_cuerpo_alerta
 string A_titulo_alerta
@@ -3437,6 +3445,7 @@ string DC_nombre_contacto
 string DC_nombre_contacto_secundario
 string DC_telefono_contacto
 string DC_telefono_contacto_secundario
+string DG_agregar_integrante
 string DG_apellido_integrante
 string DG_email_integrante
 string DG_integrantes_grupo
