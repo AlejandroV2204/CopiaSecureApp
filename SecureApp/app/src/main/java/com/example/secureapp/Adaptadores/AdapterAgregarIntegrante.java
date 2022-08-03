@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.secureapp.Fragments.DetalleContactoFragment;
+import com.example.secureapp.Fragments.DetalleGrupoFragment;
+import com.example.secureapp.Modelo.MAgregarIntegrante;
 import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.R;
 
@@ -24,7 +27,7 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
 
     private final int resource;
     LayoutInflater inflater;
-    ArrayList<MContacto> contactosList;
+    ArrayList<MAgregarIntegrante> agregarIntegrantesList;
 
     //Listener
     private View.OnClickListener listener;
@@ -38,7 +41,8 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-            private TextView txt_nombreContacto, txt_apellidoContacto, txt_emailContacto, txt_telefonoContacto;
+            private TextView txt_nombreAgregarIntegrante, txt_apellidoAgregarIntegrante,
+                    txt_emailAgregarIntegrante, txt_telefonoAgregarIntegrante;
             private ImageView imageDetalle;
             public View view;
 
@@ -48,11 +52,11 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
                 super(view);
 
                 this.view = view;
-                this.txt_nombreContacto = view.findViewById(R.id.txt_nombreContacto);
-                this.txt_apellidoContacto = view.findViewById(R.id.txt_apellidoContacto);
-                this.txt_emailContacto = view.findViewById(R.id.txt_emailContacto);
-                this.txt_telefonoContacto = view.findViewById(R.id.txt_telefonoContacto);
-                this.imageDetalle = view.findViewById(R.id.imagen_contacto);
+                this.txt_nombreAgregarIntegrante = view.findViewById(R.id.txt_nombreAgregarIntegrante);
+                this.txt_apellidoAgregarIntegrante = view.findViewById(R.id.txt_apellidoAgregarIntegrante);
+                this.txt_emailAgregarIntegrante = view.findViewById(R.id.txt_emailAgregarIntegrante);
+                this.txt_telefonoAgregarIntegrante = view.findViewById(R.id.txt_telefonoAgregarIntegrante);
+                //this.imageDetalle = view.findViewById(R.id.imagen_contacto);
 
             }
 
@@ -75,9 +79,9 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
 
     }
 
-    public AdapterAgregarIntegrante(ArrayList<MContacto> contactosList, int resource){
+    public AdapterAgregarIntegrante(ArrayList<MAgregarIntegrante> agregarIntegrantesList, int resource){
 
-        this.contactosList = contactosList;
+        this.agregarIntegrantesList = agregarIntegrantesList;
         this.resource = resource;
 
     }
@@ -99,19 +103,20 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
 
-        MContacto contacto = contactosList.get(position);
+        MAgregarIntegrante agregarIntegrante = agregarIntegrantesList.get(position);
 
-        viewHolder.txt_nombreContacto.setText(contacto.getNombre());
-        viewHolder.txt_apellidoContacto.setText(contacto.getApellido());
-        viewHolder.txt_emailContacto.setText(contacto.getEmail());
-        viewHolder.txt_telefonoContacto.setText(contacto.getTelefono());
+        viewHolder.txt_nombreAgregarIntegrante.setText(agregarIntegrante.getNombre());
+        viewHolder.txt_apellidoAgregarIntegrante.setText(agregarIntegrante.getApellido());
+        viewHolder.txt_emailAgregarIntegrante.setText(agregarIntegrante.getEmail());
+        viewHolder.txt_telefonoAgregarIntegrante.setText(agregarIntegrante.getTelefono());
         //viewHolder.imageDetalle.setImageDrawable(contacto.ge);
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                enviarContacto(contacto);
+                Toast.makeText(view.getContext(), "Accion en proceso", Toast.LENGTH_SHORT).show();
+                //enviarContacto(agregarIntegrante);
 
             }
         });
@@ -120,7 +125,7 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
 
     @Override
     public int getItemCount() {
-        return contactosList.size();
+        return agregarIntegrantesList.size();
     }
 
     @Override
@@ -128,24 +133,24 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
 
     }
 
-    public void enviarContacto(MContacto contacto) {
+    public void enviarContacto(MAgregarIntegrante agregarIntegrante) {
 
     //Aquí se realiza la lógica necesaria para poder realizar el envio
-    DetalleContactoFragment detalleContactoFragment = new DetalleContactoFragment();
+    DetalleGrupoFragment detalleGrupoFragment = new DetalleGrupoFragment();
 
     //Objeto bundle para transportar la información
-    Bundle bundleEnvio = new Bundle();
+    //Bundle bundleEnvio = new Bundle();
 
     //Enviar el objeto que está llegando con Serializable
-    bundleEnvio.putSerializable("objetoContacto", contacto);
+    //bundleEnvio.putSerializable("objetoGrupo", detalleGrupoFragment);
 
-    detalleContactoFragment.setArguments(bundleEnvio);
+    //detalleGrupoFragment.setArguments(bundleEnvio);
 
     //abrir fragment
 
         fragmentManager = ((AppCompatActivity) contexto).getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, detalleContactoFragment);
+        fragmentTransaction.replace(R.id.container, detalleGrupoFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 

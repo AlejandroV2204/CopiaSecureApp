@@ -81,6 +81,7 @@ id guideline3
 id guideline4
 id imageView2
 id imageView3
+id imagen_agregarIntegrante
 id imagen_contacto
 id imagen_detalleContacto
 id imagen_detalle_grupo
@@ -102,14 +103,17 @@ id textView4
 id textView5
 id toolbar
 id txt_agregarIntegrantes
+id txt_apellidoAgregarIntegrante
 id txt_apellidoContacto
 id txt_apellidoIntegrante
 id txt_bienvenido
 id txt_descripcionGrupo
 id txt_detalleMostrarContacto
+id txt_emailAgregarIntegrante
 id txt_emailContacto
 id txt_emailDetalleContacto
 id txt_headerTexto
+id txt_nombreAgregarIntegrante
 id txt_nombreContacto
 id txt_nombreDetalleContacto
 id txt_nombreDetalleGrupo
@@ -118,6 +122,7 @@ id txt_nombreIntegrante
 id txt_olvidoPassword
 id txt_pantallaDeInicio
 id txt_registro
+id txt_telefonoAgregarIntegrante
 id txt_telefonoContacto
 id txt_telefonoDetalleContacto
 id txt_tituloAgregarIntegrante
@@ -143,6 +148,7 @@ layout fragment_grupo
 layout fragment_main
 layout fragment_nuevo_contacto
 layout fragment_nuevo_grupo
+layout lista_agregar_integrantes
 layout lista_contactos
 layout lista_grupos
 layout lista_integrantes

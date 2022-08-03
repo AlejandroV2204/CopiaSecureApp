@@ -13,8 +13,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.secureapp.Adaptadores.AdapterAgregarIntegrante;
 import com.example.secureapp.Adaptadores.AdapterContacto;
 import com.example.secureapp.Interfaces.IComunicaFragments;
+import com.example.secureapp.Modelo.MAgregarIntegrante;
 import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,9 +34,9 @@ import java.util.ArrayList;
 
 public class AgregarIntegranteFragment extends Fragment{
 
-    AdapterContacto adapterContacto;
-    RecyclerView recyclerViewContactos;
-    private ArrayList<MContacto> listaContactos = new ArrayList<>();
+    AdapterAgregarIntegrante adapterAgregarIntegrantes;
+    RecyclerView recyclerViewAgregarIntegrantes;
+    private ArrayList<MAgregarIntegrante> listaAgregarIntegrantes = new ArrayList<>();
 
     FloatingActionButton btn_agregarIntegrantes;
 
@@ -55,12 +57,12 @@ public class AgregarIntegranteFragment extends Fragment{
 
         inicializarFireStore();
 
-        recyclerViewContactos = view.findViewById(R.id.RV_agregarIntegrantes);
+        recyclerViewAgregarIntegrantes = view.findViewById(R.id.RV_agregarIntegrantes);
         btn_agregarIntegrantes = view.findViewById(R.id.btn_agregarIntegrantes);
-        listaContactos = new ArrayList<>();
+        listaAgregarIntegrantes = new ArrayList<>();
 
         //No se si esto sirva
-        recyclerViewContactos.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        recyclerViewAgregarIntegrantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
         //tomarContactosDeFirebase();
         tomarDatosDeFirestore();
@@ -98,16 +100,16 @@ public class AgregarIntegranteFragment extends Fragment{
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                String nombreContacto = document.getString("nombre");
-                                String apellidoContacto = document.getString("apellido");
-                                String emailContacto = document.getString("email");
-                                String telefonoContacto = document.getString("telefono");
+                                String nombreAgregarIntegrantes = document.getString("nombre");
+                                String apellidoAgregarIntegrantes = document.getString("apellido");
+                                String emailAgregarIntegrantes = document.getString("email");
+                                String telefonoAgregarIntegrantes = document.getString("telefono");
 
-                                listaContactos.add(new MContacto(nombreContacto, apellidoContacto, emailContacto, telefonoContacto));
+                                listaAgregarIntegrantes.add(new MAgregarIntegrante(nombreAgregarIntegrantes, apellidoAgregarIntegrantes, emailAgregarIntegrantes, telefonoAgregarIntegrantes));
                             }
 
-                            adapterContacto = new AdapterContacto(listaContactos, R.layout.lista_contactos);
-                            recyclerViewContactos.setAdapter(adapterContacto);
+                            adapterAgregarIntegrantes = new AdapterAgregarIntegrante(listaAgregarIntegrantes, R.layout.lista_agregar_integrantes);
+                            recyclerViewAgregarIntegrantes.setAdapter(adapterAgregarIntegrantes);
 
                         } else {
                             Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();

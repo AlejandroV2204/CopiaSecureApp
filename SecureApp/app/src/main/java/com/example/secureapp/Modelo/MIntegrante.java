@@ -1,6 +1,8 @@
 package com.example.secureapp.Modelo;
 
-public class MIntegrante {
+import java.io.Serializable;
+
+public class MIntegrante implements Serializable {
 
     private String nombre, apellido, email, telefono;
 
