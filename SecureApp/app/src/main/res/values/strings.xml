@@ -51,7 +51,7 @@
     <string name="OP_ingresaEmail">Ingresa tu correo electrónico en donde enviaremos los pasos para recuperar tu contraseña</string>
     <string name="OP_botonRecuperar">RECUPERAR</string>
     ------------------------------------------------------------------------------------
-    <string name="pantalla_inicio_titulo">PANTALLA DE INICIO</string>
+    <string name="pantalla_inicio_titulo">MIS ALERTAS</string>
     ------------------------------------------------------------------------------------
     <string name="pantalla_contactos_titulo">CONTACTOS</string>
 
@@ -88,9 +88,10 @@
     <string name="LG_descripcion">Descripción del grupo</string>
     ------------------------------------------------------------------------------------
     <string name="pantalla_alerta_titulo">ALERTA</string>
+    <string name="A_nombre_alerta">Nombre de la alerta</string>
     <string name="A_titulo_alerta">INGRESE EL TITULO DE LA ALERTA</string>
     <string name="A_cuerpo_alerta">INGRESE EL CUERPO DE LA ALERTA</string>
-    <string name="A_boton_alerta_especifica">EMITIR ALERTA:Necesito un mecanico</string>
+    <string name="A_boton_alerta_especifica">Necesito un mecanico</string>
     ------------------------------------------------------------------------------------
     <string name="menuItem_principal">Principal</string>
     <string name="MI_inicio">Inicio</string>

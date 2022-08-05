@@ -2545,6 +2545,8 @@ int drawable googleg_standard_color_18 0x7f08007b
 int drawable ic_cerrar_sesion 0x7f08007c
 int drawable ic_clock_black_24dp 0x7f08007d
 int drawable ic_contacto 0x7f08007e
+int drawable ic_favorite_star_shadow_24 0x7f0800c4
+int drawable ic_favorite_star_yellow_24 0x7f0800c5
 int drawable ic_group 0x7f08007f
 int drawable ic_home 0x7f080080
 int drawable ic_keyboard_black_24dp 0x7f080081
@@ -2621,8 +2623,10 @@ int id CTRL 0x7f090003
 int id FUNCTION 0x7f090004
 int id META 0x7f090005
 int id NO_DEBUG 0x7f090006
+int id RV_alerta 0x7f09023c
 int id RV_contactos 0x7f090007
 int id RV_grupos 0x7f090008
+int id RV_main 0x7f090240
 int id SHIFT 0x7f090009
 int id SHOW_ALL 0x7f09000a
 int id SHOW_PATH 0x7f09000b
@@ -2724,7 +2728,6 @@ int id browser_actions_menu_items 0x7f09006a
 int id browser_actions_menu_view 0x7f09006b
 int id btn_crearContacto 0x7f09006c
 int id btn_crearGrupo 0x7f09006d
-int id btn_emitirAlerta 0x7f09006e
 int id btn_iniciarSesion 0x7f09006f
 int id btn_recuperarPassword 0x7f090070
 int id btn_registrar 0x7f090071
@@ -2773,6 +2776,7 @@ int id currentState 0x7f09009b
 int id custom 0x7f09009c
 int id customPanel 0x7f09009d
 int id cut 0x7f09009e
+int id cv_alerta 0x7f09023f
 int id dark 0x7f09009f
 int id date_picker_actions 0x7f0900a0
 int id decelerate 0x7f0900a1
@@ -2860,7 +2864,6 @@ int id grouping 0x7f0900f3
 int id groups 0x7f0900f4
 int id grupo 0x7f0900f5
 int id guideline 0x7f0900f6
-int id guideline2 0x7f0900f7
 int id guideline3 0x7f0900f8
 int id guideline4 0x7f0900f9
 int id header_title 0x7f0900fa
@@ -3141,7 +3144,7 @@ int id transition_scene_layoutid_cache 0x7f09020c
 int id transition_transform 0x7f09020d
 int id triangle 0x7f09020e
 int id txt_apellidoContacto 0x7f09020f
-int id txt_bienvenido 0x7f090210
+int id txt_descripcionAlerta 0x7f09023e
 int id txt_descripcionGrupo 0x7f090211
 int id txt_detalleMostrarContacto 0x7f090212
 int id txt_detalleMostrarGrupo 0x7f090213
@@ -3153,7 +3156,6 @@ int id txt_nombreDetalleContacto 0x7f090218
 int id txt_nombreDetalleGrupo 0x7f090219
 int id txt_nombreGrupo 0x7f09021a
 int id txt_olvidoPassword 0x7f09021b
-int id txt_pantallaDeInicio 0x7f09021c
 int id txt_registro 0x7f09021d
 int id txt_telefonoContacto 0x7f09021e
 int id txt_tituloContacto 0x7f09021f
@@ -3311,8 +3313,10 @@ int layout fragment_grupo 0x7f0c003a
 int layout fragment_main 0x7f0c003b
 int layout fragment_nuevo_contacto 0x7f0c003c
 int layout fragment_nuevo_grupo 0x7f0c003d
+int layout lista_alerta 0x7f0c008a
 int layout lista_contactos 0x7f0c003e
 int layout lista_grupos 0x7f0c003f
+int layout lista_main 0x7f0c008b
 int layout m3_alert_dialog 0x7f0c0040
 int layout m3_alert_dialog_actions 0x7f0c0041
 int layout m3_alert_dialog_title 0x7f0c0042
@@ -3420,6 +3424,7 @@ int plurals mtrl_badge_content_description 0x7f0f0000
 int raw keep 0x7f100000
 int string A_boton_alerta_especifica 0x7f110000
 int string A_cuerpo_alerta 0x7f110001
+int string A_nombre_alerta 0x7f1100da
 int string A_titulo_alerta 0x7f110002
 int string DC_email_contacto 0x7f110003
 int string DC_email_contacto_secundario 0x7f110004

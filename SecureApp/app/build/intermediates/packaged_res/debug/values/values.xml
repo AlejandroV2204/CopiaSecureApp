@@ -41,8 +41,9 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="A_boton_alerta_especifica">EMITIR ALERTA:Necesito un mecanico</string>
+    <string name="A_boton_alerta_especifica">Necesito un mecanico</string>
     <string name="A_cuerpo_alerta">INGRESE EL CUERPO DE LA ALERTA</string>
+    <string name="A_nombre_alerta">Nombre de la alerta</string>
     <string name="A_titulo_alerta">INGRESE EL TITULO DE LA ALERTA</string>
     <string name="DC_email_contacto">Email contacto:</string>
     <string name="DC_email_contacto_secundario">Email contacto</string>
@@ -109,7 +110,7 @@
     <string name="pantalla_detalle_grupo_titulo">DETALLE GRUPO</string>
     <string name="pantalla_grupos_titulo">GRUPOS</string>
     <string name="pantalla_iniciar_sesion_titulo">INICIAR SESIÓN</string>
-    <string name="pantalla_inicio_titulo">PANTALLA DE INICIO</string>
+    <string name="pantalla_inicio_titulo">MIS ALERTAS</string>
     <string name="pantalla_nuevo_grupo_titulo">CREAR GRUPO</string>
     <string name="pantalla_olvido_password">RECUPERA TU CONTRASEÑA</string>
     <string name="pantalla_registro_titulo">REGISTRAR CUENTA</string>

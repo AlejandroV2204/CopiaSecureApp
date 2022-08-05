@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.secureapp.Modelo.MAlerta;
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
 

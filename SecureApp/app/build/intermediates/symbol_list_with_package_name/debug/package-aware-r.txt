@@ -2546,6 +2546,8 @@ drawable googleg_standard_color_18
 drawable ic_cerrar_sesion
 drawable ic_clock_black_24dp
 drawable ic_contacto
+drawable ic_favorite_star_shadow_24
+drawable ic_favorite_star_yellow_24
 drawable ic_group
 drawable ic_home
 drawable ic_keyboard_black_24dp
@@ -2622,8 +2624,10 @@ id CTRL
 id FUNCTION
 id META
 id NO_DEBUG
+id RV_alerta
 id RV_contactos
 id RV_grupos
+id RV_main
 id SHIFT
 id SHOW_ALL
 id SHOW_PATH
@@ -2725,7 +2729,6 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id btn_crearContacto
 id btn_crearGrupo
-id btn_emitirAlerta
 id btn_iniciarSesion
 id btn_recuperarPassword
 id btn_registrar
@@ -2774,6 +2777,7 @@ id currentState
 id custom
 id customPanel
 id cut
+id cv_alerta
 id dark
 id date_picker_actions
 id decelerate
@@ -2861,7 +2865,6 @@ id grouping
 id groups
 id grupo
 id guideline
-id guideline2
 id guideline3
 id guideline4
 id header_title
@@ -3142,7 +3145,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id txt_apellidoContacto
-id txt_bienvenido
+id txt_descripcionAlerta
 id txt_descripcionGrupo
 id txt_detalleMostrarContacto
 id txt_detalleMostrarGrupo
@@ -3154,7 +3157,6 @@ id txt_nombreDetalleContacto
 id txt_nombreDetalleGrupo
 id txt_nombreGrupo
 id txt_olvidoPassword
-id txt_pantallaDeInicio
 id txt_registro
 id txt_telefonoContacto
 id txt_tituloContacto
@@ -3312,8 +3314,10 @@ layout fragment_grupo
 layout fragment_main
 layout fragment_nuevo_contacto
 layout fragment_nuevo_grupo
+layout lista_alerta
 layout lista_contactos
 layout lista_grupos
+layout lista_main
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3421,6 +3425,7 @@ plurals mtrl_badge_content_description
 raw keep
 string A_boton_alerta_especifica
 string A_cuerpo_alerta
+string A_nombre_alerta
 string A_titulo_alerta
 string DC_email_contacto
 string DC_email_contacto_secundario
