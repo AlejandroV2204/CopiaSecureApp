@@ -1210,6 +1210,7 @@ color App_color
 color Botones_color
 color Fondo_app
 color Hints_color
+color Item_seleccionado_color
 color Strings_funcionales_color
 color Texto_color
 color Texto_color_botones
@@ -2829,6 +2830,7 @@ id et_apellidoRegistro
 id et_cuerpoAlerta
 id et_descripcionGrupo
 id et_email
+id et_emailAgregarIntegrante
 id et_emailContacto
 id et_emailRecuperarPassword
 id et_emailRegistro
@@ -3162,6 +3164,7 @@ id txt_detalleMostrarContacto
 id txt_emailAgregarIntegrante
 id txt_emailContacto
 id txt_emailDetalleContacto
+id txt_emailIntegrante
 id txt_headerTexto
 id txt_nombreAgregarIntegrante
 id txt_nombreContacto

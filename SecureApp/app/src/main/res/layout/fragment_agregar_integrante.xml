@@ -34,6 +34,8 @@
          app:layout_constraintGuide_begin="42dp" />
 
 
+
+
      <LinearLayout
          android:id="@+id/linearLayout2"
          android:layout_width="match_parent"
@@ -45,6 +47,22 @@
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toBottomOf="@+id/txt_tituloAgregarIntegrante"
          app:layout_constraintVertical_bias="0.064">
+
+          <EditText
+
+              android:id="@+id/et_emailAgregarIntegrante"
+              android:layout_width="match_parent"
+              android:layout_height="45dp"
+              android:hint="@string/NC_email_contacto"
+              android:textAlignment="center"
+              android:textColor="@color/Texto_color"
+              android:textColorHint="@color/Texto_color"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent">
+
+          </EditText>
 
           <androidx.recyclerview.widget.RecyclerView
               android:id="@+id/RV_agregarIntegrantes"
@@ -61,6 +79,7 @@
          android:layout_gravity="center_horizontal|end"
          android:clickable="true"
          android:layoutDirection="inherit"
+         android:visibility="visible"
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintHorizontal_bias="0.955"

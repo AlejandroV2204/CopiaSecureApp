@@ -1209,6 +1209,7 @@ int color App_color 0x7f060000
 int color Botones_color 0x7f060001
 int color Fondo_app 0x7f060002
 int color Hints_color 0x7f060003
+int color Item_seleccionado_color 0x7f060277
 int color Strings_funcionales_color 0x7f060004
 int color Texto_color 0x7f060005
 int color Texto_color_botones 0x7f060006
@@ -2828,6 +2829,7 @@ int id et_apellidoRegistro 0x7f0900d0
 int id et_cuerpoAlerta 0x7f0900d1
 int id et_descripcionGrupo 0x7f0900d2
 int id et_email 0x7f0900d3
+int id et_emailAgregarIntegrante 0x7f09024b
 int id et_emailContacto 0x7f0900d4
 int id et_emailRecuperarPassword 0x7f0900d5
 int id et_emailRegistro 0x7f0900d6
@@ -3161,6 +3163,7 @@ int id txt_detalleMostrarContacto 0x7f09021d
 int id txt_emailAgregarIntegrante 0x7f09021e
 int id txt_emailContacto 0x7f09021f
 int id txt_emailDetalleContacto 0x7f090220
+int id txt_emailIntegrante 0x7f09024c
 int id txt_headerTexto 0x7f090221
 int id txt_nombreAgregarIntegrante 0x7f090222
 int id txt_nombreContacto 0x7f090223

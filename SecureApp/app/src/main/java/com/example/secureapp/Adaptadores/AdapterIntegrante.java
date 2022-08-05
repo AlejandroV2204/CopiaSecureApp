@@ -37,7 +37,7 @@ public class AdapterIntegrante extends RecyclerView.Adapter<AdapterIntegrante.Vi
                 this.view = view;
                 this.txt_nombreIntegrante = view.findViewById(R.id.txt_nombreIntegrante);
                 this.txt_apellidoIntegrante = view.findViewById(R.id.txt_apellidoIntegrante);
-                this.txt_emailIntegrante = view.findViewById(R.id.txt_emailContacto);
+                this.txt_emailIntegrante = view.findViewById(R.id.txt_emailIntegrante);
                 this.txt_telefonoIntegrante = view.findViewById(R.id.txt_telefonoContacto);
 
             }

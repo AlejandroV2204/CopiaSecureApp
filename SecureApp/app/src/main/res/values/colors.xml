@@ -17,5 +17,6 @@
     <color name="Texto_color_botones">#e9e8e6</color>
     <color name="color_listas">#0000ffff</color>
     <color name="Strings_funcionales_color">#4c2882</color>
+    <color name="Item_seleccionado_color">#fef17a</color>
 
 </resources>

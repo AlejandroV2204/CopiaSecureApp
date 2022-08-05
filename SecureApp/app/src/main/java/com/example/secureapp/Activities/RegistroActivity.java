@@ -43,8 +43,6 @@ public class RegistroActivity extends AppCompatActivity implements AdapterView.O
 
     FirebaseAuth firebaseAuth;
     AwesomeValidation awesomeValidation;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
 
     private FirebaseFirestore firestore;
 
@@ -53,7 +51,6 @@ public class RegistroActivity extends AppCompatActivity implements AdapterView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        //inicializarFirebase();
         inicializarFireStore();
         validarCampos();
 
@@ -81,14 +78,6 @@ public class RegistroActivity extends AppCompatActivity implements AdapterView.O
             }
         });
 
-
-    }
-
-    private void inicializarFirebase(){
-
-        FirebaseApp.initializeApp(this);
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
 
     }
 
@@ -159,22 +148,6 @@ public class RegistroActivity extends AppCompatActivity implements AdapterView.O
             }
         });
 
-    }
-
-    private void registrarUsuarioRealTime(){
-
-        MUsuario usuario = new MUsuario();
-        usuario.setUid(FirebaseAuth.getInstance().getCurrentUser().getUid().toString());
-        usuario.setNombre(nombre);
-        usuario.setApellido(apellido);
-        usuario.setIdentificacion(identificacion);
-        usuario.setTelefono(telefono);
-        usuario.setEmail(email);
-        usuario.setPassword(password);
-        usuario.setDepartamento(departamento);
-        usuario.setCiudad(ciudad);
-
-        databaseReference.child("usuario").child(usuario.getUid()).setValue(usuario);
     }
 
     private void registrarUsuarioFireStore() {

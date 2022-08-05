@@ -25,6 +25,7 @@
     <color name="Botones_color">#1f2046</color>
     <color name="Fondo_app">#e9e8e6</color>
     <color name="Hints_color">#636363</color>
+    <color name="Item_seleccionado_color">#fef17a</color>
     <color name="Strings_funcionales_color">#4c2882</color>
     <color name="Texto_color">#000000</color>
     <color name="Texto_color_botones">#e9e8e6</color>

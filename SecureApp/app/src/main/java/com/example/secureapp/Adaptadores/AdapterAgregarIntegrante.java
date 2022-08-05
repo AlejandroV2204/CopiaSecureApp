@@ -20,6 +20,7 @@ import com.example.secureapp.Fragments.DetalleGrupoFragment;
 import com.example.secureapp.Modelo.MAgregarIntegrante;
 import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -28,6 +29,9 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
     private final int resource;
     LayoutInflater inflater;
     ArrayList<MAgregarIntegrante> agregarIntegrantesList;
+
+    private boolean itemSeleccionado = false;
+    ArrayList<MAgregarIntegrante> itemsSeleccionanos = new ArrayList<>();
 
     //Listener
     private View.OnClickListener listener;
@@ -38,12 +42,14 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
 
     Context contexto;
 
+    private FloatingActionButton btn_agregarIntegrantes;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
             private TextView txt_nombreAgregarIntegrante, txt_apellidoAgregarIntegrante,
                     txt_emailAgregarIntegrante, txt_telefonoAgregarIntegrante;
             private ImageView imageDetalle;
+            private FloatingActionButton btn_agregarIntegrantes;
             public View view;
 
             private View.OnClickListener listener;
@@ -95,6 +101,7 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
         view.setOnClickListener(this);
 
         contexto = parent.getContext();
+        //btn_agregarIntegrantes = view.findViewById(R.id.btn_agregarIntegrantes);
 
         return new ViewHolder(view);
 
@@ -116,6 +123,7 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
             public void onClick(View view) {
 
                 Toast.makeText(view.getContext(), "Accion en proceso", Toast.LENGTH_SHORT).show();
+                btn_agregarIntegrantes.setVisibility(View.VISIBLE);
                 //enviarContacto(agregarIntegrante);
 
             }

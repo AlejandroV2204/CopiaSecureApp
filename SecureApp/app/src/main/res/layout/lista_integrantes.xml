@@ -56,7 +56,7 @@
 
         <TextView
 
-            android:id="@+id/txt_emailContacto"
+            android:id="@+id/txt_emailIntegrante"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_apellidoIntegrante"
@@ -74,7 +74,7 @@
             android:id="@+id/txt_telefonoContacto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_emailContacto"
+            android:layout_below="@id/txt_emailIntegrante"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_toEndOf="@id/imagen_integrante"

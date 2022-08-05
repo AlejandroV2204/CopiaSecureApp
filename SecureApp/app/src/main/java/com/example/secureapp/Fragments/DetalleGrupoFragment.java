@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.secureapp.Adaptadores.AdapterGrupo;
 import com.example.secureapp.Adaptadores.AdapterIntegrante;
 import com.example.secureapp.Entidades.Grupo;
+import com.example.secureapp.Modelo.MAgregarIntegrante;
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.Modelo.MIntegrante;
 import com.example.secureapp.R;
@@ -33,6 +34,7 @@ import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class DetalleGrupoFragment extends Fragment {
@@ -40,12 +42,15 @@ public class DetalleGrupoFragment extends Fragment {
     private AdapterIntegrante adapterIntegrante;
     private RecyclerView recyclerViewIntegrantes;
     private ArrayList<MIntegrante> listaIntegrantes= new ArrayList<>();
+    private ArrayList<MAgregarIntegrante> listaAgregarIntegrantes= new ArrayList<>();
 
     TextView nombreDetalle, descripcionDetalle, agregarIntegrantes;
     String identificadorDetalle;
     ImageView imagenDetalle;
 
     private FirebaseFirestore firestore;
+
+    private String identificador, nombre, apellido, email, telefono;
 
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
@@ -84,11 +89,16 @@ public class DetalleGrupoFragment extends Fragment {
             identificadorDetalle = (grupo.getIdentificador());
             //imagenDetalle.setImageResource(grupo.getImagenid());
 
+            //viewHolder.txt_identificadorGrupo.setText(grupo.getIdentificador());
+
             agregarIntegrantes.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
+                public void onClick(View view){
 
-                    irAgregarIntegrantes();
+                    MAgregarIntegrante agregarIntegrante = new MAgregarIntegrante(identificadorDetalle, nombre,  apellido, email, telefono);
+                    agregarIntegrante.setIdentificador(identificadorDetalle);
+
+                    irAgregarIntegrantes(agregarIntegrante);
 
                 }
             });
@@ -121,12 +131,13 @@ public class DetalleGrupoFragment extends Fragment {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
+                                String identificadorIntegrante = document.getId();
                                 String nombreIntegrante = document.getString("nombre");
                                 String apellidoIntegrante = document.getString("apellido");
                                 String emailIntegrante = document.getString("email");
                                 String telefonoIntegrante = document.getString("telefono");
 
-                                listaIntegrantes.add(new MIntegrante(nombreIntegrante, apellidoIntegrante, emailIntegrante, telefonoIntegrante));
+                                listaIntegrantes.add(new MIntegrante(identificadorIntegrante, nombreIntegrante, apellidoIntegrante, emailIntegrante, telefonoIntegrante));
                             }
 
                             adapterIntegrante = new AdapterIntegrante(listaIntegrantes, R.layout.lista_integrantes);
@@ -141,18 +152,20 @@ public class DetalleGrupoFragment extends Fragment {
 
     }
 
-    private void irAgregarIntegrantes(){
+    private void irAgregarIntegrantes(MAgregarIntegrante agregarIntegrante){
+
+        this.identificadorDetalle = identificadorDetalle;
 
             //Aquí se realiza la lógica necesaria para poder realizar el envio
             AgregarIntegranteFragment agregarIntegranteFragment = new AgregarIntegranteFragment();
 
             //Objeto bundle para transportar la información
-            //Bundle bundleEnvio = new Bundle();
+            Bundle bundleEnvio = new Bundle();
 
             //Enviar el objeto que está llegando con Serializable
-            //bundleEnvio.putSerializable("objetoGrupo", agregarIntegranteFragment);
+            bundleEnvio.putSerializable("objetoIntegrante", agregarIntegrante);
 
-            //agregarIntegranteFragment.setArguments(bundleEnvio);
+            agregarIntegranteFragment.setArguments(bundleEnvio);
 
             //abrir fragment
             fragmentManager = ((AppCompatActivity) contexto).getSupportFragmentManager();

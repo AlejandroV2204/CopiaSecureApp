@@ -4,14 +4,23 @@ import java.io.Serializable;
 
 public class MAgregarIntegrante implements Serializable{
 
-    private String nombre, apellido, email, telefono;
+    private String identificador, nombre, apellido, email, telefono;
 
-    public MAgregarIntegrante(String nombre, String apellido, String email, String telefono) {
+    public MAgregarIntegrante(String identificador, String nombre, String apellido, String email, String telefono) {
 
+        this.identificador = identificador;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.telefono = telefono;
+    }
+
+    public String getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
     }
 
     public String getNombre() {
