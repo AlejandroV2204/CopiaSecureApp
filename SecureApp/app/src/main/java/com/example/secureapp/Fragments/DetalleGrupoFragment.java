@@ -163,7 +163,7 @@ public class DetalleGrupoFragment extends Fragment {
             Bundle bundleEnvio = new Bundle();
 
             //Enviar el objeto que está llegando con Serializable
-            bundleEnvio.putSerializable("objetoIntegrante", agregarIntegrante);
+            bundleEnvio.putSerializable("objetoNuevoIntegrante", agregarIntegrante);
 
             agregarIntegranteFragment.setArguments(bundleEnvio);
 

@@ -2891,6 +2891,7 @@ int id imageView3 0x7f09010d
 int id imagen_agregarIntegrante 0x7f09010e
 int id imagen_contacto 0x7f09010f
 int id imagen_detalleContacto 0x7f090110
+int id imagen_detalleIntegrante 0x7f09024d
 int id imagen_detalle_grupo 0x7f090111
 int id imagen_grupo 0x7f090112
 int id imagen_integrante 0x7f090113
@@ -3160,15 +3161,18 @@ int id txt_apellidoIntegrante 0x7f09021a
 int id txt_bienvenido 0x7f09021b
 int id txt_descripcionGrupo 0x7f09021c
 int id txt_detalleMostrarContacto 0x7f09021d
+int id txt_detalleMostrarIntegrante 0x7f09024e
 int id txt_emailAgregarIntegrante 0x7f09021e
 int id txt_emailContacto 0x7f09021f
 int id txt_emailDetalleContacto 0x7f090220
+int id txt_emailDetalleIntegrante 0x7f09024f
 int id txt_emailIntegrante 0x7f09024c
 int id txt_headerTexto 0x7f090221
 int id txt_nombreAgregarIntegrante 0x7f090222
 int id txt_nombreContacto 0x7f090223
 int id txt_nombreDetalleContacto 0x7f090224
 int id txt_nombreDetalleGrupo 0x7f090225
+int id txt_nombreDetalleIntegrante 0x7f090250
 int id txt_nombreGrupo 0x7f090226
 int id txt_nombreIntegrante 0x7f090227
 int id txt_olvidoPassword 0x7f090228
@@ -3177,6 +3181,7 @@ int id txt_registro 0x7f09022a
 int id txt_telefonoAgregarIntegrante 0x7f09022b
 int id txt_telefonoContacto 0x7f09022c
 int id txt_telefonoDetalleContacto 0x7f09022d
+int id txt_telefonoDetalleIntegrante 0x7f090251
 int id txt_tituloAgregarIntegrante 0x7f09022e
 int id txt_tituloContacto 0x7f09022f
 int id txt_tituloDetalleContacto 0x7f090230
@@ -3330,6 +3335,7 @@ int layout fragment_alerta 0x7f0c0037
 int layout fragment_contacto 0x7f0c0038
 int layout fragment_detalle_contacto 0x7f0c0039
 int layout fragment_detalle_grupo 0x7f0c003a
+int layout fragment_detalle_integrante 0x7f0c008d
 int layout fragment_grupo 0x7f0c003b
 int layout fragment_main 0x7f0c003c
 int layout fragment_nuevo_contacto 0x7f0c003d
@@ -3462,6 +3468,12 @@ int string DG_nombre_grupo_secundario 0x7f110010
 int string DG_nombre_integrante 0x7f110011
 int string DG_telefono_integrante 0x7f110012
 int string DH_titulo 0x7f110013
+int string DI_email_integrante 0x7f1100e2
+int string DI_email_integrante_secundario 0x7f1100e3
+int string DI_nombre_integrante 0x7f1100e4
+int string DI_nombre_integrante_secundario 0x7f1100e5
+int string DI_telefono_integrante 0x7f1100e6
+int string DI_telefono_integrante_secundario 0x7f1100e7
 int string IS_email 0x7f110014
 int string IS_olvido_password 0x7f110015
 int string IS_password 0x7f110016
@@ -3652,6 +3664,7 @@ int string pantalLa_nuevo_contacto_titulo 0x7f1100cf
 int string pantalla_alerta_titulo 0x7f1100d0
 int string pantalla_contactos_titulo 0x7f1100d1
 int string pantalla_detalle_grupo_titulo 0x7f1100d2
+int string pantalla_detalle_integrante_titulo 0x7f1100e8
 int string pantalla_grupos_titulo 0x7f1100d3
 int string pantalla_iniciar_sesion_titulo 0x7f1100d4
 int string pantalla_inicio_bienvenido 0x7f1100d5

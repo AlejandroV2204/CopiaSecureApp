@@ -123,7 +123,6 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
             public void onClick(View view) {
 
                 Toast.makeText(view.getContext(), "Accion en proceso", Toast.LENGTH_SHORT).show();
-                btn_agregarIntegrantes.setVisibility(View.VISIBLE);
                 //enviarContacto(agregarIntegrante);
 
             }

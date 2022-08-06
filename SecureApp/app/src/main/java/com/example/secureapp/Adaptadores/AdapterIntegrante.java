@@ -1,13 +1,22 @@
 package com.example.secureapp.Adaptadores;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.secureapp.Fragments.DetalleContactoFragment;
+import com.example.secureapp.Fragments.DetalleGrupoFragment;
+import com.example.secureapp.Fragments.DetalleIntegranteFragment;
+import com.example.secureapp.Modelo.MAgregarIntegrante;
 import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.Modelo.MIntegrante;
 import com.example.secureapp.R;
@@ -22,6 +31,11 @@ public class AdapterIntegrante extends RecyclerView.Adapter<AdapterIntegrante.Vi
 
     //Listener
     private View.OnClickListener listener;
+
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+
+    Context contexto;
 
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -76,6 +90,8 @@ public class AdapterIntegrante extends RecyclerView.Adapter<AdapterIntegrante.Vi
 
         view.setOnClickListener(this);
 
+        contexto = parent.getContext();
+
         return new ViewHolder(view);
 
     }
@@ -90,6 +106,15 @@ public class AdapterIntegrante extends RecyclerView.Adapter<AdapterIntegrante.Vi
         viewHolder.txt_emailIntegrante.setText(integrante.getEmail());
         viewHolder.txt_telefonoIntegrante.setText(integrante.getTelefono());
 
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                enviarIntegrante(integrante);
+
+            }
+        });
+
     }
 
     @Override
@@ -99,6 +124,29 @@ public class AdapterIntegrante extends RecyclerView.Adapter<AdapterIntegrante.Vi
 
     @Override
     public void onClick(View view) {
+
+    }
+
+    public void enviarIntegrante(MIntegrante integrante) {
+
+        //Aquí se realiza la lógica necesaria para poder realizar el envio
+        DetalleIntegranteFragment detalleIntegranteFragment = new DetalleIntegranteFragment();
+
+        //Objeto bundle para transportar la información
+        Bundle bundleEnvio = new Bundle();
+
+        //Enviar el objeto que está llegando con Serializable
+        bundleEnvio.putSerializable("objetoIntegrante", integrante);
+
+        detalleIntegranteFragment.setArguments(bundleEnvio);
+
+        //abrir fragment
+
+        fragmentManager = ((AppCompatActivity) contexto).getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, detalleIntegranteFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
 
     }
 

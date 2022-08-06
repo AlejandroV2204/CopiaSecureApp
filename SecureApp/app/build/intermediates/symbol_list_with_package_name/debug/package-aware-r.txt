@@ -2892,6 +2892,7 @@ id imageView3
 id imagen_agregarIntegrante
 id imagen_contacto
 id imagen_detalleContacto
+id imagen_detalleIntegrante
 id imagen_detalle_grupo
 id imagen_grupo
 id imagen_integrante
@@ -3161,15 +3162,18 @@ id txt_apellidoIntegrante
 id txt_bienvenido
 id txt_descripcionGrupo
 id txt_detalleMostrarContacto
+id txt_detalleMostrarIntegrante
 id txt_emailAgregarIntegrante
 id txt_emailContacto
 id txt_emailDetalleContacto
+id txt_emailDetalleIntegrante
 id txt_emailIntegrante
 id txt_headerTexto
 id txt_nombreAgregarIntegrante
 id txt_nombreContacto
 id txt_nombreDetalleContacto
 id txt_nombreDetalleGrupo
+id txt_nombreDetalleIntegrante
 id txt_nombreGrupo
 id txt_nombreIntegrante
 id txt_olvidoPassword
@@ -3178,6 +3182,7 @@ id txt_registro
 id txt_telefonoAgregarIntegrante
 id txt_telefonoContacto
 id txt_telefonoDetalleContacto
+id txt_telefonoDetalleIntegrante
 id txt_tituloAgregarIntegrante
 id txt_tituloContacto
 id txt_tituloDetalleContacto
@@ -3331,6 +3336,7 @@ layout fragment_alerta
 layout fragment_contacto
 layout fragment_detalle_contacto
 layout fragment_detalle_grupo
+layout fragment_detalle_integrante
 layout fragment_grupo
 layout fragment_main
 layout fragment_nuevo_contacto
@@ -3463,6 +3469,12 @@ string DG_nombre_grupo_secundario
 string DG_nombre_integrante
 string DG_telefono_integrante
 string DH_titulo
+string DI_email_integrante
+string DI_email_integrante_secundario
+string DI_nombre_integrante
+string DI_nombre_integrante_secundario
+string DI_telefono_integrante
+string DI_telefono_integrante_secundario
 string IS_email
 string IS_olvido_password
 string IS_password
@@ -3653,6 +3665,7 @@ string pantalLa_nuevo_contacto_titulo
 string pantalla_alerta_titulo
 string pantalla_contactos_titulo
 string pantalla_detalle_grupo_titulo
+string pantalla_detalle_integrante_titulo
 string pantalla_grupos_titulo
 string pantalla_iniciar_sesion_titulo
 string pantalla_inicio_bienvenido

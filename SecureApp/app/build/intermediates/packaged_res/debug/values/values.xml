@@ -62,6 +62,12 @@
     <string name="DG_nombre_integrante">Nombre integrante</string>
     <string name="DG_telefono_integrante">Teléfono integrante</string>
     <string name="DH_titulo">MENÚ DE NAVEGACIÓN</string>
+    <string name="DI_email_integrante">Email integrante:</string>
+    <string name="DI_email_integrante_secundario">Email integrante</string>
+    <string name="DI_nombre_integrante">Nombre integrante:</string>
+    <string name="DI_nombre_integrante_secundario">Nombre integrante</string>
+    <string name="DI_telefono_integrante">Teléfono integrante:</string>
+    <string name="DI_telefono_integrante_secundario">Teléfono integrante</string>
     <string name="IS_email">Correo electrónico</string>
     <string name="IS_olvido_password">¿Olvido su contraseña?</string>
     <string name="IS_password">Contraseña</string>
@@ -114,6 +120,7 @@
     <string name="pantalla_alerta_titulo">ALERTA</string>
     <string name="pantalla_contactos_titulo">CONTACTOS</string>
     <string name="pantalla_detalle_grupo_titulo">DETALLE GRUPO</string>
+    <string name="pantalla_detalle_integrante_titulo">DETALLE INTEGRANTE</string>
     <string name="pantalla_grupos_titulo">GRUPOS</string>
     <string name="pantalla_iniciar_sesion_titulo">INICIAR SESIÓN</string>
     <string name="pantalla_inicio_bienvenido">BIENVENID@</string>

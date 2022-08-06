@@ -83,7 +83,7 @@ public class AgregarIntegranteFragment extends Fragment{
         //Validación para verificar si existen argumentos enviados para mostrar
         if (objetoIntegrante != null){
 
-            agregarIntegrante = (MAgregarIntegrante) objetoIntegrante.getSerializable("objetoIntegrante");
+            agregarIntegrante = (MAgregarIntegrante) objetoIntegrante.getSerializable("objetoNuevoIntegrante");
 
             //Establecer los datos en las vistas
             identificadorDetalle = (agregarIntegrante.getIdentificador());

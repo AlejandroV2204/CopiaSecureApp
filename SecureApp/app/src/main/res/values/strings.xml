@@ -94,6 +94,14 @@
 
     <string name="AI_agregar_integrante_titulo">AGREGAR INTEGRANTES</string>
 
+    <string name="pantalla_detalle_integrante_titulo">DETALLE INTEGRANTE</string>
+    <string name="DI_nombre_integrante">Nombre integrante:</string>
+    <string name="DI_nombre_integrante_secundario">Nombre integrante</string>
+    <string name="DI_email_integrante">Email integrante:</string>
+    <string name="DI_email_integrante_secundario">Email integrante</string>
+    <string name="DI_telefono_integrante">Teléfono integrante:</string>
+    <string name="DI_telefono_integrante_secundario">Teléfono integrante</string>
+
     <string name="LG_descripcion">Descripción del grupo</string>
     ------------------------------------------------------------------------------------
     <string name="pantalla_alerta_titulo">ALERTA</string>
