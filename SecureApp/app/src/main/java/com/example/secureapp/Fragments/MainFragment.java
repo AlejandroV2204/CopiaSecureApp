@@ -100,7 +100,7 @@ public class MainFragment extends Fragment {
 
     private void tomarDatosDeFirestore(){
 
-        firestore.collection("alerta")
+        firestore.collection("misAlertas")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

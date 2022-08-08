@@ -9,6 +9,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.secureapp.Modelo.MAlerta;
 import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.R;
@@ -20,7 +25,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder> implements View.OnClickListener {
 
@@ -29,6 +39,7 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
     private LayoutInflater inflater;
     private FirebaseFirestore firestore;
     ArrayList<MAlerta> alertaList;
+
 
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -98,6 +109,15 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
 
         viewHolder.txt_descripcionAlerta.setText(alerta.getDescripción());
 
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
+
     }
 
     @Override
@@ -112,7 +132,10 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
 
 
 
-        }
+    }
+    private void limpiarCampos() {
+
+    }
 
 
     }
