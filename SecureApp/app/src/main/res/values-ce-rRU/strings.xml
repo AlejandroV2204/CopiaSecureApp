@@ -22,7 +22,7 @@
     <string name="pantalla_detalle_grupo_titulo">ПОДРОБНАЯ ИНФОРМАЦИЯ О ГРУППЕ</string>
     <string name="DG_nombre_grupo">Название группы:</string>
     <string name="DG_nombre_grupo_secundario">Название группы</string>
-    <string name="DG_participantes_grupo">Участники группы:</string>
+    <string name="DG_integrantes_grupo">Участники группы:</string>
     <string name="LG_descripcion">Описание группы</string>
     <string name="pantalla_alerta_titulo">Оповещение</string>
     <string name="A_titulo_alerta">ВВЕДИТЕ НАЗВАНИЕ ОПОВЕЩЕНИЯ</string>

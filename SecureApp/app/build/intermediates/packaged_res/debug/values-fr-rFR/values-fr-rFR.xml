@@ -8,9 +8,9 @@
     <string name="DC_nombre_contacto_secundario">Nom du contact</string>
     <string name="DC_telefono_contacto">Contact téléphonique :</string>
     <string name="DC_telefono_contacto_secundario">Contact téléphonique :</string>
+    <string name="DG_integrantes_grupo">Participants du groupe :</string>
     <string name="DG_nombre_grupo">Nom du groupe :</string>
     <string name="DG_nombre_grupo_secundario">Nom du groupe</string>
-    <string name="DG_participantes_grupo">Participants du groupe :</string>
     <string name="DH_titulo">MENU DE NAVIGATION</string>
     <string name="LC_telefono">Contact téléphonique :</string>
     <string name="LG_descripcion">Description du groupe</string>

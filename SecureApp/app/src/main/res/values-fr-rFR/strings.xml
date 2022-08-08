@@ -22,7 +22,7 @@
     <string name="pantalla_detalle_grupo_titulo">DÉTAIL DU GROUPE</string>
     <string name="DG_nombre_grupo">Nom du groupe :</string>
     <string name="DG_nombre_grupo_secundario">Nom du groupe</string>
-    <string name="DG_participantes_grupo">Participants du groupe :</string>
+    <string name="DG_integrantes_grupo">Participants du groupe :</string>
     <string name="LG_descripcion">Description du groupe</string>
     <string name="pantalla_alerta_titulo">ALERTE</string>
     <string name="A_titulo_alerta">SAISISSEZ LE TITRE DE L\'ALERTE</string>

@@ -53,6 +53,7 @@
     <string name="OP_botonRecuperar">RECUPERAR</string>
     ------------------------------------------------------------------------------------
     <string name="pantalla_inicio_titulo">PANTALLA DE INICIO</string>
+    <string name="pantalla_inicio_bienvenido">BIENVENID@</string>
     ------------------------------------------------------------------------------------
     <string name="pantalla_contactos_titulo">CONTACTOS</string>
 
@@ -68,6 +69,8 @@
     <string name="DC_nombre_contacto_secundario">Nombre contacto</string>
     <string name="DC_email_contacto">Email contacto:</string>
     <string name="DC_email_contacto_secundario">Email contacto</string>
+    <string name="DC_telefono_contacto">Teléfono contacto:</string>
+    <string name="DC_telefono_contacto_secundario">Teléfono contacto</string>
 
     <string name="LC_email">Email contacto</string>
     <string name="LC_telefono">Telefono contacto</string>
@@ -81,7 +84,23 @@
     <string name="pantalla_detalle_grupo_titulo">DETALLE GRUPO</string>
     <string name="DG_nombre_grupo">Nombre grupo:</string>
     <string name="DG_nombre_grupo_secundario">Nombre del grupo</string>
-    <string name="DG_participantes_grupo">Participantes del grupo:</string>
+    <string name="DG_integrantes_grupo">Integrantes del grupo:</string>
+
+    <string name="DG_nombre_integrante">Nombre integrante</string>
+    <string name="DG_apellido_integrante">Apellido integrante</string>
+    <string name="DG_email_integrante">Email integrante</string>
+    <string name="DG_telefono_integrante">Teléfono integrante</string>
+    <string name="DG_agregar_integrante">ㅤAgregar integrantes</string>
+
+    <string name="AI_agregar_integrante_titulo">AGREGAR INTEGRANTES</string>
+
+    <string name="pantalla_detalle_integrante_titulo">DETALLE INTEGRANTE</string>
+    <string name="DI_nombre_integrante">Nombre integrante:</string>
+    <string name="DI_nombre_integrante_secundario">Nombre integrante</string>
+    <string name="DI_email_integrante">Email integrante:</string>
+    <string name="DI_email_integrante_secundario">Email integrante</string>
+    <string name="DI_telefono_integrante">Teléfono integrante:</string>
+    <string name="DI_telefono_integrante_secundario">Teléfono integrante</string>
 
     <string name="LG_descripcion">Descripción del grupo</string>
     ------------------------------------------------------------------------------------

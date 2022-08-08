@@ -6,91 +6,67 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txt_detalleMostrarGrupo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/pantalla_detalle_grupo_titulo"
+        android:id="@+id/txt_nombreDetalleGrupo"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:gravity="center"
+        android:text="@string/DG_nombre_grupo_secundario"
         android:textAlignment="center"
         android:textColor="@color/Texto_color"
         android:textSize="35sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082">
+        app:layout_constraintVertical_bias="0.073">
 
     </TextView>
 
     <ImageView
-
-        android:id="@+id/imagen_detalle_grupo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.253"
-        android:padding="10dp">
-
-    </ImageView>
-
-    <TextView
-
-        android:id="@+id/txt_tituloDetalleGrupo"
-        android:layout_width="208dp"
-        android:layout_height="36dp"
-        android:text="@string/DG_nombre_grupo"
-        android:textAlignment="gravity"
-        android:textColor="@color/Texto_color"
-        android:textSize="25sp"
-        android:textStyle="bold|italic"
+        android:id="@+id/IV_atras_detalleGrupo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553">
+        app:layout_constraintVertical_bias="0.083"
+        app:srcCompat="@drawable/ic_atras" />
 
-    </TextView>
+    <ImageView
+
+        android:id="@+id/imagen_detalle_grupo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:foreground="@drawable/ic_group"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.194">
+
+    </ImageView>
 
     <TextView
 
         android:id="@+id/txt_tituloDetalleGrupo2"
         android:layout_width="407dp"
         android:layout_height="44dp"
-        android:text="@string/DG_participantes_grupo"
+        android:text="@string/DG_integrantes_grupo"
         android:textAlignment="gravity"
         android:textColor="@color/Texto_color"
-        android:textSize="25sp"
+        android:textSize="30sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.685">
-
-    </TextView>
-
-    <TextView
-
-        android:id="@+id/txt_nombreDetalleGrupo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/DG_nombre_grupo_secundario"
-        android:textAlignment="center"
-        android:textColor="@color/Texto_color"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.613">
+        app:layout_constraintVertical_bias="0.423">
 
     </TextView>
 
@@ -100,5 +76,40 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="42dp" />
+
+    <LinearLayout
+
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_tituloDetalleGrupo2"
+        app:layout_constraintVertical_bias="0.078">
+
+
+        <TextView
+            android:id="@+id/txt_agregarIntegrantes"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_nuevo_contacto"
+            android:drawableTint="@color/Strings_funcionales_color"
+            android:text="@string/DG_agregar_integrante"
+            android:textAlignment="inherit"
+            android:textColor="@color/Strings_funcionales_color"
+            android:textSize="25sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RV_integrantes"
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

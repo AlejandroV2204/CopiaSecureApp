@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/color_listas"
+    app:cardCornerRadius="1dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        >
+
+        <ImageView
+
+            android:id="@+id/imagen_agregarIntegrante"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/ic_launcher">
+
+        </ImageView>
+
+        <TextView
+
+            android:id="@+id/txt_nombreAgregarIntegrante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@id/imagen_agregarIntegrante"
+            android:layout_toRightOf="@id/imagen_agregarIntegrante"
+            android:text="@string/DG_nombre_integrante"
+            android:textColor="@color/Texto_color"
+            android:textSize="20sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <TextView
+
+            android:id="@+id/txt_apellidoAgregarIntegrante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@id/txt_nombreAgregarIntegrante"
+            android:layout_toRightOf="@id/imagen_agregarIntegrante"
+            android:text="@string/DG_apellido_integrante"
+            android:textColor="@color/Texto_color"
+            android:textSize="20sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <TextView
+
+            android:id="@+id/txt_emailAgregarIntegrante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_apellidoAgregarIntegrante"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@id/imagen_agregarIntegrante"
+            android:layout_toRightOf="@id/imagen_agregarIntegrante"
+            android:text="@string/DG_email_integrante"
+            android:textColor="@color/Texto_color">
+
+        </TextView>
+
+        <TextView
+
+            android:id="@+id/txt_telefonoAgregarIntegrante"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_emailAgregarIntegrante"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@id/imagen_agregarIntegrante"
+            android:layout_toRightOf="@id/imagen_agregarIntegrante"
+            android:text="@string/DG_telefono_integrante"
+            android:textColor="@color/Texto_color">
+
+        </TextView>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

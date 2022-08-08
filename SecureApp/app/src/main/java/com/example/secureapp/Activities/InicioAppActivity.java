@@ -20,15 +20,11 @@ import java.util.TimerTask;
 
 public class InicioAppActivity extends AppCompatActivity {
 
-    int REQUEST_CODE = 200;
-
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_app);
-
-        verificarPermisos();
 
         TimerTask timerTask = new TimerTask() {
             @Override
@@ -45,23 +41,4 @@ public class InicioAppActivity extends AppCompatActivity {
         tiempo.schedule(timerTask, 3000);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    private void verificarPermisos() {
-
-        int permisoUbicacion = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
-        int permisoUbicacionExacta = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
-        int permisoInternet = ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET);
-
-        if (permisoUbicacion == PackageManager.PERMISSION_GRANTED && permisoUbicacionExacta == PackageManager.PERMISSION_GRANTED && permisoInternet == PackageManager.PERMISSION_GRANTED){
-
-            Toast.makeText(this, "Permiso de ubicación concecido", Toast.LENGTH_SHORT).show();
-            Toast.makeText(this, "Permiso de conexión a internet concecido", Toast.LENGTH_SHORT).show();
-
-
-        }else{
-
-            requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}, REQUEST_CODE);
-
-        }
-    }
 }

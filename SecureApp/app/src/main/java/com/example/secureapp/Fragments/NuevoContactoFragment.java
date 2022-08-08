@@ -46,8 +46,6 @@ public class NuevoContactoFragment extends Fragment{
 
     FirebaseAuth firebaseAuth;
     AwesomeValidation awesomeValidation;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
 
     private FirebaseFirestore firestore;
 
@@ -57,7 +55,6 @@ public class NuevoContactoFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_nuevo_contacto,container, false);
 
         inicializarFireStore();
-        validarCampos();
 
         et_emailContacto = view.findViewById(R.id.et_emailContacto);
         btn_crearContacto = view.findViewById(R.id.btn_crearContacto);
@@ -72,14 +69,6 @@ public class NuevoContactoFragment extends Fragment{
         });
 
         return view;
-    }
-
-    private void inicializarFirebase(){
-
-        FirebaseApp.initializeApp(getContext());
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
-
     }
 
     private void inicializarFireStore(){
@@ -101,6 +90,7 @@ public class NuevoContactoFragment extends Fragment{
     private void validarDatos(){
 
         emailContacto = et_emailContacto.getText().toString();
+        validarCampos();
 
         if (awesomeValidation.validate()){
 

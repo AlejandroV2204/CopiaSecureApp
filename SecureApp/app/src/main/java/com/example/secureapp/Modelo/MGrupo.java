@@ -1,18 +1,19 @@
 package com.example.secureapp.Modelo;
 
-import android.location.Location;
+import com.google.firebase.firestore.GeoPoint;
 
-import java.util.HashMap;
+import java.io.Serializable;
 
-public class MGrupo {
+public class MGrupo implements Serializable{
 
-    private String nombre, descripción, administrador, emailAdministrador, fechaCreacion, cantidadIntegrantes;
-    private HashMap localizacion;
+    private String identificador, nombre, descripcion, administrador, emailAdministrador, fechaCreacion, cantidadIntegrantes;
+    private GeoPoint localizacion;
 
-    public MGrupo(String nombre, String descripción, String administrador, String emailAdministrador, String fechaCreacion, String cantidadIntegrantes, HashMap localizacion) {
+    public MGrupo(String identificador, String nombre, String descripción, String administrador, String emailAdministrador, String fechaCreacion, String cantidadIntegrantes, GeoPoint localizacion) {
 
+        this.identificador = identificador;
         this.nombre = nombre;
-        this.descripción = descripción;
+        this.descripcion = descripción;
         this.administrador = administrador;
         this.emailAdministrador = emailAdministrador;
         this.fechaCreacion = fechaCreacion;
@@ -21,6 +22,13 @@ public class MGrupo {
 
     }
 
+    public String getIdentificador() {
+        return identificador;
+    }
+
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
+    }
 
     public String getNombre() {
         return nombre;
@@ -30,12 +38,12 @@ public class MGrupo {
         this.nombre = nombre;
     }
 
-    public String getDescripción() {
-        return descripción;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescripción(String descripción) {
-        this.descripción = descripción;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getAdministrador() {
@@ -70,11 +78,11 @@ public class MGrupo {
         this.cantidadIntegrantes = cantidadIntegrantes;
     }
 
-    public HashMap getLocalizacion() {
+    public GeoPoint getLocalizacion() {
         return localizacion;
     }
 
-    public void setLocalizacion(HashMap localizacion) {
+    public void setLocalizacion(GeoPoint localizacion) {
         this.localizacion = localizacion;
     }
 

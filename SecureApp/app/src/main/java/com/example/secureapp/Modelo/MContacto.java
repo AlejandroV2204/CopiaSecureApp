@@ -1,6 +1,8 @@
 package com.example.secureapp.Modelo;
 
-public class MContacto {
+import java.io.Serializable;
+
+public class MContacto implements Serializable{
 
     private String nombre, apellido, email, telefono;
 

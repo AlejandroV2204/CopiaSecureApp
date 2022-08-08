@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="http://schemas.android.com/tools">
-<<<<<<< HEAD
-    <color name="App_color">#1f2046</color>
-    <color name="Botones_color">#1f2046</color>
-    <color name="Fondo_app">#e9e8e6</color>
-    <color name="Texto_color">#000000</color>
-    <color name="Texto_color_botones">#e9e8e6</color>
-    <color name="black">#FF000000</color>
-=======
     <string-array name="R_listaAntioquia">
         <item>Cáceres</item>
         <item>Armenia</item>
@@ -33,36 +25,25 @@
     <color name="Botones_color">#1f2046</color>
     <color name="Fondo_app">#e9e8e6</color>
     <color name="Hints_color">#636363</color>
+    <color name="Item_seleccionado_color">#fef17a</color>
+    <color name="Strings_funcionales_color">#4c2882</color>
     <color name="Texto_color">#000000</color>
     <color name="Texto_color_botones">#e9e8e6</color>
     <color name="black">#FF000000</color>
-    <color name="color_listas">#DADBFF</color>
->>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
+    <color name="color_listas">#e9e8e6</color>
     <color name="ic_candado_background">#FFFFFF</color>
     <color name="ic_candado_icon_background">#C32C28</color>
     <color name="ic_icono_aplicacion_background">#FFFFFF</color>
     <color name="ic_launcher_candado_icon_background">#C32C28</color>
     <color name="ic_launcher_secure_icon_background">#FFFFFF</color>
-<<<<<<< HEAD
-=======
     <color name="ic_logo_estrella_secureapp_background">#3DDC84</color>
->>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
-<<<<<<< HEAD
-    <string name="A_boton_alerta_especifica">EMITIR ALERTA ESPECIFICA</string>
-    <string name="A_boton_alerta_general">EMITIR ALERTA GENERAL</string>
-    <string name="A_cuerpo_alerta">INGRESE EL CUERPO DE LA ALERTA</string>
-    <string name="A_titulo_alerta">INGRESE EL TITULO DE LA ALERTA</string>
-    <string name="DC_nombre_contacto">Nombre contacto:</string>
-    <string name="DC_nombre_contacto_secundario">Nombre contacto</string>
-    <string name="DC_telefono_contacto">Teléfono contacto:</string>
-    <string name="DC_telefono_contacto_secundario">Teléfono contacto</string>
-=======
+    <string name="AI_agregar_integrante_titulo">AGREGAR INTEGRANTES</string>
     <string name="A_boton_alerta_especifica">EMITIR ALERTA</string>
     <string name="A_cuerpo_alerta">INGRESE EL CUERPO DE LA ALERTA</string>
     <string name="A_titulo_alerta">INGRESE EL TITULO DE LA ALERTA</string>
@@ -70,17 +51,23 @@
     <string name="DC_email_contacto_secundario">Email contacto</string>
     <string name="DC_nombre_contacto">Nombre contacto:</string>
     <string name="DC_nombre_contacto_secundario">Nombre contacto</string>
->>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
+    <string name="DC_telefono_contacto">Teléfono contacto:</string>
+    <string name="DC_telefono_contacto_secundario">Teléfono contacto</string>
+    <string name="DG_agregar_integrante">ㅤAgregar integrantes</string>
+    <string name="DG_apellido_integrante">Apellido integrante</string>
+    <string name="DG_email_integrante">Email integrante</string>
+    <string name="DG_integrantes_grupo">Integrantes del grupo:</string>
     <string name="DG_nombre_grupo">Nombre grupo:</string>
     <string name="DG_nombre_grupo_secundario">Nombre del grupo</string>
-    <string name="DG_participantes_grupo">Participantes del grupo:</string>
+    <string name="DG_nombre_integrante">Nombre integrante</string>
+    <string name="DG_telefono_integrante">Teléfono integrante</string>
     <string name="DH_titulo">MENÚ DE NAVEGACIÓN</string>
-<<<<<<< HEAD
-    <string name="LC_telefono">Teléfono contacto</string>
-    <string name="LG_descripcion">Descripción del grupo</string>
-    <string name="MI_agregar_contacto">Agregar contacto</string>
-    <string name="MI_alerta">Alerta</string>
-=======
+    <string name="DI_email_integrante">Email integrante:</string>
+    <string name="DI_email_integrante_secundario">Email integrante</string>
+    <string name="DI_nombre_integrante">Nombre integrante:</string>
+    <string name="DI_nombre_integrante_secundario">Nombre integrante</string>
+    <string name="DI_telefono_integrante">Teléfono integrante:</string>
+    <string name="DI_telefono_integrante_secundario">Teléfono integrante</string>
     <string name="IS_email">Correo electrónico</string>
     <string name="IS_olvido_password">¿Olvido su contraseña?</string>
     <string name="IS_password">Contraseña</string>
@@ -91,19 +78,10 @@
     <string name="MI_agregar_contacto">Agregar contacto</string>
     <string name="MI_alerta">Alerta</string>
     <string name="MI_cerrarSesion">Cerrar sesión</string>
->>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
     <string name="MI_contactos">Contactos</string>
     <string name="MI_grupos">Grupos</string>
     <string name="MI_inicio">Inicio</string>
     <string name="MI_nuevo_grupo">Nuevo grupo</string>
-<<<<<<< HEAD
-    <string name="NC_nombre_del_contacto">NOMBRE DEL CONTACTO</string>
-    <string name="NC_telefono_contacto">TELEFÓNO DEL CONTACTO</string>
-    <string name="NG_nombre_del_grupo">NOMBRE DEL GRUPO</string>
-    <string name="app_name">SecureApp</string>
-    <string name="close">clase</string>
-    <string name="crear">CREAR</string>
-=======
     <string name="NC_apellido_del_contacto">APELLIDO DEL CONTACTO</string>
     <string name="NC_email_contacto">EMAIL DEL CONTACTO</string>
     <string name="NC_mensaje_ingrese_email">Ingresa el correo electrónico del contacto que deseas agregar</string>
@@ -132,7 +110,6 @@
     <string name="invalid_identificacion">Ingrese un número de identificación valida</string>
     <string name="invalid_password">Ingrese una contraseña mayor a 6 digitos</string>
     <string name="invalid_telefono">Ingrese un número de teléfono valido</string>
->>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
     <string name="menuItem_comunicacion">Comunicación</string>
     <string name="menuItem_comunidad">Comunidad</string>
     <string name="menuItem_personal">Personal</string>
@@ -143,16 +120,15 @@
     <string name="pantalla_alerta_titulo">ALERTA</string>
     <string name="pantalla_contactos_titulo">CONTACTOS</string>
     <string name="pantalla_detalle_grupo_titulo">DETALLE GRUPO</string>
+    <string name="pantalla_detalle_integrante_titulo">DETALLE INTEGRANTE</string>
     <string name="pantalla_grupos_titulo">GRUPOS</string>
     <string name="pantalla_iniciar_sesion_titulo">INICIAR SESIÓN</string>
+    <string name="pantalla_inicio_bienvenido">BIENVENID@</string>
     <string name="pantalla_inicio_titulo">PANTALLA DE INICIO</string>
     <string name="pantalla_nuevo_grupo_titulo">CREAR GRUPO</string>
-<<<<<<< HEAD
-=======
     <string name="pantalla_olvido_password">RECUPERA TU CONTRASEÑA</string>
     <string name="pantalla_registro_titulo">REGISTRAR CUENTA</string>
     <string name="project_id" translatable="false">app-c54c0</string>
->>>>>>> e7fb36d46185e401f65dfa083a7777e642406c4c
     <style name="Theme.AppCompat.NoActionBar." parent="Theme.AppCompat.Light.NoActionBar">
         
         <item name="colorPrimary">@color/purple_500</item>

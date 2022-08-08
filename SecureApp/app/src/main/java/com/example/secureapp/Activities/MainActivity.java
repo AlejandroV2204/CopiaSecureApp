@@ -1,31 +1,40 @@
 package com.example.secureapp.Activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.example.secureapp.Adaptadores.AdapterGrupo;
 import com.example.secureapp.Entidades.Contacto;
 import com.example.secureapp.Entidades.Grupo;
 import com.example.secureapp.Fragments.ContactoFragment;
 import com.example.secureapp.Fragments.DetalleContactoFragment;
 import com.example.secureapp.Fragments.NuevoContactoFragment;
 import com.example.secureapp.Interfaces.IComunicaFragments;
+import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
 import com.google.android.material.navigation.NavigationView;
 
@@ -39,7 +48,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessagingService;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, IComunicaFragments {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -56,11 +67,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //variable del fragment detalle contacto
     DetalleContactoFragment detalleContactoFragment;
 
+    ArrayList listaGrupos;
+    RecyclerView recyclerGrupos;
+
+    int REQUEST_CODE = 200;
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        verificarPermisos();
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -108,6 +126,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 });
         builder.show();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void verificarPermisos() {
+
+        int permisoUbicacion = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
+        int permisoUbicacionExacta = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+        int permisoInternet = ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET);
+
+        if (permisoUbicacion == PackageManager.PERMISSION_GRANTED && permisoUbicacionExacta == PackageManager.PERMISSION_GRANTED && permisoInternet == PackageManager.PERMISSION_GRANTED){
+
+            Toast.makeText(this, "Permiso de ubicación concecido", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Permiso de conexión a internet concecido", Toast.LENGTH_SHORT).show();
+
+
+        }else{
+
+            requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.INTERNET}, REQUEST_CODE);
+
+        }
     }
 
     @Override
@@ -188,51 +226,59 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-
-    @Override
-    public void enviarGrupo(Grupo grupo) {
-
-        //Aquí se realiza la lógica necesaria para poder realizar el envio
-        detalleGrupoFragment = new DetalleGrupoFragment();
-
-        //Objeto bundle para transportar la información
-        Bundle bundleEnvio = new Bundle();
-
-        //Enviar el objeto que está llegando con Serializable
-        bundleEnvio.putSerializable("objetoGrupo", grupo);
-
-        detalleGrupoFragment.setArguments(bundleEnvio);
-
-        //abrir fragment
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, detalleGrupoFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-
-
-    }
-
-    @Override
-    public void enviarContacto(Contacto contacto) {
+    //@Override
+    //public void enviarGrupo(MGrupo grupo) {
 
         //Aquí se realiza la lógica necesaria para poder realizar el envio
-        detalleContactoFragment = new DetalleContactoFragment();
+        //detalleGrupoFragment = new DetalleGrupoFragment();
 
         //Objeto bundle para transportar la información
-        Bundle bundleEnvio = new Bundle();
+        //Bundle bundleEnvio = new Bundle();
 
         //Enviar el objeto que está llegando con Serializable
-        bundleEnvio.putSerializable("objetoContacto", contacto);
+        //bundleEnvio.putSerializable("objetoGrupo", grupo);
 
-        detalleContactoFragment.setArguments(bundleEnvio);
+        //detalleGrupoFragment.setArguments(bundleEnvio);
 
         //abrir fragment
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, detalleContactoFragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        //fragmentManager = getSupportFragmentManager();
+        //fragmentTransaction = fragmentManager.beginTransaction();
+        //fragmentTransaction.replace(R.id.container, detalleGrupoFragment);
+        //fragmentTransaction.addToBackStack(null);
+        //fragmentTransaction.commit();
+
+
+    //}
+
+    //@Override
+    //public void enviarContacto(Contacto contacto) {
+
+        //Aquí se realiza la lógica necesaria para poder realizar el envio
+        //detalleContactoFragment = new DetalleContactoFragment();
+
+        //Objeto bundle para transportar la información
+        //Bundle bundleEnvio = new Bundle();
+
+        //Enviar el objeto que está llegando con Serializable
+        //bundleEnvio.putSerializable("objetoContacto", contacto);
+
+        //detalleContactoFragment.setArguments(bundleEnvio);
+
+        //abrir fragment
+        //fragmentManager = getSupportFragmentManager();
+        //fragmentTransaction = fragmentManager.beginTransaction();
+        //fragmentTransaction.replace(R.id.container, detalleContactoFragment);
+        //fragmentTransaction.addToBackStack(null);
+        //fragmentTransaction.commit();
+
+    //}
+
+    public void construirRecylerGrupo(){
+
+        int resource = 0;
+        listaGrupos =  new ArrayList<>();
+        recyclerGrupos = findViewById(R.id.RV_grupos);
+
 
     }
 
