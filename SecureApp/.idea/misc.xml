@@ -21,7 +21,11 @@
         <entry key="..\:/SecureApp-1/SecureApp/app/src/main/res/menu/drawer_menu.xml" value="0.18072916666666666" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/drawable-v24/ic_contacto.xml" value="0.1" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/drawable-v24/ic_nuevo_contacto.xml" value="0.1" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/drawable/ic_favorite_star_shadow_24.xml" value="0.204" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/drawable/ic_launcher_alerta_background.xml" value="0.204" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/drawable/ic_launcher_alerta_foreground.xml" value="0.1945" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/activity_inicio_app.xml" value="0.17028985507246377" />
+<<<<<<< HEAD
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/activity_inicio_sesion.xml" value="0.33" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/activity_main.xml" value="0.13" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/activity_registro.xml" value="0.1" />
@@ -42,6 +46,26 @@
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/lista_contactos.xml" value="0.33" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/lista_grupos.xml" value="0.33" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/lista_integrantes.xml" value="0.33" />
+=======
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/activity_inicio_sesion.xml" value="0.21" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/activity_main.xml" value="0.17028985507246377" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/activity_registro.xml" value="0.17028985507246377" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/content_main.xml" value="0.17028985507246377" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/drawer_header.xml" value="0.17028985507246377" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/drawer_toolbar.xml" value="0.17028985507246377" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/fragment_alerta.xml" value="0.25" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/fragment_contacto.xml" value="0.17028985507246377" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/fragment_detalle_contacto.xml" value="0.17028985507246377" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/fragment_detalle_grupo.xml" value="0.17028985507246377" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/fragment_grupo.xml" value="0.25" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/fragment_main.xml" value="0.17028985507246377" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/fragment_nuevo_contacto.xml" value="0.25" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/fragment_nuevo_grupo.xml" value="0.17028985507246377" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/lista_alerta.xml" value="0.33" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/lista_contactos.xml" value="0.17028985507246377" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/lista_grupos.xml" value="0.25" />
+        <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/lista_main.xml" value="0.19635416666666666" />
+>>>>>>> feature/andrey
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/layout/main_fragment.xml" value="0.17028985507246377" />
         <entry key="..\:/SecureApp/SecureApp/app/src/main/res/menu/drawer_menu.xml" value="0.19635416666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/SecureApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />

@@ -30,7 +30,11 @@
     <color name="Texto_color">#000000</color>
     <color name="Texto_color_botones">#e9e8e6</color>
     <color name="black">#FF000000</color>
+<<<<<<< HEAD
     <color name="color_listas">#e9e8e6</color>
+=======
+    <color name="color_listas">#DADBFF</color>
+>>>>>>> feature/andrey
     <color name="ic_candado_background">#FFFFFF</color>
     <color name="ic_candado_icon_background">#C32C28</color>
     <color name="ic_icono_aplicacion_background">#FFFFFF</color>
@@ -43,31 +47,44 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<< HEAD
     <string name="AI_agregar_integrante_titulo">AGREGAR INTEGRANTES</string>
     <string name="A_boton_alerta_especifica">EMITIR ALERTA</string>
+=======
+    <string name="A_boton_alerta_especifica">Necesito un mecanico</string>
+>>>>>>> feature/andrey
     <string name="A_cuerpo_alerta">INGRESE EL CUERPO DE LA ALERTA</string>
+    <string name="A_nombre_alerta">Nombre de la alerta</string>
     <string name="A_titulo_alerta">INGRESE EL TITULO DE LA ALERTA</string>
     <string name="DC_email_contacto">Email contacto:</string>
     <string name="DC_email_contacto_secundario">Email contacto</string>
     <string name="DC_nombre_contacto">Nombre contacto:</string>
     <string name="DC_nombre_contacto_secundario">Nombre contacto</string>
+<<<<<<< HEAD
     <string name="DC_telefono_contacto">Teléfono contacto:</string>
     <string name="DC_telefono_contacto_secundario">Teléfono contacto</string>
     <string name="DG_agregar_integrante">ㅤAgregar integrantes</string>
     <string name="DG_apellido_integrante">Apellido integrante</string>
     <string name="DG_email_integrante">Email integrante</string>
     <string name="DG_integrantes_grupo">Integrantes del grupo:</string>
+=======
+    <string name="DC_telefono_contacto">Telefono contacto:</string>
+    <string name="DC_telefono_contacto_secundario">Telefono contacto </string>
+>>>>>>> feature/andrey
     <string name="DG_nombre_grupo">Nombre grupo:</string>
     <string name="DG_nombre_grupo_secundario">Nombre del grupo</string>
     <string name="DG_nombre_integrante">Nombre integrante</string>
     <string name="DG_telefono_integrante">Teléfono integrante</string>
     <string name="DH_titulo">MENÚ DE NAVEGACIÓN</string>
+<<<<<<< HEAD
     <string name="DI_email_integrante">Email integrante:</string>
     <string name="DI_email_integrante_secundario">Email integrante</string>
     <string name="DI_nombre_integrante">Nombre integrante:</string>
     <string name="DI_nombre_integrante_secundario">Nombre integrante</string>
     <string name="DI_telefono_integrante">Teléfono integrante:</string>
     <string name="DI_telefono_integrante_secundario">Teléfono integrante</string>
+=======
+>>>>>>> feature/andrey
     <string name="IS_email">Correo electrónico</string>
     <string name="IS_olvido_password">¿Olvido su contraseña?</string>
     <string name="IS_password">Contraseña</string>
@@ -86,6 +103,7 @@
     <string name="NC_email_contacto">EMAIL DEL CONTACTO</string>
     <string name="NC_mensaje_ingrese_email">Ingresa el correo electrónico del contacto que deseas agregar</string>
     <string name="NC_nombre_del_contacto">NOMBRE DEL CONTACTO</string>
+    <string name="NC_telefono_contacto">TELEFONO CONTACTO</string>
     <string name="NG_descripcion_del_grupo">DESCRIPCIÓN DEL GRUPO</string>
     <string name="NG_nombre_del_grupo">NOMBRE DEL GRUPO</string>
     <string name="OP_botonRecuperar">RECUPERAR</string>
@@ -123,8 +141,12 @@
     <string name="pantalla_detalle_integrante_titulo">DETALLE INTEGRANTE</string>
     <string name="pantalla_grupos_titulo">GRUPOS</string>
     <string name="pantalla_iniciar_sesion_titulo">INICIAR SESIÓN</string>
+<<<<<<< HEAD
     <string name="pantalla_inicio_bienvenido">BIENVENID@</string>
     <string name="pantalla_inicio_titulo">PANTALLA DE INICIO</string>
+=======
+    <string name="pantalla_inicio_titulo">MIS ALERTAS</string>
+>>>>>>> feature/andrey
     <string name="pantalla_nuevo_grupo_titulo">CREAR GRUPO</string>
     <string name="pantalla_olvido_password">RECUPERA TU CONTRASEÑA</string>
     <string name="pantalla_registro_titulo">REGISTRAR CUENTA</string>

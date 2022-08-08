@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="A_boton_alerta_especifica">发出具体警报</string>
-    <string name="A_boton_alerta_general">发出一般警报</string>
+    <string name="A_boton_alerta_especifica">问题提示：我需要一个机械师</string>
     <string name="A_cuerpo_alerta">输入警报的内容</string>
     <string name="A_titulo_alerta">输入警报的标题</string>
+    <string name="DC_email_contacto">电子邮件联系。</string>
+    <string name="DC_email_contacto_secundario">电子邮件联系</string>
     <string name="DC_nombre_contacto">联系人姓名。</string>
     <string name="DC_nombre_contacto_secundario">联系人姓名</string>
     <string name="DC_telefono_contacto">电话联系。</string>
@@ -12,20 +13,42 @@
     <string name="DG_nombre_grupo">集团名称。</string>
     <string name="DG_nombre_grupo_secundario">团体名称</string>
     <string name="DH_titulo">导航菜单</string>
+    <string name="IS_email">电子邮件地址</string>
+    <string name="IS_olvido_password">忘记密码？</string>
+    <string name="IS_password">密码</string>
+    <string name="IS_registro">还没有账户吗？注册</string>
+    <string name="LC_email">电子邮件联系</string>
     <string name="LC_telefono">电话联系</string>
     <string name="LG_descripcion">小组的描述</string>
     <string name="MI_agregar_contacto">添加联系人</string>
     <string name="MI_alerta">警报</string>
+    <string name="MI_cerrarSesion">登出</string>
     <string name="MI_contactos">联系我们</string>
     <string name="MI_grupos">群体</string>
     <string name="MI_inicio">首页</string>
     <string name="MI_nuevo_grupo">新团体</string>
+    <string name="NC_apellido_del_contacto">联系姓</string>
+    <string name="NC_email_contacto">联系电子邮件</string>
+    <string name="NC_mensaje_ingrese_email">输入你要添加的联系人的电子邮件地址</string>
     <string name="NC_nombre_del_contacto">联系名称</string>
     <string name="NC_telefono_contacto">联系电话</string>
+    <string name="NG_descripcion_del_grupo">小组的描述</string>
     <string name="NG_nombre_del_grupo">集团名称</string>
+    <string name="OP_botonRecuperar">复原</string>
+    <string name="OP_ingresaEmail">输入你的电子邮件地址，我们将向你发送恢复密码的步骤。</string>
+    <string name="R_apellido">姓氏</string>
+    <string name="R_botonRegistrar">注册</string>
+    <string name="R_identificacion">鉴定</string>
+    <string name="R_nombre">命名</string>
+    <string name="R_telefono">电话</string>
     <string name="app_name">SecureApp</string>
     <string name="close">关闭</string>
     <string name="crear">创建</string>
+    <string name="invalid_campo">此栏为必填项</string>
+    <string name="invalid_email">输入一个有效的电子邮件地址</string>
+    <string name="invalid_identificacion">输入一个有效的身份证号码</string>
+    <string name="invalid_password">输入一个超过6位数的密码</string>
+    <string name="invalid_telefono">输入一个有效的电话号码</string>
     <string name="menuItem_comunicacion">沟通</string>
     <string name="menuItem_comunidad">社区</string>
     <string name="menuItem_personal">职员</string>
@@ -40,4 +63,6 @@
     <string name="pantalla_iniciar_sesion_titulo">登录</string>
     <string name="pantalla_inicio_titulo">主页屏幕</string>
     <string name="pantalla_nuevo_grupo_titulo">创建集团</string>
+    <string name="pantalla_olvido_password">恢复密码</string>
+    <string name="pantalla_registro_titulo">注册账户</string>
 </resources>

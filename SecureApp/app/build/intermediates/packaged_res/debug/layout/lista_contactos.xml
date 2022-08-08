@@ -4,8 +4,14 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="@color/color_listas"
+<<<<<<< HEAD
     app:cardCornerRadius="1dp"
     >
+=======
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true">
+>>>>>>> feature/andrey
 
     <RelativeLayout
         android:layout_width="match_parent"
