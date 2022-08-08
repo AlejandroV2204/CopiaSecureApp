@@ -46,7 +46,7 @@ public class DetalleGrupoFragment extends Fragment {
 
     TextView nombreDetalle, descripcionDetalle, agregarIntegrantes;
     String identificadorDetalle;
-    ImageView imagenDetalle;
+    ImageView imagenDetalle, IV_atras;
 
     private FirebaseFirestore firestore;
 
@@ -67,6 +67,7 @@ public class DetalleGrupoFragment extends Fragment {
 
         nombreDetalle = view.findViewById(R.id.txt_nombreDetalleGrupo);
         agregarIntegrantes = view.findViewById(R.id.txt_agregarIntegrantes);
+        IV_atras = view.findViewById(R.id.IV_atras_detalleGrupo);
 
         //imagenDetalle = view.findViewById(R.id.imagen_detalle_grupo);
 
@@ -90,6 +91,15 @@ public class DetalleGrupoFragment extends Fragment {
             //imagenDetalle.setImageResource(grupo.getImagenid());
 
             //viewHolder.txt_identificadorGrupo.setText(grupo.getIdentificador());
+
+            IV_atras.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    irAGrupos();
+
+                }
+            });
 
             agregarIntegrantes.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -149,6 +159,18 @@ public class DetalleGrupoFragment extends Fragment {
                     }
                 });
 
+
+    }
+
+    private void irAGrupos(){
+
+        GrupoFragment grupoFragment = new GrupoFragment();
+
+        fragmentManager = ((AppCompatActivity) contexto).getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, grupoFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
 
     }
 

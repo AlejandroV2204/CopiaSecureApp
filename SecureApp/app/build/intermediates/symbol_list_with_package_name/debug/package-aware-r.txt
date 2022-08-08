@@ -2545,6 +2545,7 @@ drawable escudoamerica
 drawable estrellaamericana
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_atras
 drawable ic_cerrar_sesion
 drawable ic_check
 drawable ic_clock_black_24dp
@@ -2623,6 +2624,10 @@ id BOTTOM_END
 id BOTTOM_START
 id CTRL
 id FUNCTION
+id IV_atras_agregarIntegrante
+id IV_atras_detalleContacto
+id IV_atras_detalleGrupo
+id IV_atras_detalleIntegrante
 id META
 id NO_DEBUG
 id RV_agregarIntegrantes

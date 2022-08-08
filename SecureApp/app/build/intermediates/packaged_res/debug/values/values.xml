@@ -30,7 +30,7 @@
     <color name="Texto_color">#000000</color>
     <color name="Texto_color_botones">#e9e8e6</color>
     <color name="black">#FF000000</color>
-    <color name="color_listas">#0000ffff</color>
+    <color name="color_listas">#e9e8e6</color>
     <color name="ic_candado_background">#FFFFFF</color>
     <color name="ic_candado_icon_background">#C32C28</color>
     <color name="ic_icono_aplicacion_background">#FFFFFF</color>

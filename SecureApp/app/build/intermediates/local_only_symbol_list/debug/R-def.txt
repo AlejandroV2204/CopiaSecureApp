@@ -27,6 +27,7 @@ color teal_700
 color white
 drawable escudoamerica
 drawable estrellaamericana
+drawable ic_atras
 drawable ic_cerrar_sesion
 drawable ic_check
 drawable ic_contacto
@@ -46,6 +47,10 @@ drawable ic_warning
 drawable originalsecureapplogo
 drawable secureapplogo
 drawable secureapplogodark
+id IV_atras_agregarIntegrante
+id IV_atras_detalleContacto
+id IV_atras_detalleGrupo
+id IV_atras_detalleIntegrante
 id RV_agregarIntegrantes
 id RV_contactos
 id RV_grupos

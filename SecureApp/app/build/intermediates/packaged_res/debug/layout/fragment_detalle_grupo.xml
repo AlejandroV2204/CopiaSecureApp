@@ -24,6 +24,18 @@
     </TextView>
 
     <ImageView
+        android:id="@+id/IV_atras_detalleGrupo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.083"
+        app:srcCompat="@drawable/ic_atras" />
+
+    <ImageView
 
         android:id="@+id/imagen_detalle_grupo"
         android:layout_width="150dp"
