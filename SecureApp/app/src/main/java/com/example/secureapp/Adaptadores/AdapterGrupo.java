@@ -21,6 +21,7 @@ import com.example.secureapp.Activities.MainActivity;
 import com.example.secureapp.Entidades.Grupo;
 import com.example.secureapp.Fragments.AlertaFragment;
 import com.example.secureapp.Fragments.DetalleGrupoFragment;
+import com.example.secureapp.Fragments.DetalleIntegranteFragment;
 import com.example.secureapp.Interfaces.IComunicaFragments;
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
@@ -139,6 +140,7 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
 
         //Aquí se realiza la lógica necesaria para poder realizar el envio
         DetalleGrupoFragment detalleGrupoFragment = new DetalleGrupoFragment();
+        DetalleIntegranteFragment detalleIntegranteFragment = new DetalleIntegranteFragment();
 
         //Objeto bundle para transportar la información
         Bundle bundleEnvio = new Bundle();
@@ -147,6 +149,7 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
         bundleEnvio.putSerializable("objetoGrupo", grupo);
 
         detalleGrupoFragment.setArguments(bundleEnvio);
+        detalleIntegranteFragment.setArguments(bundleEnvio);
 
         //abrir fragment
         fragmentManager = ((AppCompatActivity) contexto).getSupportFragmentManager();

@@ -18,6 +18,7 @@ import com.example.secureapp.Fragments.DetalleGrupoFragment;
 import com.example.secureapp.Fragments.DetalleIntegranteFragment;
 import com.example.secureapp.Modelo.MAgregarIntegrante;
 import com.example.secureapp.Modelo.MContacto;
+import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.Modelo.MIntegrante;
 import com.example.secureapp.R;
 
@@ -28,6 +29,7 @@ public class AdapterIntegrante extends RecyclerView.Adapter<AdapterIntegrante.Vi
     private final int resource;
     LayoutInflater inflater;
     ArrayList<MIntegrante> integrantesList;
+    ArrayList<MGrupo> gruposList;
 
     //Listener
     private View.OnClickListener listener;
@@ -40,7 +42,10 @@ public class AdapterIntegrante extends RecyclerView.Adapter<AdapterIntegrante.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-            private TextView txt_nombreIntegrante, txt_apellidoIntegrante, txt_emailIntegrante, txt_telefonoIntegrante;
+            private TextView txt_nombreIntegrante, txt_apellidoIntegrante,
+                    txt_emailIntegrante, txt_telefonoIntegrante;
+            private TextView txt_identificadorGrupo, txt_nombreGrupo, txt_descripcionGrupo;
+            private String identificadorGrupo, nombreGrupo, descripcionGrupo;
             public View view;
 
             private View.OnClickListener listener;
@@ -97,10 +102,9 @@ public class AdapterIntegrante extends RecyclerView.Adapter<AdapterIntegrante.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int index) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
 
-        MIntegrante integrante = integrantesList.get(index);
-
+        MIntegrante integrante = integrantesList.get(position);
         viewHolder.txt_nombreIntegrante.setText(integrante.getNombre());
         viewHolder.txt_apellidoIntegrante.setText(integrante.getApellido());
         viewHolder.txt_emailIntegrante.setText(integrante.getEmail());

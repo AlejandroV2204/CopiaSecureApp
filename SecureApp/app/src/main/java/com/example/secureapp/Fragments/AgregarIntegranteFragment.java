@@ -1,17 +1,22 @@
 package com.example.secureapp.Fragments;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,18 +38,22 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AgregarIntegranteFragment extends Fragment{
 
     private EditText et_emailAgregarIntegrante;
     private String emailIntegrante, identificadorDetalle;
+    ImageView IV_atras;
     AdapterAgregarIntegrante adapterAgregarIntegrantes;
     RecyclerView recyclerViewAgregarIntegrantes;
     private ArrayList<MAgregarIntegrante> listaAgregarIntegrantes = new ArrayList<>();
@@ -60,6 +69,12 @@ public class AgregarIntegranteFragment extends Fragment{
 
     private FirebaseFirestore firestore;
 
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+
+    Context contexto;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -71,6 +86,8 @@ public class AgregarIntegranteFragment extends Fragment{
         et_emailAgregarIntegrante = view.findViewById(R.id.et_emailAgregarIntegrante);
         recyclerViewAgregarIntegrantes = view.findViewById(R.id.RV_agregarIntegrantes);
         btn_agregarIntegrantes = view.findViewById(R.id.btn_agregarIntegrantes);
+        IV_atras = view.findViewById(R.id.IV_atras_agregarIntegrante);
+        contexto = view.getContext();
         listaAgregarIntegrantes = new ArrayList<>();
 
         //No se si esto sirva
@@ -99,6 +116,16 @@ public class AgregarIntegranteFragment extends Fragment{
             public void onClick(View view) {
 
                 validarDatos();
+
+            }
+        });
+
+        IV_atras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Toast.makeText(getContext(), "Accion en proceso", Toast.LENGTH_SHORT).show();
+                irADetalleGrupo();
 
             }
         });
@@ -213,7 +240,10 @@ public class AgregarIntegranteFragment extends Fragment{
 
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
 
+        CollectionReference integrantes = firestore.collection("usuario").document(email).collection("grupos").document(identificadorDetalle).collection("integrantes");
+
         firestore.collection("usuario").document(email).collection("contactos")
+
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -246,6 +276,15 @@ public class AgregarIntegranteFragment extends Fragment{
 
         validarDatos();
         Toast.makeText(getContext(), "Accion en proceso", Toast.LENGTH_SHORT).show();
+
+    }
+
+    private void irADetalleGrupo(){
+
+        fragmentManager = ((AppCompatActivity) contexto).getSupportFragmentManager();
+        fragmentManager.popBackStack();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.commit();
 
     }
 
