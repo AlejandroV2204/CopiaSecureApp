@@ -28,12 +28,11 @@ import android.widget.Toast;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.example.secureapp.Adaptadores.AdapterGrupo;
-import com.example.secureapp.Entidades.Contacto;
-import com.example.secureapp.Entidades.Grupo;
+
 import com.example.secureapp.Fragments.ContactoFragment;
 import com.example.secureapp.Fragments.DetalleContactoFragment;
 import com.example.secureapp.Fragments.NuevoContactoFragment;
-import com.example.secureapp.Interfaces.IComunicaFragments;
+
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
 import com.google.android.material.navigation.NavigationView;
@@ -226,62 +225,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent intent = new Intent(MainActivity.this, InicioSesionActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
-
-    }
-
-    //@Override
-    //public void enviarGrupo(MGrupo grupo) {
-
-        //Aquí se realiza la lógica necesaria para poder realizar el envio
-        //detalleGrupoFragment = new DetalleGrupoFragment();
-
-        //Objeto bundle para transportar la información
-        //Bundle bundleEnvio = new Bundle();
-
-        //Enviar el objeto que está llegando con Serializable
-        //bundleEnvio.putSerializable("objetoGrupo", grupo);
-
-        //detalleGrupoFragment.setArguments(bundleEnvio);
-
-        //abrir fragment
-        //fragmentManager = getSupportFragmentManager();
-        //fragmentTransaction = fragmentManager.beginTransaction();
-        //fragmentTransaction.replace(R.id.container, detalleGrupoFragment);
-        //fragmentTransaction.addToBackStack(null);
-        //fragmentTransaction.commit();
-
-
-    //}
-
-    //@Override
-    //public void enviarContacto(Contacto contacto) {
-
-        //Aquí se realiza la lógica necesaria para poder realizar el envio
-        //detalleContactoFragment = new DetalleContactoFragment();
-
-        //Objeto bundle para transportar la información
-        //Bundle bundleEnvio = new Bundle();
-
-        //Enviar el objeto que está llegando con Serializable
-        //bundleEnvio.putSerializable("objetoContacto", contacto);
-
-        //detalleContactoFragment.setArguments(bundleEnvio);
-
-        //abrir fragment
-        //fragmentManager = getSupportFragmentManager();
-        //fragmentTransaction = fragmentManager.beginTransaction();
-        //fragmentTransaction.replace(R.id.container, detalleContactoFragment);
-        //fragmentTransaction.addToBackStack(null);
-        //fragmentTransaction.commit();
-
-    //}
-
-    public void construirRecylerGrupo(){
-
-        int resource = 0;
-        listaGrupos =  new ArrayList<>();
-        recyclerGrupos = findViewById(R.id.RV_grupos);
-
 
     }
 

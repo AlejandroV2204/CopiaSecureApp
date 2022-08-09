@@ -1210,11 +1210,8 @@ color App_color
 color Botones_color
 color Fondo_app
 color Hints_color
-<<<<<<< HEAD
 color Item_seleccionado_color
 color Strings_funcionales_color
-=======
->>>>>>> feature/andrey
 color Texto_color
 color Texto_color_botones
 color abc_background_cache_hint_selector_material_dark
@@ -2550,10 +2547,7 @@ drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_atras
 drawable ic_cerrar_sesion
-<<<<<<< HEAD
 drawable ic_check
-=======
->>>>>>> feature/andrey
 drawable ic_clock_black_24dp
 drawable ic_contacto
 drawable ic_favorite_star_shadow_24
@@ -2638,17 +2632,12 @@ id IV_atras_detalleGrupo
 id IV_atras_detalleIntegrante
 id META
 id NO_DEBUG
-<<<<<<< HEAD
 id RV_agregarIntegrantes
-id RV_contactos
-id RV_grupos
-id RV_integrantes
-=======
 id RV_alerta
 id RV_contactos
 id RV_grupos
+id RV_integrantes
 id RV_main
->>>>>>> feature/andrey
 id SHIFT
 id SHOW_ALL
 id SHOW_PATH
@@ -2800,10 +2789,7 @@ id currentState
 id custom
 id customPanel
 id cut
-<<<<<<< HEAD
-=======
 id cv_alerta
->>>>>>> feature/andrey
 id dark
 id date_picker_actions
 id decelerate
@@ -2910,10 +2896,7 @@ id ignoreRequest
 id image
 id imageView2
 id imageView3
-<<<<<<< HEAD
 id imagen_agregarIntegrante
-=======
->>>>>>> feature/andrey
 id imagen_contacto
 id imagen_detalleContacto
 id imagen_detalleIntegrante
@@ -3179,16 +3162,11 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-<<<<<<< HEAD
 id txt_agregarIntegrantes
 id txt_apellidoAgregarIntegrante
 id txt_apellidoContacto
 id txt_apellidoIntegrante
-id txt_bienvenido
-=======
-id txt_apellidoContacto
 id txt_descripcionAlerta
->>>>>>> feature/andrey
 id txt_descripcionGrupo
 id txt_detalleMostrarContacto
 id txt_detalleMostrarIntegrante
@@ -3198,29 +3176,20 @@ id txt_emailDetalleContacto
 id txt_emailDetalleIntegrante
 id txt_emailIntegrante
 id txt_headerTexto
-<<<<<<< HEAD
 id txt_nombreAgregarIntegrante
-=======
->>>>>>> feature/andrey
 id txt_nombreContacto
 id txt_nombreDetalleContacto
 id txt_nombreDetalleGrupo
 id txt_nombreDetalleIntegrante
 id txt_nombreGrupo
-<<<<<<< HEAD
 id txt_nombreIntegrante
-=======
->>>>>>> feature/andrey
 id txt_olvidoPassword
 id txt_registro
 id txt_telefonoAgregarIntegrante
 id txt_telefonoContacto
-<<<<<<< HEAD
 id txt_telefonoDetalleContacto
 id txt_telefonoDetalleIntegrante
 id txt_tituloAgregarIntegrante
-=======
->>>>>>> feature/andrey
 id txt_tituloContacto
 id txt_tituloDetalleContacto
 id txt_tituloDetalleContacto2
@@ -3378,17 +3347,12 @@ layout fragment_grupo
 layout fragment_main
 layout fragment_nuevo_contacto
 layout fragment_nuevo_grupo
-<<<<<<< HEAD
 layout lista_agregar_integrantes
-layout lista_contactos
-layout lista_grupos
-layout lista_integrantes
-=======
 layout lista_alerta
 layout lista_contactos
 layout lista_grupos
+layout lista_integrantes
 layout lista_main
->>>>>>> feature/andrey
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3505,27 +3469,21 @@ string DC_nombre_contacto
 string DC_nombre_contacto_secundario
 string DC_telefono_contacto
 string DC_telefono_contacto_secundario
-<<<<<<< HEAD
 string DG_agregar_integrante
 string DG_apellido_integrante
 string DG_email_integrante
 string DG_integrantes_grupo
-=======
->>>>>>> feature/andrey
 string DG_nombre_grupo
 string DG_nombre_grupo_secundario
 string DG_nombre_integrante
 string DG_telefono_integrante
 string DH_titulo
-<<<<<<< HEAD
 string DI_email_integrante
 string DI_email_integrante_secundario
 string DI_nombre_integrante
 string DI_nombre_integrante_secundario
 string DI_telefono_integrante
 string DI_telefono_integrante_secundario
-=======
->>>>>>> feature/andrey
 string IS_email
 string IS_olvido_password
 string IS_password

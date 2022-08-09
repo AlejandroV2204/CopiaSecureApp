@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-#Mon Aug 08 18:00:16 COT 2022
-=======
-#Mon Aug 08 10:50:54 COT 2022
->>>>>>> feature/andrey
+#Tue Aug 09 15:05:57 COT 2022
 path.4=4/classes.dex
 path.3=2/classes.dex
 path.2=12/classes.dex

@@ -75,11 +75,7 @@
         android:layout_width="208dp"
         android:layout_height="36dp"
         android:text="@string/DC_email_contacto"
-<<<<<<< HEAD
         android:textAlignment="textStart"
-=======
-        android:textAlignment="center"
->>>>>>> feature/andrey
         android:textColor="@color/Texto_color"
         android:textSize="25sp"
         android:textStyle="bold|italic"
@@ -134,7 +130,6 @@
         android:id="@+id/txt_emailDetalleContacto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:maxLines="2"
         android:text="@string/DC_email_contacto_secundario"
         android:textAlignment="center"
@@ -156,9 +151,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/DC_telefono_contacto_secundario"
-=======
-        android:text="@string/DC_email_contacto_secundario"
->>>>>>> feature/andrey
         android:textAlignment="center"
         android:textColor="@color/Texto_color"
         android:textSize="25sp"

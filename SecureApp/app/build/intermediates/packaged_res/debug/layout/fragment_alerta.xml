@@ -6,65 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<<<<<<< HEAD
-     <TextView
-
-         android:id="@+id/textView"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="@string/pantalla_alerta_titulo"
-         android:textColor="@color/Texto_color"
-         android:textSize="35sp"
-         android:textStyle="bold|italic"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintVertical_bias="0.079">
-
-     </TextView>
-
-     <EditText
-
-         android:id="@+id/et_cuerpoAlerta"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:hint="@string/A_cuerpo_alerta"
-         android:inputType="textMultiLine"
-         android:textColor="@color/Texto_color"
-         android:textColorHint="@color/Texto_color"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintHorizontal_bias="0.495"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="parent">
-
-     </EditText>
-
-     <Button
-         android:id="@+id/btn_emitirAlerta"
-         style="@style/Widget.MaterialComponents.Button"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:backgroundTint="@color/Botones_color"
-         android:text="@string/A_boton_alerta_especifica"
-         android:textColor="@color/Texto_color_botones"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintHorizontal_bias="0.497"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintVertical_bias="0.681" />
-
-     <androidx.constraintlayout.widget.Guideline
-         android:id="@+id/guideline2"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:orientation="horizontal"
-         app:layout_constraintGuide_begin="42dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-=======
     <TextView
 
         android:id="@+id/textView"
@@ -95,4 +36,3 @@
         android:layout_gravity="center" />
 
 </LinearLayout>
->>>>>>> feature/andrey

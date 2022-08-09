@@ -8,11 +8,7 @@
 
      <TextView
 
-<<<<<<< HEAD
-         android:id="@+id/txt_pantallaDeInicio"
-=======
          android:id="@+id/textView"
->>>>>>> feature/andrey
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_gravity="center"
@@ -20,10 +16,7 @@
          android:paddingTop="50dp"
          android:paddingEnd="30dp"
          android:text="@string/pantalla_inicio_titulo"
-<<<<<<< HEAD
-=======
          android:textAlignment="center"
->>>>>>> feature/andrey
          android:textColor="@color/Texto_color"
          android:textSize="35sp"
          android:textStyle="bold|italic"
@@ -36,26 +29,6 @@
 
      </TextView>
 
-<<<<<<< HEAD
-     <TextView
-
-         android:id="@+id/txt_bienvenido"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text=" "
-         android:textColor="@color/Texto_color"
-         android:textSize="30dp"
-         android:textStyle="bold|italic"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintVertical_bias="0.552">
-
-     </TextView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-=======
      <androidx.recyclerview.widget.RecyclerView
          android:id="@+id/RV_main"
          android:layout_width="350dp"
@@ -63,4 +36,3 @@
          android:layout_gravity="center" />
 
 </LinearLayout>
->>>>>>> feature/andrey
