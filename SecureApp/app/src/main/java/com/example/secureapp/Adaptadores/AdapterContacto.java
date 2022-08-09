@@ -16,7 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.secureapp.Fragments.DetalleContactoFragment;
-import com.example.secureapp.Interfaces.IComunicaFragments;
+
 import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.R;
 

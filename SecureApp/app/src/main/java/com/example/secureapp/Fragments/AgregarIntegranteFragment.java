@@ -24,7 +24,6 @@ import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.example.secureapp.Adaptadores.AdapterAgregarIntegrante;
 import com.example.secureapp.Adaptadores.AdapterContacto;
-import com.example.secureapp.Interfaces.IComunicaFragments;
 import com.example.secureapp.Modelo.MAgregarIntegrante;
 import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.Modelo.MGrupo;
@@ -62,7 +61,6 @@ public class AgregarIntegranteFragment extends Fragment{
 
     //referencias para comunicar fragments
     Activity actividad;
-    IComunicaFragments iComunicaFragments;
 
     FirebaseAuth firebaseAuth;
     AwesomeValidation awesomeValidation;

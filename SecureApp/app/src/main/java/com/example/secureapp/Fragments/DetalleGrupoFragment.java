@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.secureapp.Adaptadores.AdapterGrupo;
 import com.example.secureapp.Adaptadores.AdapterIntegrante;
-import com.example.secureapp.Entidades.Grupo;
+
 import com.example.secureapp.Modelo.MAgregarIntegrante;
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.Modelo.MIntegrante;

@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.secureapp.Adaptadores.AdapterGrupo;
-import com.example.secureapp.Interfaces.IComunicaFragments;
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -41,7 +40,6 @@ public class GrupoFragment extends Fragment{
 
     //referencias para comunicar fragments
     Activity actividad;
-    IComunicaFragments iComunicaFragments;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;

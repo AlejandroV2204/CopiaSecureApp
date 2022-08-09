@@ -17,8 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.secureapp.Adaptadores.AdapterContacto;
 import com.example.secureapp.Adaptadores.AdapterGrupo;
-import com.example.secureapp.Entidades.Contacto;
-import com.example.secureapp.Interfaces.IComunicaFragments;
 import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
@@ -50,7 +48,6 @@ public class ContactoFragment extends Fragment{
 
     //referencias para comunicar fragments
     Activity actividad;
-    IComunicaFragments iComunicaFragments;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;

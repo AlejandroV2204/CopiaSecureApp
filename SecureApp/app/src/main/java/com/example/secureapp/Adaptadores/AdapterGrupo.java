@@ -18,11 +18,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.secureapp.Activities.MainActivity;
-import com.example.secureapp.Entidades.Grupo;
+
 import com.example.secureapp.Fragments.AlertaFragment;
 import com.example.secureapp.Fragments.DetalleGrupoFragment;
 import com.example.secureapp.Fragments.DetalleIntegranteFragment;
-import com.example.secureapp.Interfaces.IComunicaFragments;
+
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
 
@@ -35,7 +35,7 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
 
     LayoutInflater inflater;
     ArrayList<MGrupo> gruposList;
-    IComunicaFragments iComunicaFragments;
+
 
     //variables para cargar el fragment principal
     FragmentManager fragmentManager;
