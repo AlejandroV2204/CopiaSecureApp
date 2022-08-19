@@ -1,6 +1,8 @@
 package com.example.secureapp.Adaptadores;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -118,13 +120,43 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
         viewHolder.txt_telefonoAgregarIntegrante.setText(agregarIntegrante.getTelefono());
         //viewHolder.imageDetalle.setImageDrawable(contacto.ge);
 
+        viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public boolean onLongClick(View view) {
+
+                itemSeleccionado = true;
+
+                if (itemsSeleccionanos.contains(agregarIntegrantesList.get(position))){
+                viewHolder.itemView.setBackgroundColor(Color.TRANSPARENT);
+                itemsSeleccionanos.remove(agregarIntegrantesList.get(position));
+                }else{
+                    viewHolder.itemView.setBackgroundColor(Color.parseColor("#DADBFF"));
+                    itemsSeleccionanos.add(agregarIntegrantesList.get(position));
+                }
+                if (itemsSeleccionanos.size() == 0)
+                    itemSeleccionado = false;
+                    return true;
+
+            }
+        });
+
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(view.getContext(), "Accion en proceso", Toast.LENGTH_SHORT).show();
-                //enviarContacto(agregarIntegrante);
-
+                if (itemSeleccionado){
+                    if (itemsSeleccionanos.contains(agregarIntegrantesList.get(position))){
+                        viewHolder.itemView.setBackgroundColor(Color.TRANSPARENT);
+                        itemsSeleccionanos.remove(agregarIntegrantesList.get(position));
+                    }else{
+                        viewHolder.itemView.setBackgroundColor(Color.parseColor("#DADBFF"));
+                        itemsSeleccionanos.add(agregarIntegrantesList.get(position));
+                    }
+                    if (itemsSeleccionanos.size() == 0)
+                        itemSeleccionado = false;
+                }
+                else {}
             }
         });
 

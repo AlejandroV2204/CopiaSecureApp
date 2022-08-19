@@ -266,7 +266,6 @@ public class AgregarIntegranteFragment extends Fragment{
     private void pruebaConsulta(){
 
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
-        String emailExtraido;
 
         firestore.collection("usuario").document(email).collection("grupos").document(identificadorDetalle).collection("integrantes")
                 .get()
@@ -275,8 +274,6 @@ public class AgregarIntegranteFragment extends Fragment{
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-
-                                String emailExtraido = document.getString("email");
 
                                 emailAgregarIntegrantes.add(document.getString("email"));
 
