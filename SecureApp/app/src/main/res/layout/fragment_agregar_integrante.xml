@@ -31,12 +31,10 @@
          app:layout_constraintGuide_begin="42dp" />
 
 
-
-
      <LinearLayout
          android:id="@+id/linearLayout2"
          android:layout_width="match_parent"
-         android:layout_height="387dp"
+         android:layout_height="444dp"
          android:orientation="vertical"
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"

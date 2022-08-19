@@ -23,10 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.example.secureapp.Adaptadores.AdapterAgregarIntegrante;
-import com.example.secureapp.Adaptadores.AdapterContacto;
 import com.example.secureapp.Modelo.MAgregarIntegrante;
-import com.example.secureapp.Modelo.MContacto;
-import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -35,8 +32,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -44,9 +39,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class AgregarIntegranteFragment extends Fragment{
 
@@ -56,6 +49,7 @@ public class AgregarIntegranteFragment extends Fragment{
     AdapterAgregarIntegrante adapterAgregarIntegrantes;
     RecyclerView recyclerViewAgregarIntegrantes;
     private ArrayList<MAgregarIntegrante> listaAgregarIntegrantes = new ArrayList<>();
+    private ArrayList<String> emailAgregarIntegrantes = new ArrayList<String>();
 
     FloatingActionButton btn_agregarIntegrantes;
 
@@ -107,7 +101,7 @@ public class AgregarIntegranteFragment extends Fragment{
         }
 
         //tomarContactosDeFirebase();
-        tomarDatosDeFirestore();
+        pruebaConsulta();
 
         btn_agregarIntegrantes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -241,7 +235,6 @@ public class AgregarIntegranteFragment extends Fragment{
         CollectionReference integrantes = firestore.collection("usuario").document(email).collection("grupos").document(identificadorDetalle).collection("integrantes");
 
         firestore.collection("usuario").document(email).collection("contactos")
-
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -269,6 +262,63 @@ public class AgregarIntegranteFragment extends Fragment{
 
 
     }
+
+    private void pruebaConsulta(){
+
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
+        String emailExtraido;
+
+        firestore.collection("usuario").document(email).collection("grupos").document(identificadorDetalle).collection("integrantes")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                String emailExtraido = document.getString("email");
+
+                                emailAgregarIntegrantes.add(document.getString("email"));
+
+                            }
+
+                            firestore.collection("usuario").document(email).collection("contactos")
+                                    .whereNotIn("email", emailAgregarIntegrantes)
+                                    .orderBy("email")
+                                    .get()
+                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                            if (task.isSuccessful()) {
+                                                for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                                    String identificadorAgregarIntegrantes = document.getId();
+                                                    String nombreAgregarIntegrantes = document.getString("nombre");
+                                                    String apellidoAgregarIntegrantes = document.getString("apellido");
+                                                    String emailAgregarIntegrantes = document.getString("email");
+                                                    String telefonoAgregarIntegrantes = document.getString("telefono");
+
+                                                    listaAgregarIntegrantes.add(new MAgregarIntegrante(identificadorAgregarIntegrantes, nombreAgregarIntegrantes, apellidoAgregarIntegrantes, emailAgregarIntegrantes, telefonoAgregarIntegrantes));
+                                                }
+
+                                                adapterAgregarIntegrantes = new AdapterAgregarIntegrante(listaAgregarIntegrantes, R.layout.lista_agregar_integrantes);
+                                                recyclerViewAgregarIntegrantes.setAdapter(adapterAgregarIntegrantes);
+
+                                            } else {
+                                                Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                        } else {
+                            Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
+
+
+        }
 
     private void accionBoton(){
 
