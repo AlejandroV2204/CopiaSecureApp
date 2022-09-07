@@ -101,8 +101,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.add(R.id.container, new MainFragment());
         fragmentTransaction.commit();
 
-
-
     }
 
     //Se controla la pulsación del botón atrás.

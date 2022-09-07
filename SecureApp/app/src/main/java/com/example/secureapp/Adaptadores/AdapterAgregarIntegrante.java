@@ -17,10 +17,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.secureapp.Fragments.DetalleContactoFragment;
+import com.example.secureapp.Fragments.AgregarIntegranteFragment;
 import com.example.secureapp.Fragments.DetalleGrupoFragment;
 import com.example.secureapp.Modelo.MAgregarIntegrante;
-import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -33,7 +32,7 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
     ArrayList<MAgregarIntegrante> agregarIntegrantesList;
 
     private boolean itemSeleccionado = false;
-    ArrayList<MAgregarIntegrante> itemsSeleccionanos = new ArrayList<>();
+    ArrayList<MAgregarIntegrante> itemsSeleccionados = new ArrayList<>();
 
     //Listener
     private View.OnClickListener listener;
@@ -110,7 +109,7 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, @SuppressLint("RecyclerView") int position) {
 
         MAgregarIntegrante agregarIntegrante = agregarIntegrantesList.get(position);
 
@@ -120,6 +119,9 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
         viewHolder.txt_telefonoAgregarIntegrante.setText(agregarIntegrante.getTelefono());
         //viewHolder.imageDetalle.setImageDrawable(contacto.ge);
 
+        //Objeto bundle para transportar la información
+        Bundle bundleEnvio = new Bundle();
+
         viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
@@ -127,14 +129,23 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
 
                 itemSeleccionado = true;
 
-                if (itemsSeleccionanos.contains(agregarIntegrantesList.get(position))){
+                if (itemsSeleccionados.contains(agregarIntegrantesList.get(position))){
                 viewHolder.itemView.setBackgroundColor(Color.TRANSPARENT);
-                itemsSeleccionanos.remove(agregarIntegrantesList.get(position));
+                itemsSeleccionados.remove(agregarIntegrantesList.get(position));
                 }else{
                     viewHolder.itemView.setBackgroundColor(Color.parseColor("#DADBFF"));
-                    itemsSeleccionanos.add(agregarIntegrantesList.get(position));
+                    itemsSeleccionados.add(agregarIntegrantesList.get(position));
+
+                    Toast.makeText(contexto, agregarIntegrante.getNombre(), Toast.LENGTH_SHORT).show();
+
+                    AgregarIntegranteFragment agregarIntegranteFragment = new AgregarIntegranteFragment();
+
+                    //Enviar el objeto que está llegando con Serializable
+                   bundleEnvio.putSerializable("objetoAgregarIntegrante", itemsSeleccionados);
+
+                    agregarIntegranteFragment.setArguments(bundleEnvio);
                 }
-                if (itemsSeleccionanos.size() == 0)
+                if (itemsSeleccionados.size() == 0)
                     itemSeleccionado = false;
                     return true;
 
@@ -146,14 +157,25 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
             public void onClick(View view) {
 
                 if (itemSeleccionado){
-                    if (itemsSeleccionanos.contains(agregarIntegrantesList.get(position))){
+                    if (itemsSeleccionados.contains(agregarIntegrantesList.get(position))){
                         viewHolder.itemView.setBackgroundColor(Color.TRANSPARENT);
-                        itemsSeleccionanos.remove(agregarIntegrantesList.get(position));
+                        itemsSeleccionados.remove(agregarIntegrantesList.get(position));
                     }else{
                         viewHolder.itemView.setBackgroundColor(Color.parseColor("#DADBFF"));
-                        itemsSeleccionanos.add(agregarIntegrantesList.get(position));
+                        itemsSeleccionados.add(agregarIntegrantesList.get(position));
+
+                        Toast.makeText(contexto, agregarIntegrante.getNombre(), Toast.LENGTH_SHORT).show();
+
+                        AgregarIntegranteFragment agregarIntegranteFragment = new AgregarIntegranteFragment();
+
+                        //Enviar el objeto que está llegando con Serializable
+                        bundleEnvio.putSerializable("objetoAgregarIntegrante", itemsSeleccionados);
+
+                        agregarIntegranteFragment.setArguments(bundleEnvio);
+
+
                     }
-                    if (itemsSeleccionanos.size() == 0)
+                    if (itemsSeleccionados.size() == 0)
                         itemSeleccionado = false;
                 }
                 else {}
@@ -191,6 +213,15 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container, detalleGrupoFragment);
         fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+    }
+
+    private void irADetalleGrupo(){
+
+        fragmentManager = ((AppCompatActivity) contexto).getSupportFragmentManager();
+        fragmentManager.popBackStack();
+        fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.commit();
 
     }

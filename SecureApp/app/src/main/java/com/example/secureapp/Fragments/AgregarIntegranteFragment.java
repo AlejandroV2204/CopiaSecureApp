@@ -39,12 +39,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class AgregarIntegranteFragment extends Fragment{
 
     private EditText et_emailAgregarIntegrante;
     private String emailIntegrante, identificadorDetalle;
+    private String identificadorAgregarIntegrante, nombreAgregarIntegrante, apellidoAgregarIntegrante,
+                   emailAgregarIntegrante, telefonoAgregarIntegrante;
     ImageView IV_atras;
     AdapterAgregarIntegrante adapterAgregarIntegrantes;
     RecyclerView recyclerViewAgregarIntegrantes;
@@ -52,6 +55,8 @@ public class AgregarIntegranteFragment extends Fragment{
     private ArrayList<String> emailAgregarIntegrantes = new ArrayList<String>();
 
     FloatingActionButton btn_agregarIntegrantes;
+
+    MAgregarIntegrante mAgregarIntegrante = null;
 
     //referencias para comunicar fragments
     Activity actividad;
@@ -108,6 +113,7 @@ public class AgregarIntegranteFragment extends Fragment{
             public void onClick(View view) {
 
                 validarDatos();
+                //datosContactos();
 
             }
         });
@@ -301,6 +307,7 @@ public class AgregarIntegranteFragment extends Fragment{
                                                 adapterAgregarIntegrantes = new AdapterAgregarIntegrante(listaAgregarIntegrantes, R.layout.lista_agregar_integrantes);
                                                 recyclerViewAgregarIntegrantes.setAdapter(adapterAgregarIntegrantes);
 
+
                                             } else {
                                                 Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
                                             }
@@ -317,6 +324,33 @@ public class AgregarIntegranteFragment extends Fragment{
 
         }
 
+        private void datosContactos(){
+
+        adapterAgregarIntegrantes.getClass();
+
+        Class<? extends AdapterAgregarIntegrante> listaIntegrantes = adapterAgregarIntegrantes.getClass();
+
+        //String listaIntegrantesUno = listaIntegrantes.get
+            //Toast.makeText(getContext(), "No se: " + listaIntegrantesUno, Toast.LENGTH_SHORT).show();
+
+            Bundle objetoAgregarIntegrante = getArguments();
+            MAgregarIntegrante agregarIntegrante = null;
+
+            if (objetoAgregarIntegrante != null){
+
+                agregarIntegrante = (MAgregarIntegrante) objetoAgregarIntegrante.getSerializable("objetoAgregarIntegrante");
+
+                    //identificadorAgregarIntegrante = (agregarIntegrante.getIdentificador());
+                    nombreAgregarIntegrante = (agregarIntegrante.getNombre());
+                    apellidoAgregarIntegrante = (agregarIntegrante.getApellido());
+                    emailAgregarIntegrante = (agregarIntegrante.getEmail());
+                    telefonoAgregarIntegrante = (agregarIntegrante.getTelefono());
+                    //imagenDetalle.setImageResource(grupo.getImagenid());
+
+            }else{
+                Toast.makeText(getContext(), "Item aún no seleccionado", Toast.LENGTH_SHORT).show();
+            }
+        }
     private void accionBoton(){
 
         validarDatos();

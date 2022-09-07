@@ -300,6 +300,10 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\7.3.3\\com.example.secureapp-main-9:\\layout\\fragment_detalle_integrante.xml"
     },
     {
+        "merged": "com.example.secureapp-merged_res-7:/layout_lista_alerta.xml.flat",
+        "source": "com.example.secureapp-main-9:/layout/lista_alerta.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\7.3.3\\com.example.secureapp-merged_res-7:\\mipmap-xxxhdpi_ic_launcher_alerta.png.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\7.3.3\\com.example.secureapp-main-9:\\mipmap-xxxhdpi\\ic_launcher_alerta.png"
     },
@@ -476,16 +480,12 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\7.3.3\\com.example.secureapp-main-9:\\layout\\lista_agregar_integrantes.xml"
     },
     {
-        "merged": "com.example.secureapp-merged_res-7:/layout_fragment_agregar_integrante.xml.flat",
-        "source": "com.example.secureapp-main-9:/layout/fragment_agregar_integrante.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.3.3\\com.example.secureapp-merged_res-7:\\layout_lista_alerta.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\7.3.3\\com.example.secureapp-main-9:\\layout\\lista_alerta.xml"
     },
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\7.3.3\\com.example.secureapp-merged_res-7:\\mipmap-xxhdpi_ic_candado_round.png.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\7.3.3\\com.example.secureapp-main-9:\\mipmap-xxhdpi\\ic_candado_round.png"
-    },
-    {
-        "merged": "C:\\Users\\user\\.gradle\\daemon\\7.3.3\\com.example.secureapp-merged_res-7:\\layout_lista_alerta.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\daemon\\7.3.3\\com.example.secureapp-main-9:\\layout\\lista_alerta.xml"
     },
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\7.3.3\\com.example.secureapp-merged_res-7:\\mipmap-xxxhdpi_ic_launcher_candado_icon.png.flat",

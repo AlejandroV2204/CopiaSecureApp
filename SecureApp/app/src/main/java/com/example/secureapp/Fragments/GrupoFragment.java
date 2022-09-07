@@ -78,6 +78,7 @@ public class GrupoFragment extends Fragment{
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
 
         firestore.collection("usuario").document(email).collection("grupos")
+                .orderBy("nombre")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

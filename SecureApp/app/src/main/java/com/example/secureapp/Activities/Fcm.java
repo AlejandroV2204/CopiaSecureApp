@@ -45,7 +45,7 @@ public class Fcm extends FirebaseMessagingService {
 
             String titulo = remoteMessage.getData().get("titulo");
 
-            String detalle = remoteMessage.getData().get("cuerpo");
+            String detalle = remoteMessage.getData().get("detalle");
 
             String foto = remoteMessage.getData().get("foto");
 

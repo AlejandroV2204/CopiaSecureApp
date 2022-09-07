@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,16 +15,16 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.secureapp.Activities.Fcm;
 import com.example.secureapp.Modelo.MAlerta;
-import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,10 +41,15 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
     private FirebaseFirestore firestore;
     ArrayList<MAlerta> alertaList;
 
+    Context contexto;
+
+    String descripcionAlerta;
+
 
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
+        //private TextView txt_nombreAlerta;
         private TextView txt_descripcionAlerta;
         public View view;
 
@@ -54,6 +60,7 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
             super(view);
 
             this.view = view;
+            //this.txt_nombreAlerta = view.findViewById(R.id.txt_descripcionAlerta);
             this.txt_descripcionAlerta = view.findViewById(R.id.txt_descripcionAlerta);
 
         }
@@ -97,6 +104,17 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
 
         view.setOnClickListener(this);
 
+        contexto = parent.getContext();
+
+        inicializarFireStore();
+
+        FirebaseMessaging.getInstance().subscribeToTopic("enviaratodos").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                //Toast.makeText(contexto,"Registrado",Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return new ViewHolder(view);
 
     }
@@ -107,6 +125,7 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
 
         MAlerta alerta = alertaList.get(index);
 
+        //viewHolder.txt_nombreAlerta.setText(alerta.getNombre());
         viewHolder.txt_descripcionAlerta.setText(alerta.getDescripción());
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -114,6 +133,8 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
             @Override
             public void onClick(View v) {
 
+                descripcionAlerta = alerta.getDescripción();
+                consulta(descripcionAlerta);
 
             }
         });
@@ -133,8 +154,79 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
 
 
     }
-    private void limpiarCampos() {
 
+    private void inicializarFireStore() {
+
+        FirebaseApp.initializeApp(contexto);
+        firestore = FirebaseFirestore.getInstance();
+
+    }
+
+    private void consulta(String nombreAlerta){
+
+        this.descripcionAlerta = nombreAlerta;
+
+        firestore.collection("alerta")
+                .whereEqualTo("descripcion", descripcionAlerta)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                Fcm notificacion = new Fcm();
+
+                                String nombreAlerta = document.getString("nombre");
+                                String descripcionAlerta = document.getString("descripcion");
+
+                                llamartopico(nombreAlerta, descripcionAlerta);
+
+                            }
+
+
+                        } else {
+                            Toast.makeText(contexto, "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void llamartopico(String nombreAlerta, String descripcionAlerta) {
+
+        RequestQueue myrequest= Volley.newRequestQueue(contexto);
+        JSONObject json = new JSONObject();
+
+        try {
+
+            String url_foto="https://uploadgerencie.com/imagenes/notificacion-conducta-concluyente.png";
+
+            // String token="cIb2ajMbQ7mtXBSV-rsHHW:APA91bEmqMrRYqHNFwWTTjrODwfkQLf4Kg0-5Pnf2A7OrLgQqn2yM7zdED2dc2Q7tSnQhhxslc0lqQOx8yDQl05QaCgy1lcuhv-kl-YOScfmmsD_0rg1j6kimDqkMSydGaBvqEval-1P";
+            // "cIb2ajMbQ7mtXBSV-rsHHW:APA91bEmqMrRYqHNFwWTTjrODwfkQLf4Kg0-5Pnf2A7OrLgQqn2yM7zdED2dc2Q7tSnQhhxslc0lqQOx8yDQl05QaCgy1lcuhv-kl-YOScfmmsD_0rg1j6kimDqkMSydGaBvqEval-1P"
+            json.put("to","/topics/"+"enviaratodos");
+            JSONObject notificacion=new JSONObject();
+            notificacion.put("titulo",nombreAlerta);
+            notificacion.put("detalle",descripcionAlerta);
+            notificacion.put("foto",url_foto);
+
+            json.put("data",notificacion);
+            String URL="https://fcm.googleapis.com/fcm/send";
+            JsonObjectRequest request=new JsonObjectRequest(Request.Method.POST,URL,json,null,null){
+                @Override
+                public Map<String, String> getHeaders() {
+                    Map<String,String>header=new HashMap<>();
+                    header.put("content-type","application/json");
+                    header.put("authorization","key=AAAA3B6j5bE:APA91bE7jmUJzdJAJU4xX9QJgC83hlbkMag_OM5eFq4JSmevJCQmttyRwjUSxKPiYWFZ1qmCWycuzUNnYsUOiQbKc6pRg8zzgbwwaqzKf48K_iBvrwO4a9QJ8jCqVTlXa5vVuHxtQh50");
+                    return  header;
+
+                }
+            };
+            myrequest.add(request);
+
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 
 
