@@ -62,7 +62,7 @@ public class GrupoFragment extends Fragment{
         recyclerViewGrupos.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
         tomarDatosDeFirestore();
-        //verificarGruposIntegrados();
+        verificarGruposIntegrados();
 
         return view;
 
