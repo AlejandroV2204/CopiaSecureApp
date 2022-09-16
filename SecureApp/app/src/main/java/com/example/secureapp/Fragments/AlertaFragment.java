@@ -19,8 +19,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.secureapp.Adaptadores.AdapterAlerta;
+import com.example.secureapp.Adaptadores.AdapterContacto;
 import com.example.secureapp.Adaptadores.AdapterGrupo;
 import com.example.secureapp.Modelo.MAlerta;
+import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,6 +35,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -95,7 +98,6 @@ public class AlertaFragment extends Fragment {
 
     }
 
-
     private void tomarDatosDeFirestore(){
 
         firestore.collection("alerta")
@@ -121,54 +123,5 @@ public class AlertaFragment extends Fragment {
                     }
                 });
             }
-
-
-            private void llamartopico() {
-
-                RequestQueue myrequest = Volley.newRequestQueue(getContext());
-                JSONObject json = new JSONObject();
-
-                try {
-
-                    String url_foto = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUZWSYpZzrv8X3PWYAJJ5Ib_82G4zN4p_gQA&usqp=CAU";
-
-                    // String token="cIb2ajMbQ7mtXBSV-rsHHW:APA91bEmqMrRYqHNFwWTTjrODwfkQLf4Kg0-5Pnf2A7OrLgQqn2yM7zdED2dc2Q7tSnQhhxslc0lqQOx8yDQl05QaCgy1lcuhv-kl-YOScfmmsD_0rg1j6kimDqkMSydGaBvqEval-1P";
-                    // "cIb2ajMbQ7mtXBSV-rsHHW:APA91bEmqMrRYqHNFwWTTjrODwfkQLf4Kg0-5Pnf2A7OrLgQqn2yM7zdED2dc2Q7tSnQhhxslc0lqQOx8yDQl05QaCgy1lcuhv-kl-YOScfmmsD_0rg1j6kimDqkMSydGaBvqEval-1P"
-                    json.put("to", "/topics/" + "enviaratodos");
-                    JSONObject notificacion = new JSONObject();
-                    notificacion.put("titulo", DescripcionAlerta);
-                    notificacion.put("foto", url_foto);
-
-                    json.put("data", notificacion);
-                    String URL = "https://fcm.googleapis.com/fcm/send";
-                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, URL, json, null, null) {
-                        @Override
-                        public Map<String, String> getHeaders() {
-                            Map<String, String> header = new HashMap<>();
-                            header.put("content-type", "application/json");
-                            header.put("authorization", "key=AAAA3B6j5bE:APA91bE7jmUJzdJAJU4xX9QJgC83hlbkMag_OM5eFq4JSmevJCQmttyRwjUSxKPiYWFZ1qmCWycuzUNnYsUOiQbKc6pRg8zzgbwwaqzKf48K_iBvrwO4a9QJ8jCqVTlXa5vVuHxtQh50");
-                            return header;
-
-                        }
-
-                    };
-                    myrequest.add(request);
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-                Toast.makeText(getActivity(), "Alerta enviada", Toast.LENGTH_SHORT).show();
-                limpiarCampos();
-
-
-            }
-
-            private void limpiarCampos() {
-
-            }
-
 
 }

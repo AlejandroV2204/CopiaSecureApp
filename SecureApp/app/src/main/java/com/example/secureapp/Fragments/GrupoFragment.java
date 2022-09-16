@@ -45,6 +45,7 @@ public class GrupoFragment extends Fragment{
     DatabaseReference databaseReference;
 
     private FirebaseFirestore firestore;
+    private String identificadorGrupo;
 
     @Nullable
     @Override
@@ -61,6 +62,7 @@ public class GrupoFragment extends Fragment{
         recyclerViewGrupos.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
         tomarDatosDeFirestore();
+        //verificarGruposIntegrados();
 
         return view;
 
@@ -108,6 +110,49 @@ public class GrupoFragment extends Fragment{
                     }
                 });
 
+
+    }
+
+    private void verificarGruposIntegrados(){
+
+        firestore.collection("grupo")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                identificadorGrupo = document.getId();
+
+                                String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
+                                firestore.collection("grupo").document(identificadorGrupo).collection("integrantes")
+                                        .whereEqualTo("email", email)
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                if (task.isSuccessful()) {
+                                                    for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                                        String identificador = document.getId();
+                                                        Toast.makeText(getContext(), "" + identificador, Toast.LENGTH_SHORT).show();
+
+                                                    }
+
+                                                } else {
+                                                    Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+
+                            }
+
+                        } else {
+                            Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
     }
 

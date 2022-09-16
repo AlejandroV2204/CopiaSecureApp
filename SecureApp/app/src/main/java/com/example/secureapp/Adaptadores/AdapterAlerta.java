@@ -21,7 +21,11 @@ import com.example.secureapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -43,7 +47,8 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
 
     Context contexto;
 
-    String descripcionAlerta;
+    private String descripcionAlerta;
+    private String nombreUsuario;
 
 
 
@@ -134,7 +139,7 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
             public void onClick(View v) {
 
                 descripcionAlerta = alerta.getDescripción();
-                consulta(descripcionAlerta);
+                tomarNombreUsuario();
 
             }
         });
@@ -162,12 +167,39 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
 
     }
 
-    private void consulta(String nombreAlerta){
+    private void tomarNombreUsuario(){
 
-        this.descripcionAlerta = nombreAlerta;
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
+
+        DocumentReference docRef = firestore.collection("usuario").document(email);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+
+                        nombreUsuario = (String) document.get("nombre") + document.getString("apellido");
+                        consulta(nombreUsuario, descripcionAlerta);
+
+                    } else {
+                        Toast.makeText(contexto, "Usuario no encontrado", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(contexto, "Error obteniendo los datos de " + task.getException(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+    }
+
+    private void consulta(String nombreUsuario, String descripcionAlerta){
+
+        this.descripcionAlerta = descripcionAlerta;
+        this.nombreUsuario = nombreUsuario;
 
         firestore.collection("alerta")
-                .whereEqualTo("descripcion", descripcionAlerta)
+                .whereEqualTo("descripcion", this.descripcionAlerta)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -175,12 +207,10 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                Fcm notificacion = new Fcm();
-
                                 String nombreAlerta = document.getString("nombre");
                                 String descripcionAlerta = document.getString("descripcion");
 
-                                llamartopico(nombreAlerta, descripcionAlerta);
+                                llamartopico(nombreUsuario, descripcionAlerta);
 
                             }
 
@@ -192,7 +222,7 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
                 });
     }
 
-    private void llamartopico(String nombreAlerta, String descripcionAlerta) {
+    private void llamartopico(String nombreUsuario, String descripcionAlerta) {
 
         RequestQueue myrequest= Volley.newRequestQueue(contexto);
         JSONObject json = new JSONObject();
@@ -205,7 +235,7 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
             // "cIb2ajMbQ7mtXBSV-rsHHW:APA91bEmqMrRYqHNFwWTTjrODwfkQLf4Kg0-5Pnf2A7OrLgQqn2yM7zdED2dc2Q7tSnQhhxslc0lqQOx8yDQl05QaCgy1lcuhv-kl-YOScfmmsD_0rg1j6kimDqkMSydGaBvqEval-1P"
             json.put("to","/topics/"+"enviaratodos");
             JSONObject notificacion=new JSONObject();
-            notificacion.put("titulo",nombreAlerta);
+            notificacion.put("titulo",nombreUsuario);
             notificacion.put("detalle",descripcionAlerta);
             notificacion.put("foto",url_foto);
 
