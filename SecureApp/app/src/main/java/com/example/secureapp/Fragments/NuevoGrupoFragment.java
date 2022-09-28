@@ -234,8 +234,8 @@ public class NuevoGrupoFragment extends Fragment {
 
                         agregarIdentificadorGrupo(documentoId);
                         registrarPrimerIntegrante(nombreAdministradorGrupo, apellidoAdministradorGrupo, emailAdministrador, telefonoAdministrador, documentoId);
-                        registrarGrupoAUsuario(emailAdministrador, documentoId);
-                        registrarGrupoAUsuarioEIntegrantes(emailAdministrador, documentoId);
+                        //registrarGrupoAUsuario(emailAdministrador, documentoId);
+                        //registrarGrupoAUsuarioEIntegrantes(emailAdministrador, documentoId);
 
                     }
                 })
@@ -293,6 +293,7 @@ public class NuevoGrupoFragment extends Fragment {
         integrante.put("apellido", apellidoAdministrador);
         integrante.put("email", emailAdmin);
         integrante.put("telefono", telefonoAdmin);
+        integrante.put("identificadorGrupo", documento);
 
         firestore.collection("grupo").document(documentoId).collection("integrantes").document(emailAdmin)
                 .set(integrante)
