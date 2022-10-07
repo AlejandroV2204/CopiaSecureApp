@@ -28,10 +28,21 @@
 
      </TextView>
 
-     <androidx.recyclerview.widget.RecyclerView
-         android:id="@+id/RV_main"
-         android:layout_width="350dp"
+     <LinearLayout
+         android:layout_width="match_parent"
          android:layout_height="match_parent"
-         android:layout_gravity="center" />
+         android:orientation="vertical">
+
+          <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/RV_main"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              app:spanCount="2"
+              app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+              android:orientation="vertical"
+              android:scrollbars="vertical"/>
+
+     </LinearLayout>
+
 
 </LinearLayout>
