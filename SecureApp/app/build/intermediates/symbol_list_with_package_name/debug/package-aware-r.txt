@@ -2641,6 +2641,8 @@ id RV_agregarIntegrantes
 id RV_alerta
 id RV_contactos
 id RV_grupos
+id RV_imagen_contacto
+id RV_imagen_grupo
 id RV_integrantes
 id RV_main
 id SHIFT
@@ -2902,11 +2904,9 @@ id image
 id imageView2
 id imageView3
 id imagen_agregarIntegrante
-id imagen_contacto
 id imagen_detalleContacto
 id imagen_detalleIntegrante
 id imagen_detalle_grupo
-id imagen_grupo
 id imagen_integrante
 id immediateStop
 id include
@@ -3173,8 +3173,6 @@ id txt_apellidoContacto
 id txt_apellidoIntegrante
 id txt_descripcionAlerta
 id txt_descripcionGrupo
-id txt_detalleMostrarContacto
-id txt_detalleMostrarIntegrante
 id txt_emailAgregarIntegrante
 id txt_emailContacto
 id txt_emailDetalleContacto
@@ -3196,7 +3194,6 @@ id txt_telefonoDetalleContacto
 id txt_telefonoDetalleIntegrante
 id txt_tituloAgregarIntegrante
 id txt_tituloContacto
-id txt_tituloDetalleContacto
 id txt_tituloDetalleContacto2
 id txt_tituloDetalleContacto3
 id txt_tituloDetalleGrupo2
@@ -3435,6 +3432,7 @@ layout text_view_without_line_height
 menu drawer_menu
 menu example_menu
 menu example_menu2
+mipmap arrow_back
 mipmap ic_icono_aplicacion
 mipmap ic_icono_aplicacion_foreground
 mipmap ic_icono_aplicacion_round
@@ -4738,6 +4736,7 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style txt_textoAlertas
 style txt_textoNormal
 style txt_textoTitulos
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle

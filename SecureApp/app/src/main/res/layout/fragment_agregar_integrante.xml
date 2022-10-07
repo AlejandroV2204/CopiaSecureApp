@@ -10,17 +10,15 @@
      <TextView
          android:id="@+id/txt_tituloAgregarIntegrante"
          android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
+         android:layout_height="50dp"
          android:layout_gravity="center"
          android:text="@string/AI_agregar_integrante_titulo"
-         android:textAlignment="center"
-         android:textColor="@color/Texto_color"
-         android:textSize="20sp"
          style="@style/txt_textoTitulos"
-         android:textStyle="bold|italic"
+         android:textAlignment="center"
+         android:gravity="center"
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintStart_toEndOf="@+id/IV_atras_agregarIntegrante"
          app:layout_constraintTop_toTopOf="parent"
          app:layout_constraintVertical_bias="0.08" />
 
@@ -52,9 +50,7 @@
               android:hint="@string/NC_email_contacto"
               style="@style/txt_textoNormal"
               android:textAlignment="center"
-              android:textSize="16dp"
-              android:textColor="@color/Texto_color"
-              android:textColorHint="@color/Texto_color"
+              android:textColorHint="@color/Hints_color"
               app:layout_constraintBottom_toBottomOf="parent"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +60,7 @@
 
           <androidx.recyclerview.widget.RecyclerView
               android:id="@+id/RV_agregarIntegrantes"
-              android:layout_width="350dp"
+              android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:layout_gravity="center" />
 
@@ -96,7 +92,7 @@
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent"
          app:layout_constraintVertical_bias="0.083"
-         app:srcCompat="@drawable/ic_atras" />
+         app:srcCompat="@mipmap/arrow_back" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,10 +14,8 @@
          android:paddingTop="60dp"
          android:paddingBottom="15dp"
          android:text="@string/pantalla_contactos_titulo"
-         android:textAlignment="center"
-         android:textColor="@color/Texto_color"
-         android:textSize="35sp"
          style="@style/txt_textoTitulos"
+         android:textAlignment="center"
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintHorizontal_bias="0.498"
@@ -35,7 +33,7 @@
 
      <androidx.recyclerview.widget.RecyclerView
          android:id="@+id/RV_contactos"
-         android:layout_width="350dp"
+         android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_gravity="center" />
 

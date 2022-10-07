@@ -15,9 +15,9 @@
         <ImageView
 
             android:id="@+id/imagen_agregarIntegrante"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@mipmap/ic_launcher">
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_contacto">
 
         </ImageView>
 
@@ -32,8 +32,6 @@
             android:layout_toRightOf="@id/imagen_agregarIntegrante"
             android:text="@string/DG_nombre_integrante"
             style="@style/txt_textoNormal"
-            android:textColor="@color/Texto_color"
-            android:textSize="20sp"
             android:textStyle="bold">
 
         </TextView>
@@ -44,13 +42,10 @@
             style="@style/txt_textoNormal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_nombreAgregarIntegrante"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/imagen_agregarIntegrante"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@id/txt_nombreAgregarIntegrante"
             android:text="@string/DG_apellido_integrante"
-            android:textColor="@color/Texto_color"
-            android:textSize="20sp"
             android:textStyle="bold">
 
         </TextView>
@@ -66,8 +61,7 @@
             android:layout_toEndOf="@id/imagen_agregarIntegrante"
             android:layout_toRightOf="@id/imagen_agregarIntegrante"
             android:text="@string/DG_email_integrante"
-            style="@style/txt_textoNormal"
-            android:textColor="@color/Texto_color">
+            style="@style/txt_textoNormal">
 
         </TextView>
 
@@ -82,8 +76,7 @@
             android:layout_toEndOf="@id/imagen_agregarIntegrante"
             android:layout_toRightOf="@id/imagen_agregarIntegrante"
             android:text="@string/DG_telefono_integrante"
-            style="@style/txt_textoNormal"
-            android:textColor="@color/Texto_color">
+            style="@style/txt_textoNormal">
 
         </TextView>
 

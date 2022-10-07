@@ -113,20 +113,20 @@
                 {
                     "source": "C:\\SecureApp\\SecureApp\\app\\src\\main\\res\\values\\font_style.xml",
                     "from": {
-                        "startLines": "-1,2",
-                        "startColumns": "-1,4",
-                        "startOffsets": "-1,57",
-                        "endLines": "-1,4",
-                        "endColumns": "-1,12",
-                        "endOffsets": "-1,178"
+                        "startLines": "-1,-1,2",
+                        "startColumns": "-1,-1,4",
+                        "startOffsets": "-1,-1,57",
+                        "endLines": "-1,-1,6",
+                        "endColumns": "-1,-1,12",
+                        "endOffsets": "-1,-1,295"
                     },
                     "to": {
-                        "startLines": "8197,8200",
-                        "startColumns": "4,4",
-                        "startOffsets": "543606,543732",
-                        "endLines": "8199,8202",
-                        "endColumns": "12,12",
-                        "endOffsets": "543727,543851"
+                        "startLines": "8197,8203,8208",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "543606,543905,544146",
+                        "endLines": "8202,8207,8212",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "543900,544141,544380"
                     }
                 },
                 {

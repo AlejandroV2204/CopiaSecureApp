@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +47,7 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView txt_nombreGrupo, txt_descripcionGrupo;
+        private ImageView image_grupo;
         private TextView txt_identificadorGrupo;
         public View view;
 
@@ -58,6 +60,7 @@ public class AdapterGrupo extends RecyclerView.Adapter<AdapterGrupo.ViewHolder> 
             //this.txt_identificadorGrupo = view.findViewById(R.id.);
             this.txt_nombreGrupo = view.findViewById(R.id.txt_nombreGrupo);
             this.txt_descripcionGrupo = view.findViewById(R.id.txt_descripcionGrupo);
+            this.image_grupo = view.findViewById(R.id.RV_imagen_grupo);
 
 
         }

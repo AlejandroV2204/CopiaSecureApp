@@ -17,8 +17,6 @@
          android:text="GRUPOS"
          style="@style/txt_textoTitulos"
          android:textAlignment="center"
-         android:textColor="@color/Texto_color"
-         android:textSize="35sp"
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintHorizontal_bias="0.498"
@@ -28,7 +26,7 @@
 
      <androidx.recyclerview.widget.RecyclerView
          android:id="@+id/RV_grupos"
-         android:layout_width="350dp"
+         android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:layout_gravity="center" />
 

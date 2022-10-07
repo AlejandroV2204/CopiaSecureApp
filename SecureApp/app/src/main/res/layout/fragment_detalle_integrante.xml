@@ -5,24 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txt_detalleMostrarIntegrante"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/pantalla_detalle_integrante_titulo"
-        style="@style/txt_textoTitulos"
-        android:textAlignment="center"
-        android:textColor="@color/Texto_color"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.082">
-
-    </TextView>
-
     <ImageView
         android:id="@+id/IV_atras_detalleIntegrante"
         android:layout_width="40dp"
@@ -33,97 +15,75 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.083"
-        app:srcCompat="@drawable/ic_atras" />
+        app:srcCompat="@mipmap/arrow_back" />
 
     <ImageView
 
         android:id="@+id/imagen_detalleIntegrante"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:foreground="@drawable/ic_contacto"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintStart_toEndOf="@+id/IV_atras_detalleIntegrante"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.253">
+        app:layout_constraintVertical_bias="0.081">
 
     </ImageView>
 
     <TextView
 
-        android:id="@+id/txt_tituloDetalleContacto"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:text="@string/DI_nombre_integrante"
-        style="@style/txt_textoTitulos"
-        android:textAlignment="textStart"
-        android:textColor="@color/Texto_color"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.552">
-
-    </TextView>
-
-    <TextView
-
         android:id="@+id/txt_tituloDetalleContacto2"
-        android:layout_width="208dp"
-        android:layout_height="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/DI_email_integrante"
-        style="@style/txt_textoTitulos"
+        style="@style/txt_textoNormal"
         android:textAlignment="textStart"
-        android:textColor="@color/Texto_color"
-        android:textSize="25sp"
+        android:textColor="@color/Hints_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.707">
+        app:layout_constraintVertical_bias="0.442">
 
     </TextView>
 
     <TextView
 
         android:id="@+id/txt_tituloDetalleContacto3"
-        android:layout_width="239dp"
-        android:layout_height="39dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/DI_telefono_integrante"
-        style="@style/txt_textoTitulos"
+        style="@style/txt_textoNormal"
         android:textAlignment="textStart"
-        android:textColor="@color/Texto_color"
-        android:textSize="25sp"
+        android:textColor="@color/Hints_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.882">
+        app:layout_constraintVertical_bias="0.295">
 
     </TextView>
 
     <TextView
 
         android:id="@+id/txt_nombreDetalleIntegrante"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center"
         android:text="@string/DI_nombre_integrante_secundario"
-        style="@style/txt_textoNormal"
+        style="@style/txt_textoTitulos"
         android:textAlignment="center"
-        android:textColor="@color/Texto_color"
-        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imagen_detalleIntegrante"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.613">
+        app:layout_constraintVertical_bias="0.084">
 
     </TextView>
 
@@ -134,17 +94,15 @@
         android:layout_height="wrap_content"
         android:maxLines="2"
         android:text="@string/DI_email_integrante_secundario"
-        style="@style/txt_textoNormal"
-        android:textAlignment="center"
+        style="@style/txt_textoTitulos"
+        android:textAlignment="textStart"
         android:textAllCaps="false"
-        android:textColor="@color/Texto_color"
-        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.792">
+        app:layout_constraintVertical_bias="0.406">
 
     </TextView>
 
@@ -154,16 +112,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/DI_telefono_integrante_secundario"
-        style="@style/txt_textoNormal"
-        android:textAlignment="center"
-        android:textColor="@color/Texto_color"
-        android:textSize="25sp"
+        style="@style/txt_textoTitulos"
+        android:textAlignment="textStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.924">
+        app:layout_constraintVertical_bias="0.256">
 
     </TextView>
 

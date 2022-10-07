@@ -1,7 +1,6 @@
 package com.example.secureapp.Adaptadores;
 
 import android.content.Context;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,7 +53,7 @@ public class AdapterContacto extends RecyclerView.Adapter<AdapterContacto.ViewHo
                 this.txt_apellidoContacto = view.findViewById(R.id.txt_apellidoContacto);
                 this.txt_emailContacto = view.findViewById(R.id.txt_emailContacto);
                 this.txt_telefonoContacto = view.findViewById(R.id.txt_telefonoContacto);
-                this.imageDetalle = view.findViewById(R.id.imagen_contacto);
+                this.imageDetalle = view.findViewById(R.id.RV_imagen_contacto);
 
             }
 

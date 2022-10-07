@@ -10,15 +10,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="3dp"
+        android:padding="5dp"
         >
 
         <ImageView
 
-            android:id="@+id/imagen_contacto"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@mipmap/ic_launcher">
+            android:id="@+id/RV_imagen_contacto"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_contacto">
 
         </ImageView>
 
@@ -29,12 +29,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@id/imagen_contacto"
-            android:layout_toRightOf="@id/imagen_contacto"
+            android:layout_toEndOf="@id/RV_imagen_contacto"
+            android:layout_toRightOf="@id/RV_imagen_contacto"
             android:text="@string/DC_nombre_contacto_secundario"
             style="@style/txt_textoNormal"
-            android:textColor="@color/Texto_color"
-            android:textSize="20sp"
             android:textStyle="bold">
 
         </TextView>
@@ -45,15 +43,11 @@
             style="@style/txt_textoNormal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_nombreContacto"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="3dp"
-            android:layout_toEndOf="@id/imagen_contacto"
-            android:layout_toRightOf="@id/imagen_contacto"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_toEndOf="@id/txt_nombreContacto"
+            android:layout_toRightOf="@id/txt_nombreContacto"
             android:text="@string/DC_nombre_contacto_secundario"
-            android:textColor="@color/Texto_color"
-            android:textSize="20sp"
             android:textStyle="bold">
 
         </TextView>
@@ -61,15 +55,15 @@
         <TextView
 
             android:id="@+id/txt_emailContacto"
+            style="@style/txt_textoNormal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_apellidoContacto"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@id/imagen_contacto"
-            android:layout_toRightOf="@id/imagen_contacto"
+            android:layout_toEndOf="@id/RV_imagen_contacto"
+            android:layout_toRightOf="@id/RV_imagen_contacto"
             android:text="@string/LC_email"
-            style="@style/txt_textoNormal"
             android:textColor="@color/Texto_color">
 
         </TextView>
@@ -82,8 +76,8 @@
             android:layout_below="@id/txt_emailContacto"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@id/imagen_contacto"
-            android:layout_toRightOf="@id/imagen_contacto"
+            android:layout_toEndOf="@id/RV_imagen_contacto"
+            android:layout_toRightOf="@id/RV_imagen_contacto"
             android:text="@string/LC_telefono"
             style="@style/txt_textoNormal"
             android:textColor="@color/Texto_color">

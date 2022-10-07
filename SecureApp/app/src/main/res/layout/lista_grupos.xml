@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardBackgroundColor="@color/color_listas"
@@ -17,10 +18,14 @@
 
         <ImageView
 
-            android:id="@+id/imagen_grupo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@mipmap/ic_launcher">
+            android:id="@+id/RV_imagen_grupo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/cardview_default_radius"
+            android:layout_marginStart="@dimen/cardview_default_radius"
+            android:layout_marginEnd="@dimen/cardview_default_radius"
+            android:layout_marginBottom="@dimen/cardview_default_radius"
+            android:src="@drawable/ic_group">
 
         </ImageView>
 
@@ -31,12 +36,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@id/imagen_grupo"
-            android:layout_toRightOf="@id/imagen_grupo"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/RV_imagen_grupo"
+            android:layout_toRightOf="@id/RV_imagen_grupo"
             android:text="@string/DG_nombre_grupo_secundario"
             style="@style/txt_textoNormal"
-            android:textColor="@color/Texto_color"
-            android:textSize="20sp"
             android:textStyle="bold">
 
         </TextView>
@@ -49,11 +53,10 @@
             android:layout_below="@id/txt_nombreGrupo"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_toEndOf="@id/imagen_grupo"
-            android:layout_toRightOf="@id/imagen_grupo"
+            android:layout_toEndOf="@id/RV_imagen_grupo"
+            android:layout_toRightOf="@id/RV_imagen_grupo"
             android:text="@string/LG_descripcion"
-            style="@style/txt_textoNormal"
-            android:textColor="@color/Texto_color">
+            style="@style/txt_textoNormal">
 
         </TextView>
 
