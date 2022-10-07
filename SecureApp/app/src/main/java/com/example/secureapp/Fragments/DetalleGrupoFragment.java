@@ -105,7 +105,7 @@ public class DetalleGrupoFragment extends Fragment {
                 @Override
                 public void onClick(View view){
 
-                    MAgregarIntegrante agregarIntegrante = new MAgregarIntegrante(identificadorDetalle, nombre,  apellido, email, telefono);
+                    MAgregarIntegrante agregarIntegrante = new MAgregarIntegrante(identificadorDetalle, nombre,  apellido, email, telefono, "");
                     agregarIntegrante.setIdentificador(identificadorDetalle);
 
                     irAgregarIntegrantes(agregarIntegrante);
@@ -133,7 +133,7 @@ public class DetalleGrupoFragment extends Fragment {
 
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
 
-        firestore.collection("usuario").document(email).collection("grupos").document(identificadorDetalle).collection("integrantes")
+        firestore.collection("grupo").document(identificadorDetalle).collection("integrantes")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

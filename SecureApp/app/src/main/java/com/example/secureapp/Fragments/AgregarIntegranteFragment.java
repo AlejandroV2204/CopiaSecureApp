@@ -157,7 +157,7 @@ public class AgregarIntegranteFragment extends Fragment{
         if (awesomeValidation.validate()){
 
             //btn_agregarIntegrantes.setVisibility(View.VISIBLE);
-            crearIntegrante();
+            crearIntegrante(identificadorDetalle);
             limpiarCampos();
 
         }else {
@@ -173,7 +173,9 @@ public class AgregarIntegranteFragment extends Fragment{
 
     }
 
-    private void crearIntegrante() {
+    private void crearIntegrante(String identificadorDetalle) {
+
+        this.identificadorDetalle = identificadorDetalle;
 
         DocumentReference usuarioRef = firestore.collection("usuario").document(emailIntegrante);
         usuarioRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -189,17 +191,19 @@ public class AgregarIntegranteFragment extends Fragment{
                         String apellidoIntegrante = document.getString("apellido");
                         String emailIntegrante = document.getString("email");
                         String telefonoIntegrante = document.getString("telefono");
+                        String identificadorGrupo = identificadorDetalle;
 
-                        MAgregarIntegrante agregarIntegrante = new MAgregarIntegrante(identificadorIntegrante, nombreIntegrante, apellidoIntegrante, emailIntegrante, telefonoIntegrante);
+                        MAgregarIntegrante agregarIntegrante = new MAgregarIntegrante(identificadorIntegrante, nombreIntegrante, apellidoIntegrante, emailIntegrante, telefonoIntegrante, identificadorGrupo);
                         agregarIntegrante.setIdentificador(identificadorIntegrante);
                         agregarIntegrante.setNombre(nombreIntegrante);
                         agregarIntegrante.setApellido(apellidoIntegrante);
                         agregarIntegrante.setEmail(emailIntegrante);
                         agregarIntegrante.setTelefono(telefonoIntegrante);
+                        agregarIntegrante.setIdentificadorGrupo(identificadorGrupo);
 
                         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
 
-                        firestore.collection("usuario").document(email).collection("grupos").document(identificadorDetalle).collection("integrantes").document(emailIntegrante)
+                        firestore.collection("grupo").document(identificadorDetalle).collection("integrantes").document(emailIntegrante)
                                 .set(agregarIntegrante)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
@@ -253,8 +257,9 @@ public class AgregarIntegranteFragment extends Fragment{
                                 String apellidoAgregarIntegrantes = document.getString("apellido");
                                 String emailAgregarIntegrantes = document.getString("email");
                                 String telefonoAgregarIntegrantes = document.getString("telefono");
+                                String identificadorGrupoAgregarIntegrantes = "";
 
-                                listaAgregarIntegrantes.add(new MAgregarIntegrante(identificadorAgregarIntegrantes, nombreAgregarIntegrantes, apellidoAgregarIntegrantes, emailAgregarIntegrantes, telefonoAgregarIntegrantes));
+                                listaAgregarIntegrantes.add(new MAgregarIntegrante(identificadorAgregarIntegrantes, nombreAgregarIntegrantes, apellidoAgregarIntegrantes, emailAgregarIntegrantes, telefonoAgregarIntegrantes, identificadorGrupoAgregarIntegrantes));
                             }
 
                             adapterAgregarIntegrantes = new AdapterAgregarIntegrante(listaAgregarIntegrantes, R.layout.lista_agregar_integrantes);
@@ -269,11 +274,12 @@ public class AgregarIntegranteFragment extends Fragment{
 
     }
 
+    //Esta no es
     private void pruebaConsulta(){
 
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
 
-        firestore.collection("usuario").document(email).collection("grupos").document(identificadorDetalle).collection("integrantes")
+        firestore.collection("grupo").document(identificadorDetalle).collection("integrantes")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -300,8 +306,9 @@ public class AgregarIntegranteFragment extends Fragment{
                                                     String apellidoAgregarIntegrantes = document.getString("apellido");
                                                     String emailAgregarIntegrantes = document.getString("email");
                                                     String telefonoAgregarIntegrantes = document.getString("telefono");
+                                                    String identificadorGrupoAgregarIntegrantes = "";
 
-                                                    listaAgregarIntegrantes.add(new MAgregarIntegrante(identificadorAgregarIntegrantes, nombreAgregarIntegrantes, apellidoAgregarIntegrantes, emailAgregarIntegrantes, telefonoAgregarIntegrantes));
+                                                    listaAgregarIntegrantes.add(new MAgregarIntegrante(identificadorAgregarIntegrantes, nombreAgregarIntegrantes, apellidoAgregarIntegrantes, emailAgregarIntegrantes, telefonoAgregarIntegrantes, identificadorGrupoAgregarIntegrantes));
                                                 }
 
                                                 adapterAgregarIntegrantes = new AdapterAgregarIntegrante(listaAgregarIntegrantes, R.layout.lista_agregar_integrantes);

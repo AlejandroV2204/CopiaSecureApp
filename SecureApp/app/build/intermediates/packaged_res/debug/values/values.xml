@@ -170,4 +170,10 @@
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
         
     </style>
+    <style name="txt_textoNormal">
+        <item name="android:fontFamily">@font/librebaskerville_regular</item>
+    </style>
+    <style name="txt_textoTitulos">
+        <item name="android:fontFamily">@font/librebaskerville_bold</item>
+    </style>
 </resources>

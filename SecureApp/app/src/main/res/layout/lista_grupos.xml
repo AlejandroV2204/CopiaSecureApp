@@ -34,6 +34,7 @@
             android:layout_toEndOf="@id/imagen_grupo"
             android:layout_toRightOf="@id/imagen_grupo"
             android:text="@string/DG_nombre_grupo_secundario"
+            style="@style/txt_textoNormal"
             android:textColor="@color/Texto_color"
             android:textSize="20sp"
             android:textStyle="bold">
@@ -51,6 +52,7 @@
             android:layout_toEndOf="@id/imagen_grupo"
             android:layout_toRightOf="@id/imagen_grupo"
             android:text="@string/LG_descripcion"
+            style="@style/txt_textoNormal"
             android:textColor="@color/Texto_color">
 
         </TextView>

@@ -29,7 +29,7 @@
         android:textAlignment="center"
         android:textColor="@color/Texto_color"
         android:textSize="30dp"
-        android:textStyle="bold|italic"
+        style="@style/txt_textoTitulos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -68,6 +68,7 @@
             android:layout_width="312dp"
             android:layout_height="match_parent"
             android:hint="@string/IS_email"
+            style="@style/txt_textoNormal"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,19 +88,20 @@
             android:layout_width="312dp"
             android:layout_height="match_parent"
             android:hint="@string/IS_password"
+            style="@style/txt_textoNormal"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
 
         android:id="@+id/btn_iniciarSesion"
-        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="219dp"
         android:layout_height="wrap_content"
         android:background="@color/Botones_color"
         android:backgroundTint="@color/Botones_color"
         android:text="@string/pantalla_iniciar_sesion_titulo"
         android:textColor="@color/Texto_color_botones"
+        style="@style/txt_textoNormal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,6 +116,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/IS_olvido_password"
+        style="@style/txt_textoNormal"
         android:textColor="@color/Texto_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,6 +133,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/IS_registro"
+        style="@style/txt_textoNormal"
         android:textColor="@color/Texto_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

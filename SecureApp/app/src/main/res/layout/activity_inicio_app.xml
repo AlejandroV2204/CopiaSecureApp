@@ -28,11 +28,11 @@
         android:layout_marginStart="-1dp"
         android:layout_marginTop="-37dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="148dp"
+        android:layout_marginBottom="151dp"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textColor="@color/Texto_color"
         android:textSize="40sp"
-        android:textStyle="bold|italic"></TextView>
+        style="@style/txt_textoTitulos"></TextView>
 
 </RelativeLayout>

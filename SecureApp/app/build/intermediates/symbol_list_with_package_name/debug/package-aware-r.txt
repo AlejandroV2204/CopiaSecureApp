@@ -2621,6 +2621,11 @@ drawable test_custom_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+font librebaskerville_bold
+font librebaskerville_italic
+font librebaskerville_regular
+font sourcecodepro_extrabold
+font sourcecodepro_regular
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -3430,32 +3435,16 @@ layout text_view_without_line_height
 menu drawer_menu
 menu example_menu
 menu example_menu2
-mipmap ic_candado
-mipmap ic_candado_foreground
-mipmap ic_candado_icon
-mipmap ic_candado_icon_foreground
-mipmap ic_candado_icon_round
-mipmap ic_candado_round
 mipmap ic_icono_aplicacion
 mipmap ic_icono_aplicacion_foreground
 mipmap ic_icono_aplicacion_round
 mipmap ic_launcher
-mipmap ic_launcher_alerta
-mipmap ic_launcher_alerta_round
-mipmap ic_launcher_candado_icon
-mipmap ic_launcher_candado_icon_foreground
-mipmap ic_launcher_candado_icon_round
 mipmap ic_launcher_grupo
 mipmap ic_launcher_grupo_round
 mipmap ic_launcher_nuevo_grupo
 mipmap ic_launcher_nuevo_grupo_round
 mipmap ic_launcher_round
-mipmap ic_launcher_secure_icon
-mipmap ic_launcher_secure_icon_foreground
-mipmap ic_launcher_secure_icon_round
-mipmap ic_logo_secureapp
 mipmap ic_logo_secureapp_foreground
-mipmap ic_logo_secureapp_round
 plurals mtrl_badge_content_description
 raw keep
 string AI_agregar_integrante_titulo
@@ -4749,6 +4738,8 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style txt_textoNormal
+style txt_textoTitulos
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth

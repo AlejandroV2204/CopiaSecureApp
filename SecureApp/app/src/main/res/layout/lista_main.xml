@@ -26,6 +26,7 @@
             android:layout_marginStart="6dp"
             android:layout_marginLeft="6dp"
             android:text="@string/A_nombre_alerta"
+            style="@style/txt_textoNormal"
             android:textColor="@color/Texto_color"
             android:textSize="20sp"
             android:textStyle="bold">

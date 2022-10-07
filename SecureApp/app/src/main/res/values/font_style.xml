@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="txt_textoTitulos">
+        <item name="android:fontFamily">@font/librebaskerville_bold</item>
+    </style>
+    <style name="txt_textoNormal">
+        <item name="android:fontFamily">@font/librebaskerville_regular</item>
+    </style>
+
+    style="@style/txt_textoTitulos"
+    style="@style/txt_textoNormal"
+</resources>
