@@ -2645,6 +2645,7 @@ id RV_imagen_contacto
 id RV_imagen_grupo
 id RV_integrantes
 id RV_main
+id RV_switchAlerta
 id SHIFT
 id SHOW_ALL
 id SHOW_PATH
@@ -3178,6 +3179,7 @@ id txt_emailContacto
 id txt_emailDetalleContacto
 id txt_emailDetalleIntegrante
 id txt_emailIntegrante
+id txt_favoritaAlerta
 id txt_headerTexto
 id txt_nombreAgregarIntegrante
 id txt_nombreContacto

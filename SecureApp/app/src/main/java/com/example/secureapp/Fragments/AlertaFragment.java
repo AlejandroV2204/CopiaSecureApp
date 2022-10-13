@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,11 +22,15 @@ import com.android.volley.toolbox.Volley;
 import com.example.secureapp.Adaptadores.AdapterAlerta;
 import com.example.secureapp.Adaptadores.AdapterContacto;
 import com.example.secureapp.Adaptadores.AdapterGrupo;
+import com.example.secureapp.Adaptadores.AdapterMain;
 import com.example.secureapp.Modelo.MAlerta;
 import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.Modelo.MGrupo;
+import com.example.secureapp.Modelo.MMain;
 import com.example.secureapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,6 +39,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -54,6 +61,8 @@ public class AlertaFragment extends Fragment {
     private ArrayList<MAlerta> listaAlerta = new ArrayList<>();
     private FirebaseFirestore firestore;
 
+    private ArrayList<String> codigoAlerta = new ArrayList<String>();
+
     String DescripcionAlerta;
 
     FirebaseDatabase firebaseDatabase;
@@ -67,6 +76,7 @@ public class AlertaFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_alerta, container, false);
 
         inicializarFireStore();
+        verificarAlertasPropias();
 
         recyclerViewAlertas = view.findViewById(R.id.RV_alerta);
         listaAlerta = new ArrayList<>();
@@ -100,7 +110,10 @@ public class AlertaFragment extends Fragment {
 
     private void tomarDatosDeFirestore(){
 
-        firestore.collection("alerta")
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        firestore.collection("usuario").document(email).collection("alertas")
+                .orderBy("descripcion")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -108,10 +121,12 @@ public class AlertaFragment extends Fragment {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-
+                                String identificadorAlerta = document.getId();
                                 String descripcionAlerta = document.getString("descripcion");
+                                boolean alertaFavorita = document.getBoolean("favorita");
 
-                                listaAlerta.add(new MAlerta(descripcionAlerta));
+                                listaAlerta.add(new MAlerta(descripcionAlerta, alertaFavorita));
+
                             }
 
                             adapterAlerta = new AdapterAlerta(listaAlerta, R.layout.lista_alerta);
@@ -122,6 +137,79 @@ public class AlertaFragment extends Fragment {
                         }
                     }
                 });
-            }
 
+}
+
+    private void verificarAlertasPropias(){
+
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        firestore.collection("usuario").document(email).collection("alertas")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                codigoAlerta.add(document.getString("codigo"));
+
+                                firestore.collection("alerta")
+                                        .whereNotIn("codigo", codigoAlerta)
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                if (task.isSuccessful()) {
+                                                    for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                                        String identificadorAlerta = document.getId();
+                                                        String nombreAlerta = document.getString("nombre");
+                                                        String codigoAlerta = document.getString("codigo");
+                                                        String descripcionAlerta = document.getString("descripcion");
+                                                        boolean alertaFavorita = false;
+
+                                                        HashMap<String, Object> alerta = new HashMap<>();
+                                                        alerta.put("identificador", identificadorAlerta);
+                                                        alerta.put("nombre", nombreAlerta);
+                                                        alerta.put("codigo", codigoAlerta);
+                                                        alerta.put("descripcion", descripcionAlerta);
+                                                        alerta.put("favorita", alertaFavorita);
+
+                                                        firestore.collection("usuario").document(email).collection("alertas").document(identificadorAlerta)
+                                                                .set(alerta)
+                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                    @Override
+                                                                    public void onSuccess(Void aVoid) {
+
+                                                                        //Toast.makeText(getContext(), "Grupo agregado exitosamente al usuario", Toast.LENGTH_SHORT).show();
+
+                                                                    }
+                                                                })
+                                                                .addOnFailureListener(new OnFailureListener() {
+                                                                    @Override
+                                                                    public void onFailure(@NonNull Exception e) {
+
+                                                                        Toast.makeText(getContext(), "Error en la integración del grupo al usuario", Toast.LENGTH_SHORT).show();
+
+                                                                    }
+                                                                });
+
+                                                    }
+
+                                                } else {
+                                                    Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+
+                            }
+
+                        } else {
+                            Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+    }
 }

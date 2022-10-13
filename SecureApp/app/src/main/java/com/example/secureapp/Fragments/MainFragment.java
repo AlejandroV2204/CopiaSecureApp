@@ -26,6 +26,8 @@ import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.Modelo.MMain;
 import com.example.secureapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,7 +36,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -97,10 +102,12 @@ public class MainFragment extends Fragment {
 
     }
 
-
     private void tomarDatosDeFirestore(){
 
-        firestore.collection("misAlertas")
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        firestore.collection("usuario").document(email).collection("alertas")
+                .whereEqualTo("favorita", true)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -108,17 +115,40 @@ public class MainFragment extends Fragment {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
+                                String identificadorAlerta = document.getId();
 
+                                DocumentReference grupoRef = firestore.collection("usuario").document(email).collection("alertas").document(identificadorAlerta);
+                                grupoRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            DocumentSnapshot document = task.getResult();
+                                            if (document.exists()) {
 
-                                String descripcionAlerta = document.getString("descripcion");
+                                                String descripcionAlerta = document.getString("descripcion");
 
-                                listaMain.add(new MMain(descripcionAlerta));
+                                                listaMain.add(new MMain(descripcionAlerta));
+
+                                            }
+
+                                            else{
+
+                                                Toast.makeText(getContext(), "No such document", Toast.LENGTH_SHORT).show();
+
+                                            }
+
+                                            adapterMain = new AdapterMain(listaMain, R.layout.lista_main);
+                                            recyclerViewMain.setAdapter(adapterMain);
+
+                                        } else {
+
+                                            Toast.makeText(getContext(), "get failed with " + task.getException(), Toast.LENGTH_SHORT).show();
+
+                                        }
+                                    }
+                                });
+
                             }
-
-
-                            adapterMain = new AdapterMain(listaMain, R.layout.lista_main);
-                            recyclerViewMain.setAdapter(adapterMain);
-
 
                         } else {
                             Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
@@ -126,7 +156,6 @@ public class MainFragment extends Fragment {
                     }
                 });
     }
-
 
     private void llamartopico() {
 

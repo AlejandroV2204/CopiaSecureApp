@@ -2644,6 +2644,7 @@ int id RV_imagen_contacto 0x7f0a000f
 int id RV_imagen_grupo 0x7f0a0255
 int id RV_integrantes 0x7f0a0010
 int id RV_main 0x7f0a0011
+int id RV_switchAlerta 0x7f0a0256
 int id SHIFT 0x7f0a0012
 int id SHOW_ALL 0x7f0a0013
 int id SHOW_PATH 0x7f0a0014
@@ -3177,6 +3178,7 @@ int id txt_emailContacto 0x7f0a0226
 int id txt_emailDetalleContacto 0x7f0a0227
 int id txt_emailDetalleIntegrante 0x7f0a0228
 int id txt_emailIntegrante 0x7f0a0229
+int id txt_favoritaAlerta 0x7f0a0257
 int id txt_headerTexto 0x7f0a022a
 int id txt_nombreAgregarIntegrante 0x7f0a022b
 int id txt_nombreContacto 0x7f0a022c

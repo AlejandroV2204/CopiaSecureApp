@@ -1,10 +1,11 @@
 package com.example.secureapp.Adaptadores;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,17 +16,18 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.secureapp.Activities.Fcm;
 import com.example.secureapp.Modelo.MAlerta;
+import com.example.secureapp.Modelo.MMain;
 import com.example.secureapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -47,16 +49,20 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
 
     Context contexto;
 
+    private String codigoAlerta;
     private String descripcionAlerta;
     private String nombreUsuario;
-
-
+    private boolean alertaFavorita, favoritaAlerta;
+    private Switch switchAlerta;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         //private TextView txt_nombreAlerta;
         private TextView txt_descripcionAlerta;
+        private String codigoAlerta;
+        private Switch switchAlerta;
         public View view;
+
 
         private View.OnClickListener listener;
 
@@ -65,8 +71,9 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
             super(view);
 
             this.view = view;
-            //this.txt_nombreAlerta = view.findViewById(R.id.txt_descripcionAlerta);
             this.txt_descripcionAlerta = view.findViewById(R.id.txt_descripcionAlerta);
+            this.switchAlerta = view.findViewById(R.id.RV_switchAlerta);
+
 
         }
 
@@ -132,6 +139,7 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
 
         //viewHolder.txt_nombreAlerta.setText(alerta.getNombre());
         viewHolder.txt_descripcionAlerta.setText(alerta.getDescripción());
+        viewHolder.switchAlerta.setChecked(alerta.getFavorita());
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
 
@@ -144,6 +152,28 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
             }
         });
 
+        viewHolder.switchAlerta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                descripcionAlerta = alerta.getDescripción();
+                alertaFavorita = alerta.getFavorita();
+
+                if (viewHolder.switchAlerta.isChecked()){
+                    alertaFavorita = true;
+                    alerta.setFavorita(alertaFavorita);
+                }else {
+                    alertaFavorita = false;
+                    alerta.setFavorita(alertaFavorita);
+                }
+
+                alertaFavorita = alerta.getFavorita();
+                alertaFavorito(descripcionAlerta, alertaFavorita);
+
+            }
+        });
+
+
     }
 
     @Override
@@ -155,7 +185,6 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
 
     @Override
     public void onClick(View view) {
-
 
 
     }
@@ -220,6 +249,64 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
                         }
                     }
                 });
+    }
+
+    private void alertaFavorito(String descripcionAlerta, boolean alertaFavorita){
+
+        this.descripcionAlerta = descripcionAlerta;
+        this.alertaFavorita = alertaFavorita;
+
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        firestore.collection("usuario").document(email).collection("alertas")
+                .whereEqualTo("descripcion", this.descripcionAlerta)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                String codigoAlerta = document.getString("codigo");
+                                String nombreAlerta = document.getString("nombre");
+                                String descripcionAlerta = document.getString("descripcion");
+                                String identificadorAlerta = document.getString("identificador");
+
+                                HashMap<String, Object> alerta = new HashMap<>();
+                                alerta.put("codigo", codigoAlerta);
+                                alerta.put("nombre", nombreAlerta);
+                                alerta.put("descripcion", descripcionAlerta);
+                                alerta.put("identificador", identificadorAlerta);
+                                alerta.put("favorita", alertaFavorita);
+
+                                firestore.collection("usuario").document(email).collection("alertas").document(codigoAlerta)
+                                        .set(alerta)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+
+                                                //Toast.makeText(getContext(), "Grupo agregado exitosamente al usuario", Toast.LENGTH_SHORT).show();
+
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+
+                                                Toast.makeText(contexto, "Error en la integración del grupo al usuario", Toast.LENGTH_SHORT).show();
+
+                                            }
+                                        });
+
+                            }
+
+
+                        } else {
+                            Toast.makeText(contexto, "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
     }
 
     private void llamartopico(String nombreUsuario, String descripcionAlerta) {

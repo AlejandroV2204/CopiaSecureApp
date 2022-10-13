@@ -6,13 +6,15 @@ public class MAlerta {
 
     private String codigo, descripción,nombre;
     private HashMap localizacion;
+    private boolean favorita, switchAlerta;
 
-    public MAlerta(String descripción) {
+    public MAlerta(String descripción, boolean favorita) {
 
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripción = descripción;
         this.localizacion = localizacion;
+        this.favorita = favorita;
 
     }
 
@@ -44,4 +46,21 @@ public class MAlerta {
         this.localizacion = localizacion;
     }
 
+    public boolean getFavorita() {
+        return favorita;
+    }
+
+    public void setFavorita(boolean favorita) {
+        this.favorita = favorita;
+    }
+
+    public boolean getSwitchAlerta() {
+        return switchAlerta;
+    }
+
+    public boolean setSwitchAlerta(boolean switchAlerta) {
+        this.switchAlerta = switchAlerta;
+        return switchAlerta;
+    }
 }
+
