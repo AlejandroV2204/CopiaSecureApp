@@ -178,54 +178,108 @@ public class MainFragment extends Fragment {
 
                             }
 
-                            firestore.collection("alerta")
-                                    .whereNotIn("codigo", codigoAlerta)
-                                    .get()
-                                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                            if (task.isSuccessful()) {
-                                                for (QueryDocumentSnapshot document : task.getResult()) {
+                            if (codigoAlerta.size() == 0){
 
-                                                    String identificadorAlerta = document.getId();
-                                                    String nombreAlerta = document.getString("nombre");
-                                                    String codigoAlerta = document.getString("codigo");
-                                                    String descripcionAlerta = document.getString("descripcion");
-                                                    boolean alertaFavorita = false;
+                                firestore.collection("alerta")
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                if (task.isSuccessful()) {
+                                                    for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                                    HashMap<String, Object> alerta = new HashMap<>();
-                                                    alerta.put("identificador", identificadorAlerta);
-                                                    alerta.put("nombre", nombreAlerta);
-                                                    alerta.put("codigo", codigoAlerta);
-                                                    alerta.put("descripcion", descripcionAlerta);
-                                                    alerta.put("favorita", alertaFavorita);
+                                                        String identificadorAlerta = document.getId();
+                                                        String nombreAlerta = document.getString("nombre");
+                                                        String codigoAlerta = document.getString("codigo");
+                                                        String descripcionAlerta = document.getString("descripcion");
+                                                        boolean alertaFavorita = false;
 
-                                                    firestore.collection("usuario").document(email).collection("alertas").document(identificadorAlerta)
-                                                            .set(alerta)
-                                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                                @Override
-                                                                public void onSuccess(Void aVoid) {
+                                                        HashMap<String, Object> alerta = new HashMap<>();
+                                                        alerta.put("identificador", identificadorAlerta);
+                                                        alerta.put("nombre", nombreAlerta);
+                                                        alerta.put("codigo", codigoAlerta);
+                                                        alerta.put("descripcion", descripcionAlerta);
+                                                        alerta.put("favorita", alertaFavorita);
 
-                                                                    //Toast.makeText(getContext(), "Grupo agregado exitosamente al usuario", Toast.LENGTH_SHORT).show();
+                                                        firestore.collection("usuario").document(email).collection("alertas").document(identificadorAlerta)
+                                                                .set(alerta)
+                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                    @Override
+                                                                    public void onSuccess(Void aVoid) {
 
-                                                                }
-                                                            })
-                                                            .addOnFailureListener(new OnFailureListener() {
-                                                                @Override
-                                                                public void onFailure(@NonNull Exception e) {
+                                                                        //Toast.makeText(getContext(), "Grupo agregado exitosamente al usuario", Toast.LENGTH_SHORT).show();
 
-                                                                    Toast.makeText(getContext(), "Error en la integración del grupo al usuario", Toast.LENGTH_SHORT).show();
+                                                                    }
+                                                                })
+                                                                .addOnFailureListener(new OnFailureListener() {
+                                                                    @Override
+                                                                    public void onFailure(@NonNull Exception e) {
 
-                                                                }
-                                                            });
+                                                                        Toast.makeText(getContext(), "Error en la integración del grupo al usuario", Toast.LENGTH_SHORT).show();
 
+                                                                    }
+                                                                });
+
+                                                    }
+
+                                                } else {
+                                                    Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
                                                 }
-
-                                            } else {
-                                                Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
                                             }
-                                        }
-                                    });
+                                        });
+
+                            }
+                            else{
+
+                                firestore.collection("alerta")
+                                        .whereNotIn("codigo", codigoAlerta)
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                                if (task.isSuccessful()) {
+                                                    for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                                        String identificadorAlerta = document.getId();
+                                                        String nombreAlerta = document.getString("nombre");
+                                                        String codigoAlerta = document.getString("codigo");
+                                                        String descripcionAlerta = document.getString("descripcion");
+                                                        boolean alertaFavorita = false;
+
+                                                        HashMap<String, Object> alerta = new HashMap<>();
+                                                        alerta.put("identificador", identificadorAlerta);
+                                                        alerta.put("nombre", nombreAlerta);
+                                                        alerta.put("codigo", codigoAlerta);
+                                                        alerta.put("descripcion", descripcionAlerta);
+                                                        alerta.put("favorita", alertaFavorita);
+
+                                                        firestore.collection("usuario").document(email).collection("alertas").document(identificadorAlerta)
+                                                                .set(alerta)
+                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                    @Override
+                                                                    public void onSuccess(Void aVoid) {
+
+                                                                        //Toast.makeText(getContext(), "Grupo agregado exitosamente al usuario", Toast.LENGTH_SHORT).show();
+
+                                                                    }
+                                                                })
+                                                                .addOnFailureListener(new OnFailureListener() {
+                                                                    @Override
+                                                                    public void onFailure(@NonNull Exception e) {
+
+                                                                        Toast.makeText(getContext(), "Error en la integración del grupo al usuario", Toast.LENGTH_SHORT).show();
+
+                                                                    }
+                                                                });
+
+                                                    }
+
+                                                } else {
+                                                    Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                            }
 
                         } else {
                             Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
