@@ -267,8 +267,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         HashMap<String, Object> tokenAlerta = new HashMap<>();
         tokenAlerta.put("tokenAlerta", token);
 
-        firestore.collection("usuario").document(email).collection("alertas").document("tokenAlerta")
-                .set(tokenAlerta)
+        firestore.collection("usuario").document(email)
+                .update(tokenAlerta)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

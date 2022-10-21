@@ -101,8 +101,9 @@ public class ContactoFragment extends Fragment{
                                 String apellidoContacto = document.getString("apellido");
                                 String emailContacto = document.getString("email");
                                 String telefonoContacto = document.getString("telefono");
+                                String tokenContacto = document.getString("tokenAlerta");
 
-                                listaContactos.add(new MContacto(nombreContacto, apellidoContacto, emailContacto, telefonoContacto));
+                                listaContactos.add(new MContacto(nombreContacto, apellidoContacto, emailContacto, telefonoContacto, tokenContacto));
                             }
 
                             adapterContacto = new AdapterContacto(listaContactos, R.layout.lista_contactos);

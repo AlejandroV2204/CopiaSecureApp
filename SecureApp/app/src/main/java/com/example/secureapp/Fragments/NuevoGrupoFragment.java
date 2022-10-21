@@ -53,7 +53,7 @@ public class NuevoGrupoFragment extends Fragment {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
-    String idenficadorGrupo, nombreGrupo, descripcionGrupo, nombreAdministradorGrupo, apellidoAdministradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes;
+    String idenficadorGrupo, nombreGrupo, descripcionGrupo, nombreAdministradorGrupo, apellidoAdministradorGrupo, emailAdministrador, tokenAdministrador, fechaCreacion, cantidadIntegrantes;
     private String telefonoAdministrador;
     private String documentoId;
     private GeoPoint localizacion;
@@ -135,10 +135,11 @@ public class NuevoGrupoFragment extends Fragment {
                         apellidoAdministradorGrupo = document.getString("apellido");
                         emailAdministrador = document.getString("email");
                         telefonoAdministrador = document.getString("telefono");
+                        tokenAdministrador = document.getString("tokenAlerta");
 
                         Toast.makeText(getContext(), "Datos obtenido sobre el usuario", Toast.LENGTH_SHORT).show();
 
-                        registrarGrupoFireStore(idenficadorGrupo, nombreAdministradorGrupo, apellidoAdministradorGrupo, fechaCreacion, emailAdministrador);
+                        registrarGrupoFireStore(idenficadorGrupo, nombreAdministradorGrupo, apellidoAdministradorGrupo, fechaCreacion, emailAdministrador, tokenAdministrador);
 
 
                     } else {
@@ -205,12 +206,13 @@ public class NuevoGrupoFragment extends Fragment {
 
     }
 
-    private void registrarGrupoFireStore(String idenficadorGrupo, String nombreAdministrador, String apellidoAdministrador , String fecha, String emailAdmin) {
+    private void registrarGrupoFireStore(String idenficadorGrupo, String nombreAdministrador, String apellidoAdministrador , String fecha, String emailAdmin, String tokenAdministrador) {
 
         this.nombreAdministradorGrupo = nombreAdministrador;
         this.apellidoAdministradorGrupo = apellidoAdministrador;
         this.fechaCreacion = fecha;
         this.emailAdministrador = emailAdmin;
+        this.tokenAdministrador = tokenAdministrador;
 
         MGrupo grupo = new MGrupo(idenficadorGrupo, nombreGrupo, descripcionGrupo, nombreAdministradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacion);
 
@@ -233,7 +235,7 @@ public class NuevoGrupoFragment extends Fragment {
                         documentoId = documentReference.getId();
 
                         agregarIdentificadorGrupo(documentoId);
-                        registrarPrimerIntegrante(nombreAdministradorGrupo, apellidoAdministradorGrupo, emailAdministrador, telefonoAdministrador, documentoId);
+                        registrarPrimerIntegrante(nombreAdministradorGrupo, apellidoAdministradorGrupo, emailAdministrador, telefonoAdministrador, documentoId, tokenAdministrador);
                         //registrarGrupoAUsuario(emailAdministrador, documentoId);
                         //registrarGrupoAUsuarioEIntegrantes(emailAdministrador, documentoId);
 
@@ -280,13 +282,14 @@ public class NuevoGrupoFragment extends Fragment {
                 });
     }
 
-    private void registrarPrimerIntegrante(String nombreAdministrador, String apellidoAdministrador , String emailAdmin, String telefonoAdmin, String documento){
+    private void registrarPrimerIntegrante(String nombreAdministrador, String apellidoAdministrador , String emailAdmin, String telefonoAdmin, String documento, String tokenAdministrador){
 
         this.nombreAdministradorGrupo = nombreAdministrador;
         this.apellidoAdministradorGrupo = apellidoAdministrador;
         this.emailAdministrador = emailAdmin;
         this.telefonoAdministrador = telefonoAdmin;
         this.documentoId = documento;
+        this.tokenAdministrador = tokenAdministrador;
 
         HashMap<String, Object> integrante = new HashMap<>();
         integrante.put("nombre", nombreAdministrador);
@@ -294,6 +297,7 @@ public class NuevoGrupoFragment extends Fragment {
         integrante.put("email", emailAdmin);
         integrante.put("telefono", telefonoAdmin);
         integrante.put("identificadorGrupo", documento);
+        integrante.put("tokenAlerta", tokenAdministrador);
 
         firestore.collection("grupo").document(documentoId).collection("integrantes").document(emailAdmin)
                 .set(integrante)

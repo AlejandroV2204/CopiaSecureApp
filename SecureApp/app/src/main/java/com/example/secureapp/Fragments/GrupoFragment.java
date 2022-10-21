@@ -201,6 +201,7 @@ public class GrupoFragment extends Fragment{
                                                                                                 String emailIntegrante = document.getString("email");
                                                                                                 String telefonoIntegrante = document.getString("telefono");
                                                                                                 String documentoIntegrante = document.getString("identificadorGrupo");
+                                                                                                String tokenIntegrante = document.getString("tokenAlerta");
 
                                                                                                 HashMap<String, Object> integrante = new HashMap<>();
                                                                                                 integrante.put("nombre", nombreIntegrante);
@@ -208,6 +209,7 @@ public class GrupoFragment extends Fragment{
                                                                                                 integrante.put("email", emailIntegrante);
                                                                                                 integrante.put("telefono", telefonoIntegrante);
                                                                                                 integrante.put("identificadorGrupo", documentoIntegrante);
+                                                                                                integrante.put("tokenAlerta", tokenIntegrante);
 
                                                                                                 firestore.collection("usuario").document(email).collection("grupos").document(identificadorGrupo).collection("integrantes").document(email)
                                                                                                         .set(integrante)

@@ -38,7 +38,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class NuevoContactoFragment extends Fragment{
 
     EditText et_nombreContacto, et_apellidoContacto, et_emailContacto;
-    String nombreContacto, apellidoContacto, emailContacto, telefonoContacto;
+    String nombreContacto, apellidoContacto, emailContacto, telefonoContacto, tokenContacto;
 
     String nombre, apellido, email, telefono;
 
@@ -121,13 +121,15 @@ public class NuevoContactoFragment extends Fragment{
                         apellidoContacto = document.getString("apellido");
                         emailContacto = document.getString("email");
                         telefonoContacto = document.getString("telefono");
+                        tokenContacto = document.getString("tokenAlerta");
 
-                        MContacto contacto = new MContacto(nombreContacto, apellidoContacto, emailContacto, telefonoContacto);
+                        MContacto contacto = new MContacto(nombreContacto, apellidoContacto, emailContacto, telefonoContacto, tokenContacto);
 
                         contacto.setNombre(nombreContacto);
                         contacto.setApellido(apellidoContacto);
                         contacto.setEmail(emailContacto);
                         contacto.setTelefono(telefonoContacto);
+                        contacto.setToken(tokenContacto);
 
                         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
 
