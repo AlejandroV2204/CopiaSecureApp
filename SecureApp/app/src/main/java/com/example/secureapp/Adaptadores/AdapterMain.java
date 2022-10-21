@@ -169,7 +169,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> im
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
 
-                        nombreUsuario = (String) document.get("nombre") + document.getString("apellido");
+                        nombreUsuario = (String) document.get("nombre") + " " + document.getString("apellido");
                         consulta(nombreUsuario, descripcionAlerta);
 
                     } else {

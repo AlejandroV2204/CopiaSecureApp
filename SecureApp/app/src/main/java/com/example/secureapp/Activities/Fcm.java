@@ -30,16 +30,15 @@ public class Fcm extends FirebaseMessagingService {
     @Override
     public void onNewToken(@NonNull String s) {
         super.onNewToken(s);
-        Log.e("token","mi token es:"+s);
+        Log.e("token","mi token es:" + s);
 
     }
-
 
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
-        String from =remoteMessage.getFrom();
+        String from = remoteMessage.getFrom();
 
         if (remoteMessage.getData().size() > 0){
 
@@ -84,10 +83,10 @@ public class Fcm extends FirebaseMessagingService {
 
                     .setContentInfo("nuevo");
 
-            Random random=new Random();
-            int idNotity =random.nextInt(8000);
+            Random random = new Random();
+            int idNotity = random.nextInt(8000);
 
-            assert nm !=null;
+            assert nm != null;
             nm.notify(idNotity,builder.build());
         } catch (IOException e) {
             e.printStackTrace();
@@ -96,10 +95,10 @@ public class Fcm extends FirebaseMessagingService {
 
     }
     public PendingIntent clicknoti(){
-        Intent nf=new Intent(getApplicationContext(), InicioSesionActivity.class);
+        Intent nf = new Intent(getApplicationContext(), InicioSesionActivity.class);
         nf.putExtra("color","rojo");
         nf.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        return PendingIntent.getActivity(this,0,nf,0);
+        return PendingIntent.getActivity(getApplicationContext(),0,nf, -1);
     }
 
 }

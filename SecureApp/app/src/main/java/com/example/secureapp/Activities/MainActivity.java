@@ -1,5 +1,7 @@
 package com.example.secureapp.Activities;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,8 +16,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
-import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -23,21 +23,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.basgeekball.awesomevalidation.AwesomeValidation;
-import com.basgeekball.awesomevalidation.ValidationStyle;
-import com.example.secureapp.Adaptadores.AdapterAlerta;
-import com.example.secureapp.Adaptadores.AdapterGrupo;
 
 import com.example.secureapp.Fragments.ContactoFragment;
 import com.example.secureapp.Fragments.DetalleContactoFragment;
 import com.example.secureapp.Fragments.NuevoContactoFragment;
 
-import com.example.secureapp.Modelo.MAlerta;
-import com.example.secureapp.Modelo.MGrupo;
 import com.example.secureapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -52,18 +43,12 @@ import com.example.secureapp.Fragments.MainFragment;
 import com.example.secureapp.Fragments.NuevoGrupoFragment;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.FirebaseMessaging;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -86,8 +71,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     RecyclerView recyclerGrupos;
 
     private FirebaseFirestore firestore;
+    private String token;
 
     int REQUEST_CODE = 200;
+
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -97,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         inicializarFireStore();
         verificarPermisos();
+        extraerToken();
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -125,7 +113,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         firestore = FirebaseFirestore.getInstance();
 
     }
-
 
     //Se controla la pulsación del botón atrás.
     @Override
@@ -248,6 +235,56 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent intent = new Intent(MainActivity.this, InicioSesionActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+
+    }
+
+    private void extraerToken(){
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        token = task.getResult();
+
+                        insertarTokenUsuario(token);
+
+                    }
+                });
+    }
+
+    private void insertarTokenUsuario(String token){
+
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        this.token = token;
+
+        HashMap<String, Object> tokenAlerta = new HashMap<>();
+        tokenAlerta.put("tokenAlerta", token);
+
+        firestore.collection("usuario").document(email).collection("alertas").document("tokenAlerta")
+                .set(tokenAlerta)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                        //Toast.makeText(getContext(), "Grupo agregado exitosamente al usuario", Toast.LENGTH_SHORT).show();
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        Toast.makeText(MainActivity.this, "Error en la inserción del token al usuario", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
 
     }
 

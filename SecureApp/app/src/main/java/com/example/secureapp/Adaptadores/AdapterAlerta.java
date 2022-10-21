@@ -208,7 +208,7 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
 
-                        nombreUsuario = (String) document.get("nombre") + document.getString("apellido");
+                        nombreUsuario = (String) document.get("nombre") + " " + document.getString("apellido");
                         consulta(nombreUsuario, descripcionAlerta);
 
                     } else {
@@ -328,7 +328,7 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
 
             json.put("data",notificacion);
             String URL="https://fcm.googleapis.com/fcm/send";
-            JsonObjectRequest request=new JsonObjectRequest(Request.Method.POST,URL,json,null,null){
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,URL,json,null,null){
                 @Override
                 public Map<String, String> getHeaders() {
                     Map<String,String>header=new HashMap<>();
