@@ -36,10 +36,7 @@
               android:id="@+id/RV_main"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              app:spanCount="2"
-              app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-              android:orientation="vertical"
-              android:scrollbars="vertical"/>
+              android:orientation="vertical"/>
 
      </LinearLayout>
 

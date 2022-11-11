@@ -112,6 +112,7 @@ id nuevoContacto
 id nuevoGrupo
 id spinner_ciudades
 id spinner_departamentos
+id spinner_gruposAlertas
 id textView
 id textView2
 id textView3

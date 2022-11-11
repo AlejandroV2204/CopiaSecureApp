@@ -80,7 +80,7 @@ public class MainFragment extends Fragment {
         listaMain = new ArrayList<>();
 
 
-        //recyclerViewMain.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        recyclerViewMain.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
         tomarDatosDeFirestore();
 

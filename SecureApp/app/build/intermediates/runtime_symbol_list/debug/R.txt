@@ -3089,6 +3089,7 @@ int id spacer 0x7f0a01cb
 int id special_effects_controller_view_tag 0x7f0a01cc
 int id spinner_ciudades 0x7f0a01cd
 int id spinner_departamentos 0x7f0a01ce
+int id spinner_gruposAlertas 0x7f0a0258
 int id spline 0x7f0a01cf
 int id split_action_bar 0x7f0a01d0
 int id spread 0x7f0a01d1

@@ -5,6 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="@color/color_listas"
     app:cardCornerRadius="1dp"
+    android:outlineAmbientShadowColor="@color/App_color"
+    android:outlineSpotShadowColor="@color/App_color"
     >
 
     <RelativeLayout
@@ -18,13 +20,15 @@
             android:id="@+id/RV_imagen_contacto"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_contacto">
+            android:src="@drawable/ic_contacto"
+            android:layout_centerVertical="true">
 
         </ImageView>
 
         <TextView
 
             android:id="@+id/txt_nombreContacto"
+            style="@style/txt_textoNormal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -32,8 +36,8 @@
             android:layout_toEndOf="@id/RV_imagen_contacto"
             android:layout_toRightOf="@id/RV_imagen_contacto"
             android:text="@string/DC_nombre_contacto_secundario"
-            style="@style/txt_textoNormal"
-            android:textStyle="bold">
+            android:textStyle="bold"
+            android:layout_centerVertical="true">
 
         </TextView>
 
@@ -43,12 +47,13 @@
             style="@style/txt_textoNormal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_toEndOf="@id/txt_nombreContacto"
             android:layout_toRightOf="@id/txt_nombreContacto"
             android:text="@string/DC_nombre_contacto_secundario"
-            android:textStyle="bold">
+            android:textStyle="bold"
+            android:layout_centerVertical="true">
 
         </TextView>
 
@@ -64,13 +69,15 @@
             android:layout_toEndOf="@id/RV_imagen_contacto"
             android:layout_toRightOf="@id/RV_imagen_contacto"
             android:text="@string/LC_email"
-            android:textColor="@color/Texto_color">
+            android:textColor="@color/Texto_color"
+            android:visibility="gone">
 
         </TextView>
 
         <TextView
 
             android:id="@+id/txt_telefonoContacto"
+            style="@style/txt_textoNormal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_emailContacto"
@@ -79,8 +86,8 @@
             android:layout_toEndOf="@id/RV_imagen_contacto"
             android:layout_toRightOf="@id/RV_imagen_contacto"
             android:text="@string/LC_telefono"
-            style="@style/txt_textoNormal"
-            android:textColor="@color/Texto_color">
+            android:textColor="@color/Texto_color"
+            android:visibility="gone">
 
         </TextView>
 

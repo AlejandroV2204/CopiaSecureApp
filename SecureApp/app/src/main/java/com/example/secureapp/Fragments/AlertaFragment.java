@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -42,6 +45,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -50,7 +54,9 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -62,6 +68,14 @@ public class AlertaFragment extends Fragment {
     private FirebaseFirestore firestore;
 
     private ArrayList<String> codigoAlerta = new ArrayList<String>();
+
+    private Spinner spinner_gruposAlertas;
+
+    private AdapterGrupo adapterGrupo;
+    private RecyclerView recyclerViewGrupos;
+    private ArrayList<MGrupo> listaGrupos = new ArrayList<>();
+    //ArrayList <String> listaGruposA = new ArrayList<>();
+    ArrayAdapter <MGrupo>  listaGruposA;
 
     String DescripcionAlerta;
 
@@ -77,8 +91,10 @@ public class AlertaFragment extends Fragment {
 
         inicializarFireStore();
         verificarAlertasPropias();
+        rellenarSpinnerGrupos();
 
         recyclerViewAlertas = view.findViewById(R.id.RV_alerta);
+        spinner_gruposAlertas = view.findViewById(R.id.spinner_gruposAlertas);
         listaAlerta = new ArrayList<>();
 
         recyclerViewAlertas.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -204,6 +220,46 @@ public class AlertaFragment extends Fragment {
                                             }
                                         }
                                     });
+
+                        } else {
+                            Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+    }
+
+    private void rellenarSpinnerGrupos(){
+
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        firestore.collection("usuario").document(email).collection("grupos")
+                .orderBy("nombre")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                String identificadorGrupo = document.getId();
+                                String nombreGrupo = document.getString("nombre");
+                                String descripcionGrupo = document.getString("descripcion");
+                                String administradorGrupo = document.getString("administradorGrupo");
+                                String emailAdministrador = document.getString("emailAdministrador");
+                                String fechaCreacion= document.getString("fechaCreacion");
+                                String cantidadIntegrantes = document.getString("cantidadIntegrantes");
+                                GeoPoint localizacionGrupo = document.getGeoPoint("localizacion");
+
+                                listaGrupos.add(new MGrupo(identificadorGrupo, nombreGrupo, descripcionGrupo, administradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacionGrupo));
+
+                                //listaGruposA.add(nombreGrupo);
+                            }
+
+                            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.R_listaAntioquia, android.R.layout.simple_spinner_item);
+                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            spinner_gruposAlertas.setAdapter(adapter);
+
 
                         } else {
                             Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
