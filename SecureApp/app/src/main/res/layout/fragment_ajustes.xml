@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/IV_atras_detalleContacto"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.083"
+        app:srcCompat="@mipmap/arrow_back" />
+
+    <ImageView
+
+        android:id="@+id/imagen_detalleContacto"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:foreground="@drawable/ic_contacto"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.024"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.081"
+        app:layout_constraintStart_toEndOf="@+id/IV_atras_detalleContacto"
+        >
+
+    </ImageView>
+
+    <TextView
+
+        android:id="@+id/txt_emailtexto"
+        style="@style/txt_textoNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AJ_Email"
+        android:textAlignment="textStart"
+        android:textColor="@color/Hints_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77">
+
+    </TextView>
+
+    <TextView
+
+        android:id="@+id/txt_identificacionTexto"
+        style="@style/txt_textoNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AJ_Identificacion"
+        android:textAlignment="textStart"
+        android:textColor="@color/Hints_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.68">
+
+    </TextView>
+
+    <TextView
+
+        android:id="@+id/txt_emailPropio"
+        style="@style/txt_textoTitulos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:text="@string/AJ_Email"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.738">
+
+    </TextView>
+
+    <EditText
+
+        android:id="@+id/et_telefonoPropio"
+        style="@style/txt_textoTitulos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/AJ_Telefono"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499">
+
+    </EditText>
+
+    <EditText
+
+        android:id="@+id/et_identificacionPropia"
+        style="@style/txt_textoTitulos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/AJ_Identificacion"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.633">
+
+    </EditText>
+
+    <TextView
+
+        android:id="@+id/txt_telefonoTexto"
+        style="@style/txt_textoNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AJ_Telefono"
+        android:textAlignment="textStart"
+        android:textColor="@color/Hints_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.552">
+
+    </TextView>
+
+    <TextView
+
+        android:id="@+id/txt_apellidoTexto"
+        style="@style/txt_textoNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AJ_Apellido"
+        android:textAlignment="textStart"
+        android:textColor="@color/Hints_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.415">
+
+    </TextView>
+
+    <TextView
+
+        android:id="@+id/txt_nombreTexto"
+        style="@style/txt_textoNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AJ_nombre"
+        android:textAlignment="textStart"
+        android:textColor="@color/Hints_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.292">
+
+    </TextView>
+
+    <TextView
+
+        android:id="@+id/txt_informacionPersonal"
+        style="@style/txt_textoTitulos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AJ_informacion_personal"
+        android:textSize="18dp"
+        android:paddingVertical="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imagen_detalleContacto"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.08">
+
+    </TextView>
+
+    <EditText
+
+        android:id="@+id/et_apellidoPropio"
+        style="@style/txt_textoTitulos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:text="@string/AJ_Apellido"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.355">
+
+    </EditText>
+
+    <EditText
+
+        android:id="@+id/et_nombrePropio"
+        style="@style/txt_textoTitulos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/AJ_nombre"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.226">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/btn_guardarInformacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/Botones_color"
+        android:text="@string/guardar"
+        style="@style/txt_textoNormal"
+        android:textColor="@color/Texto_color_botones"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.971" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="42dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

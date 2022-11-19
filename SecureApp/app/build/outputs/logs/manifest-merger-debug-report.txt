@@ -18,6 +18,7 @@ MERGED from [com.google.android.gms:play-services-maps:17.0.1] C:\Users\user\.gr
 MERGED from [com.google.android.gms:play-services-location:20.0.0] C:\Users\user\.gradle\caches\transforms-3\ac48b06815348369aa4e2a9e0fea1bc1\transformed\play-services-location-20.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-crashlytics:18.2.11] C:\Users\user\.gradle\caches\transforms-3\d536670f69d112b8892bb3fa72dc3838\transformed\firebase-crashlytics-18.2.11\AndroidManifest.xml:2:1-24:12
 MERGED from [com.google.firebase:firebase-analytics:21.0.0] C:\Users\user\.gradle\caches\transforms-3\9726600615a689418e78985adf0b72b7\transformed\firebase-analytics-21.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\user\.gradle\caches\transforms-3\67da48fa0708901cd1182988fd47180f\transformed\circleimageview-3.1.0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\user\.gradle\caches\transforms-3\735d149bf2e9488dbc06e7f6ff8e0e14\transformed\firebase-datatransport-18.1.4\AndroidManifest.xml:15:1-34:12
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\user\.gradle\caches\transforms-3\26e0326905726912b7e3001a5dc782e8\transformed\transport-backend-cct-3.1.5\AndroidManifest.xml:15:1-38:12
 MERGED from [com.google.android.datatransport:transport-runtime:3.1.5] C:\Users\user\.gradle\caches\transforms-3\2484e09f29d6a45a864ba6fc294c81a0\transformed\transport-runtime-3.1.5\AndroidManifest.xml:15:1-41:12
@@ -165,6 +166,8 @@ MERGED from [com.google.firebase:firebase-crashlytics:18.2.11] C:\Users\user\.gr
 MERGED from [com.google.firebase:firebase-crashlytics:18.2.11] C:\Users\user\.gradle\caches\transforms-3\d536670f69d112b8892bb3fa72dc3838\transformed\firebase-crashlytics-18.2.11\AndroidManifest.xml:14:5-22:19
 MERGED from [com.google.firebase:firebase-analytics:21.0.0] C:\Users\user\.gradle\caches\transforms-3\9726600615a689418e78985adf0b72b7\transformed\firebase-analytics-21.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-analytics:21.0.0] C:\Users\user\.gradle\caches\transforms-3\9726600615a689418e78985adf0b72b7\transformed\firebase-analytics-21.0.0\AndroidManifest.xml:7:5-20
+MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\user\.gradle\caches\transforms-3\67da48fa0708901cd1182988fd47180f\transformed\circleimageview-3.1.0\AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\user\.gradle\caches\transforms-3\67da48fa0708901cd1182988fd47180f\transformed\circleimageview-3.1.0\AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\user\.gradle\caches\transforms-3\735d149bf2e9488dbc06e7f6ff8e0e14\transformed\firebase-datatransport-18.1.4\AndroidManifest.xml:24:5-32:19
 MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\user\.gradle\caches\transforms-3\735d149bf2e9488dbc06e7f6ff8e0e14\transformed\firebase-datatransport-18.1.4\AndroidManifest.xml:24:5-32:19
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\user\.gradle\caches\transforms-3\26e0326905726912b7e3001a5dc782e8\transformed\transport-backend-cct-3.1.5\AndroidManifest.xml:28:5-36:19
@@ -339,6 +342,8 @@ MERGED from [com.google.firebase:firebase-crashlytics:18.2.11] C:\Users\user\.gr
 MERGED from [com.google.firebase:firebase-crashlytics:18.2.11] C:\Users\user\.gradle\caches\transforms-3\d536670f69d112b8892bb3fa72dc3838\transformed\firebase-crashlytics-18.2.11\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-analytics:21.0.0] C:\Users\user\.gradle\caches\transforms-3\9726600615a689418e78985adf0b72b7\transformed\firebase-analytics-21.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:21.0.0] C:\Users\user\.gradle\caches\transforms-3\9726600615a689418e78985adf0b72b7\transformed\firebase-analytics-21.0.0\AndroidManifest.xml:5:5-44
+MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\user\.gradle\caches\transforms-3\67da48fa0708901cd1182988fd47180f\transformed\circleimageview-3.1.0\AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\user\.gradle\caches\transforms-3\67da48fa0708901cd1182988fd47180f\transformed\circleimageview-3.1.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\user\.gradle\caches\transforms-3\735d149bf2e9488dbc06e7f6ff8e0e14\transformed\firebase-datatransport-18.1.4\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-datatransport:18.1.4] C:\Users\user\.gradle\caches\transforms-3\735d149bf2e9488dbc06e7f6ff8e0e14\transformed\firebase-datatransport-18.1.4\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.android.datatransport:transport-backend-cct:3.1.5] C:\Users\user\.gradle\caches\transforms-3\26e0326905726912b7e3001a5dc782e8\transformed\transport-backend-cct-3.1.5\AndroidManifest.xml:19:5-21:41

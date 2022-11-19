@@ -17,6 +17,11 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="img_imageRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
     style="@style/txt_textoTitulos"
     style="@style/txt_textoNormal"
 </resources>

@@ -44,6 +44,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
     <string name="AI_agregar_integrante_titulo">AGREGAR INTEGRANTES</string>
+    <string name="AJ_Apellido">Apellido:</string>
+    <string name="AJ_Email">Email:</string>
+    <string name="AJ_Identificacion">Identificación:</string>
+    <string name="AJ_Telefono">Teléfono:</string>
+    <string name="AJ_informacion_personal">INFORMACIÓN PERSONAL</string>
+    <string name="AJ_nombre">Nombre:</string>
     <string name="A_boton_alerta_especifica">Necesito un mecanico</string>
     <string name="A_cuerpo_alerta">INGRESE EL CUERPO DE LA ALERTA</string>
     <string name="A_nombre_alerta">Nombre de la alerta</string>
@@ -107,6 +113,7 @@
     <string name="google_app_id" translatable="false">1:945406862769:android:1a406eadc542a399df0990</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBg3WJLEzQ0h6Slo3yAa6A32XWvA3U75Gk</string>
     <string name="google_storage_bucket" translatable="false">app-c54c0.appspot.com</string>
+    <string name="guardar">GUARDAR</string>
     <string name="invalid_campo">Este campo es obligatorio</string>
     <string name="invalid_email">Ingrese un correo eléctronico valido</string>
     <string name="invalid_identificacion">Ingrese un número de identificación valida</string>
@@ -125,7 +132,6 @@
     <string name="pantalla_detalle_integrante_titulo">DETALLE INTEGRANTE</string>
     <string name="pantalla_grupos_titulo">GRUPOS</string>
     <string name="pantalla_iniciar_sesion_titulo">INICIAR SESIÓN</string>
-    <string name="pantalla_inicio_bienvenido">BIENVENID@</string>
     <string name="pantalla_inicio_titulo">MIS ALERTAS</string>
     <string name="pantalla_nuevo_grupo_titulo">CREAR GRUPO</string>
     <string name="pantalla_olvido_password">RECUPERA TU CONTRASEÑA</string>
@@ -169,6 +175,10 @@
         
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
         
+    </style>
+    <style name="img_imageRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
     <style name="txt_textoAlertas">
         <item name="android:fontFamily">@font/librebaskerville_regular</item>

@@ -71,6 +71,7 @@ id alerta
 id btn_agregarIntegrantes
 id btn_crearContacto
 id btn_crearGrupo
+id btn_guardarInformacion
 id btn_iniciarSesion
 id btn_recuperarPassword
 id btn_registrar
@@ -80,6 +81,7 @@ id container
 id content_main
 id cv_alerta
 id drawer
+id et_apellidoPropio
 id et_apellidoRegistro
 id et_descripcionGrupo
 id et_email
@@ -87,11 +89,14 @@ id et_emailAgregarIntegrante
 id et_emailContacto
 id et_emailRecuperarPassword
 id et_emailRegistro
+id et_identificacionPropia
 id et_identificacionRegistro
 id et_nombreGrupo
+id et_nombrePropio
 id et_nombreRegistro
 id et_password
 id et_passwordRegistro
+id et_telefonoPropio
 id et_telefonoRegistro
 id grupo
 id guideline3
@@ -102,6 +107,7 @@ id imagen_agregarIntegrante
 id imagen_detalleContacto
 id imagen_detalleIntegrante
 id imagen_detalle_grupo
+id imagen_fotoPersona
 id imagen_integrante
 id include
 id inicio
@@ -123,6 +129,7 @@ id txt_agregarIntegrantes
 id txt_apellidoAgregarIntegrante
 id txt_apellidoContacto
 id txt_apellidoIntegrante
+id txt_apellidoTexto
 id txt_descripcionAlerta
 id txt_descripcionGrupo
 id txt_emailAgregarIntegrante
@@ -130,8 +137,12 @@ id txt_emailContacto
 id txt_emailDetalleContacto
 id txt_emailDetalleIntegrante
 id txt_emailIntegrante
+id txt_emailPropio
+id txt_emailtexto
 id txt_favoritaAlerta
 id txt_headerTexto
+id txt_identificacionTexto
+id txt_informacionPersonal
 id txt_nombreAgregarIntegrante
 id txt_nombreContacto
 id txt_nombreDetalleContacto
@@ -139,12 +150,14 @@ id txt_nombreDetalleGrupo
 id txt_nombreDetalleIntegrante
 id txt_nombreGrupo
 id txt_nombreIntegrante
+id txt_nombreTexto
 id txt_olvidoPassword
 id txt_registro
 id txt_telefonoAgregarIntegrante
 id txt_telefonoContacto
 id txt_telefonoDetalleContacto
 id txt_telefonoDetalleIntegrante
+id txt_telefonoTexto
 id txt_tituloAgregarIntegrante
 id txt_tituloContacto
 id txt_tituloDetalleContacto2
@@ -159,6 +172,7 @@ layout content_main
 layout drawer_header
 layout drawer_toolbar
 layout fragment_agregar_integrante
+layout fragment_ajustes
 layout fragment_alerta
 layout fragment_contacto
 layout fragment_detalle_contacto
@@ -187,6 +201,12 @@ mipmap ic_launcher_nuevo_grupo_round
 mipmap ic_launcher_round
 mipmap ic_logo_secureapp_foreground
 string AI_agregar_integrante_titulo
+string AJ_Apellido
+string AJ_Email
+string AJ_Identificacion
+string AJ_Telefono
+string AJ_informacion_personal
+string AJ_nombre
 string A_boton_alerta_especifica
 string A_cuerpo_alerta
 string A_nombre_alerta
@@ -250,6 +270,7 @@ string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
+string guardar
 string invalid_campo
 string invalid_email
 string invalid_identificacion
@@ -268,7 +289,6 @@ string pantalla_detalle_grupo_titulo
 string pantalla_detalle_integrante_titulo
 string pantalla_grupos_titulo
 string pantalla_iniciar_sesion_titulo
-string pantalla_inicio_bienvenido
 string pantalla_inicio_titulo
 string pantalla_nuevo_grupo_titulo
 string pantalla_olvido_password
@@ -278,6 +298,7 @@ style AppTheme.NoActionBar
 style Theme.AppCompat.NoActionBar.
 style Theme.NoActionBar
 style Theme.SecureApp
+style img_imageRounded
 style txt_textoAlertas
 style txt_textoNormal
 style txt_textoTitulos

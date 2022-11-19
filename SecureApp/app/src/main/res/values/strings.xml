@@ -52,9 +52,16 @@
     <string name="OP_botonRecuperar">RECUPERAR</string>
     ------------------------------------------------------------------------------------
 
-    <string name="pantalla_inicio_bienvenido">BIENVENID@</string>
-
     <string name="pantalla_inicio_titulo">MIS ALERTAS</string>
+
+    ------------------------------------------------------------------------------------
+
+    <string name="AJ_informacion_personal">INFORMACIÓN PERSONAL</string>
+    <string name="AJ_nombre">Nombre:</string>
+    <string name="AJ_Apellido">Apellido:</string>
+    <string name="AJ_Identificacion">Identificación:</string>
+    <string name="AJ_Telefono">Teléfono:</string>
+    <string name="AJ_Email">Email:</string>
 
     ------------------------------------------------------------------------------------
     <string name="pantalla_contactos_titulo">CONTACTOS</string>
@@ -66,6 +73,7 @@
     <string name="NC_email_contacto">EMAIL DEL CONTACTO</string>
     <string name="NC_telefono_contacto">TELEFONO CONTACTO</string>
     <string name="crear">CREAR</string>
+    <string name="guardar">GUARDAR</string>
 
     <string name="pantalLa_detalle_contacto_titulo">DETALLE CONTACTO</string>
     <string name="DC_nombre_contacto">Nombre contacto:</string>

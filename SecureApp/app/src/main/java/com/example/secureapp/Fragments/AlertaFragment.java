@@ -5,11 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,18 +15,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.secureapp.Adaptadores.AdapterAlerta;
 import com.example.secureapp.Adaptadores.AdapterContacto;
 import com.example.secureapp.Adaptadores.AdapterGrupo;
-import com.example.secureapp.Adaptadores.AdapterMain;
 import com.example.secureapp.Modelo.MAlerta;
-import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.Modelo.MGrupo;
-import com.example.secureapp.Modelo.MMain;
 import com.example.secureapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -37,28 +27,18 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.lang.reflect.Array;
+import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 public class AlertaFragment extends Fragment {
 
@@ -115,7 +95,6 @@ public class AlertaFragment extends Fragment {
 
         return view;
     }
-
 
     private void inicializarFireStore(){
 
@@ -253,12 +232,12 @@ public class AlertaFragment extends Fragment {
 
                                 listaGrupos.add(new MGrupo(identificadorGrupo, nombreGrupo, descripcionGrupo, administradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacionGrupo));
 
-                                //listaGruposA.add(nombreGrupo);
                             }
 
-                            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.R_listaAntioquia, android.R.layout.simple_spinner_item);
-                            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                            spinner_gruposAlertas.setAdapter(adapter);
+                            //adapterGrupo = new AdapterGrupo(listaGrupos, R.layout.lista_grupos);
+                            ArrayAdapter<MGrupo> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, listaGrupos);
+                            arrayAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
+                            spinner_gruposAlertas.setAdapter(arrayAdapter);
 
 
                         } else {

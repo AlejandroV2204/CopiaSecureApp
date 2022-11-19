@@ -9,6 +9,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.RoundedBitmapDrawable;
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
@@ -19,16 +21,25 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.secureapp.Adaptadores.AdapterContacto;
+import com.example.secureapp.Fragments.AjustesFragment;
 import com.example.secureapp.Fragments.ContactoFragment;
 import com.example.secureapp.Fragments.DetalleContactoFragment;
 import com.example.secureapp.Fragments.NuevoContactoFragment;
 
+import com.example.secureapp.Modelo.MContacto;
 import com.example.secureapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -43,8 +54,13 @@ import com.example.secureapp.Fragments.MainFragment;
 import com.example.secureapp.Fragments.NuevoGrupoFragment;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
@@ -75,6 +91,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     int REQUEST_CODE = 200;
 
+    private ImageView img_fotoPersona;
+    private TextView txt_nombrePersona;
+
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -83,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         inicializarFireStore();
+        traerNombreUsuario();
         verificarPermisos();
         extraerToken();
 
@@ -94,6 +114,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //establecer evento onClick al navigationView
         navigationView.setNavigationItemSelectedListener(this);
 
+        View headerView = navigationView.getHeaderView(0);
+        txt_nombrePersona = (TextView) headerView.findViewById(R.id.txt_headerTexto);
+        img_fotoPersona = (ImageView) headerView.findViewById(R.id.imagen_fotoPersona);
+
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
@@ -104,6 +128,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.container, new MainFragment());
         fragmentTransaction.commit();
+
+        img_fotoPersona.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                irAAjustes();
+
+            }
+        });
 
     }
 
@@ -288,5 +321,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-}
+    private void traerNombreUsuario(){
 
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
+
+        DocumentReference usuarioRef = firestore.collection("usuario").document(email);
+        usuarioRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+
+                        //Toast.makeText(getContext(), "DocumentSnapshot data:\n " + document.getData(), Toast.LENGTH_SHORT).show();
+                        String nombrePropio = document.getString("nombre");
+                        String apellidoPropio = document.getString("apellido");
+
+                        txt_nombrePersona.setText(nombrePropio + " " + apellidoPropio);
+
+                    } else {
+
+                        Toast.makeText(getApplicationContext(), "get failed with " + task.getException(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+            }
+        });
+    }
+
+    private void irAAjustes(){
+
+        drawerLayout.closeDrawer(GravityCompat.START);
+
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, new AjustesFragment());
+        fragmentTransaction.commit();
+
+    }
+
+}

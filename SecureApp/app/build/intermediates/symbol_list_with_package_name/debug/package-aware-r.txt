@@ -268,6 +268,10 @@ attr circularflow_defaultAngle
 attr circularflow_defaultRadius
 attr circularflow_radiusInDP
 attr circularflow_viewCenter
+attr civ_border_color
+attr civ_border_overlay
+attr civ_border_width
+attr civ_circle_background_color
 attr clearsTag
 attr clickAction
 attr clockFaceBackgroundColor
@@ -2748,6 +2752,7 @@ id browser_actions_menu_view
 id btn_agregarIntegrantes
 id btn_crearContacto
 id btn_crearGrupo
+id btn_guardarInformacion
 id btn_iniciarSesion
 id btn_recuperarPassword
 id btn_registrar
@@ -2843,6 +2848,7 @@ id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
+id et_apellidoPropio
 id et_apellidoRegistro
 id et_descripcionGrupo
 id et_email
@@ -2850,11 +2856,14 @@ id et_emailAgregarIntegrante
 id et_emailContacto
 id et_emailRecuperarPassword
 id et_emailRegistro
+id et_identificacionPropia
 id et_identificacionRegistro
 id et_nombreGrupo
+id et_nombrePropio
 id et_nombreRegistro
 id et_password
 id et_passwordRegistro
+id et_telefonoPropio
 id et_telefonoRegistro
 id exitUntilCollapsed
 id expand_activities_button
@@ -2908,6 +2917,7 @@ id imagen_agregarIntegrante
 id imagen_detalleContacto
 id imagen_detalleIntegrante
 id imagen_detalle_grupo
+id imagen_fotoPersona
 id imagen_integrante
 id immediateStop
 id include
@@ -3173,6 +3183,7 @@ id txt_agregarIntegrantes
 id txt_apellidoAgregarIntegrante
 id txt_apellidoContacto
 id txt_apellidoIntegrante
+id txt_apellidoTexto
 id txt_descripcionAlerta
 id txt_descripcionGrupo
 id txt_emailAgregarIntegrante
@@ -3180,8 +3191,12 @@ id txt_emailContacto
 id txt_emailDetalleContacto
 id txt_emailDetalleIntegrante
 id txt_emailIntegrante
+id txt_emailPropio
+id txt_emailtexto
 id txt_favoritaAlerta
 id txt_headerTexto
+id txt_identificacionTexto
+id txt_informacionPersonal
 id txt_nombreAgregarIntegrante
 id txt_nombreContacto
 id txt_nombreDetalleContacto
@@ -3189,12 +3204,14 @@ id txt_nombreDetalleGrupo
 id txt_nombreDetalleIntegrante
 id txt_nombreGrupo
 id txt_nombreIntegrante
+id txt_nombreTexto
 id txt_olvidoPassword
 id txt_registro
 id txt_telefonoAgregarIntegrante
 id txt_telefonoContacto
 id txt_telefonoDetalleContacto
 id txt_telefonoDetalleIntegrante
+id txt_telefonoTexto
 id txt_tituloAgregarIntegrante
 id txt_tituloContacto
 id txt_tituloDetalleContacto2
@@ -3343,6 +3360,7 @@ layout design_text_input_start_icon
 layout drawer_header
 layout drawer_toolbar
 layout fragment_agregar_integrante
+layout fragment_ajustes
 layout fragment_alerta
 layout fragment_contacto
 layout fragment_detalle_contacto
@@ -3449,6 +3467,12 @@ mipmap ic_logo_secureapp_foreground
 plurals mtrl_badge_content_description
 raw keep
 string AI_agregar_integrante_titulo
+string AJ_Apellido
+string AJ_Email
+string AJ_Identificacion
+string AJ_Telefono
+string AJ_informacion_personal
+string AJ_nombre
 string A_boton_alerta_especifica
 string A_cuerpo_alerta
 string A_nombre_alerta
@@ -3575,6 +3599,7 @@ string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
+string guardar
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string invalid_campo
@@ -3668,7 +3693,6 @@ string pantalla_detalle_grupo_titulo
 string pantalla_detalle_integrante_titulo
 string pantalla_grupos_titulo
 string pantalla_iniciar_sesion_titulo
-string pantalla_inicio_bienvenido
 string pantalla_inicio_titulo
 string pantalla_nuevo_grupo_titulo
 string pantalla_olvido_password
@@ -4739,6 +4763,7 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style img_imageRounded
 style txt_textoAlertas
 style txt_textoNormal
 style txt_textoTitulos
@@ -4773,6 +4798,7 @@ styleable Carousel carousel_backwardTransition carousel_emptyViewsBehavior carou
 styleable CheckedTextView android_checkMark checkMarkCompat checkMarkTint checkMarkTintMode
 styleable Chip android_textAppearance android_textSize android_textColor android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconTint checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipMinTouchTargetSize chipStartPadding chipStrokeColor chipStrokeWidth chipSurfaceColor closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible ensureMinTouchTargetSize hideMotionSpec iconEndPadding iconStartPadding rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical selectionRequired singleLine singleSelection
+styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color
 styleable CircularProgressIndicator indicatorDirectionCircular indicatorInset indicatorSize
 styleable ClockFaceView clockFaceBackgroundColor clockNumberTextColor
 styleable ClockHandView clockHandColor materialCircleRadius selectorSize

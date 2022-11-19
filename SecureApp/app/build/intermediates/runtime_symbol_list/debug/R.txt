@@ -267,6 +267,10 @@ int attr circularflow_defaultAngle 0x7f0400c6
 int attr circularflow_defaultRadius 0x7f0400c7
 int attr circularflow_radiusInDP 0x7f0400c8
 int attr circularflow_viewCenter 0x7f0400c9
+int attr civ_border_color 0x7f040471
+int attr civ_border_overlay 0x7f040472
+int attr civ_border_width 0x7f040473
+int attr civ_circle_background_color 0x7f040474
 int attr clearsTag 0x7f0400ca
 int attr clickAction 0x7f0400cb
 int attr clockFaceBackgroundColor 0x7f0400cc
@@ -2747,6 +2751,7 @@ int id browser_actions_menu_view 0x7f0a0074
 int id btn_agregarIntegrantes 0x7f0a0075
 int id btn_crearContacto 0x7f0a0076
 int id btn_crearGrupo 0x7f0a0077
+int id btn_guardarInformacion 0x7f0a0266
 int id btn_iniciarSesion 0x7f0a0078
 int id btn_recuperarPassword 0x7f0a0079
 int id btn_registrar 0x7f0a007a
@@ -2842,6 +2847,7 @@ int id end 0x7f0a00d3
 int id endToStart 0x7f0a00d4
 int id enterAlways 0x7f0a00d5
 int id enterAlwaysCollapsed 0x7f0a00d6
+int id et_apellidoPropio 0x7f0a025b
 int id et_apellidoRegistro 0x7f0a00d7
 int id et_descripcionGrupo 0x7f0a00d8
 int id et_email 0x7f0a00d9
@@ -2849,11 +2855,14 @@ int id et_emailAgregarIntegrante 0x7f0a00da
 int id et_emailContacto 0x7f0a00db
 int id et_emailRecuperarPassword 0x7f0a00dc
 int id et_emailRegistro 0x7f0a00dd
+int id et_identificacionPropia 0x7f0a025c
 int id et_identificacionRegistro 0x7f0a00de
 int id et_nombreGrupo 0x7f0a00df
+int id et_nombrePropio 0x7f0a025d
 int id et_nombreRegistro 0x7f0a00e0
 int id et_password 0x7f0a00e1
 int id et_passwordRegistro 0x7f0a00e2
+int id et_telefonoPropio 0x7f0a025e
 int id et_telefonoRegistro 0x7f0a00e3
 int id exitUntilCollapsed 0x7f0a00e4
 int id expand_activities_button 0x7f0a00e5
@@ -2907,6 +2916,7 @@ int id imagen_agregarIntegrante 0x7f0a0114
 int id imagen_detalleContacto 0x7f0a0115
 int id imagen_detalleIntegrante 0x7f0a0116
 int id imagen_detalle_grupo 0x7f0a0117
+int id imagen_fotoPersona 0x7f0a025a
 int id imagen_integrante 0x7f0a0119
 int id immediateStop 0x7f0a011a
 int id include 0x7f0a011b
@@ -3172,6 +3182,7 @@ int id txt_agregarIntegrantes 0x7f0a021d
 int id txt_apellidoAgregarIntegrante 0x7f0a021e
 int id txt_apellidoContacto 0x7f0a021f
 int id txt_apellidoIntegrante 0x7f0a0220
+int id txt_apellidoTexto 0x7f0a025f
 int id txt_descripcionAlerta 0x7f0a0221
 int id txt_descripcionGrupo 0x7f0a0222
 int id txt_emailAgregarIntegrante 0x7f0a0225
@@ -3179,8 +3190,12 @@ int id txt_emailContacto 0x7f0a0226
 int id txt_emailDetalleContacto 0x7f0a0227
 int id txt_emailDetalleIntegrante 0x7f0a0228
 int id txt_emailIntegrante 0x7f0a0229
+int id txt_emailPropio 0x7f0a0260
+int id txt_emailtexto 0x7f0a0261
 int id txt_favoritaAlerta 0x7f0a0257
 int id txt_headerTexto 0x7f0a022a
+int id txt_identificacionTexto 0x7f0a0262
+int id txt_informacionPersonal 0x7f0a0265
 int id txt_nombreAgregarIntegrante 0x7f0a022b
 int id txt_nombreContacto 0x7f0a022c
 int id txt_nombreDetalleContacto 0x7f0a022d
@@ -3188,12 +3203,14 @@ int id txt_nombreDetalleGrupo 0x7f0a022e
 int id txt_nombreDetalleIntegrante 0x7f0a022f
 int id txt_nombreGrupo 0x7f0a0230
 int id txt_nombreIntegrante 0x7f0a0231
+int id txt_nombreTexto 0x7f0a0263
 int id txt_olvidoPassword 0x7f0a0232
 int id txt_registro 0x7f0a0233
 int id txt_telefonoAgregarIntegrante 0x7f0a0234
 int id txt_telefonoContacto 0x7f0a0235
 int id txt_telefonoDetalleContacto 0x7f0a0236
 int id txt_telefonoDetalleIntegrante 0x7f0a0237
+int id txt_telefonoTexto 0x7f0a0264
 int id txt_tituloAgregarIntegrante 0x7f0a0238
 int id txt_tituloContacto 0x7f0a0239
 int id txt_tituloDetalleContacto2 0x7f0a023b
@@ -3342,6 +3359,7 @@ int layout design_text_input_start_icon 0x7f0d0033
 int layout drawer_header 0x7f0d0034
 int layout drawer_toolbar 0x7f0d0035
 int layout fragment_agregar_integrante 0x7f0d0036
+int layout fragment_ajustes 0x7f0d0090
 int layout fragment_alerta 0x7f0d0037
 int layout fragment_contacto 0x7f0d0038
 int layout fragment_detalle_contacto 0x7f0d0039
@@ -3448,6 +3466,12 @@ int mipmap ic_logo_secureapp_foreground 0x7f0f0009
 int plurals mtrl_badge_content_description 0x7f100000
 int raw keep 0x7f110000
 int string AI_agregar_integrante_titulo 0x7f120000
+int string AJ_Apellido 0x7f1200e9
+int string AJ_Email 0x7f1200ea
+int string AJ_Identificacion 0x7f1200eb
+int string AJ_Telefono 0x7f1200ec
+int string AJ_informacion_personal 0x7f1200ed
+int string AJ_nombre 0x7f1200ee
 int string A_boton_alerta_especifica 0x7f120001
 int string A_cuerpo_alerta 0x7f120002
 int string A_nombre_alerta 0x7f120003
@@ -3574,6 +3598,7 @@ int string google_api_key 0x7f12007b
 int string google_app_id 0x7f12007c
 int string google_crash_reporting_api_key 0x7f12007d
 int string google_storage_bucket 0x7f12007e
+int string guardar 0x7f1200ef
 int string hide_bottom_view_on_scroll_behavior 0x7f12007f
 int string icon_content_description 0x7f120080
 int string invalid_campo 0x7f120081
@@ -3667,7 +3692,6 @@ int string pantalla_detalle_grupo_titulo 0x7f1200d8
 int string pantalla_detalle_integrante_titulo 0x7f1200d9
 int string pantalla_grupos_titulo 0x7f1200da
 int string pantalla_iniciar_sesion_titulo 0x7f1200db
-int string pantalla_inicio_bienvenido 0x7f1200dc
 int string pantalla_inicio_titulo 0x7f1200dd
 int string pantalla_nuevo_grupo_titulo 0x7f1200de
 int string pantalla_olvido_password 0x7f1200df
@@ -4738,6 +4762,7 @@ int style Widget_MaterialComponents_Toolbar_PrimarySurface 0x7f13041e
 int style Widget_MaterialComponents_Toolbar_Surface 0x7f13041f
 int style Widget_MaterialComponents_Tooltip 0x7f130420
 int style Widget_Support_CoordinatorLayout 0x7f130421
+int style img_imageRounded 0x7f130425
 int style txt_textoAlertas 0x7f130424
 int style txt_textoNormal 0x7f130422
 int style txt_textoTitulos 0x7f130423
@@ -5146,6 +5171,11 @@ int styleable ChipGroup_chipSpacingVertical 3
 int styleable ChipGroup_selectionRequired 4
 int styleable ChipGroup_singleLine 5
 int styleable ChipGroup_singleSelection 6
+int[] styleable CircleImageView { 0x7f040471, 0x7f040472, 0x7f040473, 0x7f040474 }
+int styleable CircleImageView_civ_border_color 0
+int styleable CircleImageView_civ_border_overlay 1
+int styleable CircleImageView_civ_border_width 2
+int styleable CircleImageView_civ_circle_background_color 3
 int[] styleable CircularProgressIndicator { 0x7f040201, 0x7f040203, 0x7f040204 }
 int styleable CircularProgressIndicator_indicatorDirectionCircular 0
 int styleable CircularProgressIndicator_indicatorInset 1
