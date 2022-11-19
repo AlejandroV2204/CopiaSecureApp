@@ -15,15 +15,15 @@
         android:padding="5dp"
         >
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
 
             android:id="@+id/RV_imagen_contacto"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_contacto"
-            android:layout_centerVertical="true">
+            android:layout_centerVertical="true"
+            android:src="@drawable/escudoamerica">
 
-        </ImageView>
+        </de.hdodenhof.circleimageview.CircleImageView>
 
         <TextView
 

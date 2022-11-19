@@ -16,8 +16,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -69,6 +72,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     DrawerLayout drawerLayout;
+    SwipeRefreshLayout swipeRefreshLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     Toolbar toolbar;
     NavigationView navigationView;
@@ -94,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ImageView img_fotoPersona;
     private TextView txt_nombrePersona;
 
+    Context context;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -109,6 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer);
+        swipeRefreshLayout = findViewById(R.id.swipe);
         navigationView = findViewById(R.id.navigationView);
 
         //establecer evento onClick al navigationView
@@ -128,6 +134,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.container, new MainFragment());
         fragmentTransaction.commit();
+
+        context = this.getApplicationContext();
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                reiniciarActivity(MainActivity.this);
+
+                Toast.makeText(MainActivity.this, "Refreshed.", Toast.LENGTH_SHORT).show();
+                swipeRefreshLayout.setRefreshing(false);
+
+            }
+        });
 
         img_fotoPersona.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,6 +190,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 });
         builder.show();
+    }
+
+    //reinicia una Activity
+    public static void reiniciarActivity(Activity actividad){
+        Intent intent = new Intent();
+        intent.setClass(actividad, actividad.getClass());
+        //llamamos a la actividad
+        actividad.startActivity(intent);
+        //finalizamos la actividad actual
+        actividad.finish();
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)

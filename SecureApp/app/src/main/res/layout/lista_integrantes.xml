@@ -12,14 +12,14 @@
         android:padding="3dp"
         >
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
 
             android:id="@+id/imagen_integrante"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_contacto">
+            android:src="@drawable/escudoamerica">
 
-        </ImageView>
+        </de.hdodenhof.circleimageview.CircleImageView>
 
         <TextView
 
