@@ -2620,6 +2620,7 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable originalsecureapplogo
+drawable personalimageuno
 drawable secureapplogo
 drawable secureapplogodark
 drawable test_custom_background

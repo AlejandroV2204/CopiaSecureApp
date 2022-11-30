@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -73,6 +74,10 @@ public class DetalleGrupoFragment extends Fragment {
 
         recyclerViewIntegrantes = view.findViewById(R.id.RV_integrantes);
         listaIntegrantes = new ArrayList<>();
+
+        recyclerViewIntegrantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), getActivity().getRequestedOrientation());
+        recyclerViewIntegrantes.addItemDecoration(dividerItemDecoration);
 
         //Crear objeto bundle para recibir el objeto enviado por argumentos
         Bundle objetoGrupo = getArguments();

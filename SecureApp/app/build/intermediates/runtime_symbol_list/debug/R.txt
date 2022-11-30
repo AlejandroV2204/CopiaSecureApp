@@ -2619,6 +2619,7 @@ int drawable notification_template_icon_low_bg 0x7f0800be
 int drawable notification_tile_bg 0x7f0800bf
 int drawable notify_panel_notification_icon_bg 0x7f0800c0
 int drawable originalsecureapplogo 0x7f0800c1
+int drawable personalimageuno 0x7f0800c8
 int drawable secureapplogo 0x7f0800c2
 int drawable secureapplogodark 0x7f0800c3
 int drawable test_custom_background 0x7f0800c4

@@ -56,7 +56,7 @@ public class DetalleContactoFragment extends Fragment {
             nombreDetalle.setText(contacto.getNombre() + " " + contacto.getApellido());
             emailDetalle.setText(contacto.getEmail());
             telefonoDetalle.setText(contacto.getTelefono());
-            //imagenDetalle.setImageResource(contacto.getImagenid());
+            //imagenDetalle.setImageDrawable(contacto.getImg_contacto());
         }
 
         IV_atras.setOnClickListener(new View.OnClickListener() {

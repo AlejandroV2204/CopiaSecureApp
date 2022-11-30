@@ -8,6 +8,7 @@ public class MGrupo implements Serializable{
 
     private String identificador, nombre, descripcion, administrador, emailAdministrador, fechaCreacion, cantidadIntegrantes;
     private GeoPoint localizacion;
+    private int grupoImage;
 
     public MGrupo(String identificador, String nombre, String descripción, String administrador, String emailAdministrador, String fechaCreacion, String cantidadIntegrantes, GeoPoint localizacion) {
 
@@ -86,4 +87,11 @@ public class MGrupo implements Serializable{
         this.localizacion = localizacion;
     }
 
+    public int getGrupoImage() {
+        return grupoImage;
+    }
+
+    public void setGrupoImage(int grupoImage) {
+        this.grupoImage = grupoImage;
+    }
 }

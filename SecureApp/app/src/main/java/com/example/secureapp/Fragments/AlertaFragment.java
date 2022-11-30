@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.codinginflow.customspinnerexample.AdapterListaGrupos;
 import com.example.secureapp.Adaptadores.AdapterAlerta;
 import com.example.secureapp.Adaptadores.AdapterContacto;
 import com.example.secureapp.Adaptadores.AdapterGrupo;
@@ -52,6 +53,7 @@ public class AlertaFragment extends Fragment {
     private Spinner spinner_gruposAlertas;
 
     private AdapterGrupo adapterGrupo;
+    private AdapterListaGrupos adapterListaGrupos;
     private RecyclerView recyclerViewGrupos;
     private ArrayList<MGrupo> listaGrupos = new ArrayList<>();
     //ArrayList <String> listaGruposA = new ArrayList<>();
@@ -234,10 +236,14 @@ public class AlertaFragment extends Fragment {
 
                             }
 
-                            //adapterGrupo = new AdapterGrupo(listaGrupos, R.layout.lista_grupos);
-                            ArrayAdapter<MGrupo> arrayAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_dropdown_item, listaGrupos);
-                            arrayAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
-                            spinner_gruposAlertas.setAdapter(arrayAdapter);
+                            adapterGrupo = new AdapterGrupo(listaGrupos, R.layout.lista_grupos);
+                            adapterListaGrupos = new AdapterListaGrupos(getContext(), listaGrupos);
+
+                            ArrayAdapter<MGrupo> arrayAdapter = new ArrayAdapter<>(getContext(), R.layout.lista_grupos, listaGrupos);
+                            //arrayAdapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
+                            spinner_gruposAlertas.setAdapter(adapterListaGrupos);
+
+                            //spinner_gruposAlertas.setAdapter((SpinnerAdapter) new AdapterGrupo(listaGrupos, R.layout.lista_grupos));
 
 
                         } else {

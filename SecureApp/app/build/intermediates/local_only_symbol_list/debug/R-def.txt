@@ -47,6 +47,7 @@ drawable ic_logo_secureapp_background
 drawable ic_nuevo_contacto
 drawable ic_warning
 drawable originalsecureapplogo
+drawable personalimageuno
 drawable secureapplogo
 drawable secureapplogodark
 font librebaskerville_bold

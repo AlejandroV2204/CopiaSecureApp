@@ -106,7 +106,7 @@ public class AdapterContacto extends RecyclerView.Adapter<AdapterContacto.ViewHo
         viewHolder.txt_apellidoContacto.setText(contacto.getApellido());
         viewHolder.txt_emailContacto.setText(contacto.getEmail());
         viewHolder.txt_telefonoContacto.setText(contacto.getTelefono());
-        //viewHolder.imageDetalle.setImageDrawable(contacto.ge);
+        //viewHolder.imageDetalle.setImageDrawable(contacto.getImg_contacto());
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

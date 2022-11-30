@@ -11,7 +11,7 @@
         android:id="@+id/imagen_fotoPersona"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/escudoamerica"
+        android:src="@drawable/personalimageuno"
         app:layout_constraintBottom_toTopOf="@+id/txt_headerTexto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"

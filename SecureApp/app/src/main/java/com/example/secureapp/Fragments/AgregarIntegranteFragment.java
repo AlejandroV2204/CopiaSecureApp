@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -89,6 +90,8 @@ public class AgregarIntegranteFragment extends Fragment{
 
         //No se si esto sirva
         recyclerViewAgregarIntegrantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), getActivity().getRequestedOrientation());
+        recyclerViewAgregarIntegrantes.addItemDecoration(dividerItemDecoration);
 
         //Crear objeto bundle para recibir el objeto enviado por argumentos
         Bundle objetoIntegrante = getArguments();
