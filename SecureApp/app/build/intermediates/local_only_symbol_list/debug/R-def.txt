@@ -144,6 +144,7 @@ id txt_emailtexto
 id txt_favoritaAlerta
 id txt_headerTexto
 id txt_identificacionTexto
+id txt_identificadorGrupo
 id txt_informacionPersonal
 id txt_nombreAgregarIntegrante
 id txt_nombreContacto

@@ -1,4 +1,4 @@
-package com.codinginflow.customspinnerexample;
+package com.example.secureapp.Adaptadores;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -43,6 +43,7 @@ public class AdapterListaGrupos extends ArrayAdapter<MGrupo> {
         ImageView imageViewFlag = convertView.findViewById(R.id.RV_imagen_grupo);
         TextView nombreGrupo = convertView.findViewById(R.id.txt_nombreGrupo);
         TextView descripcionGrupo = convertView.findViewById(R.id.txt_descripcionGrupo);
+        TextView identificadorGrupo = convertView.findViewById(R.id.txt_identificadorGrupo);
 
 
         MGrupo grupo = getItem(position);
@@ -51,6 +52,7 @@ public class AdapterListaGrupos extends ArrayAdapter<MGrupo> {
             imageViewFlag.setImageResource(R.drawable.escudoamerica);
             nombreGrupo.setText(grupo.getNombre());
             descripcionGrupo.setText(grupo.getDescripcion());
+            identificadorGrupo.setText(grupo.getIdentificador());
         }
 
         return convertView;

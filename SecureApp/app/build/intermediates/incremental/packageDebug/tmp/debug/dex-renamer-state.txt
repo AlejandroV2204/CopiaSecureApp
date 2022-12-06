@@ -1,8 +1,7 @@
-#Wed Nov 30 03:37:21 COT 2022
+#Mon Dec 05 23:19:41 COT 2022
 path.4=4/classes.dex
 path.3=2/classes.dex
 path.2=12/classes.dex
-renamed.9=classes10.dex
 path.1=0/classes.dex
 renamed.8=classes9.dex
 path.8=8/classes.dex
@@ -19,8 +18,6 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.9=C\:\\SecureApp\\SecureApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
-path.9=10/classes.dex
 renamed.7=classes8.dex
 base.8=C\:\\SecureApp\\SecureApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\8\\classes.dex
 renamed.6=classes7.dex

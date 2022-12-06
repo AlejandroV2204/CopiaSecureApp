@@ -56,6 +56,21 @@
 
         </TextView>
 
+        <TextView
+
+            android:id="@+id/txt_identificadorGrupo"
+            style="@style/txt_textoNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_nombreGrupo"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@id/RV_imagen_grupo"
+            android:layout_toRightOf="@id/RV_imagen_grupo"
+            android:visibility="gone">
+
+        </TextView>
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
