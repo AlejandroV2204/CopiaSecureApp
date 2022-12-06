@@ -191,7 +191,7 @@ public class GrupoFragment extends Fragment{
                                                                                     }
                                                                                 });
 
-                                                                        firestore.collection("grupo").document(identificadorGrupo).collection("integrantes")
+                                                                        firestore.collection("grupo").document(identificadorGrupoConsulta).collection("integrantes")
                                                                                 .get()
                                                                                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                                                                     @Override
@@ -214,7 +214,7 @@ public class GrupoFragment extends Fragment{
                                                                                                 integrante.put("identificadorGrupo", documentoIntegrante);
                                                                                                 integrante.put("tokenAlerta", tokenIntegrante);
 
-                                                                                                firestore.collection("usuario").document(email).collection("grupos").document(identificadorGrupo).collection("integrantes").document(email)
+                                                                                                firestore.collection("usuario").document(email).collection("grupos").document(identificadorGrupoConsulta).collection("integrantes").document(emailIntegrante)
                                                                                                         .set(integrante)
                                                                                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                                                             @Override

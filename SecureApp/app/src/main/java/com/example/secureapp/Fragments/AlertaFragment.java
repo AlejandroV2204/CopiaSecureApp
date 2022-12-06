@@ -31,6 +31,8 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -56,6 +58,7 @@ public class AlertaFragment extends Fragment {
     private AdapterListaGrupos adapterListaGrupos;
     private RecyclerView recyclerViewGrupos;
     private ArrayList<MGrupo> listaGrupos = new ArrayList<>();
+    private ArrayList<String> tokenUsuarios = new ArrayList<>();
 
     String DescripcionAlerta;
 
@@ -240,8 +243,11 @@ public class AlertaFragment extends Fragment {
 
                             spinner_gruposAlertas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                 @Override
-                                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                                    
+                                public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+
+                                    MGrupo clickedItem = (MGrupo) adapterView.getItemAtPosition(position);
+                                    String identificadorGrupoSeleccionado = clickedItem.getIdentificador();
+                                    consultarTokenUsuarios(identificadorGrupoSeleccionado);
                                 }
 
                                 @Override
@@ -250,6 +256,34 @@ public class AlertaFragment extends Fragment {
                                 }
                             });
 
+                        } else {
+                            Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+    }
+
+    private void consultarTokenUsuarios(String identificadorGrupo){
+
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        firestore.collection("usuario").document(email).collection("grupos").document(identificadorGrupo).collection("integrantes")
+                .orderBy("nombre")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                String tokenUsuario = document.getString("tokenAlerta");
+
+                                tokenUsuarios.add(tokenUsuario);
+
+                                Toast.makeText(getContext(), "Token usuarios: " + tokenUsuarios, Toast.LENGTH_SHORT).show();
+
+                            }
                         } else {
                             Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
                         }

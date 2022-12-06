@@ -194,6 +194,7 @@ public class AgregarIntegranteFragment extends Fragment{
                         String apellidoIntegrante = document.getString("apellido");
                         String emailIntegrante = document.getString("email");
                         String telefonoIntegrante = document.getString("telefono");
+                        String tokenIntegrante = document.getString("tokenAlerta");
                         String identificadorGrupo = identificadorDetalle;
 
                         MAgregarIntegrante agregarIntegrante = new MAgregarIntegrante(identificadorIntegrante, nombreIntegrante, apellidoIntegrante, emailIntegrante, telefonoIntegrante, identificadorGrupo);
@@ -202,6 +203,7 @@ public class AgregarIntegranteFragment extends Fragment{
                         agregarIntegrante.setApellido(apellidoIntegrante);
                         agregarIntegrante.setEmail(emailIntegrante);
                         agregarIntegrante.setTelefono(telefonoIntegrante);
+                        agregarIntegrante.setTokenAlerta(tokenIntegrante);
                         agregarIntegrante.setIdentificadorGrupo(identificadorGrupo);
 
                         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();

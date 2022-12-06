@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 public class MGrupo implements Serializable{
 
-    private String identificador, nombre, descripcion, administrador, emailAdministrador, fechaCreacion, cantidadIntegrantes;
+    private String identificador, nombre, descripcion, administrador, emailAdministrador, fechaCreacion, cantidadIntegrantes, tokenAdministrador;
     private GeoPoint localizacion;
     private int grupoImage;
 
@@ -85,6 +85,14 @@ public class MGrupo implements Serializable{
 
     public void setLocalizacion(GeoPoint localizacion) {
         this.localizacion = localizacion;
+    }
+
+    public String getTokenAdministrador() {
+        return tokenAdministrador;
+    }
+
+    public void setTokenAdministrador(String tokenAdministrador) {
+        this.tokenAdministrador = tokenAdministrador;
     }
 
     public int getGrupoImage() {

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class MAgregarIntegrante implements Serializable{
 
-    private String identificador, nombre, apellido, email, telefono, identificadorGrupo;
+    private String identificador, nombre, apellido, email, telefono, tokenAlerta, identificadorGrupo;
 
     public MAgregarIntegrante(String identificador, String nombre, String apellido, String email, String telefono, String identificadorGrupo) {
 
@@ -54,6 +54,14 @@ public class MAgregarIntegrante implements Serializable{
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getTokenAlerta() {
+        return tokenAlerta;
+    }
+
+    public void setTokenAlerta(String tokenAlerta) {
+        this.tokenAlerta = tokenAlerta;
     }
 
     public String getIdentificadorGrupo() {

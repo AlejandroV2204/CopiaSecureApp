@@ -222,6 +222,7 @@ public class NuevoGrupoFragment extends Fragment {
         grupo.setEmailAdministrador(emailAdmin);
         grupo.setFechaCreacion(fecha);
         grupo.setLocalizacion(localizacion);
+        grupo.setTokenAdministrador(tokenAdministrador);
 
         firestore.collection("grupo")
                 .add(grupo)
