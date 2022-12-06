@@ -16,6 +16,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.secureapp.Fragments.AlertaFragment;
 import com.example.secureapp.Modelo.MAlerta;
 import com.example.secureapp.Modelo.MMain;
 import com.example.secureapp.R;
@@ -46,6 +47,7 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
     private LayoutInflater inflater;
     private FirebaseFirestore firestore;
     ArrayList<MAlerta> alertaList;
+    private ArrayList<String> tokenUsuarios = new ArrayList<>();
 
     Context contexto;
 
@@ -312,15 +314,20 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
     private void llamartopico(String nombreUsuario, String descripcionAlerta) {
 
         RequestQueue myrequest= Volley.newRequestQueue(contexto);
+
+        AlertaFragment alertaFragment = new AlertaFragment();
+        tokenUsuarios = alertaFragment.getTokenUsuarios();
+
         JSONObject json = new JSONObject();
 
         try {
 
             String url_foto="https://uploadgerencie.com/imagenes/notificacion-conducta-concluyente.png";
+            //String tokenUsuario = "c089vvpjRL-I37udknnT9m:APA91bFxeOxS271tVZcTWXI45U2SRzhTuX_3aAmk-fPkInTlaCYw2EIIvbhkVEheudZVoYOMUKmHb4A3T98SIhv07POQ19Fo7w3oPDQnI5RnfkGgRzdpdVh2P0UZWyc0szoPjbEksKyl";
 
             // String token="cIb2ajMbQ7mtXBSV-rsHHW:APA91bEmqMrRYqHNFwWTTjrODwfkQLf4Kg0-5Pnf2A7OrLgQqn2yM7zdED2dc2Q7tSnQhhxslc0lqQOx8yDQl05QaCgy1lcuhv-kl-YOScfmmsD_0rg1j6kimDqkMSydGaBvqEval-1P";
             // "cIb2ajMbQ7mtXBSV-rsHHW:APA91bEmqMrRYqHNFwWTTjrODwfkQLf4Kg0-5Pnf2A7OrLgQqn2yM7zdED2dc2Q7tSnQhhxslc0lqQOx8yDQl05QaCgy1lcuhv-kl-YOScfmmsD_0rg1j6kimDqkMSydGaBvqEval-1P"
-            json.put("to","/topics/"+"enviaratodos");
+            json.put("to",tokenUsuarios);
             JSONObject notificacion=new JSONObject();
             notificacion.put("titulo",nombreUsuario);
             notificacion.put("detalle",descripcionAlerta);

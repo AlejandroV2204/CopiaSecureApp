@@ -281,6 +281,8 @@ public class AlertaFragment extends Fragment {
 
                                 tokenUsuarios.add(tokenUsuario);
 
+                                setTokenUsuarios(tokenUsuarios);
+
                                 Toast.makeText(getContext(), "Token usuarios: " + tokenUsuarios, Toast.LENGTH_SHORT).show();
 
                             }
@@ -290,5 +292,13 @@ public class AlertaFragment extends Fragment {
                     }
                 });
 
+    }
+
+    public ArrayList<String> getTokenUsuarios() {
+        return tokenUsuarios;
+    }
+
+    public void setTokenUsuarios(ArrayList<String> tokenUsuarios) {
+        this.tokenUsuarios = tokenUsuarios;
     }
 }
