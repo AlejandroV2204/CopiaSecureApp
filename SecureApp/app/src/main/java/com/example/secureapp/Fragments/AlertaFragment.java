@@ -45,9 +45,7 @@ public class AlertaFragment extends Fragment{
     private RecyclerView recyclerViewAlertas;
     private ArrayList<MAlerta> listaAlerta = new ArrayList<>();
     private FirebaseFirestore firestore;
-
     private ArrayList<String> codigoAlerta = new ArrayList<String>();
-
     private Spinner spinner_gruposAlertas;
     private AdapterGrupo adapterGrupo;
     private AdapterListaGrupos adapterListaGrupos;
@@ -76,9 +74,6 @@ public class AlertaFragment extends Fragment{
         tomarDatosDeFirestore();
 
         String id = FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
-
-
-        //imagen = (String) view.findViewById(R.drawable.secureapplogo);
 
         FirebaseMessaging.getInstance().subscribeToTopic("enviaratodos").addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
