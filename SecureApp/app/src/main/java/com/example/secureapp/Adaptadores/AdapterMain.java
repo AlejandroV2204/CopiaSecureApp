@@ -217,38 +217,48 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> im
 
     private void llamartopico(String nombreUsuario, String descripcionAlerta, ArrayList<String> tokenUsuarios) {
 
-        RequestQueue myrequest= Volley.newRequestQueue(contexto);
-        JSONObject json = new JSONObject();
+        String tokenUsuario;
+        for (int x = 0; x < tokenUsuarios.size(); x++) {
+            if(tokenUsuarios.get(x) == null){
+                tokenUsuario = "";
+            }else {
+                tokenUsuario = tokenUsuarios.get(x).toString();
+            }
+            RequestQueue myrequest = Volley.newRequestQueue(contexto);
 
-        try {
+            JSONObject json = new JSONObject();
 
-            String url_foto="https://uploadgerencie.com/imagenes/notificacion-conducta-concluyente.png";
+            try {
 
-            // String token="cIb2ajMbQ7mtXBSV-rsHHW:APA91bEmqMrRYqHNFwWTTjrODwfkQLf4Kg0-5Pnf2A7OrLgQqn2yM7zdED2dc2Q7tSnQhhxslc0lqQOx8yDQl05QaCgy1lcuhv-kl-YOScfmmsD_0rg1j6kimDqkMSydGaBvqEval-1P";
-            // "cIb2ajMbQ7mtXBSV-rsHHW:APA91bEmqMrRYqHNFwWTTjrODwfkQLf4Kg0-5Pnf2A7OrLgQqn2yM7zdED2dc2Q7tSnQhhxslc0lqQOx8yDQl05QaCgy1lcuhv-kl-YOScfmmsD_0rg1j6kimDqkMSydGaBvqEval-1P"
-            json.put("to",tokenUsuarios);
-            JSONObject notificacion=new JSONObject();
-            notificacion.put("titulo",nombreUsuario);
-            notificacion.put("detalle",descripcionAlerta);
-            notificacion.put("foto",url_foto);
+                String url_foto = "https://uploadgerencie.com/imagenes/notificacion-conducta-concluyente.png";
+                //String tokenUsuario = "c089vvpjRL-I37udknnT9m:APA91bFxeOxS271tVZcTWXI45U2SRzhTuX_3aAmk-fPkInTlaCYw2EIIvbhkVEheudZVoYOMUKmHb4A3T98SIhv07POQ19Fo7w3oPDQnI5RnfkGgRzdpdVh2P0UZWyc0szoPjbEksKyl";
 
-            json.put("data",notificacion);
-            String URL="https://fcm.googleapis.com/fcm/send";
-            JsonObjectRequest request=new JsonObjectRequest(Request.Method.POST,URL,json,null,null){
-                @Override
-                public Map<String, String> getHeaders() {
-                    Map<String,String>header=new HashMap<>();
-                    header.put("content-type","application/json");
-                    header.put("authorization","key=AAAA3B6j5bE:APA91bE7jmUJzdJAJU4xX9QJgC83hlbkMag_OM5eFq4JSmevJCQmttyRwjUSxKPiYWFZ1qmCWycuzUNnYsUOiQbKc6pRg8zzgbwwaqzKf48K_iBvrwO4a9QJ8jCqVTlXa5vVuHxtQh50");
-                    return  header;
+                // String token="cIb2ajMbQ7mtXBSV-rsHHW:APA91bEmqMrRYqHNFwWTTjrODwfkQLf4Kg0-5Pnf2A7OrLgQqn2yM7zdED2dc2Q7tSnQhhxslc0lqQOx8yDQl05QaCgy1lcuhv-kl-YOScfmmsD_0rg1j6kimDqkMSydGaBvqEval-1P";
+                // "cIb2ajMbQ7mtXBSV-rsHHW:APA91bEmqMrRYqHNFwWTTjrODwfkQLf4Kg0-5Pnf2A7OrLgQqn2yM7zdED2dc2Q7tSnQhhxslc0lqQOx8yDQl05QaCgy1lcuhv-kl-YOScfmmsD_0rg1j6kimDqkMSydGaBvqEval-1P"
+                json.put("to", tokenUsuario);
+                JSONObject notificacion = new JSONObject();
+                notificacion.put("titulo", nombreUsuario);
+                notificacion.put("detalle", descripcionAlerta);
+                notificacion.put("foto", url_foto);
 
-                }
-            };
-            myrequest.add(request);
+                json.put("data", notificacion);
+                String URL = "https://fcm.googleapis.com/fcm/send";
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, URL, json, null, null) {
+                    @Override
+                    public Map<String, String> getHeaders() {
+                        Map<String, String> header = new HashMap<>();
+                        header.put("content-type", "application/json");
+                        header.put("authorization", "key=AAAA3B6j5bE:APA91bE7jmUJzdJAJU4xX9QJgC83hlbkMag_OM5eFq4JSmevJCQmttyRwjUSxKPiYWFZ1qmCWycuzUNnYsUOiQbKc6pRg8zzgbwwaqzKf48K_iBvrwO4a9QJ8jCqVTlXa5vVuHxtQh50");
+                        return header;
+
+                    }
+                };
+                myrequest.add(request);
 
 
-        }catch (JSONException e){
-            e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
