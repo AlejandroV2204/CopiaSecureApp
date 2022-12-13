@@ -1,13 +1,12 @@
 package com.example.secureapp.Fragments;
 
+import android.app.Application;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,8 +15,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.secureapp.Activities.Globales;
 import com.example.secureapp.Adaptadores.AdapterAlerta;
-import com.example.secureapp.Adaptadores.AdapterContacto;
 import com.example.secureapp.Adaptadores.AdapterGrupo;
 import com.example.secureapp.Adaptadores.AdapterListaGrupos;
 import com.example.secureapp.Modelo.MAlerta;
@@ -31,20 +30,16 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-public class AlertaFragment extends Fragment {
+public class AlertaFragment extends Fragment{
 
     private AdapterAlerta adapterAlerta;
     private RecyclerView recyclerViewAlertas;
@@ -58,7 +53,9 @@ public class AlertaFragment extends Fragment {
     private AdapterListaGrupos adapterListaGrupos;
     private RecyclerView recyclerViewGrupos;
     private ArrayList<MGrupo> listaGrupos = new ArrayList<>();
+    private String tokenUsuario;
     private ArrayList<String> tokenUsuarios = new ArrayList<>();
+    private String identificadorGrupoSeleccionado;
 
     String DescripcionAlerta;
 
@@ -75,6 +72,8 @@ public class AlertaFragment extends Fragment {
         inicializarFireStore();
         verificarAlertasPropias();
         rellenarSpinnerGrupos();
+        //AdapterAlerta adapterAlerta = null;
+        //adapterAlerta.setTokenUsuarios(tokenUsuarios);
 
         recyclerViewAlertas = view.findViewById(R.id.RV_alerta);
         spinner_gruposAlertas = view.findViewById(R.id.spinner_gruposAlertas);
@@ -246,7 +245,7 @@ public class AlertaFragment extends Fragment {
                                 public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
 
                                     MGrupo clickedItem = (MGrupo) adapterView.getItemAtPosition(position);
-                                    String identificadorGrupoSeleccionado = clickedItem.getIdentificador();
+                                    identificadorGrupoSeleccionado = clickedItem.getIdentificador();
                                     consultarTokenUsuarios(identificadorGrupoSeleccionado);
                                 }
 
@@ -269,7 +268,6 @@ public class AlertaFragment extends Fragment {
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
         firestore.collection("usuario").document(email).collection("grupos").document(identificadorGrupo).collection("integrantes")
-                .orderBy("nombre")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -277,13 +275,9 @@ public class AlertaFragment extends Fragment {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                String tokenUsuario = document.getString("tokenAlerta");
-
+                                tokenUsuario = document.getString("tokenAlerta");
                                 tokenUsuarios.add(tokenUsuario);
-
-                                setTokenUsuarios(tokenUsuarios);
-
-                                Toast.makeText(getContext(), "Token usuarios: " + tokenUsuarios, Toast.LENGTH_SHORT).show();
+                                Globales.tokenUsuarios = tokenUsuarios;
 
                             }
                         } else {

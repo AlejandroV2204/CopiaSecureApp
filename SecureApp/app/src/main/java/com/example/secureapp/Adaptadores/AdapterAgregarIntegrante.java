@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.secureapp.Activities.Globales;
 import com.example.secureapp.Fragments.AgregarIntegranteFragment;
 import com.example.secureapp.Fragments.DetalleGrupoFragment;
 import com.example.secureapp.Modelo.MAgregarIntegrante;
@@ -27,12 +28,13 @@ import java.util.ArrayList;
 
 public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgregarIntegrante.ViewHolder> implements View.OnClickListener {
 
-    private final int resource;
+    private int resource;
     LayoutInflater inflater;
     ArrayList<MAgregarIntegrante> agregarIntegrantesList;
 
     private boolean itemSeleccionado = false;
-    ArrayList<MAgregarIntegrante> itemsSeleccionados = new ArrayList<>();
+    private ArrayList<MAgregarIntegrante> itemsSeleccionados = new ArrayList<>();
+    private ArrayList<String> emailSeleccionados = new ArrayList<>();
 
     //Listener
     private View.OnClickListener listener;
@@ -93,6 +95,8 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
 
     }
 
+    public AdapterAgregarIntegrante() {}
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -132,18 +136,12 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
                 if (itemsSeleccionados.contains(agregarIntegrantesList.get(position))){
                 viewHolder.itemView.setBackgroundColor(Color.TRANSPARENT);
                 itemsSeleccionados.remove(agregarIntegrantesList.get(position));
+                emailSeleccionados.remove(agregarIntegrante.getEmail());
                 }else{
                     viewHolder.itemView.setBackgroundColor(Color.parseColor("#DADBFF"));
                     itemsSeleccionados.add(agregarIntegrantesList.get(position));
+                    emailSeleccionados.add(agregarIntegrante.getEmail());
 
-                    Toast.makeText(contexto, agregarIntegrante.getNombre(), Toast.LENGTH_SHORT).show();
-
-                    AgregarIntegranteFragment agregarIntegranteFragment = new AgregarIntegranteFragment();
-
-                    //Enviar el objeto que está llegando con Serializable
-                   bundleEnvio.putSerializable("objetoAgregarIntegrante", itemsSeleccionados);
-
-                    agregarIntegranteFragment.setArguments(bundleEnvio);
                 }
                 if (itemsSeleccionados.size() == 0)
                     itemSeleccionado = false;
@@ -160,27 +158,24 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
                     if (itemsSeleccionados.contains(agregarIntegrantesList.get(position))){
                         viewHolder.itemView.setBackgroundColor(Color.TRANSPARENT);
                         itemsSeleccionados.remove(agregarIntegrantesList.get(position));
+                        emailSeleccionados.remove(agregarIntegrante.getEmail());
                     }else{
                         viewHolder.itemView.setBackgroundColor(Color.parseColor("#DADBFF"));
                         itemsSeleccionados.add(agregarIntegrantesList.get(position));
-
-                        Toast.makeText(contexto, agregarIntegrante.getNombre(), Toast.LENGTH_SHORT).show();
-
-                        AgregarIntegranteFragment agregarIntegranteFragment = new AgregarIntegranteFragment();
-
-                        //Enviar el objeto que está llegando con Serializable
-                        bundleEnvio.putSerializable("objetoAgregarIntegrante", itemsSeleccionados);
-
-                        agregarIntegranteFragment.setArguments(bundleEnvio);
-
+                        emailSeleccionados.add(agregarIntegrante.getEmail());
 
                     }
                     if (itemsSeleccionados.size() == 0)
                         itemSeleccionado = false;
                 }
                 else {}
+
             }
+
         });
+
+        Globales.itemsSeleccionados = itemsSeleccionados;
+        Globales.emailSeleccionados = emailSeleccionados;
 
     }
 
@@ -226,4 +221,11 @@ public class AdapterAgregarIntegrante extends RecyclerView.Adapter<AdapterAgrega
 
     }
 
+    public ArrayList<MAgregarIntegrante> getItemsSeleccionados() {
+        return itemsSeleccionados;
+    }
+
+    public void setItemsSeleccionados(ArrayList<MAgregarIntegrante> itemsSeleccionados) {
+        this.itemsSeleccionados = itemsSeleccionados;
+    }
 }

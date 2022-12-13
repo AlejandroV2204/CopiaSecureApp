@@ -129,7 +129,7 @@ public class NuevoContactoFragment extends Fragment{
                         contacto.setApellido(apellidoContacto);
                         contacto.setEmail(emailContacto);
                         contacto.setTelefono(telefonoContacto);
-                        contacto.setToken(tokenContacto);
+                        contacto.setTokenAlerta(tokenContacto);
 
                         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
 

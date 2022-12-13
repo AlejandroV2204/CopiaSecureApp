@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.example.secureapp.Activities.Globales;
 import com.example.secureapp.Adaptadores.AdapterAgregarIntegrante;
 import com.example.secureapp.Modelo.MAgregarIntegrante;
 import com.example.secureapp.R;
@@ -40,7 +41,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class AgregarIntegranteFragment extends Fragment{
@@ -54,13 +54,13 @@ public class AgregarIntegranteFragment extends Fragment{
     RecyclerView recyclerViewAgregarIntegrantes;
     private ArrayList<MAgregarIntegrante> listaAgregarIntegrantes = new ArrayList<>();
     private ArrayList<String> emailAgregarIntegrantes = new ArrayList<String>();
+    ArrayList<MAgregarIntegrante> itemsSeleccionados = new ArrayList<>();
+    ArrayList<String> emailSeleccionados;
 
     FloatingActionButton btn_agregarIntegrantes;
 
     MAgregarIntegrante mAgregarIntegrante = null;
 
-    //referencias para comunicar fragments
-    Activity actividad;
 
     FirebaseAuth firebaseAuth;
     AwesomeValidation awesomeValidation;
@@ -116,7 +116,6 @@ public class AgregarIntegranteFragment extends Fragment{
             public void onClick(View view) {
 
                 validarDatos();
-                //datosContactos();
 
             }
         });
@@ -125,7 +124,6 @@ public class AgregarIntegranteFragment extends Fragment{
             @Override
             public void onClick(View view) {
 
-                //Toast.makeText(getContext(), "Accion en proceso", Toast.LENGTH_SHORT).show();
                 irADetalleGrupo();
 
             }
@@ -155,131 +153,169 @@ public class AgregarIntegranteFragment extends Fragment{
     private void validarDatos(){
 
         emailIntegrante = et_emailAgregarIntegrante.getText().toString();
-        validarCampos();
+        itemsSeleccionados = Globales.itemsSeleccionados;
+        emailSeleccionados = Globales.emailSeleccionados;
 
-        if (awesomeValidation.validate()){
-
-            //btn_agregarIntegrantes.setVisibility(View.VISIBLE);
-            crearIntegrante(identificadorDetalle);
-            limpiarCampos();
-
-        }else {
-
-            Toast.makeText(getActivity(), "Completa todos lo datos", Toast.LENGTH_SHORT).show();
+        if(emailSeleccionados.size() == 0){
+            validarCampos();
         }
 
-    }
+        if(awesomeValidation == null){
+            if(emailSeleccionados.size() != 0){
+                crearIntegrante(identificadorDetalle);
+            }
+        }else{
 
-    private void agregarIntegrante(){
+            if (awesomeValidation.validate()) {
 
-        Toast.makeText(getContext(), "Accion en proceso menor", Toast.LENGTH_SHORT).show();
+                //btn_agregarIntegrantes.setVisibility(View.VISIBLE);
+                crearIntegrante(identificadorDetalle);
+                limpiarCampos();
 
+            } else {
+                Toast.makeText(getActivity(), "Completa todos lo datos", Toast.LENGTH_SHORT).show();
+            }
+
+        }
     }
 
     private void crearIntegrante(String identificadorDetalle) {
 
         this.identificadorDetalle = identificadorDetalle;
 
-        DocumentReference usuarioRef = firestore.collection("usuario").document(emailIntegrante);
-        usuarioRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
+        if(awesomeValidation != null) {
 
-                        //Toast.makeText(getContext(), "DocumentSnapshot data:\n " + document.getData(), Toast.LENGTH_SHORT).show();
-                        String identificadorIntegrante = document.getId();
-                        String nombreIntegrante = document.getString("nombre");
-                        String apellidoIntegrante = document.getString("apellido");
-                        String emailIntegrante = document.getString("email");
-                        String telefonoIntegrante = document.getString("telefono");
-                        String tokenIntegrante = document.getString("tokenAlerta");
-                        String identificadorGrupo = identificadorDetalle;
+            DocumentReference usuarioRef = firestore.collection("usuario").document(emailIntegrante);
+            usuarioRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
 
-                        MAgregarIntegrante agregarIntegrante = new MAgregarIntegrante(identificadorIntegrante, nombreIntegrante, apellidoIntegrante, emailIntegrante, telefonoIntegrante, identificadorGrupo);
-                        agregarIntegrante.setIdentificador(identificadorIntegrante);
-                        agregarIntegrante.setNombre(nombreIntegrante);
-                        agregarIntegrante.setApellido(apellidoIntegrante);
-                        agregarIntegrante.setEmail(emailIntegrante);
-                        agregarIntegrante.setTelefono(telefonoIntegrante);
-                        agregarIntegrante.setTokenAlerta(tokenIntegrante);
-                        agregarIntegrante.setIdentificadorGrupo(identificadorGrupo);
+                            //Toast.makeText(getContext(), "DocumentSnapshot data:\n " + document.getData(), Toast.LENGTH_SHORT).show();
+                            String identificadorIntegrante = document.getId();
+                            String nombreIntegrante = document.getString("nombre");
+                            String apellidoIntegrante = document.getString("apellido");
+                            String emailIntegrante = document.getString("email");
+                            String telefonoIntegrante = document.getString("telefono");
+                            String tokenIntegrante = document.getString("tokenAlerta");
+                            String identificadorGrupo = identificadorDetalle;
 
-                        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
+                            MAgregarIntegrante agregarIntegrante = new MAgregarIntegrante(identificadorIntegrante, nombreIntegrante, apellidoIntegrante, emailIntegrante, telefonoIntegrante, identificadorGrupo);
+                            agregarIntegrante.setIdentificador(identificadorIntegrante);
+                            agregarIntegrante.setNombre(nombreIntegrante);
+                            agregarIntegrante.setApellido(apellidoIntegrante);
+                            agregarIntegrante.setEmail(emailIntegrante);
+                            agregarIntegrante.setTelefono(telefonoIntegrante);
+                            agregarIntegrante.setTokenAlerta(tokenIntegrante);
+                            agregarIntegrante.setIdentificadorGrupo(identificadorGrupo);
 
-                        firestore.collection("grupo").document(identificadorDetalle).collection("integrantes").document(emailIntegrante)
-                                .set(agregarIntegrante)
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
+                            String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
 
-                                        Toast.makeText(getContext(), "Integrante agregado exitosamente", Toast.LENGTH_SHORT).show();
+                            firestore.collection("grupo").document(identificadorDetalle).collection("integrantes").document(emailIntegrante)
+                                    .set(agregarIntegrante)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
 
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(getContext(), "Integrante agregado exitosamente", Toast.LENGTH_SHORT).show();
 
-                                        Toast.makeText(getContext(), "Error al agregar a dicho usuario", Toast.LENGTH_SHORT).show();
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
 
-                                    }
-                                });
+                                            Toast.makeText(getContext(), "Error al agregar a dicho usuario", Toast.LENGTH_SHORT).show();
 
-                    } else {
-
-                        Toast.makeText(getContext(), "No such document", Toast.LENGTH_SHORT).show();
-
-                    }
-                } else {
-
-                    Toast.makeText(getContext(), "get failed with " + task.getException(), Toast.LENGTH_SHORT).show();
-
-                }
-            }
-        });
-
-
-    }
-
-    private void tomarDatosDeFirestore(){
-
-        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
-
-        CollectionReference integrantes = firestore.collection("usuario").document(email).collection("grupos").document(identificadorDetalle).collection("integrantes");
-
-        firestore.collection("usuario").document(email).collection("contactos")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-
-                                String identificadorAgregarIntegrantes = document.getId();
-                                String nombreAgregarIntegrantes = document.getString("nombre");
-                                String apellidoAgregarIntegrantes = document.getString("apellido");
-                                String emailAgregarIntegrantes = document.getString("email");
-                                String telefonoAgregarIntegrantes = document.getString("telefono");
-                                String identificadorGrupoAgregarIntegrantes = "";
-
-                                listaAgregarIntegrantes.add(new MAgregarIntegrante(identificadorAgregarIntegrantes, nombreAgregarIntegrantes, apellidoAgregarIntegrantes, emailAgregarIntegrantes, telefonoAgregarIntegrantes, identificadorGrupoAgregarIntegrantes));
-                            }
-
-                            adapterAgregarIntegrantes = new AdapterAgregarIntegrante(listaAgregarIntegrantes, R.layout.lista_agregar_integrantes);
-                            recyclerViewAgregarIntegrantes.setAdapter(adapterAgregarIntegrantes);
+                                        }
+                                    });
 
                         } else {
-                            Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+
+                            Toast.makeText(getContext(), "No such document", Toast.LENGTH_SHORT).show();
+
+                        }
+                    } else {
+
+                        Toast.makeText(getContext(), "get failed with " + task.getException(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+            });
+
+        }
+
+        if (emailSeleccionados != null) {
+
+            for (int x = 0; x < emailSeleccionados.size(); x++) {
+                String emailSeparado = emailSeleccionados.get(x).toString();
+                DocumentReference usuarioRef = firestore.collection("usuario").document(emailSeparado);
+                usuarioRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+
+                                String identificadorIntegrante = document.getId();
+                                String nombreIntegrante = document.getString("nombre");
+                                String apellidoIntegrante = document.getString("apellido");
+                                String emailIntegrante = document.getString("email");
+                                String telefonoIntegrante = document.getString("telefono");
+                                String tokenIntegrante = document.getString("tokenAlerta");
+                                String identificadorGrupo = identificadorDetalle;
+
+                                MAgregarIntegrante agregarIntegrante = new MAgregarIntegrante(identificadorIntegrante, nombreIntegrante, apellidoIntegrante, emailIntegrante, telefonoIntegrante, identificadorGrupo);
+                                agregarIntegrante.setIdentificador(identificadorIntegrante);
+                                agregarIntegrante.setNombre(nombreIntegrante);
+                                agregarIntegrante.setApellido(apellidoIntegrante);
+                                agregarIntegrante.setEmail(emailIntegrante);
+                                agregarIntegrante.setTelefono(telefonoIntegrante);
+                                agregarIntegrante.setTokenAlerta(tokenIntegrante);
+                                agregarIntegrante.setIdentificadorGrupo(identificadorGrupo);
+
+                                String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
+
+                                firestore.collection("grupo").document(identificadorDetalle).collection("integrantes").document(emailIntegrante)
+                                        .set(agregarIntegrante)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+
+                                                Toast.makeText(getContext(), "Integrante agregado exitosamente", Toast.LENGTH_SHORT).show();
+                                                irADetalleGrupo();
+
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+
+                                                Toast.makeText(getContext(), "Error al agregar a dicho usuario", Toast.LENGTH_SHORT).show();
+
+                                            }
+                                        });
+
+                            } else {
+
+                                Toast.makeText(getContext(), "No such document", Toast.LENGTH_SHORT).show();
+
+                            }
+                        } else {
+
+                            Toast.makeText(getContext(), "get failed with " + task.getException(), Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 });
 
+            }
+        }
 
     }
 
-    //Esta no es
     private void pruebaConsulta(){
 
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail().toString();
@@ -335,40 +371,6 @@ public class AgregarIntegranteFragment extends Fragment{
 
 
         }
-
-        private void datosContactos(){
-
-        adapterAgregarIntegrantes.getClass();
-
-        Class<? extends AdapterAgregarIntegrante> listaIntegrantes = adapterAgregarIntegrantes.getClass();
-
-        //String listaIntegrantesUno = listaIntegrantes.get
-            //Toast.makeText(getContext(), "No se: " + listaIntegrantesUno, Toast.LENGTH_SHORT).show();
-
-            Bundle objetoAgregarIntegrante = getArguments();
-            MAgregarIntegrante agregarIntegrante = null;
-
-            if (objetoAgregarIntegrante != null){
-
-                agregarIntegrante = (MAgregarIntegrante) objetoAgregarIntegrante.getSerializable("objetoAgregarIntegrante");
-
-                    //identificadorAgregarIntegrante = (agregarIntegrante.getIdentificador());
-                    nombreAgregarIntegrante = (agregarIntegrante.getNombre());
-                    apellidoAgregarIntegrante = (agregarIntegrante.getApellido());
-                    emailAgregarIntegrante = (agregarIntegrante.getEmail());
-                    telefonoAgregarIntegrante = (agregarIntegrante.getTelefono());
-                    //imagenDetalle.setImageResource(grupo.getImagenid());
-
-            }else{
-                Toast.makeText(getContext(), "Item aún no seleccionado", Toast.LENGTH_SHORT).show();
-            }
-        }
-    private void accionBoton(){
-
-        validarDatos();
-        Toast.makeText(getContext(), "Accion en proceso", Toast.LENGTH_SHORT).show();
-
-    }
 
     private void irADetalleGrupo(){
 

@@ -1,7 +1,6 @@
 package com.example.secureapp.Adaptadores;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +15,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.secureapp.Activities.Globales;
 import com.example.secureapp.Fragments.AlertaFragment;
 import com.example.secureapp.Modelo.MAlerta;
-import com.example.secureapp.Modelo.MMain;
 import com.example.secureapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -46,8 +45,8 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
     private View.OnClickListener listener;
     private LayoutInflater inflater;
     private FirebaseFirestore firestore;
-    ArrayList<MAlerta> alertaList;
-    private ArrayList<String> tokenUsuarios = new ArrayList<>();
+    private ArrayList<MAlerta> alertaList;
+    private ArrayList<String> tokenUsuarios;
 
     Context contexto;
 
@@ -56,6 +55,11 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
     private String nombreUsuario;
     private boolean alertaFavorita, favoritaAlerta;
     private Switch switchAlerta;
+
+    public AdapterAlerta(int resource) {
+
+        this.resource = resource;
+    }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -149,6 +153,8 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
             public void onClick(View v) {
 
                 descripcionAlerta = alerta.getDescripción();
+                AlertaFragment alertaFragment = new AlertaFragment();
+                tokenUsuarios = Globales.tokenUsuarios;
                 tomarNombreUsuario();
 
             }
@@ -241,7 +247,7 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
                                 String nombreAlerta = document.getString("nombre");
                                 String descripcionAlerta = document.getString("descripcion");
 
-                                llamartopico(nombreUsuario, descripcionAlerta);
+                                llamartopico(nombreUsuario, descripcionAlerta, tokenUsuarios);
 
                             }
 
@@ -311,12 +317,9 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
 
     }
 
-    private void llamartopico(String nombreUsuario, String descripcionAlerta) {
+    private void llamartopico(String nombreUsuario, String descripcionAlerta, ArrayList<String>tokenUsuarios) {
 
         RequestQueue myrequest= Volley.newRequestQueue(contexto);
-
-        AlertaFragment alertaFragment = new AlertaFragment();
-        tokenUsuarios = alertaFragment.getTokenUsuarios();
 
         JSONObject json = new JSONObject();
 
@@ -353,8 +356,10 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
         }
     }
 
-
+    public void setTokenUsuarios(ArrayList<String> tokenUsuarios) {
+        this.tokenUsuarios = tokenUsuarios;
     }
+}
 
 
 

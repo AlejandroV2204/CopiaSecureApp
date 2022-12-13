@@ -7,16 +7,16 @@ import java.io.Serializable;
 
 public class MContacto implements Serializable{
 
-    private String nombre, apellido, email, telefono, token;
+    private String nombre, apellido, email, telefono, tokenAlerta;
     Drawable img_contacto;
 
-    public MContacto(String nombre, String apellido, String email, String telefono, String token) {
+    public MContacto(String nombre, String apellido, String email, String telefono, String tokenAlerta) {
 
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.telefono = telefono;
-        this.token = token;
+        this.tokenAlerta = tokenAlerta;
     }
 
     public String getNombre() {
@@ -51,12 +51,12 @@ public class MContacto implements Serializable{
         this.telefono = telefono;
     }
 
-    public String getToken() {
-        return token;
+    public String getTokenAlerta() {
+        return tokenAlerta;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setTokenAlerta(String tokenAlerta) {
+        this.tokenAlerta = tokenAlerta;
     }
 
     public Drawable getImg_contacto() {

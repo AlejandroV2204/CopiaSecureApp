@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class MIntegrante implements Serializable {
 
-    private String identificador, nombre, apellido, email, telefono;
+    private String identificador, nombre, apellido, email, telefono, tokenAlerta;
 
     public MIntegrante(String identificador, String nombre, String apellido, String email, String telefono) {
 
@@ -53,6 +53,14 @@ public class MIntegrante implements Serializable {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public String getTokenAlerta() {
+        return tokenAlerta;
+    }
+
+    public void setTokenAlerta(String tokenAlerta) {
+        this.tokenAlerta = tokenAlerta;
     }
 }
 

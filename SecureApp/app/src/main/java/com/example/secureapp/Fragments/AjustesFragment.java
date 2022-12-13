@@ -77,7 +77,7 @@ public class AjustesFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                irAHome();
+                volverAtras();
 
             }
         });
@@ -161,7 +161,7 @@ public class AjustesFragment extends Fragment {
 
     }
 
-    private void irAHome(){
+    private void volverAtras(){
 
         MainFragment mainFragment = new MainFragment();
 
