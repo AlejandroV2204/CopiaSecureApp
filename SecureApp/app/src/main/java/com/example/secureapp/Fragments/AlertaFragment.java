@@ -57,12 +57,6 @@ public class AlertaFragment extends Fragment{
     private ArrayList<String> tokenUsuarios = new ArrayList<>();
     private String identificadorGrupoSeleccionado;
 
-    String DescripcionAlerta;
-
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -72,8 +66,6 @@ public class AlertaFragment extends Fragment{
         inicializarFireStore();
         verificarAlertasPropias();
         rellenarSpinnerGrupos();
-        //AdapterAlerta adapterAlerta = null;
-        //adapterAlerta.setTokenUsuarios(tokenUsuarios);
 
         recyclerViewAlertas = view.findViewById(R.id.RV_alerta);
         spinner_gruposAlertas = view.findViewById(R.id.spinner_gruposAlertas);
@@ -288,11 +280,4 @@ public class AlertaFragment extends Fragment{
 
     }
 
-    public ArrayList<String> getTokenUsuarios() {
-        return tokenUsuarios;
-    }
-
-    public void setTokenUsuarios(ArrayList<String> tokenUsuarios) {
-        this.tokenUsuarios = tokenUsuarios;
-    }
 }

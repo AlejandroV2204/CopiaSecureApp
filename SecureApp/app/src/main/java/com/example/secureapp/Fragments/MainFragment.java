@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,8 +20,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.secureapp.Activities.Globales;
 import com.example.secureapp.Adaptadores.AdapterAlerta;
 import com.example.secureapp.Adaptadores.AdapterGrupo;
+import com.example.secureapp.Adaptadores.AdapterListaGrupos;
 import com.example.secureapp.Adaptadores.AdapterMain;
 import com.example.secureapp.Modelo.MAlerta;
 import com.example.secureapp.Modelo.MGrupo;
@@ -60,10 +64,14 @@ public class MainFragment extends Fragment {
     private ArrayList<String> codigoAlerta = new ArrayList<String>();
     private String identificadorGrupo;
 
-    String DescripcionAlerta;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
-
+    private Spinner spinner_GruposMain;
+    private AdapterGrupo adapterGrupo;
+    private AdapterListaGrupos adapterListaGrupos;
+    private RecyclerView recyclerViewGrupos;
+    private ArrayList<MGrupo> listaGrupos = new ArrayList<>();
+    private String identificadorGrupoSeleccionado;
+    private String tokenUsuario;
+    private ArrayList<String> tokenUsuarios = new ArrayList<>();
 
     @Nullable
     @Override
@@ -75,9 +83,11 @@ public class MainFragment extends Fragment {
         inicializarFireStore();
         verificarAlertasPropias();
         verificarGruposIntegrados();
+        rellenarSpinnerGrupos();
 
         recyclerViewMain = view.findViewById(R.id.RV_main);
         listaMain = new ArrayList<>();
+        spinner_GruposMain = view.findViewById(R.id.spinner_gruposAlertasM);
 
 
         recyclerViewMain.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -436,6 +446,84 @@ public class MainFragment extends Fragment {
                     }
                 });
 
+
+    }
+
+    private void rellenarSpinnerGrupos(){
+
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        firestore.collection("usuario").document(email).collection("grupos")
+                .orderBy("nombre")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                String identificadorGrupo = document.getId();
+                                String nombreGrupo = document.getString("nombre");
+                                String descripcionGrupo = document.getString("descripcion");
+                                String administradorGrupo = document.getString("administradorGrupo");
+                                String emailAdministrador = document.getString("emailAdministrador");
+                                String fechaCreacion= document.getString("fechaCreacion");
+                                String cantidadIntegrantes = document.getString("cantidadIntegrantes");
+                                GeoPoint localizacionGrupo = document.getGeoPoint("localizacion");
+
+                                listaGrupos.add(new MGrupo(identificadorGrupo, nombreGrupo, descripcionGrupo, administradorGrupo, emailAdministrador, fechaCreacion, cantidadIntegrantes, localizacionGrupo));
+
+                            }
+
+                            adapterGrupo = new AdapterGrupo(listaGrupos, R.layout.lista_grupos);
+                            adapterListaGrupos = new AdapterListaGrupos(getContext(), listaGrupos);
+                            spinner_GruposMain.setAdapter(adapterListaGrupos);
+
+                            spinner_GruposMain.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                @Override
+                                public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+
+                                    MGrupo clickedItem = (MGrupo) adapterView.getItemAtPosition(position);
+                                    identificadorGrupoSeleccionado = clickedItem.getIdentificador();
+                                    consultarTokenUsuarios(identificadorGrupoSeleccionado);
+                                }
+
+                                @Override
+                                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                                }
+                            });
+
+                        } else {
+                            Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+    }
+
+    private void consultarTokenUsuarios(String identificadorGrupo){
+
+        String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        firestore.collection("usuario").document(email).collection("grupos").document(identificadorGrupo).collection("integrantes")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+
+                                tokenUsuario = document.getString("tokenAlerta");
+                                tokenUsuarios.add(tokenUsuario);
+                                Globales.tokenUsuariosM = tokenUsuarios;
+
+                            }
+                        } else {
+                            Toast.makeText(getContext(), "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
     }
 

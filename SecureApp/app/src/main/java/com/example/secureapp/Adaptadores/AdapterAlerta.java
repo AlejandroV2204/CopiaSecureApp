@@ -153,7 +153,6 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
             public void onClick(View v) {
 
                 descripcionAlerta = alerta.getDescripción();
-                AlertaFragment alertaFragment = new AlertaFragment();
                 tokenUsuarios = Globales.tokenUsuarios;
                 tomarNombreUsuario();
 
@@ -356,9 +355,6 @@ public class AdapterAlerta extends RecyclerView.Adapter<AdapterAlerta.ViewHolder
         }
     }
 
-    public void setTokenUsuarios(ArrayList<String> tokenUsuarios) {
-        this.tokenUsuarios = tokenUsuarios;
-    }
 }
 
 

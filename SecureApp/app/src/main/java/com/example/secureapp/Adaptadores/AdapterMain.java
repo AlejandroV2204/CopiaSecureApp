@@ -15,6 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.secureapp.Activities.Globales;
 import com.example.secureapp.Modelo.MAlerta;
 import com.example.secureapp.Modelo.MMain;
 import com.example.secureapp.R;
@@ -51,6 +52,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> im
     private String codigoAlerta;
     private String descripcionAlerta;
     private String nombreUsuario;
+    private ArrayList<String> tokenUsuarios;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
@@ -129,6 +131,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> im
             public void onClick(View v) {
 
                 descripcionAlerta = main.getDescripción();
+                tokenUsuarios = Globales.tokenUsuariosM;
                 tomarNombreUsuario();
 
             }
@@ -200,7 +203,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> im
                                 String nombreAlerta = document.getString("nombre");
                                 String descripcionAlerta = document.getString("descripcion");
 
-                                llamartopico(nombreUsuario, descripcionAlerta);
+                                llamartopico(nombreUsuario, descripcionAlerta, tokenUsuarios);
 
                             }
 
@@ -212,7 +215,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> im
                 });
     }
 
-    private void llamartopico(String nombreUsuario, String descripcionAlerta) {
+    private void llamartopico(String nombreUsuario, String descripcionAlerta, ArrayList<String> tokenUsuarios) {
 
         RequestQueue myrequest= Volley.newRequestQueue(contexto);
         JSONObject json = new JSONObject();
@@ -223,7 +226,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.ViewHolder> im
 
             // String token="cIb2ajMbQ7mtXBSV-rsHHW:APA91bEmqMrRYqHNFwWTTjrODwfkQLf4Kg0-5Pnf2A7OrLgQqn2yM7zdED2dc2Q7tSnQhhxslc0lqQOx8yDQl05QaCgy1lcuhv-kl-YOScfmmsD_0rg1j6kimDqkMSydGaBvqEval-1P";
             // "cIb2ajMbQ7mtXBSV-rsHHW:APA91bEmqMrRYqHNFwWTTjrODwfkQLf4Kg0-5Pnf2A7OrLgQqn2yM7zdED2dc2Q7tSnQhhxslc0lqQOx8yDQl05QaCgy1lcuhv-kl-YOScfmmsD_0rg1j6kimDqkMSydGaBvqEval-1P"
-            json.put("to","/topics/"+"enviaratodos");
+            json.put("to",tokenUsuarios);
             JSONObject notificacion=new JSONObject();
             notificacion.put("titulo",nombreUsuario);
             notificacion.put("detalle",descripcionAlerta);

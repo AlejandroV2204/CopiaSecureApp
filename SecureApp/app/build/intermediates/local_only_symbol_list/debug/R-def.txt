@@ -120,6 +120,7 @@ id nuevoGrupo
 id spinner_ciudades
 id spinner_departamentos
 id spinner_gruposAlertas
+id spinner_gruposAlertasM
 id swipe
 id textView
 id textView2
