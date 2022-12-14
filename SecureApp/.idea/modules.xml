@@ -3,6 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SecureApp.iml" filepath="$PROJECT_DIR$/.idea/modules/SecureApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SecureApp.SecureApp.iml" filepath="$PROJECT_DIR$/.idea/modules/SecureApp.SecureApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SecureApp.SecureApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SecureApp.SecureApp.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SecureApp.SecureApp.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SecureApp.SecureApp.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SecureApp.SecureApp.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SecureApp.SecureApp.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SecureApp.SecureApp.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SecureApp.SecureApp.app.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SecureApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SecureApp.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SecureApp.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SecureApp.app.androidTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SecureApp.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SecureApp.app.main.iml" />
